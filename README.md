@@ -20,17 +20,13 @@ MadExchange Connector Service
 
   -Basic Components
     SocketManager: *SocketSubscriptions
-                   *RedisIntegration
-    
+                   *RedisIntegration    
     HttpClientFactories: 
-                *Configuration -> EndPointAccess
-                
-                *FaultTolerance -> Resend/Reinitialisation / RateLimit
-                
-                *Mapping to Domain-Models
-                
+                *Configuration -> EndPointAccess                
+                *FaultTolerance -> Resend/Reinitialisation / RateLimit                
+                *Mapping to Domain-Models                
     BusIntegration
-    
+   
   - Extension: Tracing, further ExchangeIntegrations ...
   
 Test : Basic Interface => Bybit
@@ -46,7 +42,7 @@ Test : Basic Interface => Bybit
 MadExchange Client Trade Execution Service
 --
     -Basic Components
-      Execution Algorithms
+      Execution Algorithms:
           *ChangePosition
           *ClosePosition
           *OrderPlacing/Cancellation
