@@ -42,7 +42,6 @@ Test : Basic Interface => Bybit
     *RedisIntegration
  
  
---
 
 MadExchange Client Trade Execution Service
 --
@@ -58,7 +57,7 @@ MadExchange Client Trade Execution Service
 
   Test: TradeExecution in Testnet
 
---
+
 MadExchange Trade Controller Service
 --
 
@@ -68,9 +67,11 @@ MadExchange Trade Controller Service
         *Alerts = > TradeGenerator
         *ClientConfiguration
 
----
+
 Required for final engine tests => Approx Begin March
 ---
+
+
 
 MadExchange.DataAggregation.Service
 --
