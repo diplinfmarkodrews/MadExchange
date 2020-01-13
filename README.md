@@ -4,10 +4,10 @@
 **What is Distributed MadExchange Trade Engine ?**
 ----------------
 
-![MadExchange.Connector.Service]
-![MadExchange.TradeExecution.Service]
-![MadExchange.TradeController.Service]
-![MadExchange.DataAggreagtion.Service]
+![MadExchange.Connector.Service]()
+![MadExchange.TradeExecution.Service]()
+![MadExchange.TradeController.Service]()
+![MadExchange.DataAggreagtion.Service]()
 
 
 
@@ -41,12 +41,11 @@ Test : Basic Interface => Bybit
 
 MadExchange Client Trade Execution Service
 --
-    -Basic Components
+   -Basic Components
       Execution Algorithms:
           *ChangePosition
           *ClosePosition
-          *OrderPlacing/Cancellation
-          
+          *OrderPlacing/Cancellation         
       Registration/Deregistration/Monitoring ConnectorClients
         *Request Arbitration
         *Socket Support
@@ -56,7 +55,6 @@ MadExchange Client Trade Execution Service
 
 MadExchange Trade Controller Service
 --
-
   -Basic Components
       Connection to Client Execution Service
       ProfitView Integration
