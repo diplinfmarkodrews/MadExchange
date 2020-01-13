@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MadXchange.Common\MadXchange.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Domain\Repos\" />
+    <Folder Include="Handlers\Instrument\" />
+    <Folder Include="Handlers\Order\" />
+    <Folder Include="Handlers\Position\" />
+    <Folder Include="Handlers\UserIdentity\" />
+    <Folder Include="Infrastructure\Cache\" />
+    <Folder Include="Infrastructure\Bus\" />
+    <Folder Include="Queries\Handlers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.0" />
+    <PackageReference Include="RestSharp" Version="106.9.0" />
+  </ItemGroup>
+
+</Project>

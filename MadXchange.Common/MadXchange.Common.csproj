@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Convey.Persistence.MongoDB" Version="0.4.209" />
+    <PackageReference Include="Convey.Persistence.Redis" Version="0.4.209" />
+    <PackageReference Include="Convey.Tracing.Jaeger" Version="0.4.209" />
+  </ItemGroup>
+
+</Project>

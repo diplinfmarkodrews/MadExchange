@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>6182123d-3ac1-4e36-8fbf-1aa5fb023b88</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.9.4" />
+    <PackageReference Include="Convey" Version="0.4.209" />
+    <PackageReference Include="Convey.Configurations.Vault" Version="0.4.209" />
+    <PackageReference Include="Convey.HTTP" Version="0.4.209" />
+    <PackageReference Include="Convey.MessageBrokers" Version="0.4.209" />
+    <PackageReference Include="Convey.Metrics.AppMetrics" Version="0.4.209" />
+    <PackageReference Include="Convey.Persistence.Redis" Version="0.4.209" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.26.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+    <PackageReference Include="Serilog" Version="2.9.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
+    <PackageReference Include="ServiceStack" Version="5.7.0" />
+    <PackageReference Include="ServiceStack.Interfaces.Core" Version="5.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MadXchange.Common\MadXchange.Common.csproj" />
+    <ProjectReference Include="..\MadXchange.Exchange\MadXchange.Exchange.csproj" />
+  </ItemGroup>
+
+</Project>
