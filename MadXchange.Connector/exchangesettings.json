@@ -1,10 +1,30 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
+  "ExchangesDescriptors": {
+    "Name": "ByBit",
+    "SocketConnectionString": "wss://stream-testnet.bybit.com/realtime",
+    "ConnectionString": "https://api-testnet.bybit.com",
+    "Routes": {
+      "GET": {
+        "Instrument": "/v2/public/tickers", //parameter: symbol
+        "OrderBook": "/v2/public/orderBook/L2", //parameter: symbol[required]
+        "Order": "/v2/private/order", //parameter: order_id, order_link_id, symbol[required]
+        "Position": "/v2/private/position/list",
+        "Equity": "/v2/private/position/list", //balance is in positiondto
+        "Leverage": "/user/leverage",
+        "Wallet": {
+          "Fund": "/open-api/wallet/fund/records",
+          "Withdraw": "/open-api/wallet/withdraw/list"
+        },
+        "Identity": "/open-api/api-key"
+      },
+      "POST": {
+        "OrderPlace": "/v2/private/order/create", //paramer: side[required], symbol[required], order_type[required], qty[required], price[required with type limit], time_in_force[required], reduce_only, order_link_id
+        "OrderReplace": "/open-api/order/replace", //parameter: 
+        "OrderCancelAll": "/v2/private/order/cancelAll", //parameter:  symbol[required]
+        "OrderCancel": "/v2/private/order/cancel", //paramer: symbol[required], order_id, order_link_id
+        "Leverage": "/user/leverage/save" //parameter: symbol[required], leverage[required]
+      }
+
+    } //Bybit
+  }
 }
