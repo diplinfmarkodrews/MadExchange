@@ -1,0 +1,13 @@
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadExchange.MadClient\obj\Debug\netcoreapp3.1\MadExchange.MadClient.csprojAssemblyReference.cache
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadExchange.MadClient\obj\Debug\netcoreapp3.1\MadExchange.MadClient.AssemblyInfoInputs.cache
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadExchange.MadClient\obj\Debug\netcoreapp3.1\MadExchange.MadClient.AssemblyInfo.cs
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadExchange.MadClient\bin\Debug\netcoreapp3.1\MadExchange.MadClient.deps.json
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadExchange.MadClient\bin\Debug\netcoreapp3.1\MadExchange.MadClient.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadExchange.MadClient\bin\Debug\netcoreapp3.1\MadExchange.MadClient.pdb
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadExchange.MadClient\bin\Debug\netcoreapp3.1\MadXchange.Common.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadExchange.MadClient\bin\Debug\netcoreapp3.1\MadXchange.Exchange.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadExchange.MadClient\bin\Debug\netcoreapp3.1\MadXchange.Exchange.pdb
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadExchange.MadClient\bin\Debug\netcoreapp3.1\MadXchange.Common.pdb
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadExchange.MadClient\obj\Debug\netcoreapp3.1\MadExchange.MadClient.csproj.CopyComplete
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadExchange.MadClient\obj\Debug\netcoreapp3.1\MadExchange.MadClient.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadExchange.MadClient\obj\Debug\netcoreapp3.1\MadExchange.MadClient.pdb

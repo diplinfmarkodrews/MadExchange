@@ -1,6 +1,7 @@
 ﻿using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Interfaces;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -14,6 +15,7 @@ namespace MadXchange.Exchange.Infrastructure
         private readonly PositionStore _PositionStore;
         private readonly IRestClient _clientRestExec;
         private readonly IClientStore _clientStore;
+        private readonly Guid _accountId;
 
         public ClientBase(IRestClient client, IClientStore clientStore, IContingencyOrderManager contingencyOrderManager, ILoggerFactory log) 
         {
@@ -31,7 +33,7 @@ namespace MadXchange.Exchange.Infrastructure
        
         public async Task<IEnumerable<IApiKeyInfo>> GetApiKeyAsync() 
         {
-            return await _clientRestExec.GetApiKeyAsync();                    
+            return await _clientRestExec.GetApiKeyAsync(_accountId);                    
         }
         //public async Task<IEnumerable<IOrder>> QueryLastOrders(string symbol) 
         //{
@@ -134,11 +136,11 @@ namespace MadXchange.Exchange.Infrastructure
         //}
         public async Task<IMargin> GetMarginAsync(string cur)
         {
-            return await _clientRestExec.GetMarginAsync(cur);
+            return await _clientRestExec.GetMarginAsync(_accountId, cur);
         }
         public async Task<IPosition> GetPositionAsync(string symbol)
         {
-            return await _clientRestExec.GetPositionAsync(symbol);
+            return await _clientRestExec.GetPositionAsync(_accountId, symbol);
         }
 
         //public async Task<IEnumerable<IPosition>> GetPositionsAsync()
@@ -155,7 +157,7 @@ namespace MadXchange.Exchange.Infrastructure
 
         public async Task<IOrder> GetOrderByIDAsync(string orderID)
         {
-            return await _clientRestExec.GetOrderByIDAsync(orderID);
+            return await _clientRestExec.GetOrderByIDAsync(_accountId, orderID);
         }
 
         #endregion
@@ -220,12 +222,12 @@ namespace MadXchange.Exchange.Infrastructure
         protected async Task<IPosition> SendPositionLeverage(string symbol, decimal leverage)
         {
             
-            return await _clientRestExec.PositionLeverage(symbol, leverage);
+            return await _clientRestExec.PositionLeverage(_accountId, symbol, leverage);
         }
 
         public async Task<IOrder> ClosePosition(string symbol, decimal? price, int amount)
         {
-            return await _clientRestExec.ClosePosition(symbol, price, amount);
+            return await _clientRestExec.ClosePosition(_accountId, symbol, price, amount);
         }
 
         //public async Task<IOrder> ClosePosition(string symbol, OrderSide side)
