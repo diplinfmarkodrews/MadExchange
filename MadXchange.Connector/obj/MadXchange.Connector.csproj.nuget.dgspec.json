@@ -45,15 +45,23 @@
           "dependencies": {
             "Convey.Persistence.MongoDB": {
               "target": "Package",
-              "version": "[0.4.209, )"
+              "version": "[0.4.216, )"
             },
             "Convey.Persistence.Redis": {
               "target": "Package",
-              "version": "[0.4.209, )"
+              "version": "[0.4.216, )"
             },
             "Convey.Tracing.Jaeger": {
               "target": "Package",
-              "version": "[0.4.209, )"
+              "version": "[0.4.216, )"
+            },
+            "DbContextScope.UnitOfWork.Core": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.1, )"
             }
           },
           "imports": [
@@ -130,27 +138,27 @@
             },
             "Convey": {
               "target": "Package",
-              "version": "[0.4.209, )"
+              "version": "[0.4.216, )"
             },
             "Convey.Configurations.Vault": {
               "target": "Package",
-              "version": "[0.4.209, )"
+              "version": "[0.4.216, )"
             },
             "Convey.HTTP": {
               "target": "Package",
-              "version": "[0.4.209, )"
+              "version": "[0.4.216, )"
             },
             "Convey.MessageBrokers": {
               "target": "Package",
-              "version": "[0.4.209, )"
+              "version": "[0.4.216, )"
             },
             "Convey.Metrics.AppMetrics": {
               "target": "Package",
-              "version": "[0.4.209, )"
+              "version": "[0.4.216, )"
             },
             "Convey.Persistence.Redis": {
               "target": "Package",
-              "version": "[0.4.209, )"
+              "version": "[0.4.216, )"
             },
             "Grpc.AspNetCore": {
               "target": "Package",
@@ -178,11 +186,11 @@
             },
             "ServiceStack": {
               "target": "Package",
-              "version": "[5.7.0, )"
+              "version": "[5.8.0, )"
             },
             "ServiceStack.Interfaces.Core": {
               "target": "Package",
-              "version": "[5.7.0, )"
+              "version": "[5.8.0, )"
             }
           },
           "imports": [
@@ -250,21 +258,17 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Microsoft.Extensions.Caching.Redis": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[3.1.1, )"
             },
             "Microsoft.Extensions.Logging.Abstractions": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[3.1.1, )"
             },
             "RestSharp": {
               "target": "Package",
-              "version": "[106.9.0, )"
+              "version": "[106.10.1, )"
             }
           },
           "imports": [

@@ -10,7 +10,7 @@
         "Order": "/v2/private/order", //parameter: order_id, order_link_id, symbol[required]
         "Position": "/v2/private/position/list",
         "Equity": "/v2/private/position/list", //balance is in positiondto
-        "Leverage": "/user/leverage",
+        "Leverage": "/user/leverage", //none
         "Wallet": {
           "Fund": "/open-api/wallet/fund/records",
           "Withdraw": "/open-api/wallet/withdraw/list"
