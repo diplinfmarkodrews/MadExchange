@@ -8,12 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.9.4" />
-    <PackageReference Include="Convey" Version="0.4.216" />
-    <PackageReference Include="Convey.Configurations.Vault" Version="0.4.216" />
-    <PackageReference Include="Convey.HTTP" Version="0.4.216" />
-    <PackageReference Include="Convey.MessageBrokers" Version="0.4.216" />
-    <PackageReference Include="Convey.Metrics.AppMetrics" Version="0.4.216" />
-    <PackageReference Include="Convey.Persistence.Redis" Version="0.4.216" />
+    <PackageReference Include="Convey" Version="0.4.222" />
+    <PackageReference Include="Convey.Configurations.Vault" Version="0.4.222" />
+    <PackageReference Include="Convey.HTTP" Version="0.4.222" />
+    <PackageReference Include="Convey.MessageBrokers" Version="0.4.222" />
+    <PackageReference Include="Convey.Metrics.AppMetrics" Version="0.4.222" />
+    <PackageReference Include="Convey.Persistence.Redis" Version="0.4.222" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.26.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
     <PackageReference Include="Serilog" Version="2.9.0" />

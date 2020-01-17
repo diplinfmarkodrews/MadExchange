@@ -1,6 +1,7 @@
 {
   "ExchangesDescriptors": {
     "Name": "ByBit",
+    "Id":  "000000000000000000000001",
     "SocketConnectionString": "wss://stream-testnet.bybit.com/realtime",
     "ConnectionString": "https://api-testnet.bybit.com",
     "Routes": {
@@ -9,14 +10,10 @@
           "url": "/v2/public/tickers",
           "parameter": {
             "symbol": {
-              "type": "string",
               "domain": "symbol",
               "required": false
-            },
-            "return": {
-
-
             }
+           
           },
           "OrderBook": {
             "url": "/v2/public/orderBook/L2",
@@ -25,11 +22,7 @@
                 "domain": "symbol",
                 "required": true
               }
-            },
-            "return": {
-
-
-            }
+            }          
           },
           "Order": {
             "url": "/v2/private/order",
@@ -49,25 +42,14 @@
             }
           },
           "Position": {
-            "url": "/v2/private/position/list",
-            "return": {
-
-            }
+            "url": "/v2/private/position/list"           
           },
           "Equity": { //balance is in positiondto
-            "url": "/v2/private/position/list",
-            "parameter": {
-
-            },
-            "return": {
-
-            }
+            "url": "/v2/private/position/list",            
+            "result": "Position"
           },
           "Leverage": {
-            "url": "/user/leverage",
-            "return": {
-
-            }
+            "url": "/user/leverage"            
           }, //none
           "Wallet": {
             "Fund": {
@@ -75,7 +57,8 @@
             },
             "Withdraw": {
               "url": "/open-api/wallet/withdraw/list"
-            }
+            },
+            "result": "WalletHistory"
           },
           "Identity": {
             "url": "/open-api/api-key"
@@ -134,9 +117,7 @@
                 "required": false
               }
             },
-            "return": {
-
-            }
+            "result": "Order"
           }, //paramer: side[required], symbol[required], order_type[required], qty[required], price[required with type limit], time_in_force[required], reduce_only, order_link_id
           "OrderReplace": {
             "url": "/open-api/order/replace",
@@ -153,7 +134,7 @@
 
               }
             },
-            "return": {
+            "result": {
 
             }
           }, //parameter:
@@ -162,18 +143,14 @@
             "parameter": {
 
             },
-            "result": {
-
-            }
+            "result": "Order"            
           }, //parameter:  symbol[required]
           "OrderCancel": {
             "url": "/v2/private/order/cancel", //paramer: symbol[required], order_id, order_link_id
             "parameter": {
 
             },
-            "return": {
-
-            }
+            "result": "Order"            
           },
           "Leverage": {
             "url": "/user/leverage/save",

@@ -30,6 +30,17 @@ namespace MadXchange.Exchange.Installers
                     var exchangeDescriptor = new ExchangeDescriptor();
                     exchange.Bind(exchangeDescriptor);
                     var exchangeEnum = Enum.Parse<Domain.Models.Exchanges>(exchangeDescriptor.Name);
+                    var getRoutes = exchange.GetSection("Routes:GET").GetChildren();
+                    var postRoutes = exchange.GetSection("Routes:POST").GetChildren();
+                    foreach (var route in getRoutes)
+                    {
+
+                    }
+                    foreach (var route in postRoutes) 
+                    {
+                    
+                    }
+
                     exchangeDictionary.Add(exchangeEnum, exchangeDescriptor);
 
                 }
