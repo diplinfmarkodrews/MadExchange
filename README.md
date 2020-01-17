@@ -4,9 +4,9 @@
 **What is Distributed MadExchange Trade Engine ?**
 ----------------
 
-![MadExchange.Connector.Service](\MadExchange.Connector.Service.png)
-![MadExchange.TradeExecution.Service](\MadExchange.TradeExecution.Service.png)
-![MadExchange.TradeController.Service + DataAggregationService](\MadExchange.Controller.Service+DataAggregation.Service.png)
+![MadExchange.Connector.Service](/MadExchange.Connector.Service.png)
+![MadExchange.TradeExecution.Service](/MadExchange.TradeExecution.Service.png)
+![MadExchange.TradeController.Service + DataAggregationService](/MadExchange.Controller.Service+DataAggregation.Service.png)
 
 
 
@@ -30,14 +30,14 @@ MadExchange Connector Service
   
 Test : Basic Components
 
-  Interface => Bybit
-  private: Data/Operation Access
-  public: Instrument Queries
-  
-    *HttpRequests
-    *Sockets
-    *RedisIntegration
- 
+    Interface => Bybit
+    private: Data/Operation Access
+    public: Instrument Queries
+
+      *HttpRequests
+      *Sockets
+      *RedisIntegration
+
  
 
 MadExchange Client Trade Execution Service
@@ -72,12 +72,13 @@ Required for final engine tests => Approx Begin March
 
 MadExchange.DataAggregation.Service
 --
-
-  Telegram UI ApiKey
-  Telegram Reporting
-    *Channnel
-    *ClientWise
-  Payment Service
+  Basic Components:
+  
+    Telegram UI ApiKey
+    Telegram Reporting
+      *Channnel
+      *ClientWise
+    Payment Service
   
   March Testing/DeploymentServiceIntegration
   
