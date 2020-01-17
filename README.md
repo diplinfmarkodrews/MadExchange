@@ -4,11 +4,9 @@
 **What is Distributed MadExchange Trade Engine ?**
 ----------------
 
-![MadExchange.Connector.Service]()
-![MadExchange.TradeExecution.Service]()
-![MadExchange.TradeController.Service]()
-![MadExchange.DataAggreagtion.Service]()
-
+![MadExchange.Connector.Service](\MadExchange.Connector.Service.png)
+![MadExchange.TradeExecution.Service](\MadExchange.TradeExecution.Service.png)
+![MadExchange.TradeController.Service + DataAggregationService](\MadExchange.Controller.Service+DataAggregation.Service.png)
 
 
 
@@ -17,10 +15,11 @@
 
 MadExchange Connector Service
 --
-
   -Basic Components
+    
     SocketManager: *SocketSubscriptions
                    *RedisIntegration    
+    
     HttpClientFactories: 
                 *Configuration -> EndPointAccess                
                 *FaultTolerance -> Resend/Reinitialisation / RateLimit                
@@ -29,10 +28,12 @@ MadExchange Connector Service
    
   - Extension: Tracing, further ExchangeIntegrations ...
   
-Test : Basic Interface => Bybit
+Test : Basic Components
 
-  private Data/Operation Access
-  public Instrument Queries
+  Interface => Bybit
+  private: Data/Operation Access
+  public: Instrument Queries
+  
     *HttpRequests
     *Sockets
     *RedisIntegration
@@ -42,6 +43,7 @@ Test : Basic Interface => Bybit
 MadExchange Client Trade Execution Service
 --
    -Basic Components
+      
       Execution Algorithms:
           *ChangePosition
           *ClosePosition
@@ -56,6 +58,7 @@ MadExchange Client Trade Execution Service
 MadExchange Trade Controller Service
 --
   -Basic Components
+      
       Connection to Client Execution Service
       ProfitView Integration
         *Alerts = > TradeGenerator
