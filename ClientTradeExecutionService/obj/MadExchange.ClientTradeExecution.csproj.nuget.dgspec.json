@@ -186,15 +186,15 @@
           "dependencies": {
             "Convey.Persistence.MongoDB": {
               "target": "Package",
-              "version": "[0.4.222, )"
+              "version": "[0.4.226, )"
             },
             "Convey.Persistence.Redis": {
               "target": "Package",
-              "version": "[0.4.222, )"
+              "version": "[0.4.226, )"
             },
             "Convey.Tracing.Jaeger": {
               "target": "Package",
-              "version": "[0.4.222, )"
+              "version": "[0.4.226, )"
             },
             "DbContextScope.UnitOfWork.Core": {
               "target": "Package",
@@ -270,6 +270,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Convey.HTTP": {
+              "target": "Package",
+              "version": "[0.4.226, )"
+            },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
               "version": "[3.1.1, )"
@@ -281,6 +285,34 @@
             "RestSharp": {
               "target": "Package",
               "version": "[106.10.1, )"
+            },
+            "ServiceStack.Client.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.HttpClient.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.Interfaces": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.Interfaces.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.Redis.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.Text.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
             }
           },
           "imports": [

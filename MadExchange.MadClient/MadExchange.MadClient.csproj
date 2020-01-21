@@ -5,12 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\MadXchange.Exchange\MadXchange.Exchange.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MadXchange.Exchange\MadXchange.Exchange.csproj" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

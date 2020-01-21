@@ -1,6 +1,6 @@
-﻿namespace MadXchange.Exchange.Handlers.Equity
+﻿namespace MadXchange.Exchange.Handlers
 {
-    internal interface IBusPublisher
+    public interface IBusPublisher
     {
     }
 }

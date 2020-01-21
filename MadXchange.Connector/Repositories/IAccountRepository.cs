@@ -1,14 +1,16 @@
-﻿using MadXchange.Exchange.Configuration;
+﻿using MadXchange.Common.Types;
+using MadXchange.Exchange.Configuration;
+using MadXchange.Exchange.Domain.Models;
 using System;
 using System.Threading.Tasks;
 
 namespace MadXchange.Connector.Repositories
 {
-    public interface IAccountRepository
+    public interface IAccountRepository : IAsyncRepository<IUserAccount>
     {
-        Task<ExchangeDescriptor> GetAsync(Guid id);
-        Task AddAsync(ExchangeDescriptor exchange);
-
+        Task<IUserAccount> GetAsync(Guid id);
+        Task AddAsync(IUserAccount account);
+        Task RemoveAccount(Guid id);
         
     }
 }

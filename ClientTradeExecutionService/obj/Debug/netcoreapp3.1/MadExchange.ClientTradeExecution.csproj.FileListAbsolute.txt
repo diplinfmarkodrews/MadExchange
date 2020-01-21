@@ -83,3 +83,13 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\obj\Debug\netcoreapp3.1\MadExchange.ClientTradeExecution.csproj.CopyComplete
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\obj\Debug\netcoreapp3.1\MadExchange.ClientTradeExecution.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\obj\Debug\netcoreapp3.1\MadExchange.ClientTradeExecution.pdb
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\ServiceStack.Client.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\ServiceStack.Common.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\ServiceStack.HttpClient.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\ServiceStack.Interfaces.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\ServiceStack.Redis.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\ServiceStack.Text.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\System.ServiceModel.Primitives.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\System.ServiceModel.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Private.ServiceModel.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Private.ServiceModel.dll

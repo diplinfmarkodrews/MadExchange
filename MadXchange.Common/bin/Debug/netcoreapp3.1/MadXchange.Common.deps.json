@@ -8,9 +8,9 @@
     ".NETCoreApp,Version=v3.1": {
       "MadXchange.Common/1.0.0": {
         "dependencies": {
-          "Convey.Persistence.MongoDB": "0.4.216",
-          "Convey.Persistence.Redis": "0.4.216",
-          "Convey.Tracing.Jaeger": "0.4.216",
+          "Convey.Persistence.MongoDB": "0.4.222",
+          "Convey.Persistence.Redis": "0.4.222",
+          "Convey.Tracing.Jaeger": "0.4.222",
           "DbContextScope.UnitOfWork.Core": "1.2.0",
           "Microsoft.EntityFrameworkCore": "3.1.1"
         },
@@ -18,7 +18,7 @@
           "MadXchange.Common.dll": {}
         }
       },
-      "Convey/0.4.216": {
+      "Convey/0.4.222": {
         "dependencies": {
           "Figgle": "0.3.0",
           "Scrutor": "3.1.0"
@@ -30,9 +30,9 @@
           }
         }
       },
-      "Convey.CQRS.Queries/0.4.216": {
+      "Convey.CQRS.Queries/0.4.222": {
         "dependencies": {
-          "Convey": "0.4.216"
+          "Convey": "0.4.222"
         },
         "runtime": {
           "lib/netcoreapp3.1/Convey.CQRS.Queries.dll": {
@@ -41,10 +41,10 @@
           }
         }
       },
-      "Convey.Persistence.MongoDB/0.4.216": {
+      "Convey.Persistence.MongoDB/0.4.222": {
         "dependencies": {
-          "Convey": "0.4.216",
-          "Convey.CQRS.Queries": "0.4.216",
+          "Convey": "0.4.222",
+          "Convey.CQRS.Queries": "0.4.222",
           "MongoDB.Driver": "2.10.0"
         },
         "runtime": {
@@ -54,9 +54,9 @@
           }
         }
       },
-      "Convey.Persistence.Redis/0.4.216": {
+      "Convey.Persistence.Redis/0.4.222": {
         "dependencies": {
-          "Convey": "0.4.216",
+          "Convey": "0.4.222",
           "Microsoft.Extensions.Caching.StackExchangeRedis": "3.1.0"
         },
         "runtime": {
@@ -66,9 +66,9 @@
           }
         }
       },
-      "Convey.Tracing.Jaeger/0.4.216": {
+      "Convey.Tracing.Jaeger/0.4.222": {
         "dependencies": {
-          "Convey": "0.4.216",
+          "Convey": "0.4.222",
           "Jaeger": "0.3.6",
           "OpenTracing.Contrib.NetCore": "0.6.2"
         },
@@ -1595,40 +1595,40 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Convey/0.4.216": {
+    "Convey/0.4.222": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-CUbcKNFzMMTVVnar59s94D+rti5KmecYKu6i3rqdHEsFxXRxasvgYg2wMKuvUBM/Tz3P/gCBEN7nvj1YCBOL5g==",
-      "path": "convey/0.4.216",
-      "hashPath": "convey.0.4.216.nupkg.sha512"
+      "sha512": "sha512-Rh/I+WUNjlWy+oJPwV2GuJjRKK70atZVtvi7Vg5gverwqAUpG4pqTDPuvWZ+cS5WJ4wz52hOpJP43/CzIE14Uw==",
+      "path": "convey/0.4.222",
+      "hashPath": "convey.0.4.222.nupkg.sha512"
     },
-    "Convey.CQRS.Queries/0.4.216": {
+    "Convey.CQRS.Queries/0.4.222": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OUhJgJ5vsai7NczfjFGPDFYnUpsuv3Eghf0rHjI8R+smY+GalfV9AUVrv1c/5YkKqem9URxgKPK9NYtRlWOWLA==",
-      "path": "convey.cqrs.queries/0.4.216",
-      "hashPath": "convey.cqrs.queries.0.4.216.nupkg.sha512"
+      "sha512": "sha512-nbXmXYGyRNw2HdIh/XszhjCVzyd9j5sakMz3du163lXObkyCxN9+AJapSVcCVio3UBa6xiTz6agKgSDwf+VAKg==",
+      "path": "convey.cqrs.queries/0.4.222",
+      "hashPath": "convey.cqrs.queries.0.4.222.nupkg.sha512"
     },
-    "Convey.Persistence.MongoDB/0.4.216": {
+    "Convey.Persistence.MongoDB/0.4.222": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HoIdzUavkvNWESRThoUNz5aEjA7buzUzUe4CqiKWN8AvizClFmYpddNIbboH1hMMK5V/lVu5v1sCXSIF7adBbQ==",
-      "path": "convey.persistence.mongodb/0.4.216",
-      "hashPath": "convey.persistence.mongodb.0.4.216.nupkg.sha512"
+      "sha512": "sha512-FxjUS38ljMQcpUnqygbBmAQSjnk2vt0a64rVDfyW8qF9cgBSeF59ugU3vyU4s5xXW0yKPlP/3xGi7Lwv67fyUg==",
+      "path": "convey.persistence.mongodb/0.4.222",
+      "hashPath": "convey.persistence.mongodb.0.4.222.nupkg.sha512"
     },
-    "Convey.Persistence.Redis/0.4.216": {
+    "Convey.Persistence.Redis/0.4.222": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-XCLHwL96HH8csXJORN+T80uj2BelRZ7bZj8lAFvQn2TGpebPud/djV0qP8QZiucn+Vo1WvmFMp7BRIKRxwzCqA==",
-      "path": "convey.persistence.redis/0.4.216",
-      "hashPath": "convey.persistence.redis.0.4.216.nupkg.sha512"
+      "sha512": "sha512-IGidflLXVAvp5NSkpn9R4/TO3m6NMpkqytEh22xKJ437p4K+zgmtEvG+SRz8fqs9r6F+R0mZC01OqfGzwBwNqA==",
+      "path": "convey.persistence.redis/0.4.222",
+      "hashPath": "convey.persistence.redis.0.4.222.nupkg.sha512"
     },
-    "Convey.Tracing.Jaeger/0.4.216": {
+    "Convey.Tracing.Jaeger/0.4.222": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-RTii1lOnBsiNkaRKn/koGsWUDxIo0c2hAMQcbKYKs44pQprMOhW7zHqWhh9Rs//obg5pe37jiM68S9BQrcPlfA==",
-      "path": "convey.tracing.jaeger/0.4.216",
-      "hashPath": "convey.tracing.jaeger.0.4.216.nupkg.sha512"
+      "sha512": "sha512-jZYt616kahoRSXjMSkG+zrbFdC16tsWiLutgpqGadjVJs0LPuCSH+gBdxcN7SnH7f6NpeX5N5orhZzRIno7RzA==",
+      "path": "convey.tracing.jaeger/0.4.222",
+      "hashPath": "convey.tracing.jaeger.0.4.222.nupkg.sha512"
     },
     "DbContextScope.UnitOfWork.Core/1.2.0": {
       "type": "package",

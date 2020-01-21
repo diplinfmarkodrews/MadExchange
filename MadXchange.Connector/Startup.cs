@@ -15,6 +15,11 @@ using Serilog;
 using Microsoft.Extensions.Configuration;
 using Autofac;
 using System.IO;
+using MadXchange.Common.Types;
+using MadXchange.Exchange.Installers;
+using MadXchange.Connector.Services;
+using Vault;
+using Convey.Persistence.MongoDB;
 
 namespace MadXchange.Connector
 {
@@ -27,17 +32,30 @@ namespace MadXchange.Connector
 
         public IContainer Container { get; set; }
 
-
+       
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddConvey("connector");
+            var builder = new ConfigurationBuilder();
+            builder.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            builder.AddJsonFile("exchangesettings.json", optional: false, reloadOnChange: false);
             
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            Configuration = builder.Build();
+            
+            services.AddConvey("connector");
+            services.InstallExchangeDescriptorDictionary(Configuration);
+            services.AddSingleton<IExchangeDescriptorService>();
+            services.AddPolicyRegistry();
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHttpClient();
-            services.AddWebEncoders();
-            services.AddLogging(logBuilder => logBuilder.SetMinimumLevel(LogLevel.Debug).AddConsole().AddEventLog().AddSerilog());
+            //services.AddOpenTracingCoreServices();
+            //services.AddWebEncoders();
+            services.AddMetrics().AddMetricsEndpoints();
 
-            Configuration = new ConfigurationBuilder().AddJsonFile($"{Directory.GetCurrentDirectory()}/exchangesettings.json").AddJsonFile($"{Directory.GetCurrentDirectory()}/appsettings.json", true, true).Build();
+            //services.AddVault();
+            services.AddLogging(logBuilder => logBuilder.AddSerilog().SetMinimumLevel(LogLevel.Debug).AddConsole().AddEventLog());
+
+            
+
 
 
 
@@ -50,8 +68,12 @@ namespace MadXchange.Connector
             {
                 app.UseDeveloperExceptionPage();
             }
+            // app.ApplicationServices.GetRequiredService<IInstaller>().InstallService(services, Configuration);
+            //app.UseInitializers();
+            
+            app.UseHealthAllEndpoints();
             app.UseConvey().UseMetricsActiveRequestMiddleware().UseWebSockets();
-            app.UseRouting();
+            
             
             
         }

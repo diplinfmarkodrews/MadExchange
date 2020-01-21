@@ -111,12 +111,10 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\De
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Serilog.Extensions.Logging.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Serilog.Sinks.Console.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\obj\Debug\netcoreapp3.1\MadXchange.Connector.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Autofac.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\RestSharp.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\MadXchange.Exchange.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\MadXchange.Exchange.pdb
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\obj\Debug\netcoreapp3.1\MadXchange.Connector.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\exchangesettings.json
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Convey.CQRS.Queries.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Convey.Persistence.MongoDB.dll
@@ -154,3 +152,11 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\De
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.HttpClient.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.Redis.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Vault.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Serilog.Sinks.RollingFile.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Polly.Extensions.Http.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Http.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Http.Polly.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\StackExchange.Redis.Extensions.Core.dll

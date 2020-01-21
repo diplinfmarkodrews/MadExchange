@@ -1,37 +1,46 @@
 ﻿using MadXchange.Common.Types;
+using Convey.Types;
 using MadXchange.Exchange.Domain.Models;
+using ServiceStack;
+using ServiceStack.IO;
 using System;
-
+using System.Collections.Generic;
+using MadXchange.Exchange.Types;
 
 namespace MadXchange.Exchange.Configuration
 {
-    public class ExchangeDescriptor : IIdentifiable
-    {
-        public Guid Id { get; }
-        public bool IsEnabled { get; private set; }
-        public string Name { get; private set; }
-        public string WS { get; private set; }
-        public string CS { get; private set; }
-        public EndPoint<IMargin> RouteGetEquity { get; private set; }
-        public EndPoint<IWalletHistory> RouteGetWalletHistory { get; private set; }
-        public EndPoint<decimal> RouteGetLeverage { get; private set; }
-        public EndPoint<IPosition> RouteGetPosition { get; private set; }
-        public EndPoint<IOrder> RouteGetOrder { get; private set; }
-        public EndPoint<IInstrument> RouteGetInstrument { get; private set; }
-        public EndPoint<IOrderBook> RouteGetOrderBook { get; private set; }
-        public EndPoint<IPosition> RoutePostLeverage { get; private set; }
-        public EndPoint<IOrder> RoutePlaceOrder { get; private set; }
-        public EndPoint<IOrder> RouteUpdateOrder { get; private set; }
-        public EndPoint<IOrder> RouteDeleteOrder { get; private set; }
-        
+   
 
-        public ExchangeDescriptor()
-        {
-            Id = Guid.NewGuid();
-        }
-        public ExchangeDescriptor(Guid id) 
+    public class ExchangeDescriptor : IIdentifiable<int>
+    {
+        public int Id { get; set; }       
+        public string Name { get; set; }
+        public string SocketUrl { get; set; }
+        public string BaseUrl { get; set; }
+        public IDictionary<string, IEndpoint> EndPoints { get; set; }
+        //public IEndpoint RouteGetInstrument { get; set; }
+        public IEndpoint RouteGetEquity { get; set; }
+        //public EndPoint RouteGetWalletHistory { get; set; }
+        //public EndPoint<decimal> RouteGetLeverage { get; set; }
+        //public EndPoint<IPosition> RouteGetPosition { get; set; }
+        //public EndPoint<IOrder> RouteGetOrder { get; set; }
+        public EndPoint<IInstrument> RouteGetInstrument { get; set; }
+        //public EndPoint<IOrderBook> RouteGetOrderBook { get; set; }
+        //public EndPoint<decimal> RoutePostLeverage { get; set; }
+        //public EndPoint<IOrder> RoutePlaceOrder { get; set; }
+        //public EndPoint<IOrder> RouteUpdateOrder { get; set; }
+        //public EndPoint<IOrder> RouteDeleteOrder { get; set; }        
+
+        
+        public ExchangeDescriptor(int id) 
         {
             Id = id;
         }
+
+        public ExchangeDescriptor()
+        {
+        }
+
+   
     }
 }

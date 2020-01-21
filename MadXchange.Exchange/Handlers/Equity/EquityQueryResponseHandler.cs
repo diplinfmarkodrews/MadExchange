@@ -10,9 +10,9 @@ namespace MadXchange.Exchange.Handlers.Equity
 
         private readonly IBusPublisher _busPublisher;
         private readonly ILogger _log;
-        public EquityQueryResponseHandler(ILogger<EquityQueryResponseHandler> logger)
+        public EquityQueryResponseHandler(IBusPublisher publisher, ILogger<EquityQueryResponseHandler> logger)
         {
-            //_busPublisher = publisher;
+            _busPublisher = publisher;
             _log = logger;
         }
 

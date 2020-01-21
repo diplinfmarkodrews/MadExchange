@@ -5,8 +5,24 @@ using System.Threading.Tasks;
 
 namespace MadXchange.Exchange.Interfaces
 {
+    public interface IOrderPutRequest
+    {
+        Guid AccountId { get; }
+        string Symbol { get; set; }
+        decimal? Price { get; set; }
+        decimal? Amount { get; set; }
+        string OrderId { get; set; }
+    }
 
-    public interface IRestClient : IRestEquity, IRestPosition, IRestOrder, IInstrument, IIdentity
+    public interface IOrderPostRequest
+    {
+        Guid AccountId { get; }
+        string Symbol { get; }
+        decimal Quantity { get; }
+        decimal Leverage { get; }
+        OrderSide Side { get; }
+    }
+    public interface IRestClient : IRestEquity, IRestPosition, IRestOrder,  IIdentity
     {
         
     }
@@ -58,22 +74,12 @@ namespace MadXchange.Exchange.Interfaces
         //fetches last orders from exchange to 
         Task<IEnumerable<IOrder>> QueryLastOrders(Guid accountId, string symbol);
     }
-
-    public interface IOrderPutRequest
+    public interface IRestInstrument 
     {
-        Guid AccountId { get; }
-        string Symbol { get; set; }
-        decimal? Price { get; set; }
-        decimal? Amount { get; set; }
-        string OrderId { get; set; }
+        Task<IInstrument> GetInstrument(string symbol);
+        Task<IInstrument> GetInstruments();
+        Task<IOrderBook> GetOrderBook(string symbol);
+    
     }
-
-    public interface IOrderPostRequest
-    {
-        Guid AccountId { get; }
-        string Symbol { get; }
-        decimal Quantity { get; }
-        decimal Leverage { get; }
-        OrderSide Side { get; }
-    }
+   
 }

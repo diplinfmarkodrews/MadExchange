@@ -11,84 +11,69 @@ namespace MadXchange.Exchange.Domain.Models
         public string Symbol
         {
             get;
-            set;
+            
         }
 
-        public string RootSymbol
-        {
-            get;
-            set;
-        }
-
-        public string State
-        {
-            get;
-            set;
-        }
-
+      
         public string Typ
         {
             get;
-            set;
+            
         }
 
         public decimal? HighPrice
         {
             get;
-            set;
+           
         }
 
         public decimal? LowPrice
         {
             get;
-            set;
+            
         }
 
         public decimal? LastPrice
         {
             get;
-            set;
+            
         }
 
        
         public decimal? AskPrice
         {
             get;
-            set;
+            
         }
 
         public decimal? BidPrice
         {
             get;
-            set;
+            
         }
         public decimal? TickSize
         {
             get;
-            set;
+            
         }
  
         public decimal? MakerFee
         {
             get;
-            set;
+          
         }
         public decimal? TakerFee
         {
             get;
-            set;
+            
         }
     
-        public string QuoteCurrency { get; set; }
+        
         public decimal LastBTC
         {
             get;
-            set;
+           
         }
-       
-
-
-
       
     }
 
@@ -100,14 +85,9 @@ namespace MadXchange.Exchange.Domain.Models
         public string Symbol
         {
             get;
-            set;
+            private set;
         }
-
-        public string RootSymbol
-        {
-            get;
-            set;
-        }
+        
 
         public string State
         {
@@ -118,43 +98,38 @@ namespace MadXchange.Exchange.Domain.Models
         public string Typ
         {
             get;
-            set;
+           private set;
         }
 
         public decimal? HighPrice
         {
             get;
-            set;
+            private set;
         }
 
         public decimal? LowPrice
         {
             get;
-            set;
+            private set;
         }
 
         public decimal? LastPrice
         {
             get;
-            set;
+            private set;
         }
-
-        public decimal? LastChangePcnt
-        {
-            get;
-            set;
-        }
+     
         //
         public decimal? AskPrice
         {
             get;
-            set;
+            private set;
         }
 
         public decimal? BidPrice
         {
             get;
-            set;
+            private set;
         }
         public decimal? TickSize
         {
@@ -182,32 +157,14 @@ namespace MadXchange.Exchange.Domain.Models
             get;
             set;
         }
-        public decimal? QuoteToSettleMultiplier
-        {
-            get;
-            set;
-        }
-        public decimal? Multiplier
-        {
-            get;
-            set;
-        }
-        public decimal? UnderlyingToSettleMultiplier
-        {
-            get;
-            set;
-        }
-        public decimal? OptionMultiplier
-        {
-            get;
-            set;
-        }
-        public string QuoteCurrency { get; set; }
+                
         public decimal LastBTC
         {
             get;
             set;
         }
+
+        public DateTime TimeStamp { get; private set; }
 
     }
 }
