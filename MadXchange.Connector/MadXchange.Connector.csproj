@@ -40,4 +40,12 @@
     <ProjectReference Include="..\MadXchange.Exchange\MadXchange.Exchange.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Handlers\Instrument\" />
+    <Folder Include="Handlers\Order\" />
+    <Folder Include="Handlers\Position\" />
+    <Folder Include="Handlers\UserIdentity\" />
+    <Folder Include="Messages\Commands\Instrument\" />
+  </ItemGroup>
+
 </Project>

@@ -1,7 +1,7 @@
 ﻿using MadXchange.Exchange.Domain.Models;
 using System;
 
-namespace MadXchange.Exchange.Infrastructure
+namespace MadXchange.MadClient.Infrastructure
 {
     public interface IPositionMarker 
     {

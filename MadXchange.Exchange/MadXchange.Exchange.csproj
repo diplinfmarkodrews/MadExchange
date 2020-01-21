@@ -10,10 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Domain\Repos\" />
-    <Folder Include="Handlers\Instrument\" />
-    <Folder Include="Handlers\Order\" />
-    <Folder Include="Handlers\Position\" />
-    <Folder Include="Handlers\UserIdentity\" />
     <Folder Include="Infrastructure\Bus\" />
     <Folder Include="Queries\Handlers\" />
   </ItemGroup>

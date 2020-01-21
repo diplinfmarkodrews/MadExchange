@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Convey.Types;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace MadXchange.Common.Types
 {
-    public interface IAsyncRepository<T> where T : IIdentifiable
+    public interface IAsyncRepository<T> where T : IIdentifiable<long>
     {
         Task<T> GetById(Guid id);
         Task<T> FirstOrDefault(Expression<Func<T, bool>> predicate);

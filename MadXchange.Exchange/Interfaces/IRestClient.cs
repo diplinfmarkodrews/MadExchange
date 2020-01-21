@@ -12,6 +12,7 @@ namespace MadXchange.Exchange.Interfaces
         decimal? Price { get; set; }
         decimal? Amount { get; set; }
         string OrderId { get; set; }
+        int ExchangeId { get; set; }
     }
 
     public interface IOrderPostRequest
@@ -21,13 +22,15 @@ namespace MadXchange.Exchange.Interfaces
         decimal Quantity { get; }
         decimal Leverage { get; }
         OrderSide Side { get; }
+        int ExchangeId { get; set; }
+        decimal? Price { get; set; }
+        OrderType? OrdType { get; set; }
+        TimeInForce? TimeInForce { get; set; }
     }
-    public interface IRestClient : IRestEquity, IRestPosition, IRestOrder,  IIdentity
-    {
-        
-    }
-    
-    public interface IIdentity 
+
+    public interface IResClient : IRestEquity, IRestInstrument, IRestOrder, IRestPosition, IRestIdentity { }
+
+    public interface IRestIdentity 
     {
         
         Task<IEnumerable<IApiKeyInfo>> GetApiKeyAsync(Guid accountId);
@@ -77,9 +80,8 @@ namespace MadXchange.Exchange.Interfaces
     public interface IRestInstrument 
     {
         Task<IInstrument> GetInstrument(string symbol);
-        Task<IInstrument> GetInstruments();
-        Task<IOrderBook> GetOrderBook(string symbol);
-    
+        Task<IEnumerable<IInstrument>> GetInstrument();
+        //Task<IOrderBook> GetOrderBook(string symbol);
     }
    
 }

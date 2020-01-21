@@ -1,11 +1,12 @@
 ﻿using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Interfaces;
+using MadXchange.MadClient.Interface;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MadXchange.Exchange.Infrastructure
+namespace MadXchange.MadClient.Infrastructure
 {
     public abstract class ClientBase  //, IClient
     {

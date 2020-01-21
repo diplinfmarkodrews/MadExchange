@@ -1,9 +1,12 @@
 ﻿using MadXchange.Exchange.Domain.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-namespace MadXchange.Exchange.Infrastructure
+namespace MadXchange.MadClient.Interface
 {
-    public interface IClientStore /// implementation in CQRS => Queries
+    /// <summary>
+    /// to access cached status variables, implemented as Infrastructure
+    /// </summary>
+    public interface IClientStore 
     {
 
         Task<IMargin> GetMarginAsync(string cur);

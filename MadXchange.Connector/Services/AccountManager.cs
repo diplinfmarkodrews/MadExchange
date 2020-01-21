@@ -25,7 +25,8 @@ namespace MadXchange.Connector.Services
 
         public Task<string> SignAccount(Guid accountId, string url)
         {
-            //url.Auth
+            var account = _accountRepository.GetById(accountId);
+
             return null;
         }
     }

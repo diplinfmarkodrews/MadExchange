@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using MadXchange.Common.Types;
+using Convey.Types;
 
 namespace MadXchange.Exchange.Domain.Models
 {
@@ -60,11 +61,10 @@ namespace MadXchange.Exchange.Domain.Models
         Close,
         ReduceOnly,
         Fixed
-
     }
-    public interface IOrder : IIdentifiable
+    public interface IOrder : IIdentifiable<long>
     {
-
+        
         public string OrderId { get; set; }
         public string ClOrdId { get; set; }
         public string ClOrdLinkId { get; set; }
@@ -104,7 +104,7 @@ namespace MadXchange.Exchange.Domain.Models
     public class Order : IOrder
     {
    
-        public Guid Id { get; }
+        public long Id { get; }
         public string OrderId { get; set; }
         public string ClOrdId { get; set; }
         public string ClOrdLinkId { get; set; }
@@ -125,6 +125,18 @@ namespace MadXchange.Exchange.Domain.Models
         public string OrdRejReason { get; set; }
         public TimeInForce? TimeInForce { get; set; }
        
+
+        public Order(
+
+            )
+        {
+
+
+
+
+        }
+
+
 
         public bool IsReduceOnly() 
         {

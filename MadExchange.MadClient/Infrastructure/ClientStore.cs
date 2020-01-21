@@ -1,16 +1,15 @@
-﻿using System;
+﻿using MadXchange.Exchange.Domain.Models;
+using MadXchange.MadClient.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using MadXchange.Exchange.Domain.Models;
 
-namespace MadXchange.Exchange.Infrastructure
+namespace MadXchange.MadClient.Infrastructure
 {
     public class ClientStore : IClientStore
     {
         private readonly Guid _accountId;
-
         private readonly IDictionary<string, IMargin> _margin;
         private readonly IDictionary<string, IPosition> _position;
         private readonly IDictionary<string, IDictionary<string, IOrder>> _openOrders;
