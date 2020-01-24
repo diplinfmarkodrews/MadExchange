@@ -1,9 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace MadXchange.Exchange.Interfaces
 {
     public interface IRestRequestService
     {
-        Task<string> SendGetAsync(Domain.Models.Exchanges exchange, string url);  
+        Task<T> SendGetAsync<T>(Guid accountId, string url, string parameter);
+        Task<T> SendGetAsync<T>(string url, string parameter);
+        Task<T> SendPostAsync<T>(Guid accountId, string url, string parameter);
     }
 }

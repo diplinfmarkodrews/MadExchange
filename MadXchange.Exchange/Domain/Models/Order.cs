@@ -101,7 +101,7 @@ namespace MadXchange.Exchange.Domain.Models
     }
 
    
-    public class Order : IOrder
+    public class Order : IOrder, IIdentifiable<long>
     {
    
         public long Id { get; }

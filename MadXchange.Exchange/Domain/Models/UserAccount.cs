@@ -1,6 +1,5 @@
-﻿using MadXchange.Common.Types;
+﻿using Convey.Types;
 using System;
-using System.Net;
 
 
 namespace MadXchange.Exchange.Domain.Models
@@ -16,7 +15,7 @@ namespace MadXchange.Exchange.Domain.Models
         Kraken
     }
 
-    public interface IUserAccount : IIdentifiable
+    public interface IUserAccount : IIdentifiable<Guid>
     {
         Env Environment { get; }
         string ApiKey { get; }

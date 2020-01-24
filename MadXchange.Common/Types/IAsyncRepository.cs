@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MadXchange.Common.Types
 {
-    public interface IAsyncRepository<T> where T : IIdentifiable<long>
+    public interface IAsyncRepository<T> where T : IIdentifiable<Guid>
     {
         Task<T> GetById(Guid id);
         Task<T> FirstOrDefault(Expression<Func<T, bool>> predicate);

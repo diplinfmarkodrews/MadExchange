@@ -205,7 +205,7 @@ namespace MadXchange.MadClient.Infrastructure
 
        
 
-        public async Task<IOrder> CreateOrder(Interfaces.IOrderPostRequest request, System.Threading.CancellationToken token)
+        public async Task<IOrder> CreateOrder(IOrderPostRequest request, System.Threading.CancellationToken token)
         {
             return await _clientRestExec.CreateOrder(request);
         }
@@ -236,7 +236,7 @@ namespace MadXchange.MadClient.Infrastructure
         //    return await _clientRestExec.ClosePosition(symbol, side);
         //}
 
-        public abstract Task<IOrder> CreateOrder(Interfaces.IOrderPostRequest request);
+        public abstract Task<IOrder> CreateOrder(IOrderPostRequest request);
         public abstract Task<IOrder> CancelOrder(string symbol, string orderID);
 
 

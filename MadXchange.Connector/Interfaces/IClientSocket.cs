@@ -1,21 +1,21 @@
-﻿using MadXchange.Common.Mex.Specification;
+﻿using MadXchange.Exchange.Dto;
 using System;
 
-namespace MadXchange.Common.Mex.Interfaces
+namespace MadXchange.Connector.Interfaces
 {
     public interface IClientSocket
     {
         
-        bool IsConnected();
-        bool Connect();
-        bool SubScribeSocket(ISubscrition subscription, Action<SocketMessage> message);        
+        bool IsConnected(Guid accountId);
+        bool Connect(Guid accountId);
+        bool SubScribeSocket(ISubscrition subscription);        
         void Unsubscribe(ISubscrition subscription);
     }
 
     public interface ISubscrition
     {
         Guid AccountId { get; }
-        public Guid ExchangeId { get; }
+        public int ExchangeId { get; }
         public string Subscription { get; }
     }
 }

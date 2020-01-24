@@ -7,8 +7,13 @@ namespace MadXchange.Exchange.Domain.Cache
     {
         public Guid AccountId { get; }
         public int RateLimitStatus { get; set; }
-        public DateTime LastRequestTime { get; set; }
+        public int LastRateLimit { get; set; }
+        public int RequestQueue { get; set; }
+        //Given in Ticks
+        public long LastRequestTime { get; set; }
+        //Given in Ticks
         public long NextRequestTime { get; set; }
+        
 
     }
 }

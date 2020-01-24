@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 
 namespace MadXchange.Exchange.Interfaces
 {
-    public interface ICachedPriceService
+    public interface ICachedInstrumentService
     {
-        public Task<IInstrument> GetPriceAsync(int ExchnageId, string Symbol, OrderSide side);
-        public Task<IOrderBook> GetOrderBookAsync(int ExchangeId, string Symbol);
-
+        public Task<Instrument> GetInstrumentAsync(Exchanges exchange, string symbol);
+        public Task<IOrderBook> GetOrderBookAsync(Exchanges exchange, string symbol);
+        public void UpdateInstrument(Exchanges exchange, string symbol, Instrument item);
     }
 }

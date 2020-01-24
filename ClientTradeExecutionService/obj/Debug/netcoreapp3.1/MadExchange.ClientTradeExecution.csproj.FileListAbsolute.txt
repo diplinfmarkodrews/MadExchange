@@ -93,3 +93,11 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\System.ServiceModel.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Private.ServiceModel.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Private.ServiceModel.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\Convey.HTTP.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\Polly.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\ServiceStack.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Drawing.Common.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\ClientTradeExecutionService\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Drawing.Common.dll

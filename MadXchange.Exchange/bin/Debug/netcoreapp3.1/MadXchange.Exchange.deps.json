@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "MadXchange.Exchange/1.0.0": {
         "dependencies": {
+          "Convey.HTTP": "0.4.226",
           "MadXchange.Common": "1.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "3.1.1",
           "Microsoft.Extensions.Logging.Abstractions": "3.1.1",
@@ -24,7 +25,7 @@
           "MadXchange.Exchange.dll": {}
         }
       },
-      "Convey/0.4.222": {
+      "Convey/0.4.226": {
         "dependencies": {
           "Figgle": "0.3.0",
           "Scrutor": "3.1.0"
@@ -36,9 +37,9 @@
           }
         }
       },
-      "Convey.CQRS.Queries/0.4.222": {
+      "Convey.CQRS.Queries/0.4.226": {
         "dependencies": {
-          "Convey": "0.4.222"
+          "Convey": "0.4.226"
         },
         "runtime": {
           "lib/netcoreapp3.1/Convey.CQRS.Queries.dll": {
@@ -47,10 +48,23 @@
           }
         }
       },
-      "Convey.Persistence.MongoDB/0.4.222": {
+      "Convey.HTTP/0.4.226": {
         "dependencies": {
-          "Convey": "0.4.222",
-          "Convey.CQRS.Queries": "0.4.222",
+          "Convey": "0.4.226",
+          "Microsoft.Extensions.Http": "3.1.0",
+          "Polly": "7.2.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Convey.HTTP.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Convey.Persistence.MongoDB/0.4.226": {
+        "dependencies": {
+          "Convey": "0.4.226",
+          "Convey.CQRS.Queries": "0.4.226",
           "MongoDB.Driver": "2.10.0"
         },
         "runtime": {
@@ -60,9 +74,9 @@
           }
         }
       },
-      "Convey.Persistence.Redis/0.4.222": {
+      "Convey.Persistence.Redis/0.4.226": {
         "dependencies": {
-          "Convey": "0.4.222",
+          "Convey": "0.4.226",
           "Microsoft.Extensions.Caching.StackExchangeRedis": "3.1.0"
         },
         "runtime": {
@@ -72,9 +86,9 @@
           }
         }
       },
-      "Convey.Tracing.Jaeger/0.4.222": {
+      "Convey.Tracing.Jaeger/0.4.226": {
         "dependencies": {
-          "Convey": "0.4.222",
+          "Convey": "0.4.226",
           "Jaeger": "0.3.6",
           "OpenTracing.Contrib.NetCore": "0.6.2"
         },
@@ -432,6 +446,13 @@
           "Microsoft.Extensions.Logging.Abstractions": "3.1.1"
         }
       },
+      "Microsoft.Extensions.Http/3.1.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.1",
+          "Microsoft.Extensions.Logging": "3.1.1",
+          "Microsoft.Extensions.Options": "3.1.1"
+        }
+      },
       "Microsoft.Extensions.Logging/3.1.1": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Binder": "3.1.1",
@@ -670,6 +691,14 @@
           "lib/netcoreapp3.0/Pipelines.Sockets.Unofficial.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "2.0.17.18362"
+          }
+        }
+      },
+      "Polly/7.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/Polly.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.2.0.0"
           }
         }
       },
@@ -2000,9 +2029,9 @@
       },
       "MadXchange.Common/1.0.0": {
         "dependencies": {
-          "Convey.Persistence.MongoDB": "0.4.222",
-          "Convey.Persistence.Redis": "0.4.222",
-          "Convey.Tracing.Jaeger": "0.4.222",
+          "Convey.Persistence.MongoDB": "0.4.226",
+          "Convey.Persistence.Redis": "0.4.226",
+          "Convey.Tracing.Jaeger": "0.4.226",
           "DbContextScope.UnitOfWork.Core": "1.2.0",
           "Microsoft.EntityFrameworkCore": "3.1.1"
         },
@@ -2018,40 +2047,47 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Convey/0.4.222": {
+    "Convey/0.4.226": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Rh/I+WUNjlWy+oJPwV2GuJjRKK70atZVtvi7Vg5gverwqAUpG4pqTDPuvWZ+cS5WJ4wz52hOpJP43/CzIE14Uw==",
-      "path": "convey/0.4.222",
-      "hashPath": "convey.0.4.222.nupkg.sha512"
+      "sha512": "sha512-aGsqkbN8dMdpJkpYVqVj+t21N6ijEMTIm8cqcb61BcHoEyzc3nFAEfbPwtKWDTwE3GbNM+mDe0PwHor+E1G6dg==",
+      "path": "convey/0.4.226",
+      "hashPath": "convey.0.4.226.nupkg.sha512"
     },
-    "Convey.CQRS.Queries/0.4.222": {
+    "Convey.CQRS.Queries/0.4.226": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nbXmXYGyRNw2HdIh/XszhjCVzyd9j5sakMz3du163lXObkyCxN9+AJapSVcCVio3UBa6xiTz6agKgSDwf+VAKg==",
-      "path": "convey.cqrs.queries/0.4.222",
-      "hashPath": "convey.cqrs.queries.0.4.222.nupkg.sha512"
+      "sha512": "sha512-pueCrZHo2auO7Rc/aViabs5qStcPBExAnB6F1EWKNGNSjwnrxZ6a+iUWtCvmWz/9ZjVl83tm7VhswclaB1vqag==",
+      "path": "convey.cqrs.queries/0.4.226",
+      "hashPath": "convey.cqrs.queries.0.4.226.nupkg.sha512"
     },
-    "Convey.Persistence.MongoDB/0.4.222": {
+    "Convey.HTTP/0.4.226": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-FxjUS38ljMQcpUnqygbBmAQSjnk2vt0a64rVDfyW8qF9cgBSeF59ugU3vyU4s5xXW0yKPlP/3xGi7Lwv67fyUg==",
-      "path": "convey.persistence.mongodb/0.4.222",
-      "hashPath": "convey.persistence.mongodb.0.4.222.nupkg.sha512"
+      "sha512": "sha512-nZuEZwyCUBlDSZznYDyfYA27O+AGuCO+9eps0d7PxgggGeP4ehk8QaMfY7TqDJbCzw4eC8wyakAzJtdnJq4uwQ==",
+      "path": "convey.http/0.4.226",
+      "hashPath": "convey.http.0.4.226.nupkg.sha512"
     },
-    "Convey.Persistence.Redis/0.4.222": {
+    "Convey.Persistence.MongoDB/0.4.226": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IGidflLXVAvp5NSkpn9R4/TO3m6NMpkqytEh22xKJ437p4K+zgmtEvG+SRz8fqs9r6F+R0mZC01OqfGzwBwNqA==",
-      "path": "convey.persistence.redis/0.4.222",
-      "hashPath": "convey.persistence.redis.0.4.222.nupkg.sha512"
+      "sha512": "sha512-9fndsFttYA6dYkMqzbHWmQL8QHY24hK/WGvjhHZpNE8ZVpnH0YlgTtgkSL3BUgk2ne2ZFWO4szC/ROvyRXnSrg==",
+      "path": "convey.persistence.mongodb/0.4.226",
+      "hashPath": "convey.persistence.mongodb.0.4.226.nupkg.sha512"
     },
-    "Convey.Tracing.Jaeger/0.4.222": {
+    "Convey.Persistence.Redis/0.4.226": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jZYt616kahoRSXjMSkG+zrbFdC16tsWiLutgpqGadjVJs0LPuCSH+gBdxcN7SnH7f6NpeX5N5orhZzRIno7RzA==",
-      "path": "convey.tracing.jaeger/0.4.222",
-      "hashPath": "convey.tracing.jaeger.0.4.222.nupkg.sha512"
+      "sha512": "sha512-3vk5+LmCTUoLyvAIcxrNiww8VW3FPcF1Nh34x5Jvn7+1mDLZcKNYXmSoU5hsV7tWnlAN6mfDY8ucfHJyA2QF9w==",
+      "path": "convey.persistence.redis/0.4.226",
+      "hashPath": "convey.persistence.redis.0.4.226.nupkg.sha512"
+    },
+    "Convey.Tracing.Jaeger/0.4.226": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OBtMiuPRBfWi7NltOSpvEf5791afLSzrNGxx74dU8+7oh27oDogN/t+/dnmlHCCfwlUDn+1qnSNHr1lppQNtEQ==",
+      "path": "convey.tracing.jaeger/0.4.226",
+      "hashPath": "convey.tracing.jaeger.0.4.226.nupkg.sha512"
     },
     "DbContextScope.UnitOfWork.Core/1.2.0": {
       "type": "package",
@@ -2333,6 +2369,13 @@
       "path": "microsoft.extensions.hosting.abstractions/2.1.1",
       "hashPath": "microsoft.extensions.hosting.abstractions.2.1.1.nupkg.sha512"
     },
+    "Microsoft.Extensions.Http/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DLigdcV0nYaT6/ly0rnfP80BnXq8NNd/h8/SkfY39uio7Bd9LauVntp6RcRh1Kj23N+uf80GgL7Win6P3BCtoQ==",
+      "path": "microsoft.extensions.http/3.1.0",
+      "hashPath": "microsoft.extensions.http.3.1.0.nupkg.sha512"
+    },
     "Microsoft.Extensions.Logging/3.1.1": {
       "type": "package",
       "serviceable": true,
@@ -2472,6 +2515,13 @@
       "sha512": "sha512-LQCDUvTHMdDm1TnGyoHbzrnTpFO3+zmem4HjG27zxEnCjJjr3iD/WNAsUxIgHoY2DzUZ6d0LfBhf2LgLvjAnQg==",
       "path": "pipelines.sockets.unofficial/2.0.17",
       "hashPath": "pipelines.sockets.unofficial.2.0.17.nupkg.sha512"
+    },
+    "Polly/7.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fbtSRyqVSd5AS7O4Pm2Mnw7zKKJk7Z3rOfNnKSTfPkTxM8Z1JJFZzzjqLAOTG6AyUkormSWMO2AhdlygF/384Q==",
+      "path": "polly/7.2.0",
+      "hashPath": "polly.7.2.0.nupkg.sha512"
     },
     "RestSharp/106.10.1": {
       "type": "package",

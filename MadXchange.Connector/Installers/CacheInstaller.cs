@@ -1,4 +1,5 @@
 ﻿using MadXchange.Common.Types;
+using MadXchange.Connector.Services.Cache;
 using MadXchange.Exchange.Configuration;
 using MadXchange.Exchange.Interfaces;
 using MadXchange.Exchange.Services;
@@ -19,7 +20,7 @@ namespace MadXchange.Exchange.Installers
                 return;
             }
             services.AddStackExchangeRedisCache(options => options.Configuration = redisCacheSettings.ConnectionString);
-            services.AddSingleton<ICachedPriceService, CachedInstrumentService>();
+            services.AddSingleton<ICachedInstrumentService, CachedInstrumentService>();
         }
 
         

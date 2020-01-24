@@ -1,4 +1,6 @@
 ﻿using MadXchange.Common.Handlers;
+using MadXchange.Connector.Interfaces;
+using MadXchange.Connector.Messages.Commands;
 using MadXchange.Exchange.Interfaces;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
@@ -9,9 +11,10 @@ namespace MadXchange.Exchange.Messages.Commands.Handlers
     {
         private readonly IExchangeOrderServiceClient _orderServiceClient;
         private readonly ILogger _logger;
-        public SetLeverageHandler() 
+        public SetLeverageHandler(IExchangeOrderServiceClient orderServiceClient, ILogger<SetLeverageHandler> logger) 
         {
-        
+            _orderServiceClient = orderServiceClient;
+            _logger = logger;
         }
         public async Task HandleAsync(SetLeverage leverage) 
         {

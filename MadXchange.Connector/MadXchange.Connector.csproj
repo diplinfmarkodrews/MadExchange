@@ -45,6 +45,7 @@
     <Folder Include="Handlers\Order\" />
     <Folder Include="Handlers\Position\" />
     <Folder Include="Handlers\UserIdentity\" />
+    <Folder Include="Infrastructure\" />
     <Folder Include="Messages\Commands\Instrument\" />
   </ItemGroup>
 

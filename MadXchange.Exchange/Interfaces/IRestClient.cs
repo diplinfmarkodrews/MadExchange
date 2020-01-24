@@ -8,27 +8,29 @@ namespace MadXchange.Exchange.Interfaces
     public interface IOrderPutRequest
     {
         Guid AccountId { get; }
+        Exchanges Exchange { get; set; }
         string Symbol { get; set; }
         decimal? Price { get; set; }
         decimal? Amount { get; set; }
         string OrderId { get; set; }
-        int ExchangeId { get; set; }
+        
     }
 
     public interface IOrderPostRequest
     {
+
         Guid AccountId { get; }
+        Exchanges Exchange { get; set; }
         string Symbol { get; }
-        decimal Quantity { get; }
-        decimal Leverage { get; }
-        OrderSide Side { get; }
-        int ExchangeId { get; set; }
+        decimal? Quantity { get; }
+        IEnumerable<ExecInst> Execs { get; set; }
+        OrderSide? Side { get; }        
         decimal? Price { get; set; }
         OrderType? OrdType { get; set; }
         TimeInForce? TimeInForce { get; set; }
     }
 
-    public interface IResClient : IRestEquity, IRestInstrument, IRestOrder, IRestPosition, IRestIdentity { }
+    public interface IRestClient : IRestEquity, IRestInstrument, IRestOrder, IRestPosition, IRestIdentity { }
 
     public interface IRestIdentity 
     {
