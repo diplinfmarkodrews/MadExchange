@@ -9,6 +9,6 @@ namespace MadXchange.Exchange.Infrastructure.Cache
 {
     public class OrderCache : CacheStorage<OrderCacheObject>
     {
-        public OrderCache(string baseAdress, IDistributedCache cache) : base(baseAdress, cache) { }
+        public OrderCache(IDistributedCache cache) : base("order", cache) { }
     }
 }

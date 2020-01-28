@@ -1,4 +1,5 @@
-﻿using MadXchange.Common.Types;
+﻿using Convey.CQRS.Queries;
+using MadXchange.Common.Types;
 using System.Threading.Tasks;
 
 namespace MadXchange.Common.Handlers

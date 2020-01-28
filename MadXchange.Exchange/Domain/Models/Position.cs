@@ -18,7 +18,7 @@ namespace MadXchange.Exchange.Domain.Models
         decimal? Misc { get; set; }
         decimal? CumRealisedPnl { get; set; } 
         decimal? CumUnRealisedPnl { get; set; }
-        DateTime Updated { get; set; }
+        DateTime Timestamp { get; set; }
 
     }
 
@@ -37,7 +37,8 @@ namespace MadXchange.Exchange.Domain.Models
         public decimal? EntryPrice { get; set; }
         public decimal? PositionMargin { get; set; }
         public decimal? Misc { get; set; }
-        public DateTime Updated { get; set; }
+        
+        public DateTime Timestamp { get; set; }
         public decimal? CumRealisedPnl { get; set; }
         public decimal? CumUnRealisedPnl { get; set; }
        

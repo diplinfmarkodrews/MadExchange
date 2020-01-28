@@ -1,13 +1,13 @@
 ﻿using MadXchange.Exchange.Dto.Http;
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MadXchange.Exchange.Services
 {
     public interface IRequestAccessService
-    {
-        Task<string> SignRequest(Guid accountId, string url);
-        Task RequestAccess(Guid accountId);
+    {        
+        Task<bool> RequestAccess(Guid accountId, CancellationToken token);
         void UpdateAccountRequestCache(Guid accountId, WebResponseDto resDto);
     }
     

@@ -11,7 +11,7 @@ namespace MadXchange.Exchange.Interfaces
         Exchanges Exchange { get; set; }
         string Symbol { get; set; }
         decimal? Price { get; set; }
-        decimal? Amount { get; set; }
+        decimal? Qty { get; set; }
         string OrderId { get; set; }
         
     }

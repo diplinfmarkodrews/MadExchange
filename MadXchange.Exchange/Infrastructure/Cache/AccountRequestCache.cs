@@ -1,25 +1,26 @@
 ﻿using MadXchange.Common.Infrastructure;
 using MadXchange.Exchange.Domain.Cache;
+using MadXchange.Exchange.Interfaces.Cache;
 using Microsoft.Extensions.Caching.Distributed;
 using System;
 
 namespace MadXchange.Exchange.Infrastructure.Cache
 {
-    public class AccountRequestCache : CacheStorage<AccountCacheObject>
+    public class AccountRequestCache : CacheStorage<AccountCacheObject>, IAccountRequestCache
     {
 
         public AccountRequestCache(IDistributedCache cache) : base("request", cache) { }
 
         public void SetAccount(AccountCacheObject account)
-        {
+        {            
             
             Set($"{account.AccountId}", account); 
         }
 
-        public AccountCacheObject GetAccountCacheObject(Guid accountId) 
+        public AccountCacheObject GetAccount(Guid accountId) 
         {
-            var accountCacheObject = Get($"{accountId}");
-            return accountCacheObject;            
-        }                
+            return Get($"{accountId}");            
+        }        
+        
     }
 }

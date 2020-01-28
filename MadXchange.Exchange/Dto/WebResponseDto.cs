@@ -14,6 +14,7 @@ namespace MadXchange.Exchange.Dto.Http
         public string TimeNow { get; set; }
         public int RateLimit { get; set; }
         public int RateLimitStatus { get; set; }
-        public long RateLimitResetMS { get; set; }
+        public long RateLimitReset { get; set; }
+        public long Timestamp { get; } = DateTime.UtcNow.Ticks;
     }
 }

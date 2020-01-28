@@ -15,29 +15,39 @@ namespace MadXchange.Common.Infrastructure
             _cacheAdress = baseAdress;
             _distributedCache = cache;
         }
+
         protected string AdressString(string id) => $"{_cacheAdress}{id}";
-        public void Set(string id, T item) 
+        
+        protected void Set(string id, T item) 
         {
             var accountByteArray = Converter.ObjectToByteArray(item);
             _distributedCache.Set(AdressString(id), accountByteArray);
 
         }
-        public async Task SetAsync(string id, T item) 
+
+        protected async Task SetAsync(string id, T item) 
         {
             var accountByteArray = Converter.ObjectToByteArray(item);
             await _distributedCache.SetAsync(AdressString(id), accountByteArray);            
-
         }
-        public T Get(string id) 
+
+        protected T Get(string id) 
         {
             var item = _distributedCache.Get(AdressString(id));
             return (T)Converter.ByteArrayToObject(item);
         }
-        public async Task<T> GetAsync(string id) 
+
+        protected async Task<T> GetAsync(string id) 
         {
             var item = await _distributedCache.GetAsync(AdressString(id));
             return (T)Converter.ByteArrayToObject(item);
         }
+
+        protected async Task Remove(string id) 
+        {
+            await _distributedCache.RemoveAsync(AdressString(id));
+        }
+
         public void Dispose()
         {
             if (_distributedCache is RedisCache)

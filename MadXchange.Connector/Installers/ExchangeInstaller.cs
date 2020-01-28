@@ -28,15 +28,16 @@ namespace MadXchange.Exchange.Installers
             {
                 try
                 {
-                    var exchangeDescriptor = new ExchangeDescriptor();
-                    exchangeDescriptor.Id = exchange.GetValue<int>("id");
+                    var exchangeDescriptor = new ExchangeDescriptor();                    
                     exchangeDescriptor.Name = exchange.GetValue<string>("Name");
                     exchangeDescriptor.BaseUrl = exchange.GetValue<string>("BaseUrl");
-                    exchangeDescriptor.BaseUrl = exchange.GetValue<string>("BaseUrl");
+                    exchangeDescriptor.SocketUrl = exchange.GetValue<string>("SocketUrl");
                     var exchangeEnum = Enum.Parse<Domain.Models.Exchanges>(exchangeDescriptor.Name);
+                    exchangeDescriptor.Id = (int)exchangeEnum;
                     var getRoutes = exchange.GetSection("Routes:GET");
                     var postRoutes = exchange.GetSection("Routes:POST");
                     readRoutes(ref exchangeDescriptor, getRoutes);
+                    readRoutes(ref exchangeDescriptor, postRoutes);
                     exchangeDictionary.Add(exchangeEnum, exchangeDescriptor);
 
                 }

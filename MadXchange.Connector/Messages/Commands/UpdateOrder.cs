@@ -35,7 +35,7 @@ namespace MadXchange.Connector.Messages.Commands
             OrderId = request.OrderId;
             Symbol = request.Symbol;
             Price = request.Price;
-            Amount = request.Amount;
+            Amount = request.Qty;
 
         }
     }

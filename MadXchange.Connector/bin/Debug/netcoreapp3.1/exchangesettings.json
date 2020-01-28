@@ -1,8 +1,7 @@
 {
   "ExchangeDescriptors": {
     "ByBit": {
-      "Name": "ByBit",
-      "Id": 1,
+      "Name": "ByBit",     
       "SocketUrl": "wss://stream-testnet.bybit.com/realtime",
       "BaseUrl": "https://api-testnet.bybit.com",
       "Results": {
@@ -152,7 +151,7 @@
                   "type": [
                     "GoodTillCancel",
                     "FillOrKill",
-                    ""
+                    "ImmediateOrCancel"
                   ],
                   "required": true
                 },
@@ -179,9 +178,11 @@
                   ],
                   "required": true
                 },
-                "order_type": {
+                "order_type": [
 
-                }
+                ]
+
+                
               },
               "result": {
 

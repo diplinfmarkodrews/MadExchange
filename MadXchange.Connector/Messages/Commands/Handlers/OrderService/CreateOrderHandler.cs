@@ -18,27 +18,27 @@ namespace MadXchange.Connector.Messages.Commands.Handlers
         /// Cache must be used to obtain price, repo to store orders
         /// </summary>
              
-        private readonly ICachedInstrumentService _cachedPriceService;
+        private readonly IInstrumentCache _cachedInstrument;
         private readonly ILogger _logger;
         private readonly ITracer _tracer;
         private readonly IExchangeOrderServiceClient _orderClient;
         private readonly IBusPublisher _busPublisher;
 
         //private readonly IBusPublisher _busPublisher;
-        public CreateOrderHandler(IBusPublisher busPublisher, ICachedInstrumentService cachedPriceService, IExchangeOrderServiceClient orderClient, ITracer tracer, ILogger<CreateOrderHandler> logger) 
+        public CreateOrderHandler(IBusPublisher busPublisher, IInstrumentCache cachedInstrument, IExchangeOrderServiceClient orderClient, ITracer tracer, ILogger<CreateOrderHandler> logger) 
         {
             
             _logger = logger;
             _tracer = tracer;
-            _cachedPriceService = cachedPriceService;
+            _cachedInstrument = cachedInstrument;
             _orderClient = orderClient;
-
+            _busPublisher = busPublisher;
         }
 
         public async Task HandleAsync(CreateOrder command) 
         {
             var span = _tracer.BuildSpan("CreateOrder").Start();
-            var instrument = await _cachedPriceService.GetInstrumentAsync(command.Exchange, command.Symbol);
+            var instrument = await _cachedInstrument.GetInstrumentAsync(command.Exchange, command.Symbol);
             command.Price = command.Side == OrderSide.Buy ? instrument.AskPrice : instrument.BidPrice;
             var order = await _orderClient.PlaceOrderAsync(command);
             if (order.OrdStatus == OrderStatus.NEW || order.OrdStatus == OrderStatus.PENDINGNEW || order.OrdStatus == OrderStatus.PARTIALLYFILLED)

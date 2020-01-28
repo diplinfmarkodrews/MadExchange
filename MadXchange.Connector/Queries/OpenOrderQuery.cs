@@ -1,4 +1,4 @@
-﻿using MadXchange.Common.Types;
+﻿using Convey.CQRS.Queries;
 
 namespace MadXchange.Exchange.Queries
 {

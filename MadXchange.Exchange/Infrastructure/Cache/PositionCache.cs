@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MadXchange.Common.Infrastructure;
+using MadXchange.Exchange.Domain.Cache;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace MadXchange.Exchange.Infrastructure.Cache
 {
-    class PositionCache
+    public class PositionCache : CacheStorage<PositionCacheObject>
     {
+        public PositionCache(IDistributedCache cache) : base("position", cache) { }
     }
 }

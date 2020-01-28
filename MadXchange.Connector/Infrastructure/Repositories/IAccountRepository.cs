@@ -4,13 +4,12 @@ using MadXchange.Exchange.Domain.Models;
 using System;
 using System.Threading.Tasks;
 
-namespace MadXchange.Connector.Repositories
+namespace MadXchange.Connector.Infrastructure.Repositories
 {
     public interface IAccountRepository : IAsyncRepository<IUserAccount>
     {
         Task<IUserAccount> GetAsync(Guid id);
         Task AddAsync(IUserAccount account);
-        Task RemoveAccount(Guid id);
-        
+        Task RemoveAccountAsync(Guid id);        
     }
 }

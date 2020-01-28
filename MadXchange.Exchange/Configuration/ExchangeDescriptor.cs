@@ -19,7 +19,7 @@ namespace MadXchange.Exchange.Configuration
         public string BaseUrl { get; set; }
         public IDictionary<string, IEndpoint> EndPoints { get; set; }
         
-        public IEndpoint RouteGetEquity { get; set; }
+        public EndPoint<IMargin> RouteGetEquity { get; set; }
         public EndPoint<IWalletHistory> RouteGetWalletHistory { get; set; }
         public EndPoint<decimal> RouteGetLeverage { get; set; }
         public EndPoint<IPosition> RouteGetPosition { get; set; }
@@ -31,7 +31,8 @@ namespace MadXchange.Exchange.Configuration
         public EndPoint<decimal> RoutePostLeverage { get; set; }
         public EndPoint<IOrder> RoutePlaceOrder { get; set; }
         public EndPoint<IOrder> RouteUpdateOrder { get; set; }
-        public EndPoint<IOrder> RouteDeleteOrder { get; set; }        
+        public EndPoint<IOrder> RouteDeleteOrder { get; set; }   
+        public EndPoint<IOrder> RouteDeleteAllOrders { get; set; }
 
 
         public ExchangeDescriptor(int id) 

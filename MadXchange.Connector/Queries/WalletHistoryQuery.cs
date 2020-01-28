@@ -1,7 +1,6 @@
-﻿
-using MadXchange.Common.Types;
+﻿using Convey.CQRS.Queries;
 
-namespace MadXchange.Common.Mex.Queries
+namespace MadXchange.Connector.Queries
 {
     public class WalletHistoryQuery<T> : IQuery<T>
     {

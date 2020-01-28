@@ -164,7 +164,7 @@ namespace MadXchange.Exchange.Domain.Models
             set;
         }
 
-        public DateTime TimeStamp { get; private set; }
+        public DateTime Timestamp { get; private set; }
 
     }
 }

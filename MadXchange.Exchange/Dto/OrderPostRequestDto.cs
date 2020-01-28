@@ -16,7 +16,7 @@ namespace MadXchange.Exchange.Dto
         public OrderType? OrdType { get; set; }
         public TimeInForce? TimeInForce { get; set; }
         public IEnumerable<ExecInst> Execs { get; set; }
-        public DateTime TimeStamp { get; set; }
+        
         
     }
 }

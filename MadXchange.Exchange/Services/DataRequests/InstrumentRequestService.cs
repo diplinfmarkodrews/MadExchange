@@ -8,24 +8,24 @@ using System.Threading.Tasks;
 
 namespace MadXchange.Exchange.Services
 {
-    public interface IPricingRequestService 
+    public interface IInstrumentRequestService 
     {
-        Task<Instrument> GetInstrument(Exchanges exchange, string symbol);
+        Task<Instrument> GetInstrumentAsync(Exchanges exchange, string symbol);
     
     }
-    public class PricingRequestService : IPricingRequestService
+    public class InstrumentRequestService : IInstrumentRequestService
     {
 
         private ILogger _logger;
         private IExchangeDescriptorService _descriptorService;
         private IRestRequestService _restRequestService;
-        public PricingRequestService(IExchangeDescriptorService exchangeDescriptorService, IRestRequestService restRequestService,  ILogger<PricingRequestService> logger) 
+        public InstrumentRequestService(IExchangeDescriptorService exchangeDescriptorService, IRestRequestService restRequestService,  ILogger<InstrumentRequestService> logger) 
         {
             _descriptorService = exchangeDescriptorService;
             _restRequestService = restRequestService;
             _logger = logger;
         }
-        public async Task<Instrument> GetInstrument(Exchanges exchange, string symbol) 
+        public async Task<Instrument> GetInstrumentAsync(Exchanges exchange, string symbol) 
         {
             var descriptor = _descriptorService.GetExchangeDescriptor(exchange);
             var route = descriptor.RouteGetInstrument;
@@ -35,7 +35,7 @@ namespace MadXchange.Exchange.Services
             {
                 parameter.AddQueryParam(route.Parameter[0], symbol);
             }                        
-            var res = await _restRequestService.SendGetAsync<WebResponseDto>(url, parameter).ConfigureAwait(false);
+            var res = await _restRequestService.SendGetAsync<WebResponseDto>(url).ConfigureAwait(false);
             //Mapping
             var result = res.Result.ConvertTo<Instrument>();
             return result;//.FromJson<Instrument>();

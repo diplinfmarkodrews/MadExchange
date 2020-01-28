@@ -39,6 +39,7 @@ namespace MadXchange.Connector.Messages.Commands
             }
 
         }
+
         public CreateOrder(Guid id, IOrderPostRequest request) 
         {
             Id = id.ToString() == string.Empty ? Guid.NewGuid() : id;

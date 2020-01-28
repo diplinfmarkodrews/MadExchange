@@ -21,6 +21,7 @@ namespace MadXchange.Common.Helpers
         // Convert a byte array to an Object
         public static Object ByteArrayToObject(byte[] arrBytes)
         {
+            if (arrBytes is null) return null;
             using (var memStream = new MemoryStream())
             {
                 var formatter = new BinaryFormatter();
