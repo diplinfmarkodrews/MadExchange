@@ -27,7 +27,7 @@ namespace MadXchange.Exchange.Services
             }
         }
         /// <summary>
-        /// private GetRequest
+        /// private GetRequest, requests access before submitting a request
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="accountId"></param>
@@ -35,8 +35,7 @@ namespace MadXchange.Exchange.Services
         /// <param name="parameter"></param>
         /// <returns></returns>
         public async Task<T> SendGetAsync<T>(Guid accountId, string url, CancellationToken token = default)
-        {
-            
+        {            
             var permit = await _requestAccessService.RequestAccess(accountId, token);
             //if request was cancelled by CanccelationToken, request gets aborted before execution
             if (!permit) return default(T);
@@ -56,7 +55,7 @@ namespace MadXchange.Exchange.Services
         public async Task<T> SendPostAsync<T>(Guid accountId, string url, CancellationToken token = default)
         {
             var permit = await _requestAccessService.RequestAccess(accountId, token);
-            //if request was cancelled by CanccelationToken, request gets aborted before execution
+            //if request was cancelled by CancellationToken, request gets aborted before execution, no permission to send then, otherwise it will wait until access is granted
             if (!permit) return default(T);
             var response = await _requestExecutionService.SendPostAsync(url).ConfigureAwait(false);
             _requestAccessService.UpdateAccountRequestCache(accountId, response);

@@ -5,6 +5,7 @@ using MadXchange.Exchange.Interfaces;
 using MadXchange.Exchange.Interfaces.Cache;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ServiceStack.Redis;
 
 namespace MadXchange.Exchange.Installers
 {
@@ -20,6 +21,7 @@ namespace MadXchange.Exchange.Installers
                 return;
             }
             services.AddStackExchangeRedisCache(options => options.Configuration = redisCacheSettings.ConnectionString);
+            services.AddSingleton<IRedisClientsManager>(new RedisManagerPool(redisCacheSettings.ConnectionString));
             services.AddScoped<IInstrumentCache, InstrumentCache>();
             services.AddScoped<IAccountRequestCache, AccountRequestCache>();
             services.AddScoped<IOrderCache, OrderCache>();

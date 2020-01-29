@@ -6,8 +6,10 @@ namespace MadXchange.Exchange.Interfaces
 {
     public interface IRestRequestService
     {
-        Task<T> SendGetAsync<T>(Guid accountId, string url, CancellationToken token);
-        Task<T> SendGetAsync<T>(string url);
+        //private functions
+        Task<T> SendGetAsync<T>(Guid accountId, string url, CancellationToken token);        
         Task<T> SendPostAsync<T>(Guid accountId, string url, CancellationToken token);
+        //public functions
+        Task<T> SendGetAsync<T>(string url);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MadXchange.Common.Types;
+using MadXchange.Connector.Services;
 using MadXchange.Exchange.Configuration;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -46,7 +47,7 @@ namespace MadXchange.Exchange.Installers
             }
             //logger.LogDebug("registering exchange dictionary", exchangeDictionary);
             services.AddSingleton(exchangeDictionary);
-            
+            services.AddTransient<IExchangeDescriptorService, ExchangeDescriptorService>();
             
             
         }
@@ -84,7 +85,6 @@ namespace MadXchange.Exchange.Installers
                     }
                 }
             }
-
             return endP;
         }
     }

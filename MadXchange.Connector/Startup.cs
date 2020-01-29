@@ -37,13 +37,13 @@ namespace MadXchange.Connector
         {
             var builder = new ConfigurationBuilder();
             builder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-            builder.AddJsonFile("exchangesettings.json", optional: false, reloadOnChange: true);
-            
+            builder.AddJsonFile("exchangesettings.json", optional: false, reloadOnChange: true);            
             Configuration = builder.Build();
             
             services.AddConvey("connector");
             services.InstallExchangeDescriptorDictionary(Configuration);
             services.AddSingleton<IExchangeDescriptorService>();
+            
             services.AddPolicyRegistry();
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHttpClient();
@@ -56,7 +56,7 @@ namespace MadXchange.Connector
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // This method gets called by the runtime. 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -66,10 +66,7 @@ namespace MadXchange.Connector
             // app.ApplicationServices.GetRequiredService<IInstaller>().InstallService(services, Configuration);
             //app.UseInitializers();           
             app.UseHealthAllEndpoints();
-            app.UseConvey().UseMetricsActiveRequestMiddleware().UseWebSockets();
-            
-            
-            
+            app.UseConvey().UseMetricsActiveRequestMiddleware().UseWebSockets();                                   
         }
     }
 }

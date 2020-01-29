@@ -14,12 +14,9 @@ namespace MadXchange.Exchange.Domain.Cache
 {
     public class RestRequestExecutionService : IRestRequestExecutionService
     {
-        
-        
+
         private ILogger _logger;
-        public RestRequestExecutionService(                
-                ILogger<RestRequestExecutionService> logger
-            ) 
+        public RestRequestExecutionService(ILogger<RestRequestExecutionService> logger) 
         {                        
             _logger = logger;
         }
@@ -43,17 +40,14 @@ namespace MadXchange.Exchange.Domain.Cache
             }
             return null;
         }
-        
-        
+                
 
         public async Task<WebResponseDto> SendPostAsync(string url)
         {
             try
-            {
-                
+            {                
                 var resp = await url.GetJsonFromUrlAsync().ConfigureAwait(false);
-                var resDto = resp.ConvertTo<WebResponseDto>();
-                
+                var resDto = resp.ConvertTo<WebResponseDto>();                
                 return resDto;
             }
             catch (Exception err)
