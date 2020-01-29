@@ -38,7 +38,8 @@ namespace MadXchange.Exchange.Services
         {
             
             var permit = await _requestAccessService.RequestAccess(accountId, token);
-            if (!permit) throw new ServiceResponseException($"{accountId}: client did not acquire permission to send");
+            //if request was cancelled by CanccelationToken, request gets aborted before execution
+            if (!permit) return default(T);
             var response = await _requestExecutionService.SendGetAsync(url).ConfigureAwait(false);
             _requestAccessService.UpdateAccountRequestCache(accountId, response);
             CheckResponse(response);
@@ -54,9 +55,12 @@ namespace MadXchange.Exchange.Services
         /// <returns></returns>
         public async Task<T> SendPostAsync<T>(Guid accountId, string url, CancellationToken token = default)
         {
-            await _requestAccessService.RequestAccess(accountId, token);            
+            var permit = await _requestAccessService.RequestAccess(accountId, token);
+            //if request was cancelled by CanccelationToken, request gets aborted before execution
+            if (!permit) return default(T);
             var response = await _requestExecutionService.SendPostAsync(url).ConfigureAwait(false);
             _requestAccessService.UpdateAccountRequestCache(accountId, response);
+            CheckResponse(response);
             return response.Result.ConvertTo<T>();
         }
         /// <summary>
@@ -69,7 +73,6 @@ namespace MadXchange.Exchange.Services
         {
             var response = await _requestExecutionService.SendGetAsync(url).ConfigureAwait(false);
             return response.Result.ConvertTo<T>();
-
         }
     }
 }

@@ -12,16 +12,18 @@ namespace MadXchange.Exchange.Services
         
         private readonly IAccountRequestCache _requestCache;
         private readonly long _minRequestTimeDiff = TimeSpan.FromMilliseconds(1000).Ticks;
+
         public RequestAccessService(IAccountRequestCache requestCache) 
         {
             _requestCache = requestCache;
         }
+
         public async Task<bool> RequestAccess(Guid accountId, CancellationToken token)
         {
             var acCacheObj = RequestAccountAccess(accountId);
             int rqQueue = acCacheObj.RequestQueue;
             long timeDiffInTicks = (DateTime.UtcNow.Ticks - acCacheObj.NextRequestTime);
-            while (timeDiffInTicks < 0) 
+            while (timeDiffInTicks < 0 || !token.IsCancellationRequested) 
             {
                 await Task.Delay(rqQueue * (int)(Math.Abs(timeDiffInTicks) * TimeSpan.TicksPerMillisecond), token);
                 acCacheObj = _requestCache.GetAccount(accountId);                

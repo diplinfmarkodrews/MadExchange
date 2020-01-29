@@ -9,7 +9,7 @@ namespace MadXchange.Exchange.Interfaces
     public interface IInstrumentCache
     {
         public Task<Instrument> GetInstrumentAsync(Exchanges exchange, string symbol);
-        public Task<IOrderBook> GetOrderBookAsync(Exchanges exchange, string symbol);
+        public Task<OrderBook> GetOrderBookAsync(Exchanges exchange, string symbol);
         public long UpdateInstrument(Exchanges exchange, string symbol, Instrument item);
     }
 }

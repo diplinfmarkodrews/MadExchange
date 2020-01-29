@@ -28,7 +28,7 @@ namespace MadXchange.Exchange.Installers
             {
                 try
                 {
-                    var exchangeDescriptor = new ExchangeDescriptor();                    
+                    var exchangeDescriptor = new ExchangeDescriptor();
                     exchangeDescriptor.Name = exchange.GetValue<string>("Name");
                     exchangeDescriptor.BaseUrl = exchange.GetValue<string>("BaseUrl");
                     exchangeDescriptor.SocketUrl = exchange.GetValue<string>("SocketUrl");
@@ -41,10 +41,7 @@ namespace MadXchange.Exchange.Installers
                     exchangeDictionary.Add(exchangeEnum, exchangeDescriptor);
 
                 }
-                catch(Exception err) 
-                {
-                    //logger.LogError(err, "error registering exchange descriptor", exchange.Value);
-                }
+                catch { }          
                 
             }
             //logger.LogDebug("registering exchange dictionary", exchangeDictionary);

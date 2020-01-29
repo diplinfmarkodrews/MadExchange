@@ -7,7 +7,7 @@
       "Results": {
         "Position": {
           "id": "Id", //position ID
-          "user_id": "ExchangeAccountId", //user ID
+          "user_id": "ExchangeUserId", //user ID
           "risk_id": "RiskId", //risk limit ID
           "symbol": "Symbol", //Contract type
           "side": "Side", //position Side  (None, buy, sell)
@@ -39,7 +39,6 @@
         },
         "Instrument": {
 
-
         },
         "Order": {
 
@@ -47,8 +46,12 @@
         "WalletHistory": {
 
         },
-        "Equity": {},
-        "OrderBook": {}
+        "Margin": {
+
+        },
+        "OrderBook": {
+
+        }
       },
       "Routes": {
         "GET": {
@@ -132,9 +135,7 @@
                   "domain": "OrderType",
                   "type": [
                     "limit",
-                    "market",
-                    "",
-                    ""
+                    "market"                   
                   ],
                   "required": true
                 },
@@ -151,7 +152,8 @@
                   "type": [
                     "GoodTillCancel",
                     "FillOrKill",
-                    "ImmediateOrCancel"
+                    "ImmediateOrCancel",
+                    "PostOnly"
                   ],
                   "required": true
                 },

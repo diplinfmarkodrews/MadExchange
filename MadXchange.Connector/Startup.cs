@@ -36,8 +36,8 @@ namespace MadXchange.Connector
         public void ConfigureServices(IServiceCollection services)
         {
             var builder = new ConfigurationBuilder();
-            builder.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-            builder.AddJsonFile("exchangesettings.json", optional: false, reloadOnChange: false);
+            builder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            builder.AddJsonFile("exchangesettings.json", optional: false, reloadOnChange: true);
             
             Configuration = builder.Build();
             
@@ -54,11 +54,6 @@ namespace MadXchange.Connector
             //services.AddVault();
             services.AddLogging(logBuilder => logBuilder.AddSerilog().SetMinimumLevel(LogLevel.Debug).AddConsole().AddEventLog());
 
-            
-
-
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,8 +64,7 @@ namespace MadXchange.Connector
                 app.UseDeveloperExceptionPage();
             }
             // app.ApplicationServices.GetRequiredService<IInstaller>().InstallService(services, Configuration);
-            //app.UseInitializers();
-            
+            //app.UseInitializers();           
             app.UseHealthAllEndpoints();
             app.UseConvey().UseMetricsActiveRequestMiddleware().UseWebSockets();
             

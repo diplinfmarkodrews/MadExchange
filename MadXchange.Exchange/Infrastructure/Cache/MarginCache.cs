@@ -15,9 +15,8 @@ namespace MadXchange.Exchange.Infrastructure.Cache
 
         public void Set(Guid accountId, string symbol, Margin item) 
         {
-            var cacheObj = new MarginCacheObject()
+            var cacheObj = new MarginCacheObject(accountId)
             {
-                AccountId = accountId,
                 MarginObj = item
             };
             Set($"{accountId}{symbol}", cacheObj);
@@ -28,9 +27,8 @@ namespace MadXchange.Exchange.Infrastructure.Cache
             var marginObj = Get($"{accountId}{symbol}");
             if (marginObj is null)
             {
-                marginObj = new MarginCacheObject()
-                {
-                    AccountId = accountId,
+                marginObj = new MarginCacheObject(accountId)
+                {                    
                     MarginObj = item
                 };
                 Set($"{accountId}{symbol}", marginObj);
@@ -51,9 +49,9 @@ namespace MadXchange.Exchange.Infrastructure.Cache
             var marginStore = await GetAsync($"{accountId}{symbol}");
             return marginStore.MarginObj;
         }
-        public async Task Remove(Guid accountId, string symbol) 
+        public async Task RemoveAsync(Guid accountId, string symbol) 
         {
-            await Remove($"{accountId}{symbol}");
+            await RemoveAsync($"{accountId}{symbol}");
         }
     }
 

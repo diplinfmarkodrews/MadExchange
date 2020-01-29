@@ -7,8 +7,12 @@ namespace MadXchange.Exchange.Domain.Cache
     public class MarginCacheObject : ICacheObject
     {
 
-        public Guid AccountId { get; set; }
+        public Guid AccountId { get; }
         public Margin MarginObj { get; set; }
+        public MarginCacheObject(Guid accountId) 
+        {
+            AccountId = accountId;
+        }
         public bool IsValid() => 
                MarginObj is null 
             || MarginObj.Timestamp == default             

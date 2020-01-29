@@ -43,11 +43,14 @@ namespace MadXchange.Common.Infrastructure
             return (T)Converter.ByteArrayToObject(item);
         }
 
-        protected async Task Remove(string id) 
+        protected void Remove(string id) 
+        {
+            _distributedCache.Remove(AdressString(id));
+        }
+        protected async Task RemoveAsync(string id)
         {
             await _distributedCache.RemoveAsync(AdressString(id));
         }
-
         public void Dispose()
         {
             if (_distributedCache is RedisCache)

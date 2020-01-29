@@ -7,8 +7,12 @@ namespace MadXchange.Exchange.Domain.Cache
 {
     public class OrderCacheObject : ICacheObject
     {
-        public Guid AccountId { get; set; }
+        public Guid AccountId { get; }
         public Order Order { get; set; }
+        public OrderCacheObject(Guid accountId) 
+        {
+            AccountId = accountId;
+        }
         public bool IsValid() => 
                Order is null 
             || Order.Timestamp == default 

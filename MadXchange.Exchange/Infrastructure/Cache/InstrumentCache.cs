@@ -52,7 +52,7 @@ namespace MadXchange.Exchange.Infrastructure.Cache
             return instrumentCacheObject.Instrument;
         }
 
-        public async Task<IOrderBook> GetOrderBookAsync(Exchanges exchange, string symbol) 
+        public async Task<OrderBook> GetOrderBookAsync(Exchanges exchange, string symbol) 
         {
             throw new NotImplementedException();
         }     
