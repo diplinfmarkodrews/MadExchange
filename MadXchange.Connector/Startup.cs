@@ -37,13 +37,17 @@ namespace MadXchange.Connector
         {
             var builder = new ConfigurationBuilder();
             builder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-            builder.AddJsonFile("exchangesettings.json", optional: false, reloadOnChange: true);            
+            builder.AddJsonFile("exchangesettings.json", optional: false, reloadOnChange: true);
+            builder.AddJsonFile("provideraccounts.json", optional: false, reloadOnChange: true);
+         
             Configuration = builder.Build();
             
             services.AddConvey("connector");
-            services.InstallExchangeDescriptorDictionary(Configuration);
-            services.AddSingleton<IExchangeDescriptorService>();
             
+            services.InstallExchangeDescriptorDictionary(Configuration);
+            
+            services.InstallCacheServices(Configuration);
+
             services.AddPolicyRegistry();
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHttpClient();
@@ -52,7 +56,7 @@ namespace MadXchange.Connector
             services.AddMetrics().AddMetricsEndpoints();
 
             //services.AddVault();
-            services.AddLogging(logBuilder => logBuilder.AddSerilog().SetMinimumLevel(LogLevel.Debug).AddConsole().AddEventLog());
+            services.AddLogging(logBuilder => logBuilder.AddSerilog().SetMinimumLevel(LogLevel.Debug).AddConsole());
 
         }
 
@@ -64,7 +68,8 @@ namespace MadXchange.Connector
                 app.UseDeveloperExceptionPage();
             }
             // app.ApplicationServices.GetRequiredService<IInstaller>().InstallService(services, Configuration);
-            //app.UseInitializers();           
+            //app.UseInitializers();  
+            
             app.UseHealthAllEndpoints();
             app.UseConvey().UseMetricsActiveRequestMiddleware().UseWebSockets();                                   
         }

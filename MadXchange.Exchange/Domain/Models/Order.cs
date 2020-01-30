@@ -62,7 +62,7 @@ namespace MadXchange.Exchange.Domain.Models
         ReduceOnly,
         Fixed
     }
-    public interface IOrder : IIdentifiable<long>
+    public interface IOrder : IIdentifiable<Guid>
     {
         
         public string OrderId { get; set; }
@@ -101,10 +101,10 @@ namespace MadXchange.Exchange.Domain.Models
     }
 
    
-    public class Order : IOrder, IIdentifiable<long>
+    public class Order : IOrder, IIdentifiable<Guid>
     {
    
-        public long Id { get; }
+        public Guid Id { get; }
         public string OrderId { get; set; }
         public string ClOrdId { get; set; }
         public string ClOrdLinkId { get; set; }

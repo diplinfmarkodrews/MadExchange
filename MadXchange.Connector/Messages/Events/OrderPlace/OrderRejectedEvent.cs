@@ -1,6 +1,7 @@
 ﻿using MadXchange.Common.Messages;
 using MadXchange.Connector.Messages.Commands;
 using MadXchange.Exchange.Domain.Models;
+using MadXchange.Exchange.Dto;
 using System;
 
 namespace MadXchange.Connector.Messages.Events
@@ -9,10 +10,10 @@ namespace MadXchange.Connector.Messages.Events
     {
         public DateTime TimeStamp { get; } = DateTime.UtcNow;
         public ICommand Command { get; }
-        public IOrder Order { get; }
+        public OrderDto Order { get; }
         public Guid Id { get; } = Guid.NewGuid();
 
-        public OrderRejectedEvent(CreateOrder command, IOrder order)
+        public OrderRejectedEvent(CreateOrder command, OrderDto order)
         {
             Command = command;
             Order = order;

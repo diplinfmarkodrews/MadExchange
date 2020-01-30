@@ -1,11 +1,11 @@
-﻿using MadXchange.Common.Types;
-using MadXchange.Connector.Services;
-using MadXchange.Exchange.Configuration;
-using Microsoft.AspNetCore.Http;
+﻿using MadXchange.Exchange.Configuration;
+using MadXchange.Exchange.Domain.Models;
+using MadXchange.Exchange.Interfaces;
+using MadXchange.Exchange.Services;
+using MadXchange.Exchange.Services.HttpRequests;
+using MadXchange.Exchange.Services.RequestExecution;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using ServiceStack.IO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,7 +48,13 @@ namespace MadXchange.Exchange.Installers
             //logger.LogDebug("registering exchange dictionary", exchangeDictionary);
             services.AddSingleton(exchangeDictionary);
             services.AddTransient<IExchangeDescriptorService, ExchangeDescriptorService>();
-            
+            services.AddTransient<IRequestAccessService, RequestAccessService>();
+            services.AddTransient<IRestRequestExecutionService, RestRequestExecutionService>();
+            services.AddTransient<IRestRequestService, RestRequestService>();
+            services.AddTransient<IInstrumentRequestService, InstrumentRequestService>();
+            services.AddTransient<IOrderRequestService, OrderRequestService>();
+            services.AddTransient<IPositionRequestService, PositionRequestService>();
+            services.AddTransient<IMarginRequestService, MarginRequestService>();
             
         }
 
@@ -56,7 +62,7 @@ namespace MadXchange.Exchange.Installers
         {
             var routes = route;            
             var iSection = routes.GetSection("Instrument");
-            descriptor.RouteGetInstrument = ReadEndPoint<Domain.Models.IInstrument>(iSection);            
+            descriptor.RouteGetInstrument = ReadEndPoint<Instrument>(iSection);            
         }
 
         private static Types.EndPoint<T> ReadEndPoint<T>(IConfigurationSection cSection)
@@ -71,13 +77,12 @@ namespace MadXchange.Exchange.Installers
                 for (int i = 0; i < parameterCount; i++)
                 {
                     endP.Parameter[i] = new Types.Parameter();
-
                     endP.Parameter[i].IsRequired = bool.Parse(parameters.ElementAt(i).GetSection("required").Value);
                     var name = parameters.ElementAt(i).Key;
                     var domainName = parameters.ElementAt(i).GetValue<string>("domain");
                     if (!string.IsNullOrEmpty(domainName))
                     {
-                        endP.Parameter[i].Param = new RestSharp.NameValuePair(domainName, name);
+                        endP.Parameter[i].Param = new RestSharp.NameValuePair(name, domainName);
                     }
                     else
                     {

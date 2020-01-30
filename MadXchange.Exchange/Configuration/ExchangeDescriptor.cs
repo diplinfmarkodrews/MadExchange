@@ -24,7 +24,7 @@ namespace MadXchange.Exchange.Configuration
         public EndPoint<decimal> RouteGetLeverage { get; set; }
         public EndPoint<IPosition> RouteGetPosition { get; set; }
         public EndPoint<IOrder> RouteGetOrder { get; set; }
-        public EndPoint<IInstrument> RouteGetInstrument { get; set; }
+        public EndPoint<Instrument> RouteGetInstrument { get; set; }
         
 
         //public EndPoint<IOrderBook> RouteGetOrderBook { get; set; }

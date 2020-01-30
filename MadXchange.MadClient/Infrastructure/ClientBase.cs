@@ -205,38 +205,38 @@ namespace MadXchange.MadClient.Infrastructure
 
        
 
-        public async Task<IOrder> CreateOrder(IOrderPostRequest request, System.Threading.CancellationToken token)
-        {
-            return await _clientRestExec.CreateOrder(request);
-        }
-
-        public async Task<IOrder> ChangeOrder(IOrderPutRequest request)
-        {
-            return await _clientRestExec.ChangeOrder(request);
-        }
-
-        //public async Task<IEnumerable<IOrder>> ChangeOrders(IEnumerable<IOrderPutRequest> requests)
+        //public async Task<IOrder> CreateOrder(IOrderPostRequest request, System.Threading.CancellationToken token)
         //{
-        //    return await _clientRestExec.ChangeOrders(requests);
+        //    return await _clientRestExec.CreateOrder(request);
         //}
 
-        protected async Task<IPosition> SendPositionLeverage(string symbol, decimal leverage)
-        {
+        //public async Task<IOrder> ChangeOrder(IOrderPutRequest request)
+        //{
+        //    return await _clientRestExec.ChangeOrder(request);
+        //}
+
+        ////public async Task<IEnumerable<IOrder>> ChangeOrders(IEnumerable<IOrderPutRequest> requests)
+        ////{
+        ////    return await _clientRestExec.ChangeOrders(requests);
+        ////}
+
+        //protected async Task<IPosition> SendPositionLeverage(string symbol, decimal leverage)
+        //{
             
-            return await _clientRestExec.PositionLeverage(_accountId, symbol, leverage);
-        }
-
-        public async Task<IOrder> ClosePosition(string symbol, decimal? price, int amount)
-        {
-            return await _clientRestExec.ClosePosition(_accountId, symbol, price, amount);
-        }
-
-        //public async Task<IOrder> ClosePosition(string symbol, OrderSide side)
-        //{
-        //    return await _clientRestExec.ClosePosition(symbol, side);
+        //    return await _clientRestExec.PositionLeverage(_accountId, symbol, leverage);
         //}
 
-        public abstract Task<IOrder> CreateOrder(IOrderPostRequest request);
+        //public async Task<IOrder> ClosePosition(string symbol, decimal? price, int amount)
+        //{
+        //    return await _clientRestExec.ClosePosition(_accountId, symbol, price, amount);
+        //}
+
+        ////public async Task<IOrder> ClosePosition(string symbol, OrderSide side)
+        ////{
+        ////    return await _clientRestExec.ClosePosition(symbol, side);
+        ////}
+
+        //public abstract Task<IOrder> CreateOrder(IOrderPostRequest request);
         public abstract Task<IOrder> CancelOrder(string symbol, string orderID);
 
 

@@ -2,8 +2,9 @@
 
 namespace MadXchange.Exchange.Queries
 {
-    public class OpenOrderQuery<T> : IQuery<T>
+    public class OpenOrderQuery<IOrder> : IQuery<IOrder>
     {
 
+        public IOrder Data;
     }
 }
