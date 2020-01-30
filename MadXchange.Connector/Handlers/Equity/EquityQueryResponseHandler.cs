@@ -1,5 +1,5 @@
-﻿using Convey.MessageBrokers;
-using MadXchange.Common.Handlers;
+﻿using Convey.CQRS.Events;
+using Convey.MessageBrokers;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 

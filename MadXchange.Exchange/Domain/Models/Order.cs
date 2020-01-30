@@ -126,9 +126,7 @@ namespace MadXchange.Exchange.Domain.Models
         public TimeInForce? TimeInForce { get; set; }
        
 
-        public Order(
-
-            )
+        public Order()
         {
 
 

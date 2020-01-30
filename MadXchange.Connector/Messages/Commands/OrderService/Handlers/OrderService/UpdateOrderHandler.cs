@@ -1,4 +1,4 @@
-﻿using MadXchange.Common.Handlers;
+﻿using Convey.CQRS.Commands;
 using MadXchange.Common.Types;
 using MadXchange.Connector.Interfaces;
 using MadXchange.Connector.Messages.Commands;

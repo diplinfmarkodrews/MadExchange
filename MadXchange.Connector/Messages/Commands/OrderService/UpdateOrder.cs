@@ -1,4 +1,4 @@
-﻿using MadXchange.Common.Messages;
+﻿using Convey.CQRS.Commands;
 using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Dto;
 using MadXchange.Exchange.Interfaces;

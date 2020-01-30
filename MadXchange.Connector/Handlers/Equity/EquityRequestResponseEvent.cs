@@ -1,4 +1,4 @@
-﻿using MadXchange.Common.Messages;
+﻿using Convey.CQRS.Events;
 using System;
 
 namespace MadXchange.Exchange.Handlers.Equity

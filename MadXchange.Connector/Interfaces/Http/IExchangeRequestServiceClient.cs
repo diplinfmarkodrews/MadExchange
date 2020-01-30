@@ -5,12 +5,17 @@ using System.Threading.Tasks;
 
 namespace MadXchange.Connector.Interfaces
 {
+    /// <summary>
+    /// Executes orders on command input.
+    /// can implement price adaption, but how to implement cancellation?
+    /// </summary>
     public interface IExchangeRequestServiceClient
     {
 
-        public Task<OrderDto> PlaceOrderAsync(CreateOrder order);
-        public Task<OrderDto> CancelOrderAsync(CancelOrder order);
-        public Task<OrderDto> UpdateOrderAsync(UpdateOrder order);
+        public Task<Order> PlaceOrderAsync(CreateOrder order);
+        public Task<Order> CancelOrderAsync(CancelOrder order);
+        public Task<Order> UpdateOrderAsync(UpdateOrder order);
         public Task<LeverageDto> SetLeverage(SetLeverage leverage); 
+        
     }
 }

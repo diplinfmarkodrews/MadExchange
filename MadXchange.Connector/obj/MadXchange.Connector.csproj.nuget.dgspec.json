@@ -140,6 +140,18 @@
               "target": "Package",
               "version": "[0.4.226, )"
             },
+            "Convey.CQRS.Commands": {
+              "target": "Package",
+              "version": "[0.4.226, )"
+            },
+            "Convey.CQRS.Events": {
+              "target": "Package",
+              "version": "[0.4.226, )"
+            },
+            "Convey.CQRS.Queries": {
+              "target": "Package",
+              "version": "[0.4.226, )"
+            },
             "Convey.Configurations.Vault": {
               "target": "Package",
               "version": "[0.4.226, )"
@@ -149,6 +161,10 @@
               "version": "[0.4.226, )"
             },
             "Convey.MessageBrokers": {
+              "target": "Package",
+              "version": "[0.4.226, )"
+            },
+            "Convey.MessageBrokers.CQRS": {
               "target": "Package",
               "version": "[0.4.226, )"
             },

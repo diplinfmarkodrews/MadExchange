@@ -1,4 +1,5 @@
 ﻿using MadXchange.Exchange.Domain.Models;
+using MadXchange.Exchange.Dto;
 using MadXchange.Exchange.Interfaces;
 using Microsoft.Extensions.Logging;
 using System;

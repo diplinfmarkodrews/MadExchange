@@ -32,24 +32,26 @@ namespace MadXchange.Connector.Services
             _logger = logger;
         }
 
-        public async Task<OrderDto> CancelOrderAsync(CancelOrder order)
+        public async Task<Order> CancelOrderAsync(CancelOrder order)
         {
             throw new NotImplementedException();
         }
 
-        public Task<OrderDto> PlaceOrderAsync(CreateOrder order)
+        public async Task<Order> PlaceOrderAsync(CreateOrder order)
         {
             throw new NotImplementedException();
         }
 
-        public Task<LeverageDto> SetLeverage(SetLeverage leverage)
+        public async Task<Order> UpdateOrderAsync(UpdateOrder order)
         {
             throw new NotImplementedException();
         }
 
-        public Task<OrderDto> UpdateOrderAsync(UpdateOrder order)
+        public async Task<LeverageDto> SetLeverage(SetLeverage leverage)
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

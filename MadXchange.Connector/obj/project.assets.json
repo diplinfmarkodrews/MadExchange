@@ -534,6 +534,30 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "Convey.CQRS.Commands/0.4.226": {
+        "type": "package",
+        "dependencies": {
+          "Convey": "0.4.226"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Convey.CQRS.Commands.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Convey.CQRS.Commands.dll": {}
+        }
+      },
+      "Convey.CQRS.Events/0.4.226": {
+        "type": "package",
+        "dependencies": {
+          "Convey": "0.4.226"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Convey.CQRS.Events.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Convey.CQRS.Events.dll": {}
+        }
+      },
       "Convey.CQRS.Queries/0.4.226": {
         "type": "package",
         "dependencies": {
@@ -571,6 +595,20 @@
         },
         "runtime": {
           "lib/netcoreapp3.1/Convey.MessageBrokers.dll": {}
+        }
+      },
+      "Convey.MessageBrokers.CQRS/0.4.226": {
+        "type": "package",
+        "dependencies": {
+          "Convey.CQRS.Commands": "0.4.226",
+          "Convey.CQRS.Events": "0.4.226",
+          "Convey.MessageBrokers": "0.4.226"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Convey.MessageBrokers.CQRS.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Convey.MessageBrokers.CQRS.dll": {}
         }
       },
       "Convey.Metrics.AppMetrics/0.4.226": {
@@ -5407,6 +5445,30 @@
         "lib/netcoreapp3.1/Convey.Configurations.Vault.dll"
       ]
     },
+    "Convey.CQRS.Commands/0.4.226": {
+      "sha512": "rpcbNM4CF4KlGEpRFF6GbB3eiKjFkT1iVBfba1puwpgQ+VDNhZtg8Mv9sR3plXnBg0qzy3c2nTMc54MLj6ZHng==",
+      "type": "package",
+      "path": "convey.cqrs.commands/0.4.226",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "convey.cqrs.commands.0.4.226.nupkg.sha512",
+        "convey.cqrs.commands.nuspec",
+        "lib/netcoreapp3.1/Convey.CQRS.Commands.dll"
+      ]
+    },
+    "Convey.CQRS.Events/0.4.226": {
+      "sha512": "XkDDfo8ilrFTbvwpuUiErAPDSAejynyGc3MWjhdvIRfChUg1cTHRXikccZK9SQRo1VwhQ3OtthJSDPktH1pxrg==",
+      "type": "package",
+      "path": "convey.cqrs.events/0.4.226",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "convey.cqrs.events.0.4.226.nupkg.sha512",
+        "convey.cqrs.events.nuspec",
+        "lib/netcoreapp3.1/Convey.CQRS.Events.dll"
+      ]
+    },
     "Convey.CQRS.Queries/0.4.226": {
       "sha512": "pueCrZHo2auO7Rc/aViabs5qStcPBExAnB6F1EWKNGNSjwnrxZ6a+iUWtCvmWz/9ZjVl83tm7VhswclaB1vqag==",
       "type": "package",
@@ -5441,6 +5503,18 @@
         "convey.messagebrokers.0.4.226.nupkg.sha512",
         "convey.messagebrokers.nuspec",
         "lib/netcoreapp3.1/Convey.MessageBrokers.dll"
+      ]
+    },
+    "Convey.MessageBrokers.CQRS/0.4.226": {
+      "sha512": "ROE4HFydTETntBuguniueAchhAF6CcazKQWyVn7ZCVICNrZ96zw5Y4Vebl171Rq1eq6Iw2GMpzYJOtdaGiPqpg==",
+      "type": "package",
+      "path": "convey.messagebrokers.cqrs/0.4.226",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "convey.messagebrokers.cqrs.0.4.226.nupkg.sha512",
+        "convey.messagebrokers.cqrs.nuspec",
+        "lib/netcoreapp3.1/Convey.MessageBrokers.CQRS.dll"
       ]
     },
     "Convey.Metrics.AppMetrics/0.4.226": {
@@ -13469,9 +13543,13 @@
     ".NETCoreApp,Version=v3.1": [
       "Autofac >= 4.9.4",
       "Convey >= 0.4.226",
+      "Convey.CQRS.Commands >= 0.4.226",
+      "Convey.CQRS.Events >= 0.4.226",
+      "Convey.CQRS.Queries >= 0.4.226",
       "Convey.Configurations.Vault >= 0.4.226",
       "Convey.HTTP >= 0.4.226",
       "Convey.MessageBrokers >= 0.4.226",
+      "Convey.MessageBrokers.CQRS >= 0.4.226",
       "Convey.Metrics.AppMetrics >= 0.4.226",
       "Convey.Persistence.Redis >= 0.4.226",
       "Grpc.AspNetCore >= 2.26.0",
@@ -13555,6 +13633,18 @@
             "target": "Package",
             "version": "[0.4.226, )"
           },
+          "Convey.CQRS.Commands": {
+            "target": "Package",
+            "version": "[0.4.226, )"
+          },
+          "Convey.CQRS.Events": {
+            "target": "Package",
+            "version": "[0.4.226, )"
+          },
+          "Convey.CQRS.Queries": {
+            "target": "Package",
+            "version": "[0.4.226, )"
+          },
           "Convey.Configurations.Vault": {
             "target": "Package",
             "version": "[0.4.226, )"
@@ -13564,6 +13654,10 @@
             "version": "[0.4.226, )"
           },
           "Convey.MessageBrokers": {
+            "target": "Package",
+            "version": "[0.4.226, )"
+          },
+          "Convey.MessageBrokers.CQRS": {
             "target": "Package",
             "version": "[0.4.226, )"
           },

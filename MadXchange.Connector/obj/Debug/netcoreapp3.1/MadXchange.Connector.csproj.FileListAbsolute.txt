@@ -160,6 +160,9 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\De
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Http.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Http.Polly.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\StackExchange.Redis.Extensions.Core.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\provideraccounts.json
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Convey.CQRS.Commands.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Convey.CQRS.Events.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Convey.MessageBrokers.CQRS.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\obj\Debug\netcoreapp3.1\MadXchange.Connector.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\obj\Debug\netcoreapp3.1\MadXchange.Connector.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\provideraccounts.json

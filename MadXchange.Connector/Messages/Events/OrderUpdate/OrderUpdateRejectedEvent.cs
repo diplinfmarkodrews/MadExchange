@@ -1,4 +1,5 @@
-﻿using MadXchange.Common.Messages;
+﻿using Convey.CQRS.Commands;
+using Convey.CQRS.Events;
 using MadXchange.Connector.Messages.Commands;
 using MadXchange.Exchange.Domain.Models;
 using System;
@@ -12,6 +13,8 @@ namespace MadXchange.Connector.Messages.Events
         public ICommand Command { get; }
         public IOrder Order { get; }
         public Guid Id { get; } = Guid.NewGuid();
+        public string Reason { get; }
+        public string Code { get; }
 
         public OrderUpdateRejectedEvent(UpdateOrder command, IOrder order)
         {

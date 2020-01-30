@@ -20,6 +20,12 @@ using MadXchange.Exchange.Installers;
 using MadXchange.Connector.Services;
 using Vault;
 using Convey.Persistence.MongoDB;
+using Convey.CQRS;
+using Convey.CQRS.Events;
+using Convey.CQRS.Commands;
+using Convey.CQRS.Queries;
+using MadXchange.Exchange.Infrastructure.Repositories;
+using MadXchange.Exchange.Domain.Models;
 
 namespace MadXchange.Connector
 {
@@ -42,12 +48,11 @@ namespace MadXchange.Connector
          
             Configuration = builder.Build();
             
-            services.AddConvey("connector");
             
-            services.InstallExchangeDescriptorDictionary(Configuration);
             
+            services.InstallExchangeDescriptorDictionary(Configuration);            
             services.InstallCacheServices(Configuration);
-
+            
             services.AddPolicyRegistry();
             //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHttpClient();
@@ -58,6 +63,16 @@ namespace MadXchange.Connector
             //services.AddVault();
             services.AddLogging(logBuilder => logBuilder.AddSerilog().SetMinimumLevel(LogLevel.Debug).AddConsole());
 
+
+
+            services.AddConvey("connector").AddEventHandlers()
+                                           .AddInMemoryEventDispatcher()
+                                           .AddCommandHandlers()
+                                           .AddInMemoryCommandDispatcher()
+                                           .AddQueryHandlers()
+                                           .AddInMemoryQueryDispatcher()
+                                           .AddMongoRepository<Order, Guid>("order");
+                                           
         }
 
         // This method gets called by the runtime. 

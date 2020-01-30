@@ -1,9 +1,11 @@
-﻿using Convey.MessageBrokers;
-using MadXchange.Common.Handlers;
+﻿using Convey.CQRS.Commands;
+using Convey.MessageBrokers;
+
 using MadXchange.Common.Types;
 using MadXchange.Connector.Interfaces;
 using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Interfaces;
+using MadXchange.Exchange.Interfaces.Cache;
 using Microsoft.Extensions.Logging;
 using OpenTracing;
 using System.Threading.Tasks;
@@ -18,41 +20,42 @@ namespace MadXchange.Connector.Messages.Commands.Handlers
         /// Cache must be used to obtain price, repo to store orders
         /// </summary>
              
-        private readonly IInstrumentCache _cachedInstrument;
+        private readonly IOrderCache _orderCache;
         private readonly ILogger _logger;
         private readonly ITracer _tracer;
         private readonly IExchangeRequestServiceClient _orderClient;
         private readonly IBusPublisher _busPublisher;
+        
 
         //private readonly IBusPublisher _busPublisher;
-        public CreateOrderHandler(IBusPublisher busPublisher, IInstrumentCache cachedInstrument, IExchangeRequestServiceClient orderClient, ITracer tracer, ILogger<CreateOrderHandler> logger) 
+        public CreateOrderHandler(IBusPublisher busPublisher, IOrderCache orderCache, IExchangeRequestServiceClient orderClient, ITracer tracer, ILogger<CreateOrderHandler> logger) 
         {
             
             _logger = logger;
             _tracer = tracer;
-            _cachedInstrument = cachedInstrument;
+            _orderCache = orderCache;
             _orderClient = orderClient;
             _busPublisher = busPublisher;
         }
 
         public async Task HandleAsync(CreateOrder command) 
         {
-            var span = _tracer.BuildSpan("CreateOrder").Start();
+           
             //var instrument = await _cachedInstrument.GetInstrumentAsync(command.Exchange, command.Symbol);
             //command.Price = command.Side == OrderSide.Buy ? instrument.AskPrice : instrument.BidPrice;
             var order = await _orderClient.PlaceOrderAsync(command);
-            if (order.OrdStatus == OrderStatus.NEW || order.OrdStatus == OrderStatus.PENDINGNEW || order.OrdStatus == OrderStatus.PARTIALLYFILLED)
+            var spanContext = _tracer.ActiveSpan.Context.ToString();
+            if(order is null || order.IsOrderAborted())
             {
-                var orderPlacedEvent = new Events.OrderPlacedEvent(command, order);     
-                //Todo Raise events
+                var @orderRejectedEvent = new Events.OrderRejectedEvent(command, order);
+                await _busPublisher.PublishAsync(@orderRejectedEvent, spanContext: spanContext);
             }
             else 
             {
-                if (order.OrdStatus == OrderStatus.REJECTED) 
-                {
-                    var orderRejectedEvent = new Events.OrderRejectedEvent(command, order);
-                }
+                var @orderPlacedEvent = new Events.OrderPlacedEvent(command, order);
+                await _busPublisher.PublishAsync(@orderPlacedEvent, spanContext: spanContext);
             }
+            
             
         }
 

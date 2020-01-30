@@ -10,8 +10,12 @@
     <PackageReference Include="Autofac" Version="4.9.4" />
     <PackageReference Include="Convey" Version="0.4.226" />
     <PackageReference Include="Convey.Configurations.Vault" Version="0.4.226" />
+    <PackageReference Include="Convey.CQRS.Commands" Version="0.4.226" />
+    <PackageReference Include="Convey.CQRS.Events" Version="0.4.226" />
+    <PackageReference Include="Convey.CQRS.Queries" Version="0.4.226" />
     <PackageReference Include="Convey.HTTP" Version="0.4.226" />
     <PackageReference Include="Convey.MessageBrokers" Version="0.4.226" />
+    <PackageReference Include="Convey.MessageBrokers.CQRS" Version="0.4.226" />
     <PackageReference Include="Convey.Metrics.AppMetrics" Version="0.4.226" />
     <PackageReference Include="Convey.Persistence.Redis" Version="0.4.226" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.26.0" />
