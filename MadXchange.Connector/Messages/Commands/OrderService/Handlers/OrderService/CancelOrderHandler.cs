@@ -14,8 +14,8 @@ namespace MadXchange.Connector.Messages.Commands.Handlers
        
         private readonly ILogger _logger;
         private readonly ITracer _tracer;
-        private readonly IExchangeRequestServiceClient _orderClient;
-        public CancelOrderHandler(IExchangeRequestServiceClient orderClient, ITracer tracer, ILogger<CancelOrderHandler> log) 
+        private readonly IExchangeRequestService _orderClient;
+        public CancelOrderHandler(IExchangeRequestService orderClient, ITracer tracer, ILogger<CancelOrderHandler> log) 
         {
             _tracer = tracer;
             _orderClient = orderClient;

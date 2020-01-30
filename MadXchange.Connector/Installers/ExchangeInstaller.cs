@@ -1,5 +1,8 @@
-﻿using MadXchange.Exchange.Configuration;
+﻿using MadXchange.Connector.Interfaces;
+using MadXchange.Connector.Services;
+using MadXchange.Exchange.Configuration;
 using MadXchange.Exchange.Domain.Models;
+using MadXchange.Exchange.Infrastructure.Repositories;
 using MadXchange.Exchange.Interfaces;
 using MadXchange.Exchange.Services;
 using MadXchange.Exchange.Services.HttpRequests;
@@ -19,11 +22,11 @@ namespace MadXchange.Exchange.Installers
     public static class ExchangeInstaller 
     {
         
-        public static void InstallExchangeDescriptorDictionary(this IServiceCollection services, IConfiguration config)
+        public static IServiceCollection InstallExchangeAccessServices(this IServiceCollection services, IConfiguration config)
         {
                       
             var descriptors = config.GetSection("ExchangeDescriptors").GetChildren();
-            if (descriptors.Count() == 0) return;
+            if (descriptors.Count() == 0) return services; 
             Dictionary<Domain.Models.Exchanges, ExchangeDescriptor> exchangeDictionary = new Dictionary<Domain.Models.Exchanges, ExchangeDescriptor>();
             foreach (var exchange in descriptors) 
             {
@@ -47,15 +50,19 @@ namespace MadXchange.Exchange.Installers
             }
             //logger.LogDebug("registering exchange dictionary", exchangeDictionary);
             services.AddSingleton(exchangeDictionary);
-            services.AddTransient<IExchangeDescriptorService, ExchangeDescriptorService>();
-            services.AddTransient<IRequestAccessService, RequestAccessService>();
-            services.AddTransient<IRestRequestExecutionService, RestRequestExecutionService>();
-            services.AddTransient<IRestRequestService, RestRequestService>();
-            services.AddTransient<IInstrumentRequestService, InstrumentRequestService>();
-            services.AddTransient<IOrderRequestService, OrderRequestService>();
-            services.AddTransient<IPositionRequestService, PositionRequestService>();
-            services.AddTransient<IMarginRequestService, MarginRequestService>();
-            
+            services.AddSingleton<IExchangeDescriptorService, ExchangeDescriptorService>();
+            services.AddSingleton<IApiKeySetRepository, ApiKeySetRepository>();
+            services.AddSingleton<IRequestAccessService, RequestAccessService>();
+            services.AddSingleton<ISignRequests, SignRequestService>();
+
+            services.AddSingleton<IRestRequestExecutionService, RestRequestExecutionService>();
+            services.AddSingleton<IRestRequestService, RestRequestService>();
+            services.AddSingleton<IInstrumentRequestService, InstrumentRequestService>();
+            services.AddSingleton<IOrderRequestService, OrderRequestService>();
+            services.AddSingleton<IPositionRequestService, PositionRequestService>();
+            services.AddSingleton<IMarginRequestService, MarginRequestService>();
+            services.AddSingleton<IExchangeRequestService, ExecutionRequestService>();
+            return services;
         }
 
         private static void readRoutes(ref ExchangeDescriptor descriptor, IConfigurationSection route)

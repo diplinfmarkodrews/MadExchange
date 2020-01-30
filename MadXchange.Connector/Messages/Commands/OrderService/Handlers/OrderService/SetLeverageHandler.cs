@@ -9,9 +9,9 @@ namespace MadXchange.Exchange.Messages.Commands.Handlers
 {
     public class SetLeverageHandler : ICommandHandler<SetLeverage>
     {
-        private readonly IExchangeRequestServiceClient _orderServiceClient;
+        private readonly IExchangeRequestService _orderServiceClient;
         private readonly ILogger _logger;
-        public SetLeverageHandler(IExchangeRequestServiceClient orderServiceClient, ILogger<SetLeverageHandler> logger) 
+        public SetLeverageHandler(IExchangeRequestService orderServiceClient, ILogger<SetLeverageHandler> logger) 
         {
             _orderServiceClient = orderServiceClient;
             _logger = logger;

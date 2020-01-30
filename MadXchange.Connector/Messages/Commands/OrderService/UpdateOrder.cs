@@ -6,6 +6,7 @@ using System;
 
 namespace MadXchange.Connector.Messages.Commands
 {
+    
     public class UpdateOrder : ICommand
     {
         public Guid Id { get; }

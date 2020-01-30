@@ -9,7 +9,7 @@ namespace MadXchange.Connector.Interfaces
     /// Executes orders on command input.
     /// can implement price adaption, but how to implement cancellation?
     /// </summary>
-    public interface IExchangeRequestServiceClient
+    public interface IExchangeRequestService
     {
 
         public Task<Order> PlaceOrderAsync(CreateOrder order);

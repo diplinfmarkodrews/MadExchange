@@ -5,7 +5,11 @@ using System.Threading.Tasks;
 
 namespace MadXchange.Connector.Services
 {
-    public class SocketConnectionService
+    public interface ISocketConnectionService 
+    {
+    
+    }
+    public class SocketConnectionService : ISocketConnectionService
     {
     }
 }

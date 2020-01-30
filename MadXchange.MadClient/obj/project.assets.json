@@ -2,6 +2,28 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "CacheManager.Core/1.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/CacheManager.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CacheManager.Core.dll": {}
+        }
+      },
+      "CacheManager.StackExchange.Redis/1.2.0": {
+        "type": "package",
+        "dependencies": {
+          "CacheManager.Core": "1.2.0",
+          "StackExchange.Redis": "2.0.513"
+        },
+        "compile": {
+          "lib/netstandard2.0/CacheManager.StackExchange.Redis.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CacheManager.StackExchange.Redis.dll": {}
+        }
+      },
       "Convey/0.4.226": {
         "type": "package",
         "dependencies": {
@@ -3166,6 +3188,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "CacheManager.StackExchange.Redis": "1.2.0",
           "Convey.HTTP": "0.4.226",
           "MadXchange.Common": "1.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "3.1.1",
@@ -3192,6 +3215,40 @@
     }
   },
   "libraries": {
+    "CacheManager.Core/1.2.0": {
+      "sha512": "tmgwGDJlPNdSTb94Bx/0D3fDlkP+HIa80d1nCrXs+NjTgZR8JaQcslH+PHP2ebxPkM4CnijQVEMD+Dk8CvR41w==",
+      "type": "package",
+      "path": "cachemanager.core/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cachemanager.core.1.2.0.nupkg.sha512",
+        "cachemanager.core.nuspec",
+        "lib/net40/CacheManager.Core.dll",
+        "lib/net40/CacheManager.Core.xml",
+        "lib/net45/CacheManager.Core.dll",
+        "lib/net45/CacheManager.Core.xml",
+        "lib/netstandard1.2/CacheManager.Core.dll",
+        "lib/netstandard1.2/CacheManager.Core.xml",
+        "lib/netstandard2.0/CacheManager.Core.dll",
+        "lib/netstandard2.0/CacheManager.Core.xml"
+      ]
+    },
+    "CacheManager.StackExchange.Redis/1.2.0": {
+      "sha512": "xU5g5Lt6d14yqgqHQUcxlIyXmXDCMewhmg0Bl5Atms1cRHcPRwRzzjOU90eNWxHjn4BM4wjWhV3GrsnlBhBZNw==",
+      "type": "package",
+      "path": "cachemanager.stackexchange.redis/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cachemanager.stackexchange.redis.1.2.0.nupkg.sha512",
+        "cachemanager.stackexchange.redis.nuspec",
+        "lib/net461/CacheManager.StackExchange.Redis.dll",
+        "lib/net461/CacheManager.StackExchange.Redis.xml",
+        "lib/netstandard2.0/CacheManager.StackExchange.Redis.dll",
+        "lib/netstandard2.0/CacheManager.StackExchange.Redis.xml"
+      ]
+    },
     "Convey/0.4.226": {
       "sha512": "aGsqkbN8dMdpJkpYVqVj+t21N6ijEMTIm8cqcb61BcHoEyzc3nFAEfbPwtKWDTwE3GbNM+mDe0PwHor+E1G6dg==",
       "type": "package",

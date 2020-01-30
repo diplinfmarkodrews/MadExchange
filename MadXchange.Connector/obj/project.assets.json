@@ -493,6 +493,19 @@
           "lib/netstandard2.0/App.Metrics.Reporting.InfluxDB.dll": {}
         }
       },
+      "AspNetCore.HealthChecks.Redis/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "3.0.0",
+          "StackExchange.Redis": "2.0.601"
+        },
+        "compile": {
+          "lib/netstandard2.0/HealthChecks.Redis.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/HealthChecks.Redis.dll": {}
+        }
+      },
       "Autofac/4.9.4": {
         "type": "package",
         "compile": {
@@ -500,6 +513,28 @@
         },
         "runtime": {
           "lib/netstandard2.0/Autofac.dll": {}
+        }
+      },
+      "CacheManager.Core/1.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/CacheManager.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CacheManager.Core.dll": {}
+        }
+      },
+      "CacheManager.StackExchange.Redis/1.2.0": {
+        "type": "package",
+        "dependencies": {
+          "CacheManager.Core": "1.2.0",
+          "StackExchange.Redis": "2.0.513"
+        },
+        "compile": {
+          "lib/netstandard2.0/CacheManager.StackExchange.Redis.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CacheManager.StackExchange.Redis.dll": {}
         }
       },
       "Convey/0.4.226": {
@@ -610,6 +645,26 @@
         "runtime": {
           "lib/netcoreapp3.1/Convey.MessageBrokers.CQRS.dll": {}
         }
+      },
+      "Convey.MessageBrokers.RabbitMQ/0.4.226": {
+        "type": "package",
+        "dependencies": {
+          "Convey": "0.4.226",
+          "Convey.MessageBrokers": "0.4.226",
+          "Microsoft.Extensions.Caching.Memory": "3.1.0",
+          "Microsoft.Extensions.Logging": "3.1.0",
+          "Polly": "7.2.0",
+          "RabbitMQ.Client": "5.1.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Convey.MessageBrokers.RabbitMQ.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Convey.MessageBrokers.RabbitMQ.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Convey.Metrics.AppMetrics/0.4.226": {
         "type": "package",
@@ -1807,16 +1862,39 @@
           "lib/netstandard1.6/Microsoft.Extensions.DependencyModel.dll": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Abstractions/2.2.0": {
+      "Microsoft.Extensions.Diagnostics.HealthChecks/3.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "2.2.0"
+          "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "3.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "3.0.0",
+          "Microsoft.Extensions.Options": "3.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
+          "lib/netcoreapp3.0/Microsoft.Extensions.Diagnostics.HealthChecks.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
+          "lib/netcoreapp3.0/Microsoft.Extensions.Diagnostics.HealthChecks.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Abstractions/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "3.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
         }
       },
       "Microsoft.Extensions.FileProviders.Composite/2.1.0": {
@@ -1853,19 +1931,19 @@
           "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {}
         }
       },
-      "Microsoft.Extensions.Hosting.Abstractions/2.2.0": {
+      "Microsoft.Extensions.Hosting.Abstractions/3.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "2.2.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.2.0",
-          "Microsoft.Extensions.FileProviders.Abstractions": "2.2.0",
-          "Microsoft.Extensions.Logging.Abstractions": "2.2.0"
+          "Microsoft.Extensions.Configuration.Abstractions": "3.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "3.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "3.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Hosting.Abstractions.dll": {}
+          "lib/netcoreapp3.0/Microsoft.Extensions.Hosting.Abstractions.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Hosting.Abstractions.dll": {}
+          "lib/netcoreapp3.0/Microsoft.Extensions.Hosting.Abstractions.dll": {}
         }
       },
       "Microsoft.Extensions.Http/3.1.1": {
@@ -2308,6 +2386,15 @@
         },
         "runtime": {
           "lib/netcoreapp2.1/protobuf-net.dll": {}
+        }
+      },
+      "RabbitMQ.Client/5.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {}
         }
       },
       "RestSharp/106.10.1": {
@@ -4880,6 +4967,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "CacheManager.StackExchange.Redis": "1.2.0",
           "Convey.HTTP": "0.4.226",
           "MadXchange.Common": "1.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "3.1.1",
@@ -5401,6 +5489,18 @@
         "lib/netstandard2.0/App.Metrics.Reporting.InfluxDB.xml"
       ]
     },
+    "AspNetCore.HealthChecks.Redis/3.0.0": {
+      "sha512": "zznf36BDy2Jk5g10R//IKZrbmPJ7FM4enl8eno4cdFxMbPDkr7h32wPW51AiAPtozBdCbPj8PpP6nWyOdau95Q==",
+      "type": "package",
+      "path": "aspnetcore.healthchecks.redis/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "aspnetcore.healthchecks.redis.3.0.0.nupkg.sha512",
+        "aspnetcore.healthchecks.redis.nuspec",
+        "lib/netstandard2.0/HealthChecks.Redis.dll"
+      ]
+    },
     "Autofac/4.9.4": {
       "sha512": "dYiDG4yoV7GDCoOc66d1sqMmg2gwDyomHKgATuMfhFzYxVpWEltToHVHXI3I9vOEvIXE55S4OZPY0ldiZmZtpA==",
       "type": "package",
@@ -5419,6 +5519,40 @@
         "lib/netstandard2.0/Autofac.dll",
         "lib/netstandard2.0/Autofac.pdb",
         "lib/netstandard2.0/Autofac.xml"
+      ]
+    },
+    "CacheManager.Core/1.2.0": {
+      "sha512": "tmgwGDJlPNdSTb94Bx/0D3fDlkP+HIa80d1nCrXs+NjTgZR8JaQcslH+PHP2ebxPkM4CnijQVEMD+Dk8CvR41w==",
+      "type": "package",
+      "path": "cachemanager.core/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cachemanager.core.1.2.0.nupkg.sha512",
+        "cachemanager.core.nuspec",
+        "lib/net40/CacheManager.Core.dll",
+        "lib/net40/CacheManager.Core.xml",
+        "lib/net45/CacheManager.Core.dll",
+        "lib/net45/CacheManager.Core.xml",
+        "lib/netstandard1.2/CacheManager.Core.dll",
+        "lib/netstandard1.2/CacheManager.Core.xml",
+        "lib/netstandard2.0/CacheManager.Core.dll",
+        "lib/netstandard2.0/CacheManager.Core.xml"
+      ]
+    },
+    "CacheManager.StackExchange.Redis/1.2.0": {
+      "sha512": "xU5g5Lt6d14yqgqHQUcxlIyXmXDCMewhmg0Bl5Atms1cRHcPRwRzzjOU90eNWxHjn4BM4wjWhV3GrsnlBhBZNw==",
+      "type": "package",
+      "path": "cachemanager.stackexchange.redis/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cachemanager.stackexchange.redis.1.2.0.nupkg.sha512",
+        "cachemanager.stackexchange.redis.nuspec",
+        "lib/net461/CacheManager.StackExchange.Redis.dll",
+        "lib/net461/CacheManager.StackExchange.Redis.xml",
+        "lib/netstandard2.0/CacheManager.StackExchange.Redis.dll",
+        "lib/netstandard2.0/CacheManager.StackExchange.Redis.xml"
       ]
     },
     "Convey/0.4.226": {
@@ -5515,6 +5649,18 @@
         "convey.messagebrokers.cqrs.0.4.226.nupkg.sha512",
         "convey.messagebrokers.cqrs.nuspec",
         "lib/netcoreapp3.1/Convey.MessageBrokers.CQRS.dll"
+      ]
+    },
+    "Convey.MessageBrokers.RabbitMQ/0.4.226": {
+      "sha512": "MKaCGstIgU3xGNLhKkC87KRV4bwMWFY3Mc0AEbU1M1xB+xaHlvvocPmQ2FbmfjjUnuKNjQz1tvpzVysQOYW1tQ==",
+      "type": "package",
+      "path": "convey.messagebrokers.rabbitmq/0.4.226",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "convey.messagebrokers.rabbitmq.0.4.226.nupkg.sha512",
+        "convey.messagebrokers.rabbitmq.nuspec",
+        "lib/netcoreapp3.1/Convey.MessageBrokers.RabbitMQ.dll"
       ]
     },
     "Convey.Metrics.AppMetrics/0.4.226": {
@@ -6829,16 +6975,48 @@
         "microsoft.extensions.dependencymodel.nuspec"
       ]
     },
-    "Microsoft.Extensions.FileProviders.Abstractions/2.2.0": {
-      "sha512": "EcnaSsPTqx2MGnHrmWOD0ugbuuqVT8iICqSqPzi45V5/MA1LjUNb0kwgcxBGqizV1R+WeBK7/Gw25Jzkyk9bIw==",
+    "Microsoft.Extensions.Diagnostics.HealthChecks/3.0.0": {
+      "sha512": "LIuwGjTf6DGorUTo9kqCs5YeFu+cG6Wk+nP2OiD3YRTAmGMWMgy57l7H58pTACIMvBiWuXYHunzcB5gmkaqApA==",
       "type": "package",
-      "path": "microsoft.extensions.fileproviders.abstractions/2.2.0",
+      "path": "microsoft.extensions.diagnostics.healthchecks/3.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Diagnostics.HealthChecks.dll",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Diagnostics.HealthChecks.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.HealthChecks.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.HealthChecks.xml",
+        "microsoft.extensions.diagnostics.healthchecks.3.0.0.nupkg.sha512",
+        "microsoft.extensions.diagnostics.healthchecks.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/3.0.0": {
+      "sha512": "1Yrz6fJNtnVHVQPnkUeLUUlhmdkoeGcYqQ1XR7g09bphTT7ukgXHaWyijgsgAQJJeCVg83PEq3CJu3z0hpygUw==",
+      "type": "package",
+      "path": "microsoft.extensions.diagnostics.healthchecks.abstractions/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.xml",
+        "microsoft.extensions.diagnostics.healthchecks.abstractions.3.0.0.nupkg.sha512",
+        "microsoft.extensions.diagnostics.healthchecks.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.FileProviders.Abstractions/3.0.0": {
+      "sha512": "kahEeykb6FyQytoZNNXuz74X85B4weIEt8Kd+0klK48bkXDWOIHAOvNjlGsPMcS9CL935Te8QGQS83JqCbpdHA==",
+      "type": "package",
+      "path": "microsoft.extensions.fileproviders.abstractions/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
+        "lib/netcoreapp3.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
-        "microsoft.extensions.fileproviders.abstractions.2.2.0.nupkg.sha512",
+        "microsoft.extensions.fileproviders.abstractions.3.0.0.nupkg.sha512",
         "microsoft.extensions.fileproviders.abstractions.nuspec"
       ]
     },
@@ -6881,16 +7059,18 @@
         "microsoft.extensions.filesystemglobbing.nuspec"
       ]
     },
-    "Microsoft.Extensions.Hosting.Abstractions/2.2.0": {
-      "sha512": "+k4AEn68HOJat5gj1TWa6X28WlirNQO9sPIIeQbia+91n03esEtMSSoekSTpMjUzjqtJWQN3McVx0GvSPFHF/Q==",
+    "Microsoft.Extensions.Hosting.Abstractions/3.0.0": {
+      "sha512": "qeDWS5ErmkUN96BdQqpmeCmLk5HJWQ/SPw3ux5v5/Qb0hKZS5wojBMulnBC7JUEiBwg7Ir71Yjf1lFiRT5MdtQ==",
       "type": "package",
-      "path": "microsoft.extensions.hosting.abstractions/2.2.0",
+      "path": "microsoft.extensions.hosting.abstractions/3.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Hosting.Abstractions.dll",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Hosting.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Hosting.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Hosting.Abstractions.xml",
-        "microsoft.extensions.hosting.abstractions.2.2.0.nupkg.sha512",
+        "microsoft.extensions.hosting.abstractions.3.0.0.nupkg.sha512",
         "microsoft.extensions.hosting.abstractions.nuspec"
       ]
     },
@@ -7500,6 +7680,23 @@
         "lib/uap10.0/protobuf-net.xml",
         "protobuf-net.2.4.0.nupkg.sha512",
         "protobuf-net.nuspec"
+      ]
+    },
+    "RabbitMQ.Client/5.1.2": {
+      "sha512": "Xhj+un0pw4N7h37SZWptxl/NEv7f1RLHwZhXjqzkCm3w3IdbFJh+HjVyPaciD848BUYLGoEQzadx90nShsbs4Q==",
+      "type": "package",
+      "path": "rabbitmq.client/5.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net451/RabbitMQ.Client.dll",
+        "lib/net451/RabbitMQ.Client.xml",
+        "lib/netstandard1.5/RabbitMQ.Client.dll",
+        "lib/netstandard1.5/RabbitMQ.Client.xml",
+        "lib/netstandard2.0/RabbitMQ.Client.dll",
+        "lib/netstandard2.0/RabbitMQ.Client.xml",
+        "rabbitmq.client.5.1.2.nupkg.sha512",
+        "rabbitmq.client.nuspec"
       ]
     },
     "RestSharp/106.10.1": {
@@ -13541,6 +13738,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "AspNetCore.HealthChecks.Redis >= 3.0.0",
       "Autofac >= 4.9.4",
       "Convey >= 0.4.226",
       "Convey.CQRS.Commands >= 0.4.226",
@@ -13550,6 +13748,7 @@
       "Convey.HTTP >= 0.4.226",
       "Convey.MessageBrokers >= 0.4.226",
       "Convey.MessageBrokers.CQRS >= 0.4.226",
+      "Convey.MessageBrokers.RabbitMQ >= 0.4.226",
       "Convey.Metrics.AppMetrics >= 0.4.226",
       "Convey.Persistence.Redis >= 0.4.226",
       "Grpc.AspNetCore >= 2.26.0",
@@ -13625,6 +13824,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "AspNetCore.HealthChecks.Redis": {
+            "target": "Package",
+            "version": "[3.0.0, )"
+          },
           "Autofac": {
             "target": "Package",
             "version": "[4.9.4, )"
@@ -13658,6 +13861,10 @@
             "version": "[0.4.226, )"
           },
           "Convey.MessageBrokers.CQRS": {
+            "target": "Package",
+            "version": "[0.4.226, )"
+          },
+          "Convey.MessageBrokers.RabbitMQ": {
             "target": "Package",
             "version": "[0.4.226, )"
           },

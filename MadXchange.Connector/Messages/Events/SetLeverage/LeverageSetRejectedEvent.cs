@@ -4,7 +4,7 @@ using MadXchange.Connector.Messages.Commands;
 using MadXchange.Exchange.Domain.Models;
 using System;
 
-namespace MadXchange.Exchange.Messages.Events
+namespace MadXchange.Connector.Messages.Events
 {
     public class LeverageSetRejectedEvent : IRejectedEvent
     {

@@ -4,14 +4,13 @@ using Convey.CQRS.Events;
 using MadXchange.Connector.Messages.Commands;
 using MadXchange.Exchange.Domain.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace MadXchange.Exchange.Messages.Events
+namespace MadXchange.Connector.Messages.Events
 {
+    
     public class CancelOrderRejectedEvent : IRejectedEvent
     {
-        public Guid Id { get; } = Guid.NewGuid();
+        public Guid Id { get; } 
         public ICommand Command { get; }
         public Order Order { get; }
         public DateTime TimeStamp { get; } = DateTime.UtcNow;
@@ -20,6 +19,7 @@ namespace MadXchange.Exchange.Messages.Events
 
         public CancelOrderRejectedEvent(CancelOrder command, Order order)
         {
+            Id = order?.Id ?? Guid.NewGuid();
             Command = command;
             Order = order;
             Reason = order?.OrdRejReason;

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MadXchange.Exchange.Infrastructure.Repositories
 {
-    public interface IOrderRepository : IAsyncRepository<IOrder>
+    public interface IOrderRepository : IAsyncRepository<Order>
     {
         
     }

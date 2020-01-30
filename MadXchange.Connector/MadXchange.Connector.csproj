@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="3.0.0" />
     <PackageReference Include="Autofac" Version="4.9.4" />
     <PackageReference Include="Convey" Version="0.4.226" />
     <PackageReference Include="Convey.Configurations.Vault" Version="0.4.226" />
@@ -16,6 +17,7 @@
     <PackageReference Include="Convey.HTTP" Version="0.4.226" />
     <PackageReference Include="Convey.MessageBrokers" Version="0.4.226" />
     <PackageReference Include="Convey.MessageBrokers.CQRS" Version="0.4.226" />
+    <PackageReference Include="Convey.MessageBrokers.RabbitMQ" Version="0.4.226" />
     <PackageReference Include="Convey.Metrics.AppMetrics" Version="0.4.226" />
     <PackageReference Include="Convey.Persistence.Redis" Version="0.4.226" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.26.0" />
@@ -45,12 +47,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Handlers\Instrument\" />
-    <Folder Include="Handlers\Order\" />
-    <Folder Include="Handlers\Position\" />
-    <Folder Include="Handlers\UserIdentity\" />
     <Folder Include="Infrastructure\" />
-    <Folder Include="Queries\Handlers\" />
+    <Folder Include="Messages\Commands\AccountManager\Handlers\" />
+    <Folder Include="Queries\Handlers\Instrument\" />
+    <Folder Include="Queries\Handlers\Order\" />
+    <Folder Include="Queries\Handlers\Position\" />
+    <Folder Include="Queries\Handlers\UserIdentity\" />
   </ItemGroup>
 
 </Project>

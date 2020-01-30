@@ -16,7 +16,7 @@ namespace MadXchange.Connector.Services
     /// <summary>
     /// Manages Request Commands
     /// </summary>
-    public class ExecutionRequestService : IExchangeRequestServiceClient
+    public class ExecutionRequestService : IExchangeRequestService
     {
 
         private readonly IPositionRequestService _positionRequestService;

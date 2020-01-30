@@ -9,15 +9,16 @@ namespace MadXchange.Connector.Messages.Events
 {
     public class OrderRejectedEvent : IRejectedEvent
     {
+        public Guid Id { get; }
         public DateTime TimeStamp { get; } = DateTime.UtcNow;
         public ICommand Command { get; }
-        public Order Order { get; }
-        public Guid Id { get; } = Guid.NewGuid();
+        public Order Order { get; }        
         public string Reason { get; }
         public string Code { get; }
 
         public OrderRejectedEvent(CreateOrder command, Order order)
         {
+            Id = order?.Id ?? Guid.NewGuid();
             Command = command;
             Order = order;
         }

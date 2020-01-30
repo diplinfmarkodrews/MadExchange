@@ -8,12 +8,13 @@ namespace MadXchange.Connector.Messages.Events
 {
     public class CancelOrderEvent : IEvent
     {
-        public Guid Id { get; } = Guid.NewGuid();
+        public Guid Id { get; } 
         public ICommand Command { get; }
-        public IOrder Order { get; }
+        public Order Order { get; }
         public DateTime TimeStamp { get; } = DateTime.UtcNow;
-        public CancelOrderEvent(CancelOrder command, IOrder order) 
+        public CancelOrderEvent(CancelOrder command, Order order) 
         {
+            Id = order?.Id ?? Guid.NewGuid();
             Command = command;
             Order = order;
         }

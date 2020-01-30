@@ -13,9 +13,9 @@ namespace MadXchange.Exchange.Messages.Commands.Handlers
     {
 
         //private readonly IAsyncRepository<long> _orderRepository;
-        private readonly IExchangeRequestServiceClient _orderClient;
+        private readonly IExchangeRequestService _orderClient;
         private readonly ILogger _logger;
-        public UpdateOrderHandler(IExchangeRequestServiceClient orderClient, ILogger<UpdateOrderHandler> logger) 
+        public UpdateOrderHandler(IExchangeRequestService orderClient, ILogger<UpdateOrderHandler> logger) 
         {
             _orderClient = orderClient;
             //_orderRepository = orderRepository;

@@ -23,11 +23,11 @@ namespace MadXchange.Exchange.Installers
             //}
             services.AddStackExchangeRedisCache(options => options.Configuration = redisCacheSettings.ConnectionString);
             services.AddSingleton<IRedisClientsManager, RedisManagerPool>(c=> new RedisManagerPool(redisCacheSettings.ConnectionString));
-            services.AddScoped<IInstrumentCache, InstrumentCache>();
-            services.AddScoped<IAccountRequestCache, AccountRequestCache>();
-            services.AddScoped<IOrderCache, OrderCache>();
-            services.AddScoped<IPositionCache, PositionCache>();
-            services.AddScoped<IMarginCache, MarginCache>();
+            services.AddSingleton<IInstrumentCache, InstrumentCache>();
+            services.AddSingleton<IAccountRequestCache, AccountRequestCache>();
+            services.AddSingleton<IOrderCache, OrderCache>();
+            services.AddSingleton<IPositionCache, PositionCache>();
+            services.AddSingleton<IMarginCache, MarginCache>();
             return services;
         }
 

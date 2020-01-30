@@ -23,12 +23,12 @@ namespace MadXchange.Connector.Messages.Commands.Handlers
         private readonly IOrderCache _orderCache;
         private readonly ILogger _logger;
         private readonly ITracer _tracer;
-        private readonly IExchangeRequestServiceClient _orderClient;
+        private readonly IExchangeRequestService _orderClient;
         private readonly IBusPublisher _busPublisher;
         
 
         //private readonly IBusPublisher _busPublisher;
-        public CreateOrderHandler(IBusPublisher busPublisher, IOrderCache orderCache, IExchangeRequestServiceClient orderClient, ITracer tracer, ILogger<CreateOrderHandler> logger) 
+        public CreateOrderHandler(IBusPublisher busPublisher, IOrderCache orderCache, IExchangeRequestService orderClient, ITracer tracer, ILogger<CreateOrderHandler> logger) 
         {
             
             _logger = logger;

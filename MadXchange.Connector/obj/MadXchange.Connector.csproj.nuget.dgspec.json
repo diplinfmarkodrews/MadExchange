@@ -132,6 +132,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AspNetCore.HealthChecks.Redis": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "Autofac": {
               "target": "Package",
               "version": "[4.9.4, )"
@@ -165,6 +169,10 @@
               "version": "[0.4.226, )"
             },
             "Convey.MessageBrokers.CQRS": {
+              "target": "Package",
+              "version": "[0.4.226, )"
+            },
+            "Convey.MessageBrokers.RabbitMQ": {
               "target": "Package",
               "version": "[0.4.226, )"
             },
@@ -318,6 +326,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "CacheManager.StackExchange.Redis": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
             "Convey.HTTP": {
               "target": "Package",
               "version": "[0.4.226, )"

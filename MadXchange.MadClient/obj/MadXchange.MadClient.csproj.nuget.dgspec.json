@@ -129,6 +129,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "CacheManager.StackExchange.Redis": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
             "Convey.HTTP": {
               "target": "Package",
               "version": "[0.4.226, )"

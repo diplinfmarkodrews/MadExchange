@@ -12,11 +12,13 @@ namespace MadXchange.Exchange.Domain.Models
         CoinBase,
         Binance,
         Deribit,
-        Kraken
+        Kraken,
+        Ftx
     }
 
     public interface IUserAccount : IIdentifiable<Guid>
     {
+        
         Env Environment { get; }
         string ApiKey { get; }
         string ApiSecret { get; }
@@ -62,4 +64,5 @@ namespace MadXchange.Exchange.Domain.Models
         InsufficientFunds = 5,
         Error = 6
     }
+    
 }

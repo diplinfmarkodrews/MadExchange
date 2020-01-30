@@ -5,16 +5,18 @@ using MadXchange.Exchange.Domain.Models;
 using System;
 
 
-namespace MadXchange.Exchange.Messages.Events
+namespace MadXchange.Connector.Messages.Events
 {
+
     public class OrderUpdatedEvent  : IEvent
     {
-        public Guid Id { get; } = Guid.NewGuid();
+        public Guid Id { get; } 
         public ICommand Command { get; }
         public IOrder Order { get; }
         public DateTime TimeStamp { get; } = DateTime.UtcNow;
         public OrderUpdatedEvent(UpdateOrder command, IOrder order) 
         {
+            Id = order?.Id ?? Guid.NewGuid();
             Command = command;
             Order = order;
         }
