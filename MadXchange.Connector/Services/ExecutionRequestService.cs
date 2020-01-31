@@ -8,21 +8,24 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MadXchange.Connector.Services
 {
 
     /// <summary>
-    /// Manages Request Commands
+    /// Manages POST Request Commands, those are
     /// </summary>
     public class ExecutionRequestService : IExchangeRequestService
     {
 
         private readonly IPositionRequestService _positionRequestService;
         private readonly IOrderRequestService _orderRequestService;
-        
-        
+        /// <summary>
+        /// since only post requests are cancelable here is the right place to generate the CancellationTokens
+        /// </summary>
+        private static readonly Dictionary<Guid, CancellationToken> _requestCancelTokenDic = new Dictionary<Guid, CancellationToken>();
         private readonly ILogger _logger;
 
         public ExecutionRequestService(IPositionRequestService positionRequestService, IOrderRequestService orderRequestService, ILogger<ExecutionRequestService> logger) 
@@ -51,7 +54,6 @@ namespace MadXchange.Connector.Services
         {
             throw new NotImplementedException();
         }
-
         
     }
 }

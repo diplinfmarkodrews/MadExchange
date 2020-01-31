@@ -4,6 +4,7 @@ using MadXchange.Exchange.Services.RequestExecution;
 using Microsoft.Extensions.Logging;
 using ServiceStack;
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,7 +12,7 @@ namespace MadXchange.Exchange.Services.HttpRequests
 {
     public interface IMarginRequestService
     {
-        Task<Margin> GetMarginAsync(Guid accountId, Exchanges exchange, string currency, CancellationToken token);
+        Task<IEnumerable<Margin>> GetMarginAsync(Guid accountId, Exchanges exchange, string currency, CancellationToken token);
     }
 
     public class MarginRequestService : IMarginRequestService
@@ -27,7 +28,7 @@ namespace MadXchange.Exchange.Services.HttpRequests
             _logger = logger;
         }
 
-        public async Task<Margin> GetMarginAsync(Guid accountId, Exchanges exchange, string currency, CancellationToken token = default) 
+        public async Task<IEnumerable<Margin>> GetMarginAsync(Guid accountId, Exchanges exchange, string currency, CancellationToken token = default) 
         {
             var descriptor = _descriptorService.GetExchangeDescriptor(exchange);
             var route = descriptor.RouteGetEquity;
@@ -37,8 +38,8 @@ namespace MadXchange.Exchange.Services.HttpRequests
             {
                 parameter.AddQueryParam(route.Parameter[0], currency);
             }
-            var res = await _restRequestService.SendGetAsync<Margin>(accountId, url, parameter, token).ConfigureAwait(false);
-            return res;
+            var res = await _restRequestService.SendGetAsync(accountId, url, parameter, token).ConfigureAwait(false);
+            return res.result.FromJson<IEnumerable<Margin>>();
         }
     }
 

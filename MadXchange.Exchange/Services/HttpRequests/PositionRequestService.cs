@@ -39,8 +39,8 @@ namespace MadXchange.Exchange.Services.HttpRequests
             {
                 parameter.AddQueryParam(route.Parameter[0], symbol);
             }
-            var res = await _restRequestService.SendGetAsync<IEnumerable<Position>>(accountId, url, parameter, token).ConfigureAwait(false);            
-            return res;
+            var res = await _restRequestService.SendGetAsync(accountId, url, parameter, token).ConfigureAwait(false);            
+            return res.result.FromJson<IEnumerable<Position>>();
         }
         /// <summary>
         /// Get Leverage
@@ -59,8 +59,8 @@ namespace MadXchange.Exchange.Services.HttpRequests
             {
                 parameter.AddQueryParam(route.Parameter[0], symbol);
             }
-            var res = await _restRequestService.SendGetAsync<IEnumerable<LeverageDto>>(accountId, url, parameter, token).ConfigureAwait(false);                        
-            return res;
+            var res = await _restRequestService.SendGetAsync(accountId, url, parameter, token).ConfigureAwait(false);                        
+            return res.result.FromJson<IEnumerable<LeverageDto>>();
         }
 
         public async Task<IEnumerable<LeverageDto>> PostLeverageAsync(Guid accountId, Exchanges exchange, string symbol, decimal leverage, CancellationToken token = default)
@@ -71,8 +71,8 @@ namespace MadXchange.Exchange.Services.HttpRequests
             var parameter = string.Empty;            
             parameter.AddQueryParam(route.Parameter[0], symbol);                            
             parameter.AddQueryParam(route.Parameter[1], leverage.ToString());
-            var res = await _restRequestService.SendGetAsync<IEnumerable<LeverageDto>>(accountId, url, parameter, token).ConfigureAwait(false);
-            return res;
+            var res = await _restRequestService.SendGetAsync(accountId, url, parameter, token).ConfigureAwait(false);
+            return res.result.FromJson<IEnumerable<LeverageDto>>();
         }
 
     }

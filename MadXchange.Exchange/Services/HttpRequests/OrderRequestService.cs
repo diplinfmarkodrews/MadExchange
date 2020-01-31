@@ -49,8 +49,8 @@ namespace MadXchange.Exchange.Services.HttpRequests
             {
                 parameter.AddQueryParam(route.Parameter[0], symbol);
             }                        
-            var res = await _restRequestService.SendGetAsync<IEnumerable<Order>>(accountId, url, parameter, token).ConfigureAwait(false);                        
-            return res;
+            var res = await _restRequestService.SendGetAsync(accountId, url, parameter, token).ConfigureAwait(false);                        
+            return res.result.FromJson<IEnumerable<Order>>();
         }
         /// <summary>
         /// Todo Parameter setting
@@ -73,8 +73,8 @@ namespace MadXchange.Exchange.Services.HttpRequests
             {
                 parameter.AddQueryParam(route.Parameter[1], $"{request.Quantity}");
             }
-            var res = await _restRequestService.SendPostAsync<Order>(request.AccountId, url, parameter, token).ConfigureAwait(false);            
-            return res;
+            var res = await _restRequestService.SendPostAsync(request.AccountId, url, parameter, token).ConfigureAwait(false);            
+            return res.result.FromJson<Order>();
         }
 
         /// <summary>
@@ -93,8 +93,8 @@ namespace MadXchange.Exchange.Services.HttpRequests
             {
                 parameter.AddQueryParam(route.Parameter[0], request.Symbol);
             }
-            var res = await _restRequestService.SendPostAsync<Order>(request.AccountId, url, parameter, token).ConfigureAwait(false);                        
-            return res;
+            var res = await _restRequestService.SendPostAsync(request.AccountId, url, parameter, token).ConfigureAwait(false);                        
+            return res.result.FromJson<Order>();
         }
 
         public async Task<IEnumerable<Order>> DeleteAllOrdersAsync(Exchanges exchange, Guid accountId, string symbol, CancellationToken token = default)
@@ -107,8 +107,8 @@ namespace MadXchange.Exchange.Services.HttpRequests
             {
                 parameter.AddQueryParam(route.Parameter[0], symbol);
             }
-            var res = await _restRequestService.SendPostAsync<IEnumerable<Order>>(accountId, url, parameter, token).ConfigureAwait(false);
-            return res;
+            var res = await _restRequestService.SendPostAsync(accountId, url, parameter, token).ConfigureAwait(false);
+            return res.result.FromJson<IEnumerable<Order>>();
         }
 
         public async Task<Order> DeleteOrderAsync(Exchanges exchange, Guid accountId, string symbol, string orderId, CancellationToken token = default)
@@ -125,8 +125,8 @@ namespace MadXchange.Exchange.Services.HttpRequests
             {
                 parameter.AddQueryParam(route.Parameter[1], orderId);
             }
-            var res = await _restRequestService.SendPostAsync<Order>(accountId, url, parameter, token).ConfigureAwait(false);
-            return res;
+            var res = await _restRequestService.SendPostAsync(accountId, url, parameter, token).ConfigureAwait(false);
+            return res.result.FromJson<Order>();
         }
        
     }

@@ -28,16 +28,16 @@ namespace MadXchange.Exchange.Services.RequestExecution
         public async Task<WebResponseDto> SendGetAsync(string url)
         {
             try
-            {                
-                var resp = await url.GetJsonFromUrlAsync().ContinueWith(f=> f.Result.ConvertTo<WebResponseDto>()).ConfigureAwait(false);                
-                
-                return resp;
+            {
+                var resp = await url.GetJsonFromUrlAsync().ConfigureAwait(false);
+                var result = resp.FromJson<WebResponseDto>();                                
+                return result;
             } 
             catch (Exception err) 
             {
                 _logger.LogError($"Error sending get request: {err.Message}", err);
             }
-            return null;
+            return default;
         }
                 
 

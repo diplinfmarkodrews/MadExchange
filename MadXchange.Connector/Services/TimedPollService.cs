@@ -26,7 +26,7 @@ namespace MadXchange.Connector.Services
             _instrumentRequestService = instrumentRequestService;
             _logger = logger;
             _timer = new System.Timers.Timer();
-            _timer.Interval = 1000.0;
+            _timer.Interval = 10000000.0;
             _timer.Elapsed += _timer_Elapsed;
             _timer.AutoReset = true;
             _timer.Start();

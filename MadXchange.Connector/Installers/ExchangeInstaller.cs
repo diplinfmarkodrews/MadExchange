@@ -24,11 +24,30 @@ namespace MadXchange.Exchange.Installers
         
         public static IServiceCollection InstallExchangeAccessServices(this IServiceCollection services, IConfiguration config)
         {
-                      
-            var descriptors = config.GetSection("ExchangeDescriptors").GetChildren();
-            if (descriptors.Count() == 0) return services; 
+
+            var exchangeDictionary = ReadExchangeDescriptors(config);
+            //logger.LogDebug("registering exchange dictionary", exchangeDictionary);
+            services.AddSingleton(exchangeDictionary);
+            services.AddSingleton<IExchangeDescriptorService, ExchangeDescriptorService>();
+            services.AddSingleton<IApiKeySetRepository, ApiKeySetRepository>();
+            services.AddSingleton<IRequestAccessService, RequestAccessService>();
+            services.AddSingleton<ISignRequests, SignRequestService>();
+            services.AddSingleton<IRestRequestExecutionService, RestRequestExecutionService>();
+            services.AddSingleton<IRestRequestService, RestRequestService>();
+            services.AddSingleton<IInstrumentRequestService, InstrumentRequestService>();
+            services.AddSingleton<IOrderRequestService, OrderRequestService>();
+            services.AddSingleton<IPositionRequestService, PositionRequestService>();
+            services.AddSingleton<IMarginRequestService, MarginRequestService>();
+            services.AddSingleton<IExchangeRequestService, ExecutionRequestService>();
+            return services;
+        }
+
+        public static Dictionary<Domain.Models.Exchanges, ExchangeDescriptor> ReadExchangeDescriptors(IConfiguration config) 
+        {
+            var descriptors = config.GetSection("ExchangeDescriptors").GetChildren();            
             Dictionary<Domain.Models.Exchanges, ExchangeDescriptor> exchangeDictionary = new Dictionary<Domain.Models.Exchanges, ExchangeDescriptor>();
-            foreach (var exchange in descriptors) 
+            if (descriptors.Count() == 0) return exchangeDictionary;
+            foreach (var exchange in descriptors)
             {
                 try
                 {
@@ -41,41 +60,29 @@ namespace MadXchange.Exchange.Installers
                     var getRoutes = exchange.GetSection("Routes:GET");
                     var postRoutes = exchange.GetSection("Routes:POST");
                     readRoutes(ref exchangeDescriptor, getRoutes);
-                    readRoutes(ref exchangeDescriptor, postRoutes);
+                    //readRoutes(ref exchangeDescriptor, postRoutes);
                     exchangeDictionary.Add(exchangeEnum, exchangeDescriptor);
 
                 }
-                catch { }          
-                
-            }
-            //logger.LogDebug("registering exchange dictionary", exchangeDictionary);
-            services.AddSingleton(exchangeDictionary);
-            services.AddSingleton<IExchangeDescriptorService, ExchangeDescriptorService>();
-            services.AddSingleton<IApiKeySetRepository, ApiKeySetRepository>();
-            services.AddSingleton<IRequestAccessService, RequestAccessService>();
-            services.AddSingleton<ISignRequests, SignRequestService>();
+                catch { }
 
-            services.AddSingleton<IRestRequestExecutionService, RestRequestExecutionService>();
-            services.AddSingleton<IRestRequestService, RestRequestService>();
-            services.AddSingleton<IInstrumentRequestService, InstrumentRequestService>();
-            services.AddSingleton<IOrderRequestService, OrderRequestService>();
-            services.AddSingleton<IPositionRequestService, PositionRequestService>();
-            services.AddSingleton<IMarginRequestService, MarginRequestService>();
-            services.AddSingleton<IExchangeRequestService, ExecutionRequestService>();
-            return services;
+            }
+            return exchangeDictionary;
         }
 
         private static void readRoutes(ref ExchangeDescriptor descriptor, IConfigurationSection route)
         {
             var routes = route;            
             var iSection = routes.GetSection("Instrument");
-            descriptor.RouteGetInstrument = ReadEndPoint<Instrument>(iSection);            
+            descriptor.RouteGetInstrument = ReadEndPoint<Instrument>(iSection); 
+            
         }
 
         private static Types.EndPoint<T> ReadEndPoint<T>(IConfigurationSection cSection)
         {
             var endP = new Types.EndPoint<T>();
             endP.Url = cSection.GetSection("url").Value;
+            endP.Name = cSection.Key;
             var parameters = cSection.GetSection("parameter").GetChildren();
             var parameterCount = parameters.Count();
             if (parameterCount > 0)

@@ -1,7 +1,7 @@
 ﻿using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Dto;
 using MadXchange.Exchange.Dto.Http;
-using MadXchange.Exchange.Interfaces;
+using MadXchange.Exchange.Types;
 using MadXchange.Exchange.Services.RequestExecution;
 using Microsoft.Extensions.Logging;
 using ServiceStack;
@@ -11,7 +11,7 @@ namespace MadXchange.Exchange.Services.HttpRequests
 {
     public interface IInstrumentRequestService 
     {
-        Task<Instrument> GetInstrumentAsync(Exchanges exchange, string symbol);
+        Task<InstrumentDto[]> GetInstrumentAsync(Exchanges exchange, string symbol);
     
     }
     public class InstrumentRequestService : IInstrumentRequestService
@@ -26,20 +26,23 @@ namespace MadXchange.Exchange.Services.HttpRequests
             _restRequestService = restRequestService;
             _logger = logger;
         }
-        public async Task<Instrument> GetInstrumentAsync(Exchanges exchange, string symbol) 
+        public async Task<InstrumentDto[]> GetInstrumentAsync(Exchanges exchange, string symbol) 
         {
             var descriptor = _descriptorService.GetExchangeDescriptor(exchange);
+            ///Todo: construction of url goes into exchangedescriptor service
+            ///exchangedescriptor service provides for routing attributes and datacontracts for return types
+            ///the (domaindata)requestservice adapts the requests and result appropriately
             var route = descriptor.RouteGetInstrument;
-            var url = $"{descriptor.BaseUrl}/{route.Url}";
-            var parameter = string.Empty;
+            string url = $"{descriptor.BaseUrl}{route.Url}";
             if(symbol != string.Empty)
             {
-                parameter.AddQueryParam(route.Parameter[0], symbol);
+                url = url.AddQueryParam(route.Parameter[0].Param.Value, symbol);
             }                        
-            var res = await _restRequestService.SendGetAsync<WebResponseDto>(url).ConfigureAwait(false);
+            var res = await _restRequestService.SendGetAsync(url).ConfigureAwait(false);
             //Mapping
-            var result = res.Result.ConvertTo<Instrument>();
-
+            //route.R
+            var result = res.result.ConvertTo<InstrumentDto[]>();
+            result.Each(f => f.Exchange = exchange);
             return result;//.FromJson<Instrument>();
 
         }

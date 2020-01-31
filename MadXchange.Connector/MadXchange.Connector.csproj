@@ -15,11 +15,15 @@
     <PackageReference Include="Convey.CQRS.Events" Version="0.4.226" />
     <PackageReference Include="Convey.CQRS.Queries" Version="0.4.226" />
     <PackageReference Include="Convey.HTTP" Version="0.4.226" />
+    <PackageReference Include="Convey.Logging" Version="0.4.226" />
     <PackageReference Include="Convey.MessageBrokers" Version="0.4.226" />
     <PackageReference Include="Convey.MessageBrokers.CQRS" Version="0.4.226" />
     <PackageReference Include="Convey.MessageBrokers.RabbitMQ" Version="0.4.226" />
+    <PackageReference Include="Convey.MessageBrokers.RawRabbit" Version="0.4.226" />
     <PackageReference Include="Convey.Metrics.AppMetrics" Version="0.4.226" />
+    <PackageReference Include="Convey.Persistence.MongoDB" Version="0.4.226" />
     <PackageReference Include="Convey.Persistence.Redis" Version="0.4.226" />
+    <PackageReference Include="Convey.Tracing.Jaeger.RabbitMQ" Version="0.4.226" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.26.0" />
     <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="3.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
@@ -48,7 +52,7 @@
 
   <ItemGroup>
     <Folder Include="Infrastructure\" />
-    <Folder Include="Messages\Commands\AccountManager\Handlers\" />
+    <Folder Include="Messages\Commands\AccountManager\Handlers\NewFolder\" />
     <Folder Include="Queries\Handlers\Instrument\" />
     <Folder Include="Queries\Handlers\Order\" />
     <Folder Include="Queries\Handlers\Position\" />

@@ -26,4 +26,15 @@ namespace MadXchange.Exchange.Types
         public Type Type { get; set; }
         public bool IsRequired { get; set; }
     }
+    public static class StringExtension
+    {
+        public static string AddQueryPara(this string url, string param, string val) 
+        {
+            return $"{url}&{param}={val}";
+        }
+        public static string AddFirstQueryPara(this string url, string param, string val)
+        {
+            return $"{url}?{param}={val}";
+        }
+    }
 }

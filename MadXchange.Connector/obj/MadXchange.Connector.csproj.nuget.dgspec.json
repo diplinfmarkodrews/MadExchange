@@ -164,6 +164,10 @@
               "target": "Package",
               "version": "[0.4.226, )"
             },
+            "Convey.Logging": {
+              "target": "Package",
+              "version": "[0.4.226, )"
+            },
             "Convey.MessageBrokers": {
               "target": "Package",
               "version": "[0.4.226, )"
@@ -176,11 +180,23 @@
               "target": "Package",
               "version": "[0.4.226, )"
             },
+            "Convey.MessageBrokers.RawRabbit": {
+              "target": "Package",
+              "version": "[0.4.226, )"
+            },
             "Convey.Metrics.AppMetrics": {
               "target": "Package",
               "version": "[0.4.226, )"
             },
+            "Convey.Persistence.MongoDB": {
+              "target": "Package",
+              "version": "[0.4.226, )"
+            },
             "Convey.Persistence.Redis": {
+              "target": "Package",
+              "version": "[0.4.226, )"
+            },
+            "Convey.Tracing.Jaeger.RabbitMQ": {
               "target": "Package",
               "version": "[0.4.226, )"
             },

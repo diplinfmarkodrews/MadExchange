@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using System.IO;
+using Convey.Logging;
 
 namespace MadXchange.Connector
 {
@@ -12,12 +13,15 @@ namespace MadXchange.Connector
             CreateHostBuilder(args).Build().Run();
         }
 
- 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.CaptureStartupErrors(true).UseContentRoot(Directory.GetCurrentDirectory()).UseStartup<Startup>().UseKestrel();
+                    webBuilder.CaptureStartupErrors(true)
+                              .UseContentRoot(Directory.GetCurrentDirectory())
+                              .UseStartup<Startup>()
+                              .UseKestrel()
+                              .UseLogging();
                 });
     }
 }

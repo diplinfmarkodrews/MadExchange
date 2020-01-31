@@ -1,20 +1,23 @@
-﻿using System;
+﻿using ServiceStack;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MadXchange.Exchange.Dto.Http
 {
+    
     public class WebResponseDto
     {
-        public string Message { get; set; }
-        public string Result { get; set; }
-        public int Code { get; set; }
-        public string ExtCode { get; set; }
-        public string ExtInfo { get; set; }
-        public string TimeNow { get; set; }
-        public int RateLimit { get; set; }
-        public int RateLimitStatus { get; set; }
-        public long RateLimitReset { get; set; }
+       
+        public string ret_msg { get; set; }
+        public string result { get; set; }
+        public int ret_code { get; set; }
+        public string ext_code { get; set; }
+        public string ext_info { get; set; }
+        public string time_now { get; set; }
+        public int rate_limit { get; set; }
+        public int rate_limit_status { get; set; }
+        public long rate_limit_reset { get; set; }
         public long Timestamp { get; } = DateTime.UtcNow.Ticks;
     }
 }

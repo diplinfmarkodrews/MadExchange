@@ -6,6 +6,7 @@ using ServiceStack.IO;
 using System;
 using System.Collections.Generic;
 using MadXchange.Exchange.Types;
+using MadXchange.Exchange.Dto;
 
 namespace MadXchange.Exchange.Configuration
 {
@@ -21,14 +22,14 @@ namespace MadXchange.Exchange.Configuration
         
         public EndPoint<IMargin> RouteGetEquity { get; set; }
         public EndPoint<IWalletHistory> RouteGetWalletHistory { get; set; }
-        public EndPoint<decimal> RouteGetLeverage { get; set; }
+        public EndPoint<LeverageDto> RouteGetLeverage { get; set; }
         public EndPoint<IPosition> RouteGetPosition { get; set; }
         public EndPoint<IOrder> RouteGetOrder { get; set; }
         public EndPoint<Instrument> RouteGetInstrument { get; set; }
         
 
         //public EndPoint<IOrderBook> RouteGetOrderBook { get; set; }
-        public EndPoint<decimal> RoutePostLeverage { get; set; }
+        public EndPoint<LeverageDto> RoutePostLeverage { get; set; }
         public EndPoint<IOrder> RoutePlaceOrder { get; set; }
         public EndPoint<IOrder> RouteUpdateOrder { get; set; }
         public EndPoint<IOrder> RouteDeleteOrder { get; set; }   

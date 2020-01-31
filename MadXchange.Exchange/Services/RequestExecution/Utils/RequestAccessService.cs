@@ -19,7 +19,6 @@ namespace MadXchange.Exchange.Services.RequestExecution
     {
         
         private readonly IAccountRequestCache _requestCache;
-
         private readonly ILogger _logger;
         private readonly long _minRequestTimeDiff = TimeSpan.FromMilliseconds(1000).Ticks;
 
@@ -62,9 +61,9 @@ namespace MadXchange.Exchange.Services.RequestExecution
                 acCacheObj = new AccountCacheObject(accountId);
                 acCacheObj.RequestQueue++;
             }
-            acCacheObj.LastRateLimit = resDto.RateLimit;
-            acCacheObj.RateLimitStatus = resDto.RateLimitStatus;            
-            var dtDto = DateTime.Parse(resDto.TimeNow);
+            acCacheObj.LastRateLimit = resDto.rate_limit;
+            acCacheObj.RateLimitStatus = resDto.rate_limit_status;            
+            var dtDto = DateTime.Parse(resDto.time_now);
             acCacheObj.LastRequestTime = dtDto == default ? resDto.Timestamp : dtDto.Ticks;
             acCacheObj.NextRequestTime = acCacheObj.LastRequestTime + _minRequestTimeDiff;
             acCacheObj.RequestQueue--;
