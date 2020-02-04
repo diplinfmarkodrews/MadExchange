@@ -1,5 +1,5 @@
-﻿using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Dto;
+﻿using MadXchange.Exchange.Domain.Types;
+using MadXchange.Exchange.Contracts;
 using System;
 
 namespace MadXchange.Connector.Interfaces

@@ -1,5 +1,5 @@
 ﻿
-using MadXchange.Exchange.Domain.Models;
+using MadXchange.Exchange.Domain.Types;
 using System;
 
 

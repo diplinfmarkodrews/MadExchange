@@ -46,6 +46,7 @@ namespace MadXchange.Connector.Services
                 s => s
                     .WithDictionaryHandle()
                         .WithExpiration(ExpirationMode.None, TimeSpan.MaxValue));
+           
         }
 
         public ICacheManager<T> Cache

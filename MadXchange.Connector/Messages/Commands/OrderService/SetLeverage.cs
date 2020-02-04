@@ -1,5 +1,5 @@
 ﻿using Convey.CQRS.Commands;
-using MadXchange.Exchange.Domain.Models;
+using MadXchange.Exchange.Domain.Types;
 using System;
 
 namespace MadXchange.Connector.Messages.Commands

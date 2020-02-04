@@ -1,6 +1,6 @@
 ﻿using MadXchange.Connector.Messages.Commands;
 using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Dto;
+using MadXchange.Exchange.Contracts;
 using System.Threading.Tasks;
 
 namespace MadXchange.Connector.Interfaces

@@ -1,4 +1,5 @@
 ﻿using MadXchange.Exchange.Domain.Models;
+using MadXchange.Exchange.Domain.Types;
 using System;
 using System.Collections.Generic;
 using System.Text;

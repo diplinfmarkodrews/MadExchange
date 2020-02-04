@@ -2,7 +2,7 @@
 using Convey.CQRS.Events;
 using MadXchange.Connector.Messages.Commands;
 using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Dto;
+using MadXchange.Exchange.Contracts;
 using System;
 
 namespace MadXchange.Connector.Messages.Events

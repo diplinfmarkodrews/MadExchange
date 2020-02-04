@@ -1,6 +1,7 @@
 ﻿using MadXchange.Common.Infrastructure;
 using MadXchange.Exchange.Domain.Cache;
 using MadXchange.Exchange.Domain.Models;
+using MadXchange.Exchange.Domain.Types;
 using MadXchange.Exchange.Interfaces;
 using Microsoft.Extensions.Caching.Distributed;
 using ServiceStack;

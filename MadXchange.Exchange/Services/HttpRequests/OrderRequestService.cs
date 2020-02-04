@@ -1,5 +1,5 @@
-﻿using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Dto;
+﻿using MadXchange.Exchange.Domain.Types;
+using MadXchange.Exchange.Contracts;
 using MadXchange.Exchange.Interfaces;
 using MadXchange.Exchange.Services.RequestExecution;
 using Microsoft.Extensions.Logging;
@@ -8,17 +8,18 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using ServiceStack.Text;
 
 namespace MadXchange.Exchange.Services.HttpRequests
 {
     public interface IOrderRequestService 
     {
-        //Task<IQueryData<Order>> GetOrders(Exchanges exchange, Guid accountId, string symbol);
-        Task<IEnumerable<Order>> GetOpenOrdersAsync(Exchanges exchange, Guid accountId, string symbol, CancellationToken token);
-        Task<Order> PostNewOrderAsync(OrderPostRequestDto request, CancellationToken token);
-        Task<Order> PostUpdateOrderAsync(OrderPostRequestDto request, CancellationToken token);
-        Task<Order> DeleteOrderAsync(Exchanges exchange, Guid accountId, string symbol, string orderId, CancellationToken token);
-        Task<IEnumerable<Order>> DeleteAllOrdersAsync(Exchanges exchange, Guid accountId, string symbol, CancellationToken token);
+        
+        Task<OrderDto[]> GetOpenOrdersAsync(Exchanges exchange, Guid accountId, string symbol, CancellationToken token);
+        Task<OrderDto> PostNewOrderAsync(OrderPostRequestDto request, CancellationToken token);
+        Task<OrderDto> PostUpdateOrderAsync(OrderPostRequestDto request, CancellationToken token);
+        Task<OrderDto> DeleteOrderAsync(Exchanges exchange, Guid accountId, string symbol, string orderId, CancellationToken token);
+        Task<OrderDto[]> DeleteAllOrdersAsync(Exchanges exchange, Guid accountId, string symbol, CancellationToken token);
     }
 
     public class OrderRequestService : IOrderRequestService
@@ -27,6 +28,7 @@ namespace MadXchange.Exchange.Services.HttpRequests
         private ILogger _logger;
         private IExchangeDescriptorService _descriptorService;
         private IRestRequestService _restRequestService;
+        private const string _domainString = "Order";
         public OrderRequestService(IExchangeDescriptorService exchangeDescriptorService, IRestRequestService restRequestService,  ILogger<OrderRequestService> logger) 
         {
             _descriptorService = exchangeDescriptorService;
@@ -39,18 +41,17 @@ namespace MadXchange.Exchange.Services.HttpRequests
         //    throw new NotImplementedException();
         //}
 
-        public async Task<IEnumerable<Order>> GetOpenOrdersAsync(Exchanges exchange, Guid accountId, string symbol, CancellationToken token = default) 
+        public async Task<OrderDto[]> GetOpenOrdersAsync(Exchanges exchange, Guid accountId, string symbol, CancellationToken token = default) 
         {
-            var descriptor = _descriptorService.GetExchangeDescriptor(exchange);
-            var route = descriptor.RouteGetOrder;
-            var url = $"{descriptor.BaseUrl}/{route.Url}";
+            var route = _descriptorService.GetExchangeEndPoint(exchange, symbol);            
             var parameter = string.Empty;
             if(symbol != string.Empty)
             {
-                parameter.AddQueryParam(route.Parameter[0], symbol);
+                parameter = parameter.AddQueryParam(route.Parameter[0], symbol);
             }                        
-            var res = await _restRequestService.SendGetAsync(accountId, url, parameter, token).ConfigureAwait(false);                        
-            return res.result.FromJson<IEnumerable<Order>>();
+            var res = await _restRequestService.SendGetAsync(accountId, route.Url, parameter, token).ConfigureAwait(false);
+            var result = TypeSerializer.DeserializeFromString<OrderDto[]>(res.Result);
+            return result;
         }
         /// <summary>
         /// Todo Parameter setting
@@ -58,64 +59,55 @@ namespace MadXchange.Exchange.Services.HttpRequests
         /// <param name="request"></param>
         /// <param name="token"></param>
         /// <returns></returns>
-        public async Task<Order> PostNewOrderAsync(OrderPostRequestDto request, CancellationToken token = default) 
+        public async Task<OrderDto> PostNewOrderAsync(OrderPostRequestDto request, CancellationToken token = default) 
         {
-            var descriptor = _descriptorService.GetExchangeDescriptor(request.Exchange);
-            var route = descriptor.RoutePlaceOrder;
-            var url = $"{descriptor.BaseUrl}/{route.Url}";
-            var parameter = string.Empty;
-            
+            var route = _descriptorService.GetExchangeEndPoint(request.Exchange, request.Symbol);
+            var parameter = string.Empty;           
             if (request.Symbol != string.Empty)
             {
-                parameter.AddQueryParam(route.Parameter[0], request.Symbol);
+                parameter = parameter.AddQueryParam(route.Parameter[0], request.Symbol);
             }
             if (request.Quantity.HasValue) 
             {
-                parameter.AddQueryParam(route.Parameter[1], $"{request.Quantity}");
+                parameter = parameter.AddQueryParam(route.Parameter[1], $"{request.Quantity}");
             }
-            var res = await _restRequestService.SendPostAsync(request.AccountId, url, parameter, token).ConfigureAwait(false);            
-            return res.result.FromJson<Order>();
+            if (request.Price.HasValue)
+            {
+                parameter = parameter.AddQueryParam(route.Parameter[2], $"{request.Price}");
+            }
+            var res = await _restRequestService.SendPostAsync(request.AccountId, route.Url, parameter, token).ConfigureAwait(false);                 
+            return TypeSerializer.DeserializeFromString<OrderDto>(res.Result);
         }
 
-        /// <summary>
-        /// Todo parameter setting
-        /// </summary>
-        /// <param name="request"></param>
-        /// <param name="token"></param>
-        /// <returns></returns>
-        public async Task<Order> PostUpdateOrderAsync(OrderPostRequestDto request, CancellationToken token = default)
+        public async Task<OrderDto> PostUpdateOrderAsync(OrderPostRequestDto request, CancellationToken token = default)
         {
-            var descriptor = _descriptorService.GetExchangeDescriptor(request.Exchange);
-            var route = descriptor.RouteUpdateOrder;
-            var url = $"{descriptor.BaseUrl}/{route.Url}";
+
+            var route = _descriptorService.GetExchangeEndPoint(request.Exchange, _domainString);            
             var parameter = string.Empty;
             if (request.Symbol != string.Empty)
             {
-                parameter.AddQueryParam(route.Parameter[0], request.Symbol);
+                parameter = parameter.AddQueryParam(route.Parameter[0], request.Symbol);
             }
-            var res = await _restRequestService.SendPostAsync(request.AccountId, url, parameter, token).ConfigureAwait(false);                        
-            return res.result.FromJson<Order>();
+            var res = await _restRequestService.SendPostAsync(request.AccountId, route.Url, parameter, token).ConfigureAwait(false);                        
+            return TypeSerializer.DeserializeFromString<OrderDto>(res.Result);
         }
 
-        public async Task<IEnumerable<Order>> DeleteAllOrdersAsync(Exchanges exchange, Guid accountId, string symbol, CancellationToken token = default)
+        public async Task<OrderDto[]> DeleteAllOrdersAsync(Exchanges exchange, Guid accountId, string symbol, CancellationToken token = default)
         {
-            var descriptor = _descriptorService.GetExchangeDescriptor(exchange);
-            var route = descriptor.RouteDeleteAllOrders;
-            var url = $"{descriptor.BaseUrl}/{route.Url}";
+
+            var route = _descriptorService.GetExchangeEndPoint(exchange, symbol);            
             var parameter = string.Empty;
             if (symbol != string.Empty)
             {
                 parameter.AddQueryParam(route.Parameter[0], symbol);
             }
-            var res = await _restRequestService.SendPostAsync(accountId, url, parameter, token).ConfigureAwait(false);
-            return res.result.FromJson<IEnumerable<Order>>();
+            var res = await _restRequestService.SendPostAsync(accountId, route.Url, parameter, token).ConfigureAwait(false);
+            return TypeSerializer.DeserializeFromString<OrderDto[]>(res.Result);
         }
 
-        public async Task<Order> DeleteOrderAsync(Exchanges exchange, Guid accountId, string symbol, string orderId, CancellationToken token = default)
+        public async Task<OrderDto> DeleteOrderAsync(Exchanges exchange, Guid accountId, string symbol, string orderId, CancellationToken token = default)
         {
-            var descriptor = _descriptorService.GetExchangeDescriptor(exchange);
-            var route = descriptor.RouteDeleteOrder;
-            var url = $"{descriptor.BaseUrl}/{route.Url}";
+            var route = _descriptorService.GetExchangeEndPoint(exchange, ""+_domainString);
             var parameter = string.Empty;
             if (symbol != string.Empty)
             {
@@ -125,8 +117,8 @@ namespace MadXchange.Exchange.Services.HttpRequests
             {
                 parameter.AddQueryParam(route.Parameter[1], orderId);
             }
-            var res = await _restRequestService.SendPostAsync(accountId, url, parameter, token).ConfigureAwait(false);
-            return res.result.FromJson<Order>();
+            var res = await _restRequestService.SendPostAsync(accountId, route.Url, parameter, token).ConfigureAwait(false);
+            return TypeSerializer.DeserializeFromString<OrderDto>(res.Result);
         }
        
     }

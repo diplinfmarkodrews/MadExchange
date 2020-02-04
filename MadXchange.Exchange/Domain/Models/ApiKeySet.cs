@@ -1,4 +1,5 @@
 ﻿using Convey.Types;
+using MadXchange.Exchange.Domain.Types;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,4 +29,6 @@ namespace MadXchange.Exchange.Domain.Models
 
         }
     }
+
+    
 }

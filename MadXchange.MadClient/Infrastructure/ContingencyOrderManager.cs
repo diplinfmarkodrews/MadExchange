@@ -1,10 +1,11 @@
 ﻿using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Dto;
+using MadXchange.Exchange.Contracts;
 using MadXchange.Exchange.Interfaces;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MadXchange.Exchange.Types;
 
 namespace MadXchange.MadClient.Infrastructure
 {

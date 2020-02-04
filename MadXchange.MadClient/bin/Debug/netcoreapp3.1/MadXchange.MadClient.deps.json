@@ -259,6 +259,18 @@
           }
         }
       },
+      "Microsoft.Build.Framework/16.4.0": {
+        "dependencies": {
+          "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Threading.Thread": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Build.Framework.dll": {
+            "assemblyVersion": "15.1.0.0",
+            "fileVersion": "16.4.0.56501"
+          }
+        }
+      },
       "Microsoft.CSharp/4.5.0": {},
       "Microsoft.DotNet.PlatformAbstractions/2.1.0": {
         "dependencies": {
@@ -2053,6 +2065,7 @@
           "CacheManager.StackExchange.Redis": "1.2.0",
           "Convey.HTTP": "0.4.226",
           "MadXchange.Common": "1.0.0",
+          "Microsoft.Build.Framework": "16.4.0",
           "Microsoft.Extensions.Configuration.Abstractions": "3.1.1",
           "Microsoft.Extensions.Logging.Abstractions": "3.1.1",
           "RestSharp": "106.10.1",
@@ -2257,6 +2270,13 @@
       "sha512": "sha512-J2G1k+u5unBV+aYcwxo94ip16Rkp65pgWFb0R6zwJipzWNMgvqlWeuI7/+R+e8bob66LnSG+llLJ+z8wI94cHg==",
       "path": "microsoft.bcl.hashcode/1.1.0",
       "hashPath": "microsoft.bcl.hashcode.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.Build.Framework/16.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9y1/PKvZNt+YnF2lHpk10W0SnWe9jKSM0daf7lTkYOaSs/6isMfU+Pmbt01Af6os3X3FwAQ2nOPuwoAOu0u0KA==",
+      "path": "microsoft.build.framework/16.4.0",
+      "hashPath": "microsoft.build.framework.16.4.0.nupkg.sha512"
     },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",

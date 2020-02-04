@@ -5,4 +5,3 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Common\obj\Debug
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Common\obj\Debug\netcoreapp3.1\MadXchange.Common.AssemblyInfo.cs
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Common\obj\Debug\netcoreapp3.1\MadXchange.Common.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Common\obj\Debug\netcoreapp3.1\MadXchange.Common.pdb
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Common\obj\Debug\netcoreapp3.1\MadXchange.Common.csprojAssemblyReference.cache

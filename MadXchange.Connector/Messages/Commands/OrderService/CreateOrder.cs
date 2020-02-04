@@ -1,8 +1,8 @@
 ﻿using Convey.CQRS.Commands;
-using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Dto;
-using MadXchange.Exchange.Interfaces;
+using MadXchange.Exchange.Domain.Types;
+using MadXchange.Exchange.Contracts;
 using System;
+using MadXchange.Exchange.Types;
 
 namespace MadXchange.Connector.Messages.Commands
 {
@@ -32,7 +32,7 @@ namespace MadXchange.Connector.Messages.Commands
             TimeInForce = tif;
             if (amount.HasValue)
             {
-                Side = amount > 0.0M ? OrderSide.Buy : OrderSide.Sell;
+                Side = amount > 0.0M ? OrderSide.Long : OrderSide.Short;
             }
             else 
             {
@@ -53,7 +53,7 @@ namespace MadXchange.Connector.Messages.Commands
             TimeInForce = request.TimeInForce;
             if (Amount.HasValue)
             {
-                Side = Amount > 0.0M ? OrderSide.Buy : OrderSide.Sell;
+                Side = Amount > 0.0M ? OrderSide.Long : OrderSide.Short;
             }
             else
             {

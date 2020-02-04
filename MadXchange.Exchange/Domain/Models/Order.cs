@@ -1,83 +1,25 @@
-﻿using System.Linq;
+﻿using Convey.Types;
+using MadXchange.Exchange.Contracts;
+using MadXchange.Exchange.Types;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using MadXchange.Common.Types;
-using Convey.Types;
+using System.Linq;
 
 namespace MadXchange.Exchange.Domain.Models
 {
-    public enum OrderStatus
-    {
-        UNKNOWN = 0,
-        CANCELED = 1,
-        EXPIRED = 2,
-        FILLED = 3,
-        NEW = 4,
-        PARTIALLYCANCELED = 5,
-        PARTIALLYFILLED = 6,
-        PENDINGCANCEL = 7,
-        PENDINGNEW = 8,
-        PENDINGREPLACE = 9,
-        REJECTED = 10,
-        REPLACED = 11,
-        STOPPED = 12
-    }
-    public enum OrderSide
-    {
-        Buy = 0,
-        Sell = 1
-    }
-    public enum OrderType
-    {
 
-        Limit = 0, //these 2 needed for binance only
-        Market = 1, //
-        Stop = 2,
-        StopLimit = 3,
-        MarketIfTouched = 4,
-        LimitIfTouched = 5,
-        MarketWithLeftOverAsLimit = 6,
-        Pegged = 7,
-        Unknown = 9
-
-    }
-    public enum TimeInForce
-    {
-        
-        GTC = 0, //0 is standard
-        IOC = 1,
-        FOK = 3,
-        
-    }
-
-    public enum ExecInst
-    {
-        ParticipateDoNotInitiate,
-        AllOrNone,
-        MarkPrice,
-        IndexPrice,
-        LastPrice,
-        Close,
-        ReduceOnly,
-        Fixed
-    }
     public interface IOrder : IIdentifiable<Guid>
     {
         
-        public string OrderId { get; set; }
-        public string ClOrdId { get; set; }
-        public string ClOrdLinkId { get; set; }
+        public string OrderId { get; set; }        
         public long? Account { get; set; }
         public string Symbol { get; set; }
         public OrderSide? Side { get; set; }
         public decimal? OrderQty { get; set; }
         public decimal? Price { get; set; }
         public OrderStatus? OrdStatus { get; set; }
-        public DateTimeOffset TransactTime { get; set; }
-        public DateTimeOffset Timestamp { get; set; }
-        public decimal? LeavesQty { get; set; }
-        public decimal? ExecutedQty { get; set; }
+        public long TransactTime { get; set; }
+        public long Timestamp { get; set; }        
         public OrderType? OrdType { get; set; }
         public string Text { get; set; }
         public decimal? AvgPx { get; set; }
@@ -105,17 +47,15 @@ namespace MadXchange.Exchange.Domain.Models
     {
    
         public Guid Id { get; }
-        public string OrderId { get; set; }
-        public string ClOrdId { get; set; }
-        public string ClOrdLinkId { get; set; }
+        public string OrderId { get; set; }        
         public long? Account { get; set; }
         public string Symbol { get; set; }
         public OrderSide? Side { get; set; }
         public decimal? OrderQty { get; set; }
         public decimal? Price { get; set; }
         public OrderStatus? OrdStatus { get; set; }
-        public DateTimeOffset TransactTime { get; set; }
-        public DateTimeOffset Timestamp { get; set; }
+        public long TransactTime { get; set; }
+        public long Timestamp { get; set; }
         public decimal? LeavesQty { get; set; }
         public decimal? ExecutedQty { get; set; }
         public OrderType? OrdType { get; set; }
@@ -138,17 +78,17 @@ namespace MadXchange.Exchange.Domain.Models
 
         public bool IsReduceOnly() 
         {
-            return this.ExecInst.Any(p=>p == Models.ExecInst.ReduceOnly);
+            return this.ExecInst.Any(p=>p == Contracts.ExecInst.ReduceOnly);
         }
 
         public bool IsPostOnly() 
         {
-            return this.ExecInst.Any(p=>p == Models.ExecInst.ParticipateDoNotInitiate);
+            return this.ExecInst.Any(p=>p == Contracts.ExecInst.ParticipateDoNotInitiate);
         }
 
         public bool IsClose() 
         {
-            return ExecInst.Any(p=>p == Models.ExecInst.Close);
+            return ExecInst.Any(p=>p == Contracts.ExecInst.Close);
         }
         public bool IsPegPriceOrder()
         {
@@ -163,7 +103,7 @@ namespace MadXchange.Exchange.Domain.Models
         public bool IsOrderNewOrPartiallyFilled()
         {
 
-            if (OrdStatus == OrderStatus.NEW || OrdStatus == OrderStatus.PARTIALLYFILLED)
+            if (OrdStatus == OrderStatus.New || OrdStatus == OrderStatus.PartiallyFilled)
             {
                 return true;
             }
@@ -172,7 +112,7 @@ namespace MadXchange.Exchange.Domain.Models
         public bool IsOrderFilled()
         {
 
-            if (OrdStatus == OrderStatus.FILLED)
+            if (OrdStatus == OrderStatus.Filled)
             {
                 return true;
             }
@@ -181,7 +121,7 @@ namespace MadXchange.Exchange.Domain.Models
         public bool IsOrderTerminated()
         {
 
-            if (OrdStatus == OrderStatus.FILLED || OrdStatus == OrderStatus.REJECTED || OrdStatus == OrderStatus.CANCELED || OrdStatus == OrderStatus.EXPIRED || OrdStatus == OrderStatus.STOPPED)
+            if (OrdStatus == OrderStatus.Filled || OrdStatus == OrderStatus.Rejected || OrdStatus == OrderStatus.Canceled || OrdStatus == OrderStatus.Expired || OrdStatus == OrderStatus.Stopped)
             {
                 return true;
             }
@@ -190,7 +130,7 @@ namespace MadXchange.Exchange.Domain.Models
         public bool IsOrderAborted()
         {
 
-            if (OrdStatus == OrderStatus.REJECTED || OrdStatus == OrderStatus.CANCELED || OrdStatus == OrderStatus.EXPIRED || OrdStatus == OrderStatus.STOPPED)
+            if (OrdStatus == OrderStatus.Rejected || OrdStatus == OrderStatus.Canceled || OrdStatus == OrderStatus.Expired || OrdStatus == OrderStatus.Stopped)
             {
                 return true;
             }
@@ -199,7 +139,7 @@ namespace MadXchange.Exchange.Domain.Models
         public bool IsOrderPartiallyFilled()
         {
 
-            if (OrdStatus == OrderStatus.PARTIALLYFILLED)
+            if (OrdStatus == OrderStatus.PartiallyFilled)
             {
                 return true;
             }
@@ -208,7 +148,7 @@ namespace MadXchange.Exchange.Domain.Models
         public bool IsOrderNew()
         {
 
-            if (OrdStatus == OrderStatus.NEW)
+            if (OrdStatus == OrderStatus.New)
             {
                 return true;
             }

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-
+using ServiceStack;
 
 namespace MadXchange.Connector.Services
 {
@@ -48,8 +48,8 @@ namespace MadXchange.Connector.Services
         
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var ins = await _instrumentRequestService.GetInstrumentAsync(Exchange.Domain.Models.Exchanges.ByBit, "BTCUSD");
-            _logger.LogInformation("instrument Request returned", ins);
+            var ins = await _instrumentRequestService.GetInstrumentAsync(Exchange.Domain.Types.Exchanges.ByBit, "BTCUSD");
+            _logger.LogInformation($"instrument request returned:\n{ins.TextDump()}", ins);
         }
     }
 }

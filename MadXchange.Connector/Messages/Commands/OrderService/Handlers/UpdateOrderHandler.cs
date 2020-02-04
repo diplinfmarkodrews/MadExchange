@@ -1,9 +1,8 @@
 ﻿using Convey.CQRS.Commands;
-using MadXchange.Common.Types;
 using MadXchange.Connector.Interfaces;
 using MadXchange.Connector.Messages.Commands;
-using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Interfaces;
+using MadXchange.Exchange.Contracts;
+using MadXchange.Exchange.Domain.Types;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
@@ -32,7 +31,7 @@ namespace MadXchange.Exchange.Messages.Commands.Handlers
             }
             else 
             {
-                if(update.OrdStatus != OrderStatus.REJECTED) 
+                if(update.OrdStatus != OrderStatus.Rejected) 
                 {
                 
                 }

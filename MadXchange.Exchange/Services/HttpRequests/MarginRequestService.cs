@@ -1,4 +1,6 @@
 ﻿using MadXchange.Exchange.Domain.Models;
+using MadXchange.Exchange.Domain.Types;
+using MadXchange.Exchange.Contracts;
 using MadXchange.Exchange.Interfaces;
 using MadXchange.Exchange.Services.RequestExecution;
 using Microsoft.Extensions.Logging;
@@ -7,20 +9,22 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using ServiceStack.Text;
 
 namespace MadXchange.Exchange.Services.HttpRequests
 {
     public interface IMarginRequestService
     {
-        Task<IEnumerable<Margin>> GetMarginAsync(Guid accountId, Exchanges exchange, string currency, CancellationToken token);
+        Task<MarginDto[]> GetMarginAsync(Guid accountId, Exchanges exchange, string currency, CancellationToken token);
     }
 
     public class MarginRequestService : IMarginRequestService
     {
 
-        private ILogger _logger;
-        private IExchangeDescriptorService _descriptorService;
-        private IRestRequestService _restRequestService;
+        private readonly ILogger _logger;
+        private readonly IExchangeDescriptorService _descriptorService;
+        private readonly IRestRequestService _restRequestService;
+        private const string _domainString = "Margin";
         public MarginRequestService(IExchangeDescriptorService exchangeDescriptorService, IRestRequestService restRequestService, ILogger<MarginRequestService> logger)
         {
             _descriptorService = exchangeDescriptorService;
@@ -28,18 +32,20 @@ namespace MadXchange.Exchange.Services.HttpRequests
             _logger = logger;
         }
 
-        public async Task<IEnumerable<Margin>> GetMarginAsync(Guid accountId, Exchanges exchange, string currency, CancellationToken token = default) 
+        public async Task<MarginDto[]> GetMarginAsync(Guid accountId, Exchanges exchange, string currency, CancellationToken token = default) 
         {
-            var descriptor = _descriptorService.GetExchangeDescriptor(exchange);
-            var route = descriptor.RouteGetEquity;
-            var url = $"{descriptor.BaseUrl}/{route.Url}";
+          
+            var route = _descriptorService.GetExchangeEndPoint(exchange, "GET"+_domainString);
+            if (route is null) throw new InvalidOperationException($"endpoint was not found for {exchange} Get: {_domainString}");
             var parameter = string.Empty;
             if (currency != string.Empty)
             {
-                parameter.AddQueryParam(route.Parameter[0], currency);
+                parameter = parameter.AddQueryParam(route.Parameter[0], currency);
             }
-            var res = await _restRequestService.SendGetAsync(accountId, url, parameter, token).ConfigureAwait(false);
-            return res.result.FromJson<IEnumerable<Margin>>();
+            var res = await _restRequestService.SendGetAsync(accountId, route.Url, parameter, token).ConfigureAwait(false);
+            var result = TypeSerializer.DeserializeFromString<MarginDto[]>(res.Result);
+
+            return result;
         }
     }
 

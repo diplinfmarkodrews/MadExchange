@@ -1,7 +1,9 @@
-﻿using MadXchange.Exchange.Dto.Http;
+﻿using MadXchange.Exchange.Contracts.Http;
 using Microsoft.Extensions.Logging;
 using ServiceStack;
+using ServiceStack.Text;
 using System;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace MadXchange.Exchange.Services.RequestExecution
@@ -9,7 +11,7 @@ namespace MadXchange.Exchange.Services.RequestExecution
     public interface IRestRequestExecutionService
     {
         Task<WebResponseDto> SendGetAsync(string url);
-        Task<WebResponseDto> SendPostAsync(string url);
+        Task<WebResponseDto> SendPostAsync(string url, string param);
     }
     public class RestRequestExecutionService : IRestRequestExecutionService
     {
@@ -29,9 +31,8 @@ namespace MadXchange.Exchange.Services.RequestExecution
         {
             try
             {
-                var resp = await url.GetJsonFromUrlAsync().ConfigureAwait(false);
-                var result = resp.FromJson<WebResponseDto>();                                
-                return result;
+                var resp = await url.GetJsonFromUrlAsync().ConfigureAwait(false);                               
+                return TypeSerializer.DeserializeFromString<WebResponseDto>(resp);
             } 
             catch (Exception err) 
             {
@@ -41,19 +42,29 @@ namespace MadXchange.Exchange.Services.RequestExecution
         }
                 
 
-        public async Task<WebResponseDto> SendPostAsync(string url)
+        public async Task<WebResponseDto> SendPostAsync(string url ,string param)
         {
             try
-            {                
-                var resp = await url.GetJsonFromUrlAsync().ConfigureAwait(false);
-                var resDto = resp.ConvertTo<WebResponseDto>();                
-                return resDto;
-            }
-            catch (Exception err)
             {
-                _logger.LogError($"Error sending get request: {err.Message}", err);
+                var resp = await url.PostJsonToUrlAsync(param).ConfigureAwait(false);
+                return TypeSerializer.DeserializeFromString<WebResponseDto>(resp);
             }
-            return null;
+            catch (Exception ex)
+            {
+                //var knownError = ex.IsBadRequest()
+                //                    || ex.IsNotFound()
+                //                    || ex.IsUnauthorized()
+                //                    || ex.IsForbidden()
+                //                    || ex.IsInternalServerError();
+
+                //var isAnyClientError = ex.IsAny400();
+                //var isAnyServerError = ex.IsAny500();
+
+                //HttpStatusCode? errorStatus = ex.GetStatus();
+                //string errorBody = ex.GetResponseBody();
+                _logger.LogError($"Error sending get request: {ex.Message}", ex);
+            }
+            return default;
         }
     }
 }

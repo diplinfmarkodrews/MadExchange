@@ -1,8 +1,10 @@
 ﻿using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Dto;
+using MadXchange.Exchange.Domain.Types;
+using MadXchange.Exchange.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MadXchange.Exchange.Types;
 
 namespace MadXchange.Exchange.Interfaces
 {

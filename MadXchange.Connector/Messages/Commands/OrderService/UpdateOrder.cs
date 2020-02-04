@@ -1,12 +1,12 @@
 ﻿using Convey.CQRS.Commands;
-using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Dto;
-using MadXchange.Exchange.Interfaces;
+using MadXchange.Exchange.Domain.Types;
+using MadXchange.Exchange.Contracts;
 using System;
+using MadXchange.Exchange.Types;
 
 namespace MadXchange.Connector.Messages.Commands
 {
-    
+
     public class UpdateOrder : ICommand
     {
         public Guid Id { get; }
