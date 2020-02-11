@@ -10,7 +10,9 @@ namespace MadXchange.Exchange.Infrastructure.Cache
 {
     public class PositionCache : CacheStorage<PositionCacheObject>, IPositionCache
     {
-        public PositionCache(IDistributedCache cache) : base("position", cache) { }
+        public PositionCache(IDistributedCache cache) : base("position", cache)
+        {
+        }
 
         public async Task<Position> GetPositionAsync(Guid accountId, string symbol)
         {

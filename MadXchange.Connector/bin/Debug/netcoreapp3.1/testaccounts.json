@@ -1,0 +1,33 @@
+{
+  "ExchangeKeys": [
+    {
+      "Exchange": "ByBit",
+      "Id": "495686fe-c034-426c-94dd-2f1f5bf00389",
+      "Key": "JnNzYx7Q0knwoFVPQI",
+      "Secret": "Ep42scYF53I56Cq8cfjoAcXvnJ4PU7EmMZmo",
+      "Env": "Test"
+    },
+    {
+      "Exchange": "ByBit",
+      "Id": "3ecf42a8-e7a6-4870-8a8b-164cd2d6d508",
+      "Key": "pYMUMiGfaW9EMLYXIk",
+      "Secret": "bCV0D6gVxYYxe5BZh7EkIp6UsUZI33em2jmt",
+      "Env": "Test"
+    },
+    {
+      "Exchange": "BitMex",
+      "Id": "4be9ee58-2707-4058-a6c9-07b39c027095",
+      "Key": "ZHN71TFMemty6tGPJP-hmShT",
+      "Secret": "Xcjhr45w1vjCkKmgIBBOuGWYB_4WWrZYIc2I56zgzD66mFEG",
+      "Env": "Test"
+    },
+    {
+      "Exchange": "BitMex",
+      "Id": "e49d17d6-b026-4cd5-94e5-42a256e6436a",
+      "Key": "ClGj9wOavUXwIy1Y16mZpaJM",
+      "Secret": "1MmXvaNv-SNZKdsYRFaFEpIJjR75sTXTQBpmu6CEOXruwKBp",
+      "Env": "Test"
+    }
+
+  ]
+}

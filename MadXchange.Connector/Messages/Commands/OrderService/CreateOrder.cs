@@ -1,16 +1,16 @@
 ﻿using Convey.CQRS.Commands;
-using MadXchange.Exchange.Domain.Types;
 using MadXchange.Exchange.Contracts;
-using System;
+using MadXchange.Exchange.Domain.Types;
 using MadXchange.Exchange.Types;
+using System;
 
 namespace MadXchange.Connector.Messages.Commands
 {
     public class CreateOrder : ICommand
     {
         public Guid Id { get; }
-        public Exchanges Exchange { get; set; }
-        public Guid AccountId { get; set; }       
+        public Xchange Exchange { get; set; }
+        public Guid AccountId { get; set; }
         public string Symbol { get; set; }
         public decimal? Price { get; set; }
         public decimal? Amount { get; set; }
@@ -19,8 +19,8 @@ namespace MadXchange.Connector.Messages.Commands
         public OrderSide Side { get; set; }
 
         public DateTime TimeStamp { get; } = DateTime.UtcNow;
-        
-        public CreateOrder(Guid id, Exchanges exchange, Guid accountId, string symbol, decimal? price, decimal? amount, OrderType? type, TimeInForce? tif, OrderSide? side = null)
+
+        public CreateOrder(Guid id, Xchange exchange, Guid accountId, string symbol, decimal? price, decimal? amount, OrderType? type, TimeInForce? tif, OrderSide? side = null)
         {
             Id = id == default ? Guid.NewGuid() : id;
             Exchange = exchange;
@@ -34,14 +34,13 @@ namespace MadXchange.Connector.Messages.Commands
             {
                 Side = amount > 0.0M ? OrderSide.Long : OrderSide.Short;
             }
-            else 
+            else
             {
                 Side = side.Value;
             }
-
         }
 
-        public CreateOrder(Guid id, IOrderPostRequest request) 
+        public CreateOrder(Guid id, IOrderPostRequest request)
         {
             Id = id == default ? Guid.NewGuid() : id;
             Exchange = request.Exchange;

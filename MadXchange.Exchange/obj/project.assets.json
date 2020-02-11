@@ -2,29 +2,7 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "CacheManager.Core/1.2.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/CacheManager.Core.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/CacheManager.Core.dll": {}
-        }
-      },
-      "CacheManager.StackExchange.Redis/1.2.0": {
-        "type": "package",
-        "dependencies": {
-          "CacheManager.Core": "1.2.0",
-          "StackExchange.Redis": "2.0.513"
-        },
-        "compile": {
-          "lib/netstandard2.0/CacheManager.StackExchange.Redis.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/CacheManager.StackExchange.Redis.dll": {}
-        }
-      },
-      "Convey/0.4.226": {
+      "Convey/0.4.246": {
         "type": "package",
         "dependencies": {
           "Figgle": "0.3.0",
@@ -40,10 +18,10 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Convey.CQRS.Queries/0.4.226": {
+      "Convey.CQRS.Queries/0.4.246": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.226"
+          "Convey": "0.4.246"
         },
         "compile": {
           "lib/netcoreapp3.1/Convey.CQRS.Queries.dll": {}
@@ -52,26 +30,12 @@
           "lib/netcoreapp3.1/Convey.CQRS.Queries.dll": {}
         }
       },
-      "Convey.HTTP/0.4.226": {
+      "Convey.Persistence.MongoDB/0.4.246": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.226",
-          "Microsoft.Extensions.Http": "3.1.0",
-          "Polly": "7.2.0"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Convey.HTTP.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Convey.HTTP.dll": {}
-        }
-      },
-      "Convey.Persistence.MongoDB/0.4.226": {
-        "type": "package",
-        "dependencies": {
-          "Convey": "0.4.226",
-          "Convey.CQRS.Queries": "0.4.226",
-          "MongoDB.Driver": "2.10.0"
+          "Convey": "0.4.246",
+          "Convey.CQRS.Queries": "0.4.246",
+          "MongoDB.Driver": "2.10.1"
         },
         "compile": {
           "lib/netcoreapp3.1/Convey.Persistence.MongoDB.dll": {}
@@ -80,11 +44,11 @@
           "lib/netcoreapp3.1/Convey.Persistence.MongoDB.dll": {}
         }
       },
-      "Convey.Persistence.Redis/0.4.226": {
+      "Convey.Persistence.Redis/0.4.246": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.226",
-          "Microsoft.Extensions.Caching.StackExchangeRedis": "3.1.0"
+          "Convey": "0.4.246",
+          "Microsoft.Extensions.Caching.StackExchangeRedis": "3.1.1"
         },
         "compile": {
           "lib/netcoreapp3.1/Convey.Persistence.Redis.dll": {}
@@ -93,10 +57,10 @@
           "lib/netcoreapp3.1/Convey.Persistence.Redis.dll": {}
         }
       },
-      "Convey.Tracing.Jaeger/0.4.226": {
+      "Convey.Tracing.Jaeger/0.4.246": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.226",
+          "Convey": "0.4.246",
           "Jaeger": "0.3.6",
           "OpenTracing.Contrib.NetCore": "0.6.2"
         },
@@ -109,15 +73,6 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
-      },
-      "DbContextScope.UnitOfWork.Core/1.2.0": {
-        "type": "package",
-        "compile": {
-          "lib/net452/DbContextScope.UnitOfWork.Core.dll": {}
-        },
-        "runtime": {
-          "lib/net452/DbContextScope.UnitOfWork.Core.dll": {}
-        }
       },
       "DnsClient/1.2.0": {
         "type": "package",
@@ -340,19 +295,6 @@
           "lib/netcoreapp2.1/Microsoft.Bcl.HashCode.dll": {}
         }
       },
-      "Microsoft.Build.Framework/16.4.0": {
-        "type": "package",
-        "dependencies": {
-          "System.Runtime.Serialization.Primitives": "4.1.1",
-          "System.Threading.Thread": "4.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Build.Framework.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Build.Framework.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.5.0": {
         "type": "package",
         "compile": {
@@ -447,11 +389,11 @@
           "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Memory.dll": {}
         }
       },
-      "Microsoft.Extensions.Caching.StackExchangeRedis/3.1.0": {
+      "Microsoft.Extensions.Caching.StackExchangeRedis/3.1.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Caching.Abstractions": "3.1.0",
-          "Microsoft.Extensions.Options": "3.1.0",
+          "Microsoft.Extensions.Caching.Abstractions": "3.1.1",
+          "Microsoft.Extensions.Options": "3.1.1",
           "StackExchange.Redis": "2.0.593"
         },
         "compile": {
@@ -637,20 +579,6 @@
           "lib/netstandard2.0/Microsoft.Extensions.Hosting.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.Http/3.1.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.0",
-          "Microsoft.Extensions.Logging": "3.1.0",
-          "Microsoft.Extensions.Options": "3.1.0"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Http.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Http.dll": {}
-        }
-      },
       "Microsoft.Extensions.Logging/3.1.1": {
         "type": "package",
         "dependencies": {
@@ -789,7 +717,7 @@
           }
         }
       },
-      "MongoDB.Bson/2.10.0": {
+      "MongoDB.Bson/2.10.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -806,11 +734,11 @@
           "lib/netstandard1.5/MongoDB.Bson.dll": {}
         }
       },
-      "MongoDB.Driver/2.10.0": {
+      "MongoDB.Driver/2.10.1": {
         "type": "package",
         "dependencies": {
-          "MongoDB.Bson": "2.10.0",
-          "MongoDB.Driver.Core": "2.10.0",
+          "MongoDB.Bson": "2.10.1",
+          "MongoDB.Driver.Core": "2.10.1",
           "MongoDB.Libmongocrypt": "1.0.0",
           "NETStandard.Library": "1.6.1",
           "System.ComponentModel.TypeConverter": "4.1.0",
@@ -823,11 +751,11 @@
           "lib/netstandard1.5/MongoDB.Driver.dll": {}
         }
       },
-      "MongoDB.Driver.Core/2.10.0": {
+      "MongoDB.Driver.Core/2.10.1": {
         "type": "package",
         "dependencies": {
           "DnsClient": "1.2.0",
-          "MongoDB.Bson": "2.10.0",
+          "MongoDB.Bson": "2.10.1",
           "MongoDB.Libmongocrypt": "1.0.0",
           "NETStandard.Library": "1.6.1",
           "SharpCompress": "0.23.0",
@@ -957,24 +885,6 @@
         },
         "runtime": {
           "lib/netcoreapp3.0/Pipelines.Sockets.Unofficial.dll": {}
-        }
-      },
-      "Polly/7.2.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Polly.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Polly.dll": {}
-        }
-      },
-      "RestSharp/106.10.1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/RestSharp.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/RestSharp.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
@@ -2271,6 +2181,21 @@
           "lib/netstandard1.3/System.Net.WebHeaderCollection.dll": {}
         }
       },
+      "System.Net.WebSockets/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Primitives": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.3/System.Net.WebSockets.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Net.WebSockets.dll": {}
+        }
+      },
       "System.ObjectModel/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3181,10 +3106,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "Convey.Persistence.MongoDB": "0.4.226",
-          "Convey.Persistence.Redis": "0.4.226",
-          "Convey.Tracing.Jaeger": "0.4.226",
-          "DbContextScope.UnitOfWork.Core": "1.2.0",
+          "Convey.Persistence.MongoDB": "0.4.246",
+          "Convey.Persistence.Redis": "0.4.246",
+          "Convey.Tracing.Jaeger": "0.4.246",
           "Microsoft.EntityFrameworkCore": "3.1.1"
         },
         "compile": {
@@ -3200,122 +3124,64 @@
     }
   },
   "libraries": {
-    "CacheManager.Core/1.2.0": {
-      "sha512": "tmgwGDJlPNdSTb94Bx/0D3fDlkP+HIa80d1nCrXs+NjTgZR8JaQcslH+PHP2ebxPkM4CnijQVEMD+Dk8CvR41w==",
+    "Convey/0.4.246": {
+      "sha512": "bHvLXe3xisfUr4hhtHeKgIx1qGpqkrvaMuk7JnovBszENd9eEfK9r0lPvaMJqjttbloSuimfQqS7wezfFZmcVw==",
       "type": "package",
-      "path": "cachemanager.core/1.2.0",
+      "path": "convey/0.4.246",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "cachemanager.core.1.2.0.nupkg.sha512",
-        "cachemanager.core.nuspec",
-        "lib/net40/CacheManager.Core.dll",
-        "lib/net40/CacheManager.Core.xml",
-        "lib/net45/CacheManager.Core.dll",
-        "lib/net45/CacheManager.Core.xml",
-        "lib/netstandard1.2/CacheManager.Core.dll",
-        "lib/netstandard1.2/CacheManager.Core.xml",
-        "lib/netstandard2.0/CacheManager.Core.dll",
-        "lib/netstandard2.0/CacheManager.Core.xml"
-      ]
-    },
-    "CacheManager.StackExchange.Redis/1.2.0": {
-      "sha512": "xU5g5Lt6d14yqgqHQUcxlIyXmXDCMewhmg0Bl5Atms1cRHcPRwRzzjOU90eNWxHjn4BM4wjWhV3GrsnlBhBZNw==",
-      "type": "package",
-      "path": "cachemanager.stackexchange.redis/1.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "cachemanager.stackexchange.redis.1.2.0.nupkg.sha512",
-        "cachemanager.stackexchange.redis.nuspec",
-        "lib/net461/CacheManager.StackExchange.Redis.dll",
-        "lib/net461/CacheManager.StackExchange.Redis.xml",
-        "lib/netstandard2.0/CacheManager.StackExchange.Redis.dll",
-        "lib/netstandard2.0/CacheManager.StackExchange.Redis.xml"
-      ]
-    },
-    "Convey/0.4.226": {
-      "sha512": "aGsqkbN8dMdpJkpYVqVj+t21N6ijEMTIm8cqcb61BcHoEyzc3nFAEfbPwtKWDTwE3GbNM+mDe0PwHor+E1G6dg==",
-      "type": "package",
-      "path": "convey/0.4.226",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "convey.0.4.226.nupkg.sha512",
+        "convey.0.4.246.nupkg.sha512",
         "convey.nuspec",
         "lib/netcoreapp3.1/Convey.dll"
       ]
     },
-    "Convey.CQRS.Queries/0.4.226": {
-      "sha512": "pueCrZHo2auO7Rc/aViabs5qStcPBExAnB6F1EWKNGNSjwnrxZ6a+iUWtCvmWz/9ZjVl83tm7VhswclaB1vqag==",
+    "Convey.CQRS.Queries/0.4.246": {
+      "sha512": "/QnE4HNZU5W6Cz+d27peBKX9jfrtUwECwXTdvpurhrz3r2RSmXUODjn5UEhLyI8kDal7ugAzxPDNZrCuWKIbjQ==",
       "type": "package",
-      "path": "convey.cqrs.queries/0.4.226",
+      "path": "convey.cqrs.queries/0.4.246",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.cqrs.queries.0.4.226.nupkg.sha512",
+        "convey.cqrs.queries.0.4.246.nupkg.sha512",
         "convey.cqrs.queries.nuspec",
         "lib/netcoreapp3.1/Convey.CQRS.Queries.dll"
       ]
     },
-    "Convey.HTTP/0.4.226": {
-      "sha512": "nZuEZwyCUBlDSZznYDyfYA27O+AGuCO+9eps0d7PxgggGeP4ehk8QaMfY7TqDJbCzw4eC8wyakAzJtdnJq4uwQ==",
+    "Convey.Persistence.MongoDB/0.4.246": {
+      "sha512": "8qPWGQYFjz3ar7N9ygqfzOMoEyoSa3DR+hTQ95qGTsA02VHLtm5JfFGBg5DH0qSKC2u85ZCVWdeBsaJrLgTkLw==",
       "type": "package",
-      "path": "convey.http/0.4.226",
+      "path": "convey.persistence.mongodb/0.4.246",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.http.0.4.226.nupkg.sha512",
-        "convey.http.nuspec",
-        "lib/netcoreapp3.1/Convey.HTTP.dll"
-      ]
-    },
-    "Convey.Persistence.MongoDB/0.4.226": {
-      "sha512": "9fndsFttYA6dYkMqzbHWmQL8QHY24hK/WGvjhHZpNE8ZVpnH0YlgTtgkSL3BUgk2ne2ZFWO4szC/ROvyRXnSrg==",
-      "type": "package",
-      "path": "convey.persistence.mongodb/0.4.226",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "convey.persistence.mongodb.0.4.226.nupkg.sha512",
+        "convey.persistence.mongodb.0.4.246.nupkg.sha512",
         "convey.persistence.mongodb.nuspec",
         "lib/netcoreapp3.1/Convey.Persistence.MongoDB.dll"
       ]
     },
-    "Convey.Persistence.Redis/0.4.226": {
-      "sha512": "3vk5+LmCTUoLyvAIcxrNiww8VW3FPcF1Nh34x5Jvn7+1mDLZcKNYXmSoU5hsV7tWnlAN6mfDY8ucfHJyA2QF9w==",
+    "Convey.Persistence.Redis/0.4.246": {
+      "sha512": "ayZ+3/GJHlhY0qO+wT/09BoPgFOSAFTb2FC+n2dQr7Kiyx3YFKrwMF58gbKRvnB8GO+drHn3JTf8wBPtu/+dQQ==",
       "type": "package",
-      "path": "convey.persistence.redis/0.4.226",
+      "path": "convey.persistence.redis/0.4.246",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.persistence.redis.0.4.226.nupkg.sha512",
+        "convey.persistence.redis.0.4.246.nupkg.sha512",
         "convey.persistence.redis.nuspec",
         "lib/netcoreapp3.1/Convey.Persistence.Redis.dll"
       ]
     },
-    "Convey.Tracing.Jaeger/0.4.226": {
-      "sha512": "OBtMiuPRBfWi7NltOSpvEf5791afLSzrNGxx74dU8+7oh27oDogN/t+/dnmlHCCfwlUDn+1qnSNHr1lppQNtEQ==",
+    "Convey.Tracing.Jaeger/0.4.246": {
+      "sha512": "AVRrHz/lKIDXiz7+tsiPyt0YOEzrSfgnumbV69IAuD0zxt+xmsxvv1DVWgCkCrSmlKopRJn1bFJAS7Dj/52iYA==",
       "type": "package",
-      "path": "convey.tracing.jaeger/0.4.226",
+      "path": "convey.tracing.jaeger/0.4.246",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.tracing.jaeger.0.4.226.nupkg.sha512",
+        "convey.tracing.jaeger.0.4.246.nupkg.sha512",
         "convey.tracing.jaeger.nuspec",
         "lib/netcoreapp3.1/Convey.Tracing.Jaeger.dll"
-      ]
-    },
-    "DbContextScope.UnitOfWork.Core/1.2.0": {
-      "sha512": "iYogEHIWGnLAL4EXUFtqCPSVkAnriteLvJH1BsUuZ3/92sMwdlTF8OKS8oPMpqf2Sq4TKMRLtnPdC3Wi/lfc9A==",
-      "type": "package",
-      "path": "dbcontextscope.unitofwork.core/1.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "dbcontextscope.unitofwork.core.1.2.0.nupkg.sha512",
-        "dbcontextscope.unitofwork.core.nuspec",
-        "lib/net452/DbContextScope.UnitOfWork.Core.dll"
       ]
     },
     "DnsClient/1.2.0": {
@@ -3575,25 +3441,6 @@
         "version.txt"
       ]
     },
-    "Microsoft.Build.Framework/16.4.0": {
-      "sha512": "9y1/PKvZNt+YnF2lHpk10W0SnWe9jKSM0daf7lTkYOaSs/6isMfU+Pmbt01Af6os3X3FwAQ2nOPuwoAOu0u0KA==",
-      "type": "package",
-      "path": "microsoft.build.framework/16.4.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "MSBuild-NuGet-Icon.png",
-        "lib/net472/Microsoft.Build.Framework.dll",
-        "lib/net472/Microsoft.Build.Framework.pdb",
-        "lib/net472/Microsoft.Build.Framework.xml",
-        "lib/netstandard2.0/Microsoft.Build.Framework.dll",
-        "lib/netstandard2.0/Microsoft.Build.Framework.pdb",
-        "lib/netstandard2.0/Microsoft.Build.Framework.xml",
-        "microsoft.build.framework.16.4.0.nupkg.sha512",
-        "microsoft.build.framework.nuspec",
-        "notices/THIRDPARTYNOTICES.txt"
-      ]
-    },
     "Microsoft.CSharp/4.5.0": {
       "sha512": "kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
       "type": "package",
@@ -3751,18 +3598,18 @@
         "microsoft.extensions.caching.memory.nuspec"
       ]
     },
-    "Microsoft.Extensions.Caching.StackExchangeRedis/3.1.0": {
-      "sha512": "vJchhW2311uRr9nCmqBBH+EDjZQTO4FT8lJCXLZFme1WgjRKtSwg2dBB7DU3ZUppOhgm+HOGprF6VI/GI67OTQ==",
+    "Microsoft.Extensions.Caching.StackExchangeRedis/3.1.1": {
+      "sha512": "B4IgSPQqmGfNTJPOP+PuljyUfNNaIShwjfFqGFZimf16BHFtPgurHKQbWmYzPQuwmXcWPYaVJKdRjtge8B6x5A==",
       "type": "package",
-      "path": "microsoft.extensions.caching.stackexchangeredis/3.1.0",
+      "path": "microsoft.extensions.caching.stackexchangeredis/3.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "lib/netstandard2.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Caching.StackExchangeRedis.xml",
-        "microsoft.extensions.caching.stackexchangeredis.3.1.0.nupkg.sha512",
-        "microsoft.extensions.caching.stackexchangeredis.nuspec",
-        "packageIcon.png"
+        "microsoft.extensions.caching.stackexchangeredis.3.1.1.nupkg.sha512",
+        "microsoft.extensions.caching.stackexchangeredis.nuspec"
       ]
     },
     "Microsoft.Extensions.Configuration/3.1.1": {
@@ -3967,22 +3814,6 @@
         "lib/netstandard2.0/Microsoft.Extensions.Hosting.Abstractions.xml",
         "microsoft.extensions.hosting.abstractions.2.1.1.nupkg.sha512",
         "microsoft.extensions.hosting.abstractions.nuspec"
-      ]
-    },
-    "Microsoft.Extensions.Http/3.1.0": {
-      "sha512": "DLigdcV0nYaT6/ly0rnfP80BnXq8NNd/h8/SkfY39uio7Bd9LauVntp6RcRh1Kj23N+uf80GgL7Win6P3BCtoQ==",
-      "type": "package",
-      "path": "microsoft.extensions.http/3.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Http.dll",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Http.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Http.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Http.xml",
-        "microsoft.extensions.http.3.1.0.nupkg.sha512",
-        "microsoft.extensions.http.nuspec",
-        "packageIcon.png"
       ]
     },
     "Microsoft.Extensions.Logging/3.1.1": {
@@ -4203,10 +4034,10 @@
         "version.txt"
       ]
     },
-    "MongoDB.Bson/2.10.0": {
-      "sha512": "KMUjSQ4jSDkAtMRod/tTRkMmiPnu6e7GqhLOPWkLvtY/uHKmn4BXp82wF2Cwd+kktW1GtOQA7wgP9YpGhQDVow==",
+    "MongoDB.Bson/2.10.1": {
+      "sha512": "BTQKxYytJL4CZob76qVAVTM51AryI/wE3JkASRtWUYCUSEJVMBGBVtzV5O9AUo6Tjrn8qQXvtGVPfACb6x53Kw==",
       "type": "package",
-      "path": "mongodb.bson/2.10.0",
+      "path": "mongodb.bson/2.10.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4215,14 +4046,14 @@
         "lib/net452/MongoDB.Bson.xml",
         "lib/netstandard1.5/MongoDB.Bson.dll",
         "lib/netstandard1.5/MongoDB.Bson.xml",
-        "mongodb.bson.2.10.0.nupkg.sha512",
+        "mongodb.bson.2.10.1.nupkg.sha512",
         "mongodb.bson.nuspec"
       ]
     },
-    "MongoDB.Driver/2.10.0": {
-      "sha512": "YyQSFf8hl/larcQCpN652Q6aQ3z9Xn1EB1JFrIZc84xDy4oiqFbDbWIv+DHIat2qTfQNDeeXc9laCTTx2TVvMg==",
+    "MongoDB.Driver/2.10.1": {
+      "sha512": "BIJgMPsdeFzg5SsW5K1+GPNXddwJbhUcgcPic6EtmF9o8o0Inf/SyvuxtdB25zQV+UmR1rDJ7OfmTwddqmEDZA==",
       "type": "package",
-      "path": "mongodb.driver/2.10.0",
+      "path": "mongodb.driver/2.10.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4231,14 +4062,14 @@
         "lib/net452/MongoDB.Driver.xml",
         "lib/netstandard1.5/MongoDB.Driver.dll",
         "lib/netstandard1.5/MongoDB.Driver.xml",
-        "mongodb.driver.2.10.0.nupkg.sha512",
+        "mongodb.driver.2.10.1.nupkg.sha512",
         "mongodb.driver.nuspec"
       ]
     },
-    "MongoDB.Driver.Core/2.10.0": {
-      "sha512": "xz40z4BxfVY/Q99JiaPNwT/2/00auITn0hoWfSZy3WtkYkMQQIcZNlLr/ywRihJbDQXhVpAbyKCO9chYstQXEA==",
+    "MongoDB.Driver.Core/2.10.1": {
+      "sha512": "TmiqxJQ2XVsFAY1tvcxHr2Q1HFe2J0MqKZ1F9VMe44ZxtiEzxsugJJQstYOmnt5Ut9zU70SzQLTpDLlQG7aBow==",
       "type": "package",
-      "path": "mongodb.driver.core/2.10.0",
+      "path": "mongodb.driver.core/2.10.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -4247,7 +4078,7 @@
         "lib/net452/MongoDB.Driver.Core.xml",
         "lib/netstandard1.5/MongoDB.Driver.Core.dll",
         "lib/netstandard1.5/MongoDB.Driver.Core.xml",
-        "mongodb.driver.core.2.10.0.nupkg.sha512",
+        "mongodb.driver.core.2.10.1.nupkg.sha512",
         "mongodb.driver.core.nuspec"
       ]
     },
@@ -4365,44 +4196,6 @@
         "lib/netstandard2.0/Pipelines.Sockets.Unofficial.xml",
         "pipelines.sockets.unofficial.2.0.17.nupkg.sha512",
         "pipelines.sockets.unofficial.nuspec"
-      ]
-    },
-    "Polly/7.2.0": {
-      "sha512": "fbtSRyqVSd5AS7O4Pm2Mnw7zKKJk7Z3rOfNnKSTfPkTxM8Z1JJFZzzjqLAOTG6AyUkormSWMO2AhdlygF/384Q==",
-      "type": "package",
-      "path": "polly/7.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net461/Polly.dll",
-        "lib/net461/Polly.pdb",
-        "lib/net461/Polly.xml",
-        "lib/net472/Polly.dll",
-        "lib/net472/Polly.pdb",
-        "lib/net472/Polly.xml",
-        "lib/netstandard1.1/Polly.dll",
-        "lib/netstandard1.1/Polly.pdb",
-        "lib/netstandard1.1/Polly.xml",
-        "lib/netstandard2.0/Polly.dll",
-        "lib/netstandard2.0/Polly.pdb",
-        "lib/netstandard2.0/Polly.xml",
-        "polly.7.2.0.nupkg.sha512",
-        "polly.nuspec"
-      ]
-    },
-    "RestSharp/106.10.1": {
-      "sha512": "MhR4w8LbArVaRA5T/oAR3ZnF852QXtDXRBO84GsvyYzsm7FsjXHJ+JaM8x/nR/B/OCB1WbolGH7hqMT1GZpNJw==",
-      "type": "package",
-      "path": "restsharp/106.10.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net452/RestSharp.dll",
-        "lib/net452/RestSharp.xml",
-        "lib/netstandard2.0/RestSharp.dll",
-        "lib/netstandard2.0/RestSharp.xml",
-        "restsharp.106.10.1.nupkg.sha512",
-        "restsharp.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
@@ -7267,6 +7060,45 @@
         "system.net.webheadercollection.nuspec"
       ]
     },
+    "System.Net.WebSockets/4.3.0": {
+      "sha512": "u6fFNY5q4T8KerUAVbya7bR6b7muBuSTAersyrihkcmE5QhEOiH3t5rh4il15SexbVlpXFHGuMwr/m8fDrnkQg==",
+      "type": "package",
+      "path": "system.net.websockets/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Net.WebSockets.dll",
+        "lib/netstandard1.3/System.Net.WebSockets.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Net.WebSockets.dll",
+        "ref/netstandard1.3/System.Net.WebSockets.dll",
+        "ref/netstandard1.3/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/de/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/es/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/fr/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/it/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/ja/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/ko/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/ru/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/zh-hans/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/zh-hant/System.Net.WebSockets.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.net.websockets.4.3.0.nupkg.sha512",
+        "system.net.websockets.nuspec"
+      ]
+    },
     "System.ObjectModel/4.3.0": {
       "sha512": "bdX+80eKv9bN6K4N+d77OankKHGn6CH711a6fcOpMQu2Fckp/Ft4L/kW9WznHpyR0NRAvJutzOMHNNlBGvxQzQ==",
       "type": "package",
@@ -9855,20 +9687,18 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "CacheManager.StackExchange.Redis >= 1.2.0",
-      "Convey.HTTP >= 0.4.226",
       "MadXchange.Common >= 1.0.0",
-      "Microsoft.Build.Framework >= 16.4.0",
       "Microsoft.Extensions.Configuration.Abstractions >= 3.1.1",
       "Microsoft.Extensions.Logging.Abstractions >= 3.1.1",
-      "RestSharp >= 106.10.1",
       "ServiceStack.Client.Core >= 5.8.0",
       "ServiceStack.Core >= 5.8.0",
       "ServiceStack.HttpClient.Core >= 5.8.0",
       "ServiceStack.Interfaces >= 5.8.0",
       "ServiceStack.Interfaces.Core >= 5.8.0",
       "ServiceStack.Redis.Core >= 5.8.0",
-      "ServiceStack.Text.Core >= 5.8.0"
+      "ServiceStack.Text.Core >= 5.8.0",
+      "System.Net.Sockets >= 4.3.0",
+      "System.Net.WebSockets >= 4.3.0"
     ]
   },
   "packageFolders": {
@@ -9918,18 +9748,6 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
-          "CacheManager.StackExchange.Redis": {
-            "target": "Package",
-            "version": "[1.2.0, )"
-          },
-          "Convey.HTTP": {
-            "target": "Package",
-            "version": "[0.4.226, )"
-          },
-          "Microsoft.Build.Framework": {
-            "target": "Package",
-            "version": "[16.4.0, )"
-          },
           "Microsoft.Extensions.Configuration.Abstractions": {
             "target": "Package",
             "version": "[3.1.1, )"
@@ -9937,10 +9755,6 @@
           "Microsoft.Extensions.Logging.Abstractions": {
             "target": "Package",
             "version": "[3.1.1, )"
-          },
-          "RestSharp": {
-            "target": "Package",
-            "version": "[106.10.1, )"
           },
           "ServiceStack.Client.Core": {
             "target": "Package",
@@ -9969,6 +9783,14 @@
           "ServiceStack.Text.Core": {
             "target": "Package",
             "version": "[5.8.0, )"
+          },
+          "System.Net.Sockets": {
+            "target": "Package",
+            "version": "[4.3.0, )"
+          },
+          "System.Net.WebSockets": {
+            "target": "Package",
+            "version": "[4.3.0, )"
           }
         },
         "imports": [
@@ -9992,17 +9814,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'DbContextScope.UnitOfWork.Core 1.2.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "DbContextScope.UnitOfWork.Core",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }

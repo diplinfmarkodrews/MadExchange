@@ -1,109 +1,29 @@
 {
   "ExchangeDescriptors": {
     "ByBit": {
-      "Name": "ByBit",     
+      "Name": "ByBit",
       "SocketUrl": "wss://stream-testnet.bybit.com/realtime",
       "BaseUrl": "https://api-testnet.bybit.com",
-      "Enums": {
-        "OrderSide": {
-          "buy": "Long",
-          "sell": "Short"
-        },
-        "OrderType": {
-          "limit": "Limit",
-          "market": "Market"
-        },
-        "OrderStatus": {
-          "new": "New",
-          "filled": "Filled",
-          "partially_filled": "PartiallyFilled"
-        }
-      },
-      "Types": {
-        "WebResponse": {
-          "ret_msg": "ReturnMessage",
-          "result": "Result",
-          "ret_code": "ReturnCode",
-          "ext_code": "ExtCode",
-          "ext_info": "ExtInfo",
-          "time_now": "TimeNowUtc",
-          "rate_limit": "RateLimit",
-          "rate_limit_status": "RateLimitStatus",
-          "rate_limit_reset": "RateLimitReset"
-        },
-        "Position": {
-          "id": "Id", //position ID
-          "user_id": "ExchangeUserId", //user ID
-          "risk_id": "RiskId", //risk limit ID
-          "symbol": "Symbol", //Contract Type
-          "side": "OrderSide", //position Side  (None, buy, sell)
-          "size": "Size", //position size
-          "position_value": "Value", //position value
-          "entry_price": "EntryPrice", //entry price
-          "leverage": "Leverage", //user leverage
-          "auto_add_margin": "MarginMode", //1 means Cross Margin mode, 0 means Isolated Margin mode
-          "position_margin": "PosMargin", //position margin
-          "liq_price": "LiquidationPrice", //liquidation price
-          "bust_price": "BustPrice", //bankruptcy price
-          "occ_closing_fee": "ClosingFee", //position closing
-          "occ_funding_fee": "FundingFee", //funding fee
-          "take_profit": "TakeProfitPrice", //take profit price
-          "stop_loss": "StopLossPrice", //stop loss price
-          "trailing_stop": "TrailingStop", //trailing stop point
-          "position_status": "Status", //Status Normal (normal), Liq (Liquidation in process), ADL (ADL in process)
-          "deleverage_indicator": "DeleverageIndicator",
-          "order_margin": "OrderMargin", //Used margin by order
-          "wallet_balance": "WalletBalance", //wallet balance. When in Cross Margin mod, the number minus your unclosed loss is your real wallet balance.
-          "unrealised_pnl": "UnRealisedPnL", //unrealised profit and loss
-          "realised_pnl": "RealisedPnl", //daily realized profit and loss
-          "cum_realised_pnl": "CumRealisedPnl", //Total realized profit and loss
-          "cum_commission": "CumComission", //Total commissions
-          "cross_seq": "CrossSeq", //
-          "position_seq": "PositionSeq", //position sequence number
-          "created_at": "CreatedAt",
-          "updated_at": "UpdatedAt"
-        },
-        "Instrument": {
-          "symbol": "Symbol", // instrument name
-          "bid_price": "BidPrice", // the bid price
-          "ask_price": "AskPrice", // the ask price
-          "last_price": "LastPrice", // the latest price                 
-          "mark_price": "MarkPrice", // mark price
-          "index_price": "IndexPrice", // index price
-          "open_interest": "OpenInterest", // open interest quantity - updates every minute (updates may be more frequent than every 1 minute)
-          "open_value": "OpenValue", // open value quantity - updates every minute (updates may be more frequent than every 1 minute)
-          "total_turnover": "TotalTurnover", // total turnover
-          "turnover_24h": "TurnOver24", // 24h turnover
-          "total_volume": "TotalVolume", // total volume
-          "volume_24h": "Volume24", // 24h volume
-          "funding_rate": "FundingRate", // funding rate
-          "predicted_funding_rate": "PredictedFundingRate", // predicted funding rate
-          "next_funding_time": "NextFundingTime" // next funding time       
-        },
-        "Order": {
-
-        },
-        "WalletHistory": {
-
-        },
-        "Margin": {
-
-        },
-        "OrderBook": {
-
-        }
-      },
       "Routes": {
         "GET": {
           "Instrument": {
             "Url": "/v2/public/tickers",
             "Parameter": {
               "symbol": {
-                "Domain": "Symbol",
                 "Required": false
               }
-            },
-            "Result": "Instrument"
+            }
+          },
+          //"Symbols": {///lets check socket first, maybe not neccessary
+          //  "Url": "/v2/public/symbols",
+          //  "Parameter": {
+          //    "symbol": {
+          //      "Required": false
+          //    }
+          //  }
+          //},
+          "PositionList": {
+            "Url": "/position/list"
           },
           "OrderBook": {
             "Url": "/v2/public/orderBook/L2",
@@ -130,21 +50,28 @@
                 "Domain": "Symbol",
                 "Required": true
               }
-            },
-            "Result" : "Order"
+            }
           },
           "Position": {
             "Url": "/v2/private/position/list",
-            "Result": "Position"
-
+            "Parameter": {
+              "symbol": {
+                "Required": false
+              }
+            }
           },
           "Margin": { //balance is in positiondto
             "Url": "/v2/private/position/list",
+            "Parameter": {
+              "symbol": {
+                "Required": false
+              }
+            },
             "Result": "Margin"
           },
           "Leverage": {
             "Url": "/user/leverage",
-              "Result": "Leverage"
+            "Result": "Leverage"
           },
           "Wallet": {
             "Fund": {
@@ -160,7 +87,7 @@
           }
         },
         "POST": {
-          "OrderPlace": {
+          "PlaceOrder": {
             "Url": "/v2/private/order/create",
             "Parameter": {
               "side": {
@@ -187,11 +114,11 @@
               },
               "time_in_force": {
                 "Domain": "TimeInForce",
-                "Type": "TimeInForce",                                       
+                "Type": "TimeInForce",
                 "Required": true
               },
               "reduce_only": {
-                "Domain": "ReduceOnly",                  
+                "Domain": "ReduceOnly",
                 "Required": false
               },
               "order_link_id": {
@@ -201,7 +128,7 @@
             },
             "Result": "Order"
           }, //paramer: side[Required], symbol[Required], order_type[Required], qty[Required], price[Required with Type limit], time_in_force[Required], reduce_only, order_link_id
-          "OrderReplace": {
+          "UpdateOrder": {
             "Url": "/open-api/order/replace",
             "Parameter": {
               "side": {
@@ -212,24 +139,28 @@
               "symbol": {
                 "Domain": "Symbol",
                 "Required": false
-
               }
-
-                
             },
             "Result": "Order"
           }, //Parameter:
-          "OrderCancelAll": {
+          "CancelAllOrder": {
             "Url": "/v2/private/order/cancelAll",
             "Parameter": {
-
+              "symbol": {
+                "Required": false
+              }
             },
             "Result": "Order"
           }, //Parameter:  symbol[Required]
           "OrderCancel": {
             "Url": "/v2/private/order/cancel", //paramer: symbol[Required], order_id, order_link_id
             "Parameter": {
-
+              "symbol": {
+                "Required": true
+              },
+              "orderid": {
+                "Required": true
+              }
             },
             "Result": "Order"
           },
@@ -237,11 +168,9 @@
             "Url": "/user/leverage/save",
             "Parameter": {
               "symbol": {
-                "Domain": "Symbol",
                 "Required": true
               },
               "leverage": {
-                "Domain": "Leverage",
                 "Required": true
               }
             },
@@ -251,180 +180,174 @@
       }
     }
   } //EndBybit
-      //"BitMex": {
-      //  "Name": "BitMex",
-      //  "WS": "wss://www.bitmex.com/realtime",
-      //  "CS": "https://www.bitmex.com/api/v1",
+  //"BitMex": {
+  //  "Name": "BitMex",
+  //  "WS": "wss://www.bitmex.com/realtime",
+  //  "CS": "https://www.bitmex.com/api/v1",
 
-      //  "Routes": {
-      //    "GET": {
-      //      "Instrument": {
-      //        "Url": "/v2/public/tickers",
-      //        "Parameter": {
-      //          "symbol": {
-      //            "Domain": "symbol",
-      //            "Required": false
-      //          },
-      //          "Result": {
-
-      //          }
-      //        },
-      //        "OrderBook": {
-      //          "Url": "/v2/public/orderBook/L2",
-      //          "Parameter": {
-      //            "symbol": {
-      //              "Domain": "symbol",
-      //              "Required": true
-      //            }
-      //          }
-      //        },
-      //        "Order": {
-      //          "Url": "/v2/private/order",
-      //          "Parameter": {
-      //            "order_id": {
-      //              "Domain": "orderid",
-      //              "Required": false
-      //            },
-      //            "order_link_id": {
-      //              "Domain": "orderlinkid",
-      //              "Required": false
-      //            },
-      //            "symbol": {
-      //              "Domain": "symbol",
-      //              "Required": true
-      //            }
-      //          }
-      //        },
-      //        "Position": {
-      //          "Url": "/v2/private/position/list"
-      //        },
-      //        "Equity": { //balance is in positiondto
-      //          "Url": "/v2/private/position/list",
-      //          "Result": "Position"
-      //        },
-      //        "Leverage": {
-      //          "Url": "/user/leverage"
-      //        },
-      //        "Wallet": {
-      //          "Fund": {
-      //            "Url": "/open-api/wallet/fund/records"
-      //          },
-      //          "Withdraw": {
-      //            "Url": "/open-api/wallet/withdraw/list"
-      //          },
-      //          "Result": "WalletHistory"
-      //        },
-      //        "Identity": {
-      //          "Url": "/open-api/api-key"
-      //        }
-      //      },
-      //      "POST": {
-      //        "OrderPlace": {
-      //          "Url": "/v2/private/order/create",
-      //          "Parameter": {
-      //            "side": {
-      //              "Domain": "OrderSide",
-      //              "Type": [
-      //                "Buy",
-      //                "Sell"
-      //              ],
-      //              "Required": true
-      //            },
-      //            "symbol": {
-      //              "Domain": "Symbol",
-      //              "Required": true
-      //            },
-      //            "order_type": {
-      //              "Domain": "OrderType",
-      //              "Type": [
-      //                "limit",
-      //                "market",
-      //                "",
-      //                ""
-      //              ],
-      //              "Required": true
-      //            },
-      //            "qty": {
-      //              "Domain": "OrderQty",
-      //              "Required": true
-      //            },
-      //            "price": {
-      //              "Domain": "Price",
-      //              "Required": false
-      //            },
-      //            "time_in_force": {
-      //              "Domain": "TimeInForce",
-      //              "Type": [
-      //                "GoodTillCancel",
-      //                "FillOrKill",
-      //                ""
-      //              ],
-      //              "Required": true
-      //            },
-      //            "reduce_only": {
-      //              "Domain": "ReduceOnly",
-      //              "Type": "bool",
-      //              "Required": false
-      //            },
-      //            "order_link_id": {
-      //              "Domain": "ClOrdId",
-      //              "Required": false
-      //            }
-      //          },
-      //          "Result": "Order"
-      //        }, //paramer: side[Required], symbol[Required], order_type[Required], qty[Required], price[Required with Type limit], time_in_force[Required], reduce_only, order_link_id
-      //        "OrderReplace": {
-      //          "Url": "/open-api/order/replace",
-      //          "Parameter": {
-      //            "side": {
-      //              "Domain": "OrderSide",
-      //              "Type": [
-      //                "Buy",
-      //                "Sell"
-      //              ],
-      //              "Required": true
-      //            },
-      //            "order_type": {
-
-      //            }
-      //          },
-      //          "Result": {
-
-      //          }
-      //        }, //Parameter:
-      //        "OrderCancelAll": {
-      //          "Url": "/v2/private/order/cancelAll",
-      //          "Parameter": {
-
-      //          },
-      //          "Result": "Order"
-      //        }, //Parameter:  symbol[Required]
-      //        "OrderCancel": {
-      //          "Url": "/v2/private/order/cancel", //paramer: symbol[Required], order_id, order_link_id
-      //          "Parameter": {
-
-      //          },
-      //          "Result": "Order"
-      //        },
-      //        "Leverage": {
-      //          "Url": "/user/leverage/save",
-      //          "Parameter": {
-      //            "symbol": {
-      //              "Domain": "symbol",
-      //              "Required": true
-      //            },
-      //            "leverage": {
-      //              "Domain": "leverage",
-      //              "Required": true
-      //            }
-      //          },
-      //          "Result": {
-
-      //          }
-      //        } //Parameter: symbol[Required], leverage[Required]
-      //      }
-      //    }
-      //  }
-      //}
-      //}
+  //  "Routes": {
+  //    "GET": {
+  //      "Instrument": {
+  //        "Url": "/v2/public/tickers",
+  //        "Parameter": {
+  //          "symbol": {
+  //            "Domain": "symbol",
+  //            "Required": false
+  //          },
+  //          "Result": {
+  //          }
+  //        },
+  //        "OrderBook": {
+  //          "Url": "/v2/public/orderBook/L2",
+  //          "Parameter": {
+  //            "symbol": {
+  //              "Domain": "symbol",
+  //              "Required": true
+  //            }
+  //          }
+  //        },
+  //        "Order": {
+  //          "Url": "/v2/private/order",
+  //          "Parameter": {
+  //            "order_id": {
+  //              "Domain": "orderid",
+  //              "Required": false
+  //            },
+  //            "order_link_id": {
+  //              "Domain": "orderlinkid",
+  //              "Required": false
+  //            },
+  //            "symbol": {
+  //              "Domain": "symbol",
+  //              "Required": true
+  //            }
+  //          }
+  //        },
+  //        "Position": {
+  //          "Url": "/v2/private/position/list"
+  //        },
+  //        "Equity": { //balance is in positiondto
+  //          "Url": "/v2/private/position/list",
+  //          "Result": "Position"
+  //        },
+  //        "Leverage": {
+  //          "Url": "/user/leverage"
+  //        },
+  //        "Wallet": {
+  //          "Fund": {
+  //            "Url": "/open-api/wallet/fund/records"
+  //          },
+  //          "Withdraw": {
+  //            "Url": "/open-api/wallet/withdraw/list"
+  //          },
+  //          "Result": "WalletHistory"
+  //        },
+  //        "Identity": {
+  //          "Url": "/open-api/api-key"
+  //        }
+  //      },
+  //      "POST": {
+  //        "OrderPlace": {
+  //          "Url": "/v2/private/order/create",
+  //          "Parameter": {
+  //            "side": {
+  //              "Domain": "OrderSide",
+  //              "Type": [
+  //                "Buy",
+  //                "Sell"
+  //              ],
+  //              "Required": true
+  //            },
+  //            "symbol": {
+  //              "Domain": "Symbol",
+  //              "Required": true
+  //            },
+  //            "order_type": {
+  //              "Domain": "OrderType",
+  //              "Type": [
+  //                "limit",
+  //                "market",
+  //                "",
+  //                ""
+  //              ],
+  //              "Required": true
+  //            },
+  //            "qty": {
+  //              "Domain": "OrderQty",
+  //              "Required": true
+  //            },
+  //            "price": {
+  //              "Domain": "Price",
+  //              "Required": false
+  //            },
+  //            "time_in_force": {
+  //              "Domain": "TimeInForce",
+  //              "Type": [
+  //                "GoodTillCancel",
+  //                "FillOrKill",
+  //                ""
+  //              ],
+  //              "Required": true
+  //            },
+  //            "reduce_only": {
+  //              "Domain": "ReduceOnly",
+  //              "Type": "bool",
+  //              "Required": false
+  //            },
+  //            "order_link_id": {
+  //              "Domain": "ClOrdId",
+  //              "Required": false
+  //            }
+  //          },
+  //          "Result": "Order"
+  //        }, //paramer: side[Required], symbol[Required], order_type[Required], qty[Required], price[Required with Type limit], time_in_force[Required], reduce_only, order_link_id
+  //        "OrderReplace": {
+  //          "Url": "/open-api/order/replace",
+  //          "Parameter": {
+  //            "side": {
+  //              "Domain": "OrderSide",
+  //              "Type": [
+  //                "Buy",
+  //                "Sell"
+  //              ],
+  //              "Required": true
+  //            },
+  //            "order_type": {
+  //            }
+  //          },
+  //          "Result": {
+  //          }
+  //        }, //Parameter:
+  //        "OrderCancelAll": {
+  //          "Url": "/v2/private/order/cancelAll",
+  //          "Parameter": {
+  //          },
+  //          "Result": "Order"
+  //        }, //Parameter:  symbol[Required]
+  //        "OrderCancel": {
+  //          "Url": "/v2/private/order/cancel", //paramer: symbol[Required], order_id, order_link_id
+  //          "Parameter": {
+  //          },
+  //          "Result": "Order"
+  //        },
+  //        "Leverage": {
+  //          "Url": "/user/leverage/save",
+  //          "Parameter": {
+  //            "symbol": {
+  //              "Domain": "symbol",
+  //              "Required": true
+  //            },
+  //            "leverage": {
+  //              "Domain": "leverage",
+  //              "Required": true
+  //            }
+  //          },
+  //          "Result": {
+  //          }
+  //        } //Parameter: symbol[Required], leverage[Required]
+  //      }
+  //    }
+  //  }
+  //}
+  //}
 }

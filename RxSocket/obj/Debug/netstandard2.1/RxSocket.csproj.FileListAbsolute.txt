@@ -1,0 +1,8 @@
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\bin\Debug\netstandard2.1\RxSocket.deps.json
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\bin\Debug\netstandard2.1\RxSocket.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\bin\Debug\netstandard2.1\RxSocket.pdb
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\obj\Debug\netstandard2.1\RxSocket.csprojAssemblyReference.cache
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\obj\Debug\netstandard2.1\RxSocket.AssemblyInfoInputs.cache
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\obj\Debug\netstandard2.1\RxSocket.AssemblyInfo.cs
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\obj\Debug\netstandard2.1\RxSocket.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\obj\Debug\netstandard2.1\RxSocket.pdb

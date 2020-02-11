@@ -45,19 +45,15 @@
           "dependencies": {
             "Convey.Persistence.MongoDB": {
               "target": "Package",
-              "version": "[0.4.226, )"
+              "version": "[0.4.246, )"
             },
             "Convey.Persistence.Redis": {
               "target": "Package",
-              "version": "[0.4.226, )"
+              "version": "[0.4.246, )"
             },
             "Convey.Tracing.Jaeger": {
               "target": "Package",
-              "version": "[0.4.226, )"
-            },
-            "DbContextScope.UnitOfWork.Core": {
-              "target": "Package",
-              "version": "[1.2.0, )"
+              "version": "[0.4.246, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

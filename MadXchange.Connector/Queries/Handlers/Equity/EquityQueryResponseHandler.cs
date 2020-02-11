@@ -3,14 +3,13 @@ using Convey.MessageBrokers;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-
 namespace MadXchange.Exchange.Handlers.Equity
 {
     public class EquityQueryResponseHandler : IEventHandler<EquityRequestResponseEvent>
     {
-
         private readonly IBusPublisher _busPublisher;
         private readonly ILogger _log;
+
         public EquityQueryResponseHandler(IBusPublisher publisher, ILogger<EquityQueryResponseHandler> logger)
         {
             _busPublisher = publisher;
@@ -19,11 +18,9 @@ namespace MadXchange.Exchange.Handlers.Equity
 
         public async Task HandleAsync(EquityRequestResponseEvent @event)
         {
-            //await _busPublisher.PublishAsync<RestResponseEvent>(@event, context);
+            await _busPublisher.PublishAsync(@event);
             _log.LogTrace("RestRequest successful", @event);
             return;
         }
-
     }
-
 }

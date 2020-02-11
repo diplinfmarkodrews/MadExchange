@@ -8,6 +8,8 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["MadXchange.Connector/MadXchange.Connector.csproj", "MadXchange.Connector/"]
+COPY ["MadXchange.Exchange/MadXchange.Exchange.csproj", "MadXchange.Exchange/"]
+COPY ["MadXchange.Common/MadXchange.Common.csproj", "MadXchange.Common/"]
 RUN dotnet restore "MadXchange.Connector/MadXchange.Connector.csproj"
 COPY . .
 WORKDIR "/src/MadXchange.Connector"

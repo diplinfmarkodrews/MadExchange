@@ -3,13 +3,17 @@ using System;
 
 namespace MadXchange.MadClient.Infrastructure
 {
-    public interface IPositionMarker 
+    public interface IPositionMarker
     {
         IPosition Position { get; set; }
+
         void Set(IPosition position);
+
         void ReduceToPosition(decimal posToBe);
+
         public void SetMax(decimal amount);
     }
+
     public class PositionMarker : IPositionMarker
     {
         public IPosition Position { get; set; }
@@ -18,14 +22,16 @@ namespace MadXchange.MadClient.Infrastructure
 
         public PositionMarker()
         {
-            Position = new Position();            
+            Position = new Position();
             MaxPosQty = 0.0M;
             PosToBe = -1;
         }
+
         public void ReduceToPosition(decimal posToBe)
         {
             PosToBe = posToBe;
         }
+
         public decimal GetPosToBe()
         {
             return PosToBe;
@@ -39,6 +45,7 @@ namespace MadXchange.MadClient.Infrastructure
             }
             Position = position;
         }
+
         public void SetMax(decimal amount)
         {
             MaxPosQty = amount;

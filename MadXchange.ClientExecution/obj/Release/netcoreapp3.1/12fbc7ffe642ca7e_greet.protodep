@@ -1,0 +1,2 @@
+obj\Release\netcoreapp3.1/Greet.cs \
+obj\Release\netcoreapp3.1/GreetGrpc.cs: Protos/greet.proto

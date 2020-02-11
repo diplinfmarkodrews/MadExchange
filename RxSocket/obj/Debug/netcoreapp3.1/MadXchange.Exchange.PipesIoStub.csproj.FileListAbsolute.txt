@@ -1,0 +1,11 @@
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\bin\Debug\netcoreapp3.1\MadXchange.Exchange.PipesIoStub.deps.json
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\bin\Debug\netcoreapp3.1\MadXchange.Exchange.PipesIoStub.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\bin\Debug\netcoreapp3.1\MadXchange.Exchange.PipesIoStub.pdb
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\bin\Debug\netcoreapp3.1\System.Reactive.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\bin\Debug\netcoreapp3.1\System.Reactive.xml
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\obj\Debug\netcoreapp3.1\MadXchange.Exchange.PipesIoStub.csprojAssemblyReference.cache
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\obj\Debug\netcoreapp3.1\MadXchange.Exchange.PipesIoStub.AssemblyInfoInputs.cache
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\obj\Debug\netcoreapp3.1\MadXchange.Exchange.PipesIoStub.AssemblyInfo.cs
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\obj\Debug\netcoreapp3.1\MadXchange.Exchange.PipesIoStub.csproj.CopyComplete
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\obj\Debug\netcoreapp3.1\MadXchange.Exchange.PipesIoStub.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\obj\Debug\netcoreapp3.1\MadXchange.Exchange.PipesIoStub.pdb

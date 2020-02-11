@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\greet.proto" GrpcServices="MadMex" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MadExchange.MadClient\MadExchange.MadClient.csproj" />
     <ProjectReference Include="..\MadXchange.Common\MadXchange.Common.csproj" />
   </ItemGroup>
 

@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace MadXchange.Common.Infrastructure
+﻿namespace MadXchange.Common.Infrastructure
 {
-    public interface ITimestamped 
+    public interface ITimestamped
     {
         long Timestamp { get; }
     }

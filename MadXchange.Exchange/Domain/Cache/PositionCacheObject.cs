@@ -8,16 +8,16 @@ namespace MadXchange.Exchange.Domain.Cache
         public Guid AccountId { get; }
         public Position Position { get; set; }
 
-        public PositionCacheObject(Guid accountId) 
+        public PositionCacheObject(Guid accountId)
         {
             AccountId = accountId;
         }
-        public bool IsValid() => 
-               Position is null 
-            || Position.Timestamp == default 
-            || Position.Symbol == default 
-            ? false 
-            : true;
 
+        public bool IsValid() =>
+               Position is null
+            || Position.Timestamp == default
+            || Position.Symbol == default
+            ? false
+            : true;
     }
 }

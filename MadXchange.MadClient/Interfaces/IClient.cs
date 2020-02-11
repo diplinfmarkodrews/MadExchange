@@ -1,35 +1,23 @@
-﻿using System;
+﻿using MadXchange.Exchange.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using MadXchange.Exchange.Domain.Models;
 
 namespace MadXchange.Common.Mex.Infrastructure
 {
-
-
     public interface IClient : IDisposable
     {
         Guid AccuntId { get; }
         //event EventHandler<ClientFailEvent> ClientFailEvent;
-
-       
-
-        
-        
     }
-   
-    
-    
-  
 
     public class ClientFailEvent : EventArgs
     {
         public Guid AccountId { get; }
         public Exception Exception { get; set; }
-
     }
 
-    public class LiquidationEvent : EventArgs 
+    public class LiquidationEvent : EventArgs
     {
         public Guid AccountId { get; }
         public string Symbol { get; }
@@ -40,22 +28,22 @@ namespace MadXchange.Common.Mex.Infrastructure
         public Guid AccountId { get; }
         public IPosition Position { get; set; }
         public IMargin Margin { get; set; }
+
         public PositionEvent(IPosition position = null, IMargin margin = null)
         {
-            
             Position = position;
             Margin = margin;
         }
-       
     }
+
     public class OrderEvent : EventArgs
     {
         public Guid AccountId { get; }
         public string Symbol { get; }
         public List<IOrder> Orders { get; set; }
-        
+
         public bool LastOrder { get; set; } = true;
-        
+
         public OrderEvent(IOrder order, Guid accountId)
         {
             AccountId = accountId;
@@ -63,6 +51,7 @@ namespace MadXchange.Common.Mex.Infrastructure
             Orders.Add(order);
             LastOrder = false;
         }
+
         public OrderEvent(List<IOrder> orders, Guid accountId)
         {
             AccountId = accountId;
@@ -70,6 +59,7 @@ namespace MadXchange.Common.Mex.Infrastructure
             Symbol = orders.FirstOrDefault().Symbol;
             LastOrder = false;
         }
+
         public OrderEvent(List<IOrder> orders, Guid accountId, bool last)
         {
             AccountId = accountId;
@@ -77,6 +67,5 @@ namespace MadXchange.Common.Mex.Infrastructure
             Orders = orders;
             LastOrder = last;
         }
-
     }
 }

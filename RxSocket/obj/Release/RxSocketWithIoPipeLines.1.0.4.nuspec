@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>RxSocketWithIoPipeLines</id>
+    <version>1.0.4</version>
+    <authors>RiCo.Chen</authors>
+    <owners>RiCo.Chen</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/ricoisme/RxSocket/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/ricoisme/RxSocket</projectUrl>
+    <description>Mini wrapper Socket with Rx and IO.Pipelines</description>
+    <tags>Reactive,Socket,Observable</tags>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Microsoft.Extensions.Configuration" version="3.1.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Configuration.Json" version="3.1.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.DependencyInjection" version="3.1.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Logging.Abstractions" version="3.1.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Options.ConfigurationExtensions" version="3.1.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Primitives" version="3.1.1" exclude="Build,Analyzers" />
+        <dependency id="Pipelines.Sockets.Unofficial" version="2.1.1" exclude="Build,Analyzers" />
+        <dependency id="ServiceStack.Text.Core" version="5.8.0" exclude="Build,Analyzers" />
+        <dependency id="System.Reactive" version="4.3.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\bin\Release\netcoreapp3.1\MadXchange.Exchange.PipesIoStub.dll" target="lib\netcoreapp3.1\MadXchange.Exchange.PipesIoStub.dll" />
+  </files>
+</package>

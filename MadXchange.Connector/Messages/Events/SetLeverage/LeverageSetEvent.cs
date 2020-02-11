@@ -11,6 +11,7 @@ namespace MadXchange.Connector.Messages.Events
         public ICommand Command { get; }
         public IPosition Position { get; }
         public Guid Id { get; } = Guid.NewGuid();
+
         public LeverageSetEvent(Commands.SetLeverage command, IPosition position)
         {
             Command = command;

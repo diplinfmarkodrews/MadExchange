@@ -5,6 +5,5 @@ namespace MadXchange.Connector.Queries
 {
     public class InstrumentQuery : IQuery<Instrument>
     {
-
     }
 }

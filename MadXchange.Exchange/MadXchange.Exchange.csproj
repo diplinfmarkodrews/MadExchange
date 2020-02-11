@@ -9,12 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CacheManager.StackExchange.Redis" Version="1.2.0" />
-    <PackageReference Include="Convey.HTTP" Version="0.4.226" />
-    <PackageReference Include="Microsoft.Build.Framework" Version="16.4.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.1" />
-    <PackageReference Include="RestSharp" Version="106.10.1" />
     <PackageReference Include="ServiceStack.Client.Core" Version="5.8.0" />
     <PackageReference Include="ServiceStack.Core" Version="5.8.0" />
     <PackageReference Include="ServiceStack.HttpClient.Core" Version="5.8.0" />
@@ -22,11 +18,8 @@
     <PackageReference Include="ServiceStack.Interfaces.Core" Version="5.8.0" />
     <PackageReference Include="ServiceStack.Redis.Core" Version="5.8.0" />
     <PackageReference Include="ServiceStack.Text.Core" Version="5.8.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\Socket\" />
-    <Folder Include="Services\NewFolder\" />
+    <PackageReference Include="System.Net.Sockets" Version="4.3.0" />
+    <PackageReference Include="System.Net.WebSockets" Version="4.3.0" />
   </ItemGroup>
 
 </Project>

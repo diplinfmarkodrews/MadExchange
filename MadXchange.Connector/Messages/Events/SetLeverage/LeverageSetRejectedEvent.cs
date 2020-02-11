@@ -17,7 +17,7 @@ namespace MadXchange.Connector.Messages.Events
 
         public string Code { get; }
 
-        public LeverageSetRejectedEvent(SetLeverage command, IPosition position) 
+        public LeverageSetRejectedEvent(SetLeverage command, IPosition position)
         {
             Command = command;
             Position = position;

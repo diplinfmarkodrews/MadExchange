@@ -1,7 +1,5 @@
 ﻿using MadXchange.Exchange.Domain.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MadXchange.Exchange.Domain.Cache
 {
@@ -9,16 +7,18 @@ namespace MadXchange.Exchange.Domain.Cache
     {
         public Guid AccountId { get; }
         public Order Order { get; set; }
-        public OrderCacheObject(Guid accountId) 
+
+        public OrderCacheObject(Guid accountId)
         {
             AccountId = accountId;
         }
-        public bool IsValid() => 
-               Order is null 
-            || Order.Timestamp == default 
-            || Order.Symbol == default 
-            || Order.OrderId == default 
-            ? false 
+
+        public bool IsValid() =>
+               Order is null
+            || Order.Timestamp == default
+            || Order.Symbol == default
+            || Order.OrderId == default
+            ? false
             : true;
     }
 }

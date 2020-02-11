@@ -7,23 +7,26 @@ namespace MadXchange.MadClient.Infrastructure
     {
         private readonly Dictionary<string, IPosition> _PositionStore;
 
-        public PositionStore() 
+        public PositionStore()
         {
             _PositionStore = new Dictionary<string, IPosition>();
         }
-        public void Store(IPosition pos) 
+
+        public void Store(IPosition pos)
         {
             _PositionStore[pos.Symbol] = pos;
         }
-        public IPosition GetPosition(string symbol) 
+
+        public IPosition GetPosition(string symbol)
         {
-            if (_PositionStore.ContainsKey(symbol)) 
+            if (_PositionStore.ContainsKey(symbol))
             {
                 return _PositionStore[symbol];
             }
             return null;
         }
     }
+
     public class MarginStore
     {
         private readonly Dictionary<string, IMargin> _MarginStore;
@@ -32,10 +35,12 @@ namespace MadXchange.MadClient.Infrastructure
         {
             _MarginStore = new Dictionary<string, IMargin>();
         }
+
         public void Store(IMargin pos)
         {
             _MarginStore[pos.Currency] = pos;
         }
+
         public IMargin GetMargin(string symbol)
         {
             if (_MarginStore.ContainsKey(symbol))

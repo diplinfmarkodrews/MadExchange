@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace MadXchange.Exchange.Infrastructure.Cache
 {
-    
     public class OrderCache : CacheStorage<OrderCacheObject>, IOrderCache
     {
+        public OrderCache(IDistributedCache cache) : base("order", cache)
+        {
+        }
 
-        public OrderCache(IDistributedCache cache) : base("order", cache) { }        
         /// <summary>
-        /// Primary function to read orders from cache. 
+        /// Primary function to read orders from cache.
         /// </summary>
         /// <param name="accountId"></param>
         /// <param name="symbol"></param>
@@ -31,6 +32,7 @@ namespace MadXchange.Exchange.Infrastructure.Cache
         {
             Remove($"{accountId}{symbol}{orderId}");
         }
+
         /// <summary>
         /// This adds an new order to the cache at the given adress. old values will be overwritten!
         /// </summary>
@@ -43,6 +45,7 @@ namespace MadXchange.Exchange.Infrastructure.Cache
             var orderCacheObj = new OrderCacheObject(accountId) { Order = order };
             Set($"{accountId}{symbol}{orderId}", orderCacheObj);
         }
+
         /// <summary>
         /// updates the order in cache after checking actual cache object. If none existent, it adds a new cacheObject, else checks wether it needs update by timestamp
         /// </summary>
@@ -53,14 +56,14 @@ namespace MadXchange.Exchange.Infrastructure.Cache
         /// <returns></returns>
         public bool UpdateOrder(Guid accountId, string symbol, string orderId, Order order)
         {
-            var orderCacheObj = Get($"{accountId}{symbol}{orderId}");       
-            if(orderCacheObj is null) 
+            var orderCacheObj = Get($"{accountId}{symbol}{orderId}");
+            if (orderCacheObj is null)
             {
-                orderCacheObj = new OrderCacheObject(accountId) { Order = order };                
+                orderCacheObj = new OrderCacheObject(accountId) { Order = order };
                 Set($"{accountId}{symbol}{orderId}", orderCacheObj);
                 return true;
-            }            
-            if(order.Timestamp > orderCacheObj.Order.Timestamp) 
+            }
+            if (order.Timestamp > orderCacheObj.Order.Timestamp)
             {
                 Set($"{accountId}{symbol}{orderId}", orderCacheObj);
                 return true;

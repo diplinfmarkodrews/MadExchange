@@ -12,13 +12,15 @@ namespace MadXchange.Exchange.Infrastructure.Cache
 {
     /// <summary>
     /// Defines implementation for accessing the distributed cache. ToDo Alternatively provide implementation for IRedisClient or typed IRedisTypedClient
-    /// https://github.com/ServiceStack/ServiceStack.Redis 
+    /// https://github.com/ServiceStack/ServiceStack.Redis
     /// </summary>
 
     public class InstrumentCache : CacheStorage<InstrumentCacheObject>, IInstrumentCache
     {
-        
-        public InstrumentCache(IDistributedCache cache) : base("instrument", cache) { }
+        public InstrumentCache(IDistributedCache cache) : base("instrument", cache)
+        {
+        }
+
         /// <summary>
         /// check if DataObj is valid
         /// </summary>
@@ -26,8 +28,8 @@ namespace MadXchange.Exchange.Infrastructure.Cache
         /// <param name="symbol"></param>
         /// <param name="instrumentDto"></param>
         /// <returns></returns>
-        public long UpdateInstrument(Exchanges exchange, string symbol, Instrument instrumentDto) 
-        {          
+        public long UpdateInstrument(Xchange exchange, string symbol, Instrument instrumentDto)
+        {
             var symbolStore = Get($"{exchange}{symbol}");
             //check if update is valid and needed (specific time)
             if (!(symbolStore is null))
@@ -48,16 +50,16 @@ namespace MadXchange.Exchange.Infrastructure.Cache
             return symbolStore.Instrument.Timestamp.Ticks;
         }
 
-        public async Task<Instrument> GetInstrumentAsync(Exchanges exchange, string symbol) 
-        {            
+        public async Task<Instrument> GetInstrumentAsync(Xchange exchange, string symbol)
+        {
             var instrumentCacheObject = await GetAsync($"{exchange}{symbol}");
             if (instrumentCacheObject is null) return null;
             return instrumentCacheObject.Instrument;
         }
 
-        public async Task<OrderBook> GetOrderBookAsync(Exchanges exchange, string symbol) 
+        public async Task<OrderBook> GetOrderBookAsync(Xchange exchange, string symbol)
         {
             throw new NotImplementedException();
-        }     
+        }
     }
 }

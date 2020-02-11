@@ -48,7 +48,7 @@ namespace Microsoft.AspNetCore.Hosting
                                 });
 
                         //if the sql server container is not created on run docker compose this
-                        //migration can't fail for network related exception. The retry options for DbContext only 
+                        //migration can't fail for network related exception. The retry options for DbContext only
                         //apply to transient exceptions
                         // Note that this is NOT applied when running some orchestrators (let the orchestrator to recreate the failing service)
                         retry.Execute(() => InvokeSeeder(seeder, context, services));
@@ -77,5 +77,3 @@ namespace Microsoft.AspNetCore.Hosting
         }
     }
 }
-
-

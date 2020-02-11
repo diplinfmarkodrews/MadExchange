@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 
 namespace MadXchange.Common.Helpers
 {
@@ -18,6 +16,7 @@ namespace MadXchange.Common.Helpers
                 return memStream.ToArray();
             }
         }
+
         // Convert a byte array to an Object
         public static Object ByteArrayToObject(byte[] arrBytes)
         {

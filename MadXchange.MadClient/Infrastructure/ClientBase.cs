@@ -10,7 +10,7 @@ namespace MadXchange.MadClient.Infrastructure
 {
     public abstract class ClientBase  //, IClient
     {
-        private readonly IContingencyOrderManager _corderManager;      
+        private readonly IContingencyOrderManager _corderManager;
         private readonly ILogger _logger;
         private readonly MarginStore _marginStore;
         private readonly PositionStore _PositionStore;
@@ -18,7 +18,7 @@ namespace MadXchange.MadClient.Infrastructure
         private readonly IClientStore _clientStore;
         private readonly Guid _accountId;
 
-        public ClientBase(IRestClient client, IClientStore clientStore, IContingencyOrderManager contingencyOrderManager, ILoggerFactory log) 
+        public ClientBase(IRestClient client, IClientStore clientStore, IContingencyOrderManager contingencyOrderManager, ILoggerFactory log)
         {
             _logger = new Logger<ClientBase>(log);
             _corderManager = contingencyOrderManager;
@@ -26,30 +26,30 @@ namespace MadXchange.MadClient.Infrastructure
             _clientStore = clientStore;
             _PositionStore = new PositionStore();
             _marginStore = new MarginStore();
+        }
 
-        }
         #region ApiClient BaseInterface
-        
-        
-       
-        public async Task<IEnumerable<IApiKeyInfo>> GetApiKeyAsync() 
+
+        public async Task<IEnumerable<IApiKeyInfo>> GetApiKeyAsync()
         {
-            return await _clientRestExec.GetApiKeyAsync(_accountId);                    
+            return await _clientRestExec.GetApiKeyAsync(_accountId);
         }
-        //public async Task<IEnumerable<IOrder>> QueryLastOrders(string symbol) 
+
+        //public async Task<IEnumerable<IOrder>> QueryLastOrders(string symbol)
         //{
         //    return await _clientRestExec.QueryLastOrders(symbol);
         //}
-        public async Task<IPosition> PositionLeverage(string symbol, decimal leverage) 
-        {         
+        public async Task<IPosition> PositionLeverage(string symbol, decimal leverage)
+        {
             var pos = await _clientStore.GetPositionAsync(symbol);
-            //if (pos.Leverage != leverage) 
+            //if (pos.Leverage != leverage)
             //{
             //    var req = await SendPositionLeverage(symbol, leverage);
             //    return req;
             //}
             return null;// pos;
         }
+
         //checking for placed tp/sl orders to cancel them
         //protected async Task FilledOrderCheckUp(OrderEvent order)
         //{
@@ -71,46 +71,42 @@ namespace MadXchange.MadClient.Infrastructure
         //            var pegorder = openorders.FirstOrDefault(o => o.IsPegPriceOrder());
         //            if (pegorder != null)
         //            {
-
         //                await CancelOrder(pegorder.OrderId);
         //            }
         //        }
         //    }
-        //    catch (Exception err) 
+        //    catch (Exception err)
         //    {
         //        _Log.LogError(err, $"{_User.ApiKey}:Error checking Sl/Tp orders", openorders);
         //    }
         //}
-        
-                
-        
+
         /// <summary>
         /// needs to go in another hierarchy
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        
-
-        
 
         public void StoreMargin(string currency)
         {
             StoreMargin(currency);
         }
+
         public void StoreMargin(IMargin margin)
         {
             StoreMargin(margin);
         }
-        
+
         public void StorePosition(IPosition position)
-        {            
+        {
             StorePosition(position);
         }
-        public void StorePosition(string symbol) 
+
+        public void StorePosition(string symbol)
         {
-            
             StorePosition(symbol);
         }
+
         //public async Task<IEnumerable<IOrder>> CancelAllOrders(string symbol)
         //{
         //    return await _clientRestExec.CancelAllOrders(symbol);
@@ -125,11 +121,11 @@ namespace MadXchange.MadClient.Infrastructure
         {
             return await CancelOrder(orderID);
         }
+
         //public async Task<IEnumerable<IOrder>> GetOpenOrdersAsync(string symbol)
         //{
         //    return await _clientRestExec.GetOpenOrdersAsync(symbol);
         //}
-        
 
         //public async Task<IEnumerable<IMargin>> GetMarginAsync()
         //{
@@ -139,6 +135,7 @@ namespace MadXchange.MadClient.Infrastructure
         {
             return await _clientRestExec.GetMarginAsync(_accountId, cur);
         }
+
         public async Task<IPosition> GetPositionAsync(string symbol)
         {
             return await _clientRestExec.GetPositionAsync(_accountId, symbol);
@@ -154,15 +151,15 @@ namespace MadXchange.MadClient.Infrastructure
         //    return await _clientRestExec.GetOpenOrdersAsync();
         //}
 
-
-
         public async Task<IOrder> GetOrderByIDAsync(string orderID)
         {
             return await _clientRestExec.GetOrderByIDAsync(_accountId, orderID);
         }
 
-        #endregion
+        #endregion ApiClient BaseInterface
+
         #region IDisposable Support
+
         private bool disposedValue = false; // To detect redundant calls
 
         protected virtual void Dispose(bool disposing)
@@ -171,7 +168,6 @@ namespace MadXchange.MadClient.Infrastructure
             {
                 if (disposing)
                 {
-                    
                 }
 
                 // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
@@ -189,7 +185,7 @@ namespace MadXchange.MadClient.Infrastructure
         // }
 
         // This code added to correctly implement the disposable pattern.
-        void Dispose()
+        private void Dispose()
         {
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
             Dispose(true);
@@ -197,13 +193,10 @@ namespace MadXchange.MadClient.Infrastructure
             // GC.SuppressFinalize(this);
         }
 
-       
         //public async Task<IEnumerable<IWalletHistory>> GetWalletHistory()
         //{
         //    return await _clientRestExec.GetWalletHistory();
         //}
-
-       
 
         //public async Task<IOrder> CreateOrder(IOrderPostRequest request, System.Threading.CancellationToken token)
         //{
@@ -222,7 +215,6 @@ namespace MadXchange.MadClient.Infrastructure
 
         //protected async Task<IPosition> SendPositionLeverage(string symbol, decimal leverage)
         //{
-            
         //    return await _clientRestExec.PositionLeverage(_accountId, symbol, leverage);
         //}
 
@@ -239,7 +231,6 @@ namespace MadXchange.MadClient.Infrastructure
         //public abstract Task<IOrder> CreateOrder(IOrderPostRequest request);
         public abstract Task<IOrder> CancelOrder(string symbol, string orderID);
 
-
-        #endregion
+        #endregion IDisposable Support
     }
 }

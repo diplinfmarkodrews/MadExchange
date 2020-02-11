@@ -1,9 +1,10 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using System.IO;
 using Convey.Logging;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using ServiceStack;
+using System.IO;
+
+//using ServiceStack.Host.NetCore;
 
 namespace MadXchange.Connector
 {
@@ -11,10 +12,12 @@ namespace MadXchange.Connector
     {
         public static void Main(string[] args)
         {
-            
-            CreateHostBuilder(args).Build().Run();
+            // IAppHost appHost = new Hosy(Assembly.GetExecutingAssembly())
+            CreateHostBuilder(args)
+                .Build()
+                .Run();
         }
-          
+
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
@@ -22,7 +25,8 @@ namespace MadXchange.Connector
                     webBuilder.CaptureStartupErrors(true)
                               .UseContentRoot(Directory.GetCurrentDirectory())
                               .UseStartup<Startup>()
-                              .UseKestrel()
+                              .UseKestrel()                              
+                              .UseSockets()//configureOptions: o=> o.NoDelay = true)
                               .UseLogging();
                 });
     }

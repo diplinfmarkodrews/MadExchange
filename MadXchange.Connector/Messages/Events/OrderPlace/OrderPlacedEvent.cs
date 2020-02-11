@@ -11,7 +11,8 @@ namespace MadXchange.Connector.Messages.Events
         public CreateOrder Command { get; }
         public Order Order { get; }
         public DateTime TimeStamp { get; } = DateTime.UtcNow;
-        public OrderPlacedEvent(CreateOrder command, Order order) 
+
+        public OrderPlacedEvent(CreateOrder command, Order order)
         {
             Id = order.Id;
             Order = order;

@@ -1,11 +1,11 @@
-﻿using MadXchange.Exchange.Domain.Types;
-using MadXchange.Exchange.Contracts;
-using MadXchange.Exchange.Interfaces;
-using MadXchange.Exchange.Services.RequestExecution;
+﻿using MadXchange.Exchange.Contracts;
+using MadXchange.Exchange.Domain.Types;
+using MadXchange.Exchange.Services.HttpRequests.RequestExecution;
+using MadXchange.Exchange.Services.XchangeDescriptor;
 using Microsoft.Extensions.Logging;
 using ServiceStack;
+using ServiceStack.Text;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,68 +13,61 @@ namespace MadXchange.Exchange.Services.HttpRequests
 {
     public interface IPositionRequestService
     {
+        Task<PositionDto> GetPositionAsync(Guid accountId, Xchange exchange, string symbol, CancellationToken token = default);
+
+        Task<PositionDto[]> GetPositionsAsync(Guid accountId, Xchange exchange, CancellationToken token = default);
+
+        Task<LeverageDto[]> GetLeverageAsync(Guid accountId, Xchange exchange, string symbol, CancellationToken token = default);
+
+        Task<LeverageDto> PostLeverageAsync(Guid accountId, Xchange exchange, string symbol, decimal leverage, CancellationToken token = default);
     }
 
     public class PositionRequestService : IPositionRequestService
     {
+        private readonly ILogger _logger;
+        private readonly IXchangeDescriptorService _descriptorService;
+        private readonly IRestRequestService _restRequestService;
 
-        private ILogger _logger;
-        private IExchangeDescriptorService _descriptorService;
-        private IRestRequestService _restRequestService;
-        private const string _domainString = "Position";
-        public PositionRequestService(IExchangeDescriptorService exchangeDescriptorService, IRestRequestService restRequestService, ILogger<PositionRequestService> logger)
+        public PositionRequestService(IXchangeDescriptorService exchangeDescriptorService, IRestRequestService restRequestService, ILogger<PositionRequestService> logger)
         {
             _descriptorService = exchangeDescriptorService;
             _restRequestService = restRequestService;
             _logger = logger;
         }
 
-        public async Task<PositionDto[]> GetPositionAsync(Guid accountId, Exchanges exchange, string symbol, CancellationToken token = default)
+        public async Task<PositionDto> GetPositionAsync(Guid accountId, Xchange exchange, string symbol, CancellationToken token = default)
         {
-            var route = _descriptorService.GetExchangeEndPoint(exchange, _domainString);
-            var url = _domainString;///Todo fix!
-            var parameter = string.Empty;
-            if (symbol != string.Empty)
-            {
-                parameter.AddQueryParam(route.Parameter[0], symbol);
-            }
-            var res = await _restRequestService.SendGetAsync(accountId, url, parameter, token).ConfigureAwait(false);            
-            return res.Result.FromJson<PositionDto[]>();
-        }
-        /// <summary>
-        /// Get Leverage
-        /// </summary>
-        /// <param name="accountId"></param>
-        /// <param name="exchange"></param>
-        /// <param name="symbol"></param>
-        /// <returns></returns>
-        public async Task<IEnumerable<LeverageDto>> GetLeverageAsync(Guid accountId, Exchanges exchange, string symbol, CancellationToken token = default)
-        {
-
-            var route = _descriptorService.GetExchangeEndPoint(exchange, symbol);
-            var url = _domainString;
-            var parameter = string.Empty;
-            if (symbol != string.Empty)
-            {
-                parameter.AddQueryParam(route.Parameter[0], symbol);
-            }
-            var res = await _restRequestService.SendGetAsync(accountId, url, parameter, token).ConfigureAwait(false);                        
-            return res.Result.FromJson<IEnumerable<LeverageDto>>();
+            var requestObject = _descriptorService.RequestDictionary(exchange, XchangeOperation.GetPosition, new ObjectDictionary() { { IXchangeDescriptorService.SymbolString, symbol } });
+            var response = await _restRequestService.SendRequestObjectAsync(accountId, requestObject, token).ConfigureAwait(false);
+            var result = TypeSerializer.DeserializeFromString<PositionDto>(response.Result);
+            result.AccountId = accountId;
+            return result;
         }
 
-        public async Task<IEnumerable<LeverageDto>> PostLeverageAsync(Guid accountId, Exchanges exchange, string symbol, decimal leverage, CancellationToken token = default)
+        public async Task<PositionDto[]> GetPositionsAsync(Guid accountId, Xchange exchange, CancellationToken token = default)
         {
-
-            var route = _descriptorService.GetExchangeEndPoint(exchange, symbol);
-            var url = _domainString;
-            var parameter = string.Empty;            
-            parameter.AddQueryParam(route.Parameter[0], symbol);                            
-            parameter.AddQueryParam(route.Parameter[1], leverage.ToString());
-            var res = await _restRequestService.SendGetAsync(accountId, url, parameter, token).ConfigureAwait(false);
-            return res.Result.FromJson<IEnumerable<LeverageDto>>();
+            var requestObject = _descriptorService.RequestDictionary(exchange, XchangeOperation.GetPositionList, new ObjectDictionary());
+            var response = await _restRequestService.SendRequestObjectAsync(accountId, requestObject, token).ConfigureAwait(false);
+            var result = TypeSerializer.DeserializeFromString<PositionDto[]>(response.Result);
+            result.Each(p => p.AccountId = accountId);
+            return result;
         }
 
+        public async Task<LeverageDto[]> GetLeverageAsync(Guid accountId, Xchange exchange, string symbol, CancellationToken token = default)
+        {
+            var requestObject = _descriptorService.RequestDictionary(exchange, XchangeOperation.GetLeverage, new ObjectDictionary() { { IXchangeDescriptorService.SymbolString, symbol } });
+            var response = await _restRequestService.SendRequestObjectAsync(accountId, requestObject, token).ConfigureAwait(false);
+            var result = TypeSerializer.DeserializeFromString<LeverageDto[]>(response.Result);
+            result.Each(p => p.AccountId = accountId);
+            return result;
+        }
+
+        public async Task<LeverageDto> PostLeverageAsync(Guid accountId, Xchange exchange, string symbol, decimal leverage, CancellationToken token = default)
+        {
+            var route = _descriptorService.RequestDictionary(exchange, XchangeOperation.PostLeverage, new ObjectDictionary() { { IXchangeDescriptorService.LeverageString, leverage }, { IXchangeDescriptorService.SymbolString, symbol } });
+            var response = await _restRequestService.SendRequestObjectAsync(accountId, route, token).ConfigureAwait(false);
+            var result = TypeSerializer.DeserializeFromString<LeverageDto>(response.Result);
+            return result;
+        }
     }
-
-    
 }

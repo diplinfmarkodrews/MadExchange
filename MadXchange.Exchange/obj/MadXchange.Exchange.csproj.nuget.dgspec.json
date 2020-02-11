@@ -45,19 +45,15 @@
           "dependencies": {
             "Convey.Persistence.MongoDB": {
               "target": "Package",
-              "version": "[0.4.226, )"
+              "version": "[0.4.246, )"
             },
             "Convey.Persistence.Redis": {
               "target": "Package",
-              "version": "[0.4.226, )"
+              "version": "[0.4.246, )"
             },
             "Convey.Tracing.Jaeger": {
               "target": "Package",
-              "version": "[0.4.226, )"
-            },
-            "DbContextScope.UnitOfWork.Core": {
-              "target": "Package",
-              "version": "[1.2.0, )"
+              "version": "[0.4.246, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -129,18 +125,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "CacheManager.StackExchange.Redis": {
-              "target": "Package",
-              "version": "[1.2.0, )"
-            },
-            "Convey.HTTP": {
-              "target": "Package",
-              "version": "[0.4.226, )"
-            },
-            "Microsoft.Build.Framework": {
-              "target": "Package",
-              "version": "[16.4.0, )"
-            },
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
               "version": "[3.1.1, )"
@@ -148,10 +132,6 @@
             "Microsoft.Extensions.Logging.Abstractions": {
               "target": "Package",
               "version": "[3.1.1, )"
-            },
-            "RestSharp": {
-              "target": "Package",
-              "version": "[106.10.1, )"
             },
             "ServiceStack.Client.Core": {
               "target": "Package",
@@ -180,6 +160,14 @@
             "ServiceStack.Text.Core": {
               "target": "Package",
               "version": "[5.8.0, )"
+            },
+            "System.Net.Sockets": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Net.WebSockets": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [

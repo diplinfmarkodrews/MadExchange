@@ -7,7 +7,7 @@ namespace MadXchange.Exchange.Contracts
     public class OrderPutRequestDto : IOrderPutRequest
     {
         public Guid AccountId { get; private set; }
-        public Exchanges Exchange { get; set; }
+        public Xchange Exchange { get; set; }
         public string Symbol { get; set; }
         public string OrderId { get; set; }
         public decimal? Qty { get; set; }

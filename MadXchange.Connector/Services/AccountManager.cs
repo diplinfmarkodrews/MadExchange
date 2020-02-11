@@ -1,30 +1,29 @@
-﻿using MadXchange.Exchange.Infrastructure.Repositories;
+﻿using MadXchange.Exchange.Infrastructure.Stores;
 using Microsoft.Extensions.Logging;
-using StackExchange.Redis;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MadXchange.Connector.Services
 {
-
-    public interface IAccountManager 
+    public interface IAccountManager
     {
-    
     }
 
+    /// <summary>
+    /// To:
+    /// - signal the key-store to add or remove accounts
+    /// - signal the SocketConnectionService which connections to open and close
+    /// </summary>
     public class AccountManager : IAccountManager
     {
-        private readonly IApiKeySetRepository _apiKeySetRepository;
-        private readonly ISocketConnectionService _socketConnectionService;
-        private readonly ILogger _logger;
-        public AccountManager(IApiKeySetRepository apikeysetRepo, ISocketConnectionService socketConnectionService, ILogger<AccountManager> logger) 
-        {
-            _apiKeySetRepository = apikeysetRepo;
-            _socketConnectionService = socketConnectionService;
-            _logger = logger;
-        }
+        private readonly IApiKeySetStore _apiKeySetRepository;
 
+        // private readonly ISocketConnectionService _socketConnectionService;
+        private readonly ILogger _logger;
+
+        //public AccountManager(IApiKeySetStore apikeysetRepo, ISocketConnectionService socketConnectionService, ILogger<AccountManager> logger)
+        //{
+        //    _apiKeySetRepository = apikeysetRepo;
+        //    _socketConnectionService = socketConnectionService;
+        //    _logger = logger;
+        //}
     }
 }

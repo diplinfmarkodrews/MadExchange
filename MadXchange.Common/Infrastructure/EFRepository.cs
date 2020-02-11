@@ -1,20 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using System.Data.Common;
-using Convey.Types;
-using MadXchange.Common.Types;
-
-namespace MadXchange.Common.Infrastructure
+﻿namespace MadXchange.Common.Infrastructure
 {
-    
-    
     //public class EfRepository<T> : IAsyncRepository<T> where T is class, IIdentifiable<Guid>
     //{
-
     //    #region Fields
 
     //    protected DataDbContext Context;
@@ -71,5 +58,4 @@ namespace MadXchange.Common.Infrastructure
     //    #endregion
 
     //}
-    
 }

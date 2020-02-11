@@ -6,6 +6,7 @@ namespace MadXchange.Exchange.Interfaces.Cache
     public interface IAccountRequestCache
     {
         void SetAccount(AccountCacheObject account);
-        AccountCacheObject GetAccount(Guid accountId);        
+
+        AccountCacheObject GetAccount(Guid accountId);
     }
 }
