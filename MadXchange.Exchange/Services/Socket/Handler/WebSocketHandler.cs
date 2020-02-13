@@ -1,7 +1,10 @@
-﻿using MadXchange.Exchange.Contracts;
+﻿using MadXchange.Connector.Services;
+using MadXchange.Exchange.Contracts;
+using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Infrastructure.Stores;
 using ServiceStack.Text;
 using System;
+using System.Collections.Generic;
 using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
@@ -19,29 +22,25 @@ namespace MadXchange.Exchange.Services.Socket
         
 
         public async Task CloseAsync(WebSocket socket, WebSocketCloseStatus closeStatus)
-        {
-            
+        {            
             await socket.CloseAsync(closeStatus: closeStatus,
                               statusDescription: $"Socket was closed! new status {closeStatus}",
                               cancellationToken: CancellationToken.None).ConfigureAwait(false);
-
         }
 
-        
-       
-        
-        protected async Task SendMessageAsync(WebSocket socket, SocketRequestDto message, CancellationToken token)
-        {
-            if (socket.State != WebSocketState.Open)
-                return;
 
-            var serializedMessage = message.SerializeAndFormat();
+        protected async Task SendRequestAsync(WebSocketConnection connection, SocketRequest message, CancellationToken token)
+        {
+            if (connection.Socket.State != WebSocketState.Open)
+                return;
+            
+            var serializedMessage = message.RequestDto.SerializeAndFormat();
             var encodedMessage = Encoding.UTF8.GetBytes(serializedMessage);
-            await socket.SendAsync(buffer: new ArraySegment<byte>(array: encodedMessage,
-                                                                  offset: 0,
-                                                                  count: encodedMessage.Length),
-                                   messageType: WebSocketMessageType.Text,
-                                   endOfMessage: true,
+            await connection.Socket.SendAsync(buffer: new ArraySegment<byte>(array: encodedMessage,
+                                                                            offset: 0,
+                                                                             count: encodedMessage.Length),
+                                         messageType: WebSocketMessageType.Text,
+                                        endOfMessage: true,
                                    cancellationToken: token).ConfigureAwait(false);
         }
 

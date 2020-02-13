@@ -31,9 +31,9 @@ namespace ClientTradeExecutionService {
             "aWNlYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ClientTradeExecutionService.HelloRequest), global::ClientTradeExecutionService.HelloRequest.Parser, new[]{ "Name" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ClientTradeExecutionService.HelloReply), global::ClientTradeExecutionService.HelloReply.Parser, new[]{ "Message" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientTradeExecutionService.HelloRequest), global::ClientTradeExecutionService.HelloRequest.Parser, new[]{ "Name" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientTradeExecutionService.HelloReply), global::ClientTradeExecutionService.HelloReply.Parser, new[]{ "Message" }, null, null, null, null)
           }));
     }
     #endregion

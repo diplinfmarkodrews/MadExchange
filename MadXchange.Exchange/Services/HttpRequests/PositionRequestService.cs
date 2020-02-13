@@ -37,7 +37,7 @@ namespace MadXchange.Exchange.Services.HttpRequests
 
         public async Task<PositionDto> GetPositionAsync(Guid accountId, Xchange exchange, string symbol, CancellationToken token = default)
         {
-            var requestObject = _descriptorService.RequestDictionary(exchange, XchangeOperation.GetPosition, new ObjectDictionary() { { IXchangeDescriptorService.SymbolString, symbol } });
+            var requestObject = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.GetPosition, new ObjectDictionary() { { IXchangeDescriptorService.SymbolString, symbol } });
             var response = await _restRequestService.SendRequestObjectAsync(accountId, requestObject, token).ConfigureAwait(false);
             var result = TypeSerializer.DeserializeFromString<PositionDto>(response.Result);
             result.AccountId = accountId;
@@ -46,7 +46,7 @@ namespace MadXchange.Exchange.Services.HttpRequests
 
         public async Task<PositionDto[]> GetPositionsAsync(Guid accountId, Xchange exchange, CancellationToken token = default)
         {
-            var requestObject = _descriptorService.RequestDictionary(exchange, XchangeOperation.GetPositionList, new ObjectDictionary());
+            var requestObject = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.GetPositionList, new ObjectDictionary());
             var response = await _restRequestService.SendRequestObjectAsync(accountId, requestObject, token).ConfigureAwait(false);
             var result = TypeSerializer.DeserializeFromString<PositionDto[]>(response.Result);
             result.Each(p => p.AccountId = accountId);
@@ -55,7 +55,7 @@ namespace MadXchange.Exchange.Services.HttpRequests
 
         public async Task<LeverageDto[]> GetLeverageAsync(Guid accountId, Xchange exchange, string symbol, CancellationToken token = default)
         {
-            var requestObject = _descriptorService.RequestDictionary(exchange, XchangeOperation.GetLeverage, new ObjectDictionary() { { IXchangeDescriptorService.SymbolString, symbol } });
+            var requestObject = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.GetLeverage, new ObjectDictionary() { { IXchangeDescriptorService.SymbolString, symbol } });
             var response = await _restRequestService.SendRequestObjectAsync(accountId, requestObject, token).ConfigureAwait(false);
             var result = TypeSerializer.DeserializeFromString<LeverageDto[]>(response.Result);
             result.Each(p => p.AccountId = accountId);
@@ -64,7 +64,7 @@ namespace MadXchange.Exchange.Services.HttpRequests
 
         public async Task<LeverageDto> PostLeverageAsync(Guid accountId, Xchange exchange, string symbol, decimal leverage, CancellationToken token = default)
         {
-            var route = _descriptorService.RequestDictionary(exchange, XchangeOperation.PostLeverage, new ObjectDictionary() { { IXchangeDescriptorService.LeverageString, leverage }, { IXchangeDescriptorService.SymbolString, symbol } });
+            var route = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.PostLeverage, new ObjectDictionary() { { IXchangeDescriptorService.LeverageString, leverage }, { IXchangeDescriptorService.SymbolString, symbol } });
             var response = await _restRequestService.SendRequestObjectAsync(accountId, route, token).ConfigureAwait(false);
             var result = TypeSerializer.DeserializeFromString<LeverageDto>(response.Result);
             return result;

@@ -1,6 +1,6 @@
 ﻿using Convey.CQRS.Queries;
 
-namespace MadXchange.Exchange.Queries
+namespace MadXchange.Connector.Queries
 {
     public class OpenOrderQuery<IOrder> : IQuery<IOrder>
     {

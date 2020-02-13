@@ -49,7 +49,7 @@
           "dependencies": {
             "Grpc.AspNetCore": {
               "target": "Package",
-              "version": "[2.26.0, )"
+              "version": "[2.27.0, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
@@ -119,15 +119,15 @@
           "dependencies": {
             "Convey.Persistence.MongoDB": {
               "target": "Package",
-              "version": "[0.4.246, )"
+              "version": "[0.4.256, )"
             },
             "Convey.Persistence.Redis": {
               "target": "Package",
-              "version": "[0.4.246, )"
+              "version": "[0.4.256, )"
             },
             "Convey.Tracing.Jaeger": {
               "target": "Package",
-              "version": "[0.4.246, )"
+              "version": "[0.4.256, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

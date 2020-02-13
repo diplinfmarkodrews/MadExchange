@@ -103,16 +103,18 @@ namespace MadXchange.Exchange.Contracts
         [EnumMember]
         PostOnly = 4
     }
-
+    [DataContract]
     public enum SocketMethod
     {
-        UnSpecified = 0,
-        [DataMember(Name = "ping")]
+        UnSpecified = 0,        
+        [DataMember]
         Ping = 1,
-        [DataMember(Name = "subscribe")]
-        Subscribe = 2,
-        [DataMember(Name = "unsubscribe")]
-        Unsubscribe = 3
+        [DataMember]
+        Auth = 2,
+        [DataMember]
+        Subscribe = 3,
+        [DataMember]
+        Unsubscribe = 4
 
     }
 

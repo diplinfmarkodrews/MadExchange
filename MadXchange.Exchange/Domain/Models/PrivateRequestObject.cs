@@ -9,7 +9,7 @@ namespace MadXchange.Exchange.Domain.Models
     /// <summary>
     /// Gets generated for each request and holds individual information to generate final request
     /// </summary>
-    public class XchangeRequestObject : IReturn<WebResponseDto>
+    public class XchangeRequestObject : IReturn<HttpResponseDto>
     {
         public string Url { get; }
         public string Method { get; }

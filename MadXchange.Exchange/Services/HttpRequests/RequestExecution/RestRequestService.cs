@@ -1,5 +1,6 @@
 ﻿using MadXchange.Exchange.Contracts.Http;
 using MadXchange.Exchange.Domain.Models;
+using MadXchange.Exchange.Services.Utils;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,10 +10,10 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
     public interface IRestRequestService
     {
         //private functions: meh..
-        Task<WebResponseDto> SendRequestObjectAsync(Guid accountId, XchangeRequestObject routeObject, CancellationToken token);
+        Task<HttpResponseDto> SendRequestObjectAsync(Guid accountId, XchangeRequestObject routeObject, CancellationToken token);
 
         //public functions: easy, peasy, we dont have to fudge with the header
-        Task<WebResponseDto> SendGetAsync(string url);
+        Task<HttpResponseDto> SendGetAsync(string url);
     }
 
     public class RestRequestService : IRestRequestService
@@ -28,7 +29,7 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
             _signRequestService = signRequestService;
         }
 
-        public async Task<WebResponseDto> SendRequestObjectAsync(Guid accountId, XchangeRequestObject routeObject, CancellationToken token = default)
+        public async Task<HttpResponseDto> SendRequestObjectAsync(Guid accountId, XchangeRequestObject routeObject, CancellationToken token = default)
         {
             //var permit = await _requestAccessService.RequestAccess(accountId, token);
             ////if request was cancelled by CancellationToken, request gets aborted before execution, no permission to send then, otherwise it will wait until access is granted
@@ -44,6 +45,6 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
         /// </summary>
         /// <param name="url"></param>
         /// <returns>WebResponse</returns>
-        public async Task<WebResponseDto> SendGetAsync(string url) => await _requestExecutionService.SendGetAsync(url).ConfigureAwait(false);
+        public async Task<HttpResponseDto> SendGetAsync(string url) => await _requestExecutionService.SendGetAsync(url).ConfigureAwait(false);
     }
 }

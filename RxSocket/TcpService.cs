@@ -2,10 +2,10 @@ using System;
 using System.Buffers;
 using System.Collections.Concurrent;
 using System.IO.Pipelines;
+
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Net.WebSockets;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Reactive.Threading.Tasks;
@@ -125,9 +125,8 @@ namespace MadXchange.Connector
         public IObservable<ErrorData> Error => _error.AsObservable();
 
         //
-        public IObservable<Record<object>> Reciever => Observable.FromEvent<Record<object>>
-            (a => MessageReceived += a,
-            a => MessageReceived -= a);
+        public IObservable<Record<object>> Reciever 
+            => Observable.FromEvent<Record<object>>(a => MessageReceived += a, a => MessageReceived -= a);
 
         public IObservable<Record<object>> Sender => _sender.AsObservable();
 

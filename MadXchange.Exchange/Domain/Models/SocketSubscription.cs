@@ -1,24 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ServiceStack;
+using System;
 
 namespace MadXchange.Exchange.Domain.Models
 {
-    public interface ISocketSubscription
+    public interface ISocketSubscription 
     {
         Guid Id { get; }
     }
 
-    public class SocketSubscription : ISocketSubscription
+    public sealed class SocketSubscription : ISocketSubscription
     {
+        //given Id to directly address subscription, or random
         public Guid Id { get; } 
-        public string Topic { get; }
-        public IEnumerable<string> Args { get; }
+        //channel is my definition
+        public string Channel { get; }
+        //topic is exchange definition of
+        public string Topic { get; set; }
+        public bool IsSubscribed { get; set; }
+        
+        public ObjectDictionary Request { get; internal set; }
+        public Type ReturnType { get; internal set; }
+        
 
-        public SocketSubscription(Guid id, string topic, IEnumerable<string> args)
+        public SocketSubscription(Guid id, string channel, string topic, ObjectDictionary requestDict, Type returnType)
         {
             Id = id == Guid.Empty ? Guid.NewGuid() : id;
+            Channel = channel;
+            Request = requestDict;
+            ReturnType = returnType;
             Topic = topic;
-            Args = args;
         }
+        
+     
+
+        
     }
 }

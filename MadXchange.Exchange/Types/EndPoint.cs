@@ -10,14 +10,14 @@ namespace MadXchange.Exchange.Domain.Types
     public sealed class EndPoint : IEndPoint
     {
         public string Name { get; set; }
-
+        //endpoint urls are concarnated with baseurl
         public string Url { get; set; }
         public Dictionary<string, Parameter> Parameter { get; set; }
         public string Result { get; set; }
         public string SignString { get; internal set; }
         public string TimeStampString { get; internal set; }
         public string ApiKeyString { get; internal set; }
-
+        public Type ReturnType { get; internal set; }
         public int CompareTo(EndPoint obj)
         {
             return Name.CompareTo(obj);

@@ -20,15 +20,15 @@ namespace MadXchange.Connector.Installer
             //{
             //    return services;
             //}
-            services.AddMemoryCache();
+           services.AddMemoryCache();
 
             services.AddSingleton<IRedisClientsManager, RedisManagerPool>(c => new RedisManagerPool(redisCacheSettings.ConnectionString));
 
             services.AddSingleton<IAccountRequestCache, AccountRequestCache>();
             services.AddSingleton<IInstrumentCache, InstrumentCache>();
-            services.AddSingleton<IOrderCache, OrderCache>();
-            services.AddSingleton<IPositionCache, PositionCache>();
-            services.AddSingleton<IMarginCache, MarginCache>();
+            //services.AddSingleton<IOrderCache, OrderCache>();
+            //services.AddSingleton<IPositionCache, PositionCache>();
+            //services.AddSingleton<IMarginCache, MarginCache>();
             //services.AddSingleton<ICacheManager<IAccountRequestCache>>();
 
             return services;

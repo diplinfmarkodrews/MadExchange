@@ -1,4 +1,0 @@
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\WebSocketManager\WebSocketManager.Client\bin\Debug\netstandard2.0\WebSocketManager.Common.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\WebSocketManager\WebSocketManager.Client\obj\Debug\netstandard2.0\WebSocketManager.Client.csprojAssemblyReference.cache
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\WebSocketManager\WebSocketManager.Client\obj\Debug\netstandard2.0\WebSocketManager.Client.AssemblyInfoInputs.cache
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\WebSocketManager\WebSocketManager.Client\obj\Debug\netstandard2.0\WebSocketManager.Client.AssemblyInfo.cs

@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-
 namespace MadXchange.Connector.Installer
 {
     public static class WebSocketInstaller
@@ -17,22 +16,22 @@ namespace MadXchange.Connector.Installer
             ////SocketConnection
             services.AddSingleton<ISocketConnectionStore, SocketConnectionStore>();
             services.AddSingleton<ISocketConnectionService, SocketConnectionService>();
-            services.AddScoped<WebSocketConnection>();
+            //services.AddScoped<WebSocketConnection>();
             return services;
         }
         
         public static IServiceCollection AddWebSocketHandler(this IServiceCollection services, Assembly assembly = null)
         {
 
-            Assembly ass = assembly ?? Assembly.GetEntryAssembly();
-            foreach (var type in ass.ExportedTypes)
+            Assembly ass = assembly ?? typeof(WebSocketHandler).Assembly;
+            foreach (var type in ass.GetTypes())
             {
                 if (type.GetTypeInfo().BaseType == typeof(WebSocketHandler))
                 {
                     services.AddSingleton(type);
                 }
             }
-
+            //foreach(var type in )
             return services;
         }
 

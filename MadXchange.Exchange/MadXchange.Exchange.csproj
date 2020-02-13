@@ -18,7 +18,6 @@
     <PackageReference Include="ServiceStack.Interfaces.Core" Version="5.8.0" />
     <PackageReference Include="ServiceStack.Redis.Core" Version="5.8.0" />
     <PackageReference Include="ServiceStack.Text.Core" Version="5.8.0" />
-    <PackageReference Include="System.Net.Sockets" Version="4.3.0" />
     <PackageReference Include="System.Net.WebSockets" Version="4.3.0" />
   </ItemGroup>
 

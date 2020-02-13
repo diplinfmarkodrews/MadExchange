@@ -1,6 +1,8 @@
-﻿using MadXchange.Exchange.Configuration;
+﻿using MadXchange.Connector.Services;
+using MadXchange.Exchange.Configuration;
 using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Domain.Types;
+using MadXchange.Exchange.Types;
 using ServiceStack;
 
 namespace MadXchange.Exchange.Services.XchangeDescriptor
@@ -18,7 +20,7 @@ namespace MadXchange.Exchange.Services.XchangeDescriptor
         /// <param name="route"></param>
         /// <returns></returns>
 
-        XchangeRequestObject RequestDictionary(Xchange exchange, XchangeOperation routeKey, ObjectDictionary paramObjDict);
+        XchangeRequestObject RequestDictionary(Xchange exchange, XchangeHttpOperation routeKey, ObjectDictionary paramObjDict);
 
         /// <summary>
         /// public request function
@@ -26,8 +28,8 @@ namespace MadXchange.Exchange.Services.XchangeDescriptor
         /// <param name="exchange"></param>
         /// <param name="routeKey"></param>
         /// <returns></returns>
-        string GetPublicEndPointUrl(Xchange exchange, XchangeOperation routeKey);
-
+        string GetPublicEndPointUrl(Xchange exchange, XchangeHttpOperation routeKey);
+        XchangeSocketDescriptor GetSocketDescriptor(Xchange exchange);
         string GetSocketConnectionString(Xchange exchange);
     }
 
@@ -46,16 +48,20 @@ namespace MadXchange.Exchange.Services.XchangeDescriptor
         }
 
         //can both be put together, providing a string dictionary as function layout
-        public string GetPublicEndPointUrl(Xchange exchange, XchangeOperation route) => $"{GetExchangeEndPoint(exchange, route).Url}";
+        public string GetPublicEndPointUrl(Xchange exchange, XchangeHttpOperation route)
+            => $"{GetExchangeEndPoint(exchange, route).Url}";
 
-        private EndPoint GetExchangeEndPoint(Xchange exchange, XchangeOperation routeKey) => _exchangeDescriptors[(int)exchange].EndPoints[(int)routeKey];
+        private EndPoint GetExchangeEndPoint(Xchange exchange, XchangeHttpOperation routeKey)
+            => _exchangeDescriptors[(int)exchange].EndPoints[(int)routeKey];
 
-        public XchangeRequestObject RequestDictionary(Xchange exchange, XchangeOperation routeKey, ObjectDictionary paramObjDict)
-        {
-            var endPoint = GetExchangeEndPoint(exchange, routeKey);
-            return new XchangeRequestObject(exchange, endPoint, paramObjDict);
-        }
+        public XchangeRequestObject RequestDictionary(Xchange exchange, XchangeHttpOperation routeKey, ObjectDictionary paramObjDict)
+            => new XchangeRequestObject(exchange, GetExchangeEndPoint(exchange, routeKey), paramObjDict);
 
-        public string GetSocketConnectionString(Xchange exchange) => _exchangeDescriptors[(int)exchange].SocketUrl;
+        public string GetSocketConnectionString(Xchange exchange)
+            => _exchangeDescriptors[(int)exchange].SocketDescriptor.SocketUrl;
+
+        public XchangeSocketDescriptor GetSocketDescriptor(Xchange exchange)
+            => _exchangeDescriptors[(int)exchange].SocketDescriptor;
+        
     }
 }

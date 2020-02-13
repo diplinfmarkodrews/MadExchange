@@ -26,7 +26,7 @@ namespace MadXchange.Exchange.Services.HttpRequests
 
         public async Task<InstrumentDto[]> GetInstrumentAsync(Xchange exchange, string symbol = default) // wont be passed atm
         {
-            var requestDictionary = _descriptorService.GetPublicEndPointUrl(exchange, XchangeOperation.GetInstrument); //=> both to Dictionary=> only 1access
+            var requestDictionary = _descriptorService.GetPublicEndPointUrl(exchange, XchangeHttpOperation.GetInstrument); //=> both to Dictionary=> only 1access
             var res = await _restRequestService.SendGetAsync(requestDictionary).ConfigureAwait(false);
             var result = TypeSerializer.DeserializeFromString<InstrumentDto[]>(res.Result); //res.result.ConvertTo<InstrumentDto[]>();
             result.Each(f => f.Exchange = exchange);

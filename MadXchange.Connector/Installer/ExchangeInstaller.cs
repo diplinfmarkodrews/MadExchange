@@ -62,12 +62,11 @@ namespace MadXchange.Connector.Installer
 
         public static IServiceCollection AddHttpClientServices(this IServiceCollection services, IConfiguration configuration)
         {
-            bool legacy = configuration.GetValue<bool>("LegacyHttpMsgHandler");            
-            services.AddHttpClient<IHttpClient>("X-CHANGE", cfg =>
+            //bool legacy = configuration.GetValue<bool>("LegacyHttpMsgHandler");            
+            services.AddHttpClient<IHttpClient>("XCHANGE", cfg =>
             {
-                if(legacy)
-                    JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new NativeMessageHandler(throwOnCaptiveNetwork: true, customSSLVerification: false);
-
+                
+                //JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new NativeMessageHandler(throwOnCaptiveNetwork: true, customSSLVerification: false);
                 JsonHttpClient.DefaultUserAgent = "MadMexIO";
             }).SetHandlerLifetime(TimeSpan.FromMinutes(5));
             

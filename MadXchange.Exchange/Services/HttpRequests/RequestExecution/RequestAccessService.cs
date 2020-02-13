@@ -12,7 +12,7 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
     {
         Task<bool> RequestAccess(Guid accountId, CancellationToken token);
 
-        void UpdateAccountRequestCache(Guid accountId, WebResponseDto resDto);
+        void UpdateAccountRequestCache(Guid accountId, HttpResponseDto resDto);
     }
 
     public class RequestAccessService : IRequestAccessService
@@ -56,7 +56,7 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
             return accountCacheObject;
         }
 
-        public void UpdateAccountRequestCache(Guid accountId, WebResponseDto resDto)
+        public void UpdateAccountRequestCache(Guid accountId, HttpResponseDto resDto)
         {
             var acCacheObj = _requestCache.GetAccount(accountId);
             if (acCacheObj is null)

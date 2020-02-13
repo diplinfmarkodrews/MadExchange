@@ -32,7 +32,7 @@ namespace MadXchange.Exchange.Services.HttpRequests
 
         public async Task<MarginDto[]> GetMarginAsync(Guid accountId, Xchange exchange, string currency, CancellationToken token = default)
         {
-            var route = _descriptorService.RequestDictionary(exchange, XchangeOperation.GetMargin, new ObjectDictionary() { { _currencyString, currency } });
+            var route = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.GetMargin, new ObjectDictionary() { { _currencyString, currency } });
             var response = await _restRequestService.SendRequestObjectAsync(accountId, route, token).ConfigureAwait(false);
             return TypeSerializer.DeserializeFromString<MarginDto[]>(response.Result);
         }

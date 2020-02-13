@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
 
 namespace MadXchange.Exchange.Configuration
 {
@@ -47,23 +48,54 @@ namespace MadXchange.Exchange.Configuration
             {
                 var exchangeDescriptor = new XchangeDescriptor();
                 exchangeDescriptor.Name = exchange.GetValue<string>("Name");
-                exchangeDescriptor.BaseUrl = exchange.GetValue<string>("BaseUrl");
-                exchangeDescriptor.SocketUrl = exchange.GetValue<string>("SocketUrl");
+                exchangeDescriptor.BaseUrl = exchange.GetValue<string>("BaseUrl");                
                 var exchangeEnum = Enum.Parse<Xchange>(exchangeDescriptor.Name);
                 exchangeDescriptor.Id = (int)exchangeEnum;
-
+                exchangeDescriptor.ReadDomainTypes(exchange.GetSection("DomainTypes"));
                 var endPoints = ReadExchangeEndPoints(exchange.GetSection("Routes"));
                 exchangeDescriptor.EndPoints = GeneratingEndPoints(endPoints);
                 exchangeDescriptor.EndPoints.Each(f => f.Url = exchangeDescriptor.BaseUrl.CombineWith(f.Url));
+                exchangeDescriptor.SocketDescriptor = ReadSocketConfig(exchange);
                 if (VerifyExchangeDescriptor(exchangeDescriptor))
                     exchanges[exchangeDescriptor.Id] = exchangeDescriptor;
             }
             return exchanges;
         }
+        
+        private ObjectDictionary ReadTypes(IConfigurationSection section) 
+        {
+            var result = new ObjectDictionary();
+            var typesConfig = section.GetSection("Types").GetChildren();
+            foreach (var type in typesConfig)
+            {
+                var members = type.GetChildren();
+                foreach (var m in members)
+                    result.Add(m.Key, m.Value);
+            }
+            return result;
+        }
+        private XchangeSocketDescriptor ReadSocketConfig(IConfigurationSection exchangeConfig)
+        {
+            var socketConfig = exchangeConfig.GetSection("Socket");
+            var result = new XchangeSocketDescriptor()
+            {
+                SocketUrl = exchangeConfig.GetSection("SocketUrl").Value,
+                KeepAliveInterval = exchangeConfig.GetSection("KeepAlive").Get<int>(),
+
+            };
+
+            
+            var stringValues = socketConfig.GetChildren().Where(c => c.GetChildren().Count() == 1);
+            result.CombinedStrings = new Dictionary<string, string[]>();
+
+            return result;
+        }
+
+       
 
         private bool VerifyExchangeDescriptor(XchangeDescriptor descriptor)
         {
-            if (descriptor.EndPoints[(int)XchangeOperation.Unknown] != null) return false;
+            if (descriptor.EndPoints[(int)XchangeHttpOperation.Unknown] != null) return false;
             return true;
         }
 
@@ -74,11 +106,11 @@ namespace MadXchange.Exchange.Configuration
         /// <returns></returns>
         private EndPoint[] GeneratingEndPoints(Dictionary<string, EndPoint> endPoints)
         {
-            var endPointArray = new EndPoint[typeof(XchangeOperation).GetTypeInfo().Fields().Length];
+            var endPointArray = new EndPoint[typeof(XchangeHttpOperation).GetTypeInfo().Fields().Length];
             foreach (var eP in endPoints)
             {
-                var operation = XchangeOperation.Unknown;
-                if (Enum.TryParse<XchangeOperation>(eP.Key, out operation))
+                var operation = XchangeHttpOperation.Unknown;
+                if (Enum.TryParse<XchangeHttpOperation>(eP.Key, out operation))
                 {
                     endPointArray[(int)operation] = eP.Value;
                     continue;

@@ -9,9 +9,9 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
 {
     public interface IRequestExecutionService
     {
-        Task<WebResponseDto> SendRequestObjectAsync(XchangeRequestObject routeObject);
+        Task<HttpResponseDto> SendRequestObjectAsync(XchangeRequestObject routeObject);
 
-        Task<WebResponseDto> SendGetAsync(string url);
+        Task<HttpResponseDto> SendGetAsync(string url);
     }
 
     public class RequestExecutionService : IRequestExecutionService
@@ -28,12 +28,12 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        public async Task<WebResponseDto> SendGetAsync(string url)
+        public async Task<HttpResponseDto> SendGetAsync(string url)
         {
             try
             {
                 var resp = await url.GetJsonFromUrlAsync().ConfigureAwait(false);
-                return resp.FromJson<WebResponseDto>();
+                return resp.FromJson<HttpResponseDto>();
             }
             catch (Exception err)
             {
@@ -42,12 +42,12 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
             return default;
         }
 
-        public async Task<WebResponseDto> SendRequestObjectAsync(XchangeRequestObject routeObject)
+        public async Task<HttpResponseDto> SendRequestObjectAsync(XchangeRequestObject routeObject)
         {
             try
             {
                 string resp = await routeObject.Url.SendStringToUrlAsync(routeObject.Method, routeObject.ToOrderedJson()).ConfigureAwait(false);
-                return resp.FromJson<WebResponseDto>();
+                return resp.FromJson<HttpResponseDto>();
             }
             catch (Exception ex)
             {

@@ -1,7 +1,7 @@
 ﻿using Convey.CQRS.Events;
 using System;
 
-namespace MadXchange.Exchange.Handlers.Equity
+namespace MadXchange.Connector.Handlers.Equity
 {
     public class EquityRequestResponseEvent : IEvent
     {

@@ -12,6 +12,7 @@
     <tags>Reactive,Socket,Observable</tags>
     <dependencies>
       <group targetFramework=".NETCoreApp3.1">
+        <dependency id="MadXchange.Exchange" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Extensions.Configuration" version="3.1.1" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Extensions.Configuration.Json" version="3.1.1" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Extensions.DependencyInjection" version="3.1.1" exclude="Build,Analyzers" />
@@ -23,6 +24,11 @@
         <dependency id="System.Reactive" version="4.3.2" exclude="Build,Analyzers" />
       </group>
     </dependencies>
+    <frameworkReferences>
+      <group targetFramework=".NETCoreApp3.1">
+        <frameworkReference name="Microsoft.AspNetCore.App" />
+      </group>
+    </frameworkReferences>
   </metadata>
   <files>
     <file src="C:\Users\MarkoMoto\source\repos\MadXchange.Connector\RxSocket\bin\Release\netcoreapp3.1\MadXchange.Exchange.PipesIoStub.dll" target="lib\netcoreapp3.1\MadXchange.Exchange.PipesIoStub.dll" />

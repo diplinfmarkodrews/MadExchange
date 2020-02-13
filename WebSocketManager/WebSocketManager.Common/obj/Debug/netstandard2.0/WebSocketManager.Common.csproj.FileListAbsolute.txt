@@ -1,0 +1,8 @@
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\WebSocketManager\WebSocketManager.Common\bin\Debug\netstandard2.0\WebSocketManager.Common.deps.json
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\WebSocketManager\WebSocketManager.Common\bin\Debug\netstandard2.0\WebSocketManager.Common.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\WebSocketManager\WebSocketManager.Common\bin\Debug\netstandard2.0\WebSocketManager.Common.pdb
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\WebSocketManager\WebSocketManager.Common\obj\Debug\netstandard2.0\WebSocketManager.Common.csprojAssemblyReference.cache
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\WebSocketManager\WebSocketManager.Common\obj\Debug\netstandard2.0\WebSocketManager.Common.AssemblyInfoInputs.cache
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\WebSocketManager\WebSocketManager.Common\obj\Debug\netstandard2.0\WebSocketManager.Common.AssemblyInfo.cs
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\WebSocketManager\WebSocketManager.Common\obj\Debug\netstandard2.0\WebSocketManager.Common.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\WebSocketManager\WebSocketManager.Common\obj\Debug\netstandard2.0\WebSocketManager.Common.pdb

@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Convey.Persistence.MongoDB" Version="0.4.246" />
-    <PackageReference Include="Convey.Persistence.Redis" Version="0.4.246" />
-    <PackageReference Include="Convey.Tracing.Jaeger" Version="0.4.246" />
+    <PackageReference Include="Convey.Persistence.MongoDB" Version="0.4.256" />
+    <PackageReference Include="Convey.Persistence.Redis" Version="0.4.256" />
+    <PackageReference Include="Convey.Tracing.Jaeger" Version="0.4.256" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
   </ItemGroup>
 

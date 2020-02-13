@@ -39,7 +39,7 @@ namespace MadXchange.Exchange.Services.HttpRequests
 
         public async Task<OrderDto[]> GetOpenOrdersAsync(Xchange exchange, Guid accountId, string symbol, CancellationToken token = default)
         {
-            var route = _descriptorService.RequestDictionary(exchange, XchangeOperation.GetOrder, new ObjectDictionary() { { IXchangeDescriptorService.SymbolString, symbol } });
+            var route = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.GetOrder, new ObjectDictionary() { { IXchangeDescriptorService.SymbolString, symbol } });
             var res = await _restRequestService.SendRequestObjectAsync(accountId, route, token).ConfigureAwait(false);
             var result = TypeSerializer.DeserializeFromString<OrderDto[]>(res.Result);
             return result;
@@ -47,7 +47,7 @@ namespace MadXchange.Exchange.Services.HttpRequests
 
         public async Task<OrderDto> PostNewOrderAsync(OrderPostRequestDto request, CancellationToken token = default)
         {
-            var route = _descriptorService.RequestDictionary(request.Exchange, XchangeOperation.PostPlaceOrder, new ObjectDictionary() { });
+            var route = _descriptorService.RequestDictionary(request.Exchange, XchangeHttpOperation.PostPlaceOrder, new ObjectDictionary() { });
             ///Todo: provide requestparameter
             var res = await _restRequestService.SendRequestObjectAsync(request.AccountId, route, token).ConfigureAwait(false);
             return TypeSerializer.DeserializeFromString<OrderDto>(res.Result);
@@ -55,7 +55,7 @@ namespace MadXchange.Exchange.Services.HttpRequests
 
         public async Task<OrderDto> PostUpdateOrderAsync(OrderPutRequestDto request, CancellationToken token = default)
         {
-            var route = _descriptorService.RequestDictionary(request.Exchange, XchangeOperation.PostUpdateOrder, new ObjectDictionary());
+            var route = _descriptorService.RequestDictionary(request.Exchange, XchangeHttpOperation.PostUpdateOrder, new ObjectDictionary());
 
             var res = await _restRequestService.SendRequestObjectAsync(request.AccountId, route, token).ConfigureAwait(false);
             return TypeSerializer.DeserializeFromString<OrderDto>(res.Result);
@@ -63,14 +63,14 @@ namespace MadXchange.Exchange.Services.HttpRequests
 
         public async Task<OrderDto[]> DeleteAllOrdersAsync(Xchange exchange, Guid accountId, string symbol, CancellationToken token = default)
         {
-            var route = _descriptorService.RequestDictionary(exchange, XchangeOperation.CancelAllOrders, new ObjectDictionary() { { IXchangeDescriptorService.SymbolString, symbol } });
+            var route = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.CancelAllOrders, new ObjectDictionary() { { IXchangeDescriptorService.SymbolString, symbol } });
             var res = await _restRequestService.SendRequestObjectAsync(accountId, route, token).ConfigureAwait(false);
             return TypeSerializer.DeserializeFromString<OrderDto[]>(res.Result);
         }
 
         public async Task<OrderDto> DeleteOrderAsync(Xchange exchange, Guid accountId, string symbol, string orderId, CancellationToken token = default)
         {
-            var route = _descriptorService.RequestDictionary(exchange, XchangeOperation.CancelOrder, new ObjectDictionary() { { IXchangeDescriptorService.OrderIdString, orderId }, { IXchangeDescriptorService.SymbolString, symbol } });
+            var route = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.CancelOrder, new ObjectDictionary() { { IXchangeDescriptorService.OrderIdString, orderId }, { IXchangeDescriptorService.SymbolString, symbol } });
             var res = await _restRequestService.SendRequestObjectAsync(accountId, route, token).ConfigureAwait(false);
             return TypeSerializer.DeserializeFromString<OrderDto>(res.Result);
         }

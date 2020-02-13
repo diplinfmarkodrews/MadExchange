@@ -1,4 +1,5 @@
 ﻿using MadXchange.Exchange.Domain.Types;
+using Microsoft.Extensions.Logging;
 using ServiceStack;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -14,8 +15,10 @@ namespace MadXchange.Exchange.Services.Socket
         private Timer _updateTimer = new Timer();
         private Dictionary<Xchange, string> _xchangeUrls = new Dictionary<Xchange, string>();
         private ConcurrentDictionary<Xchange, IPAddress[]> _addresses = new ConcurrentDictionary<Xchange, IPAddress[]>();
-        public AddressProvider(Dictionary<Xchange, string> xchangeUrls)
+        private readonly ILogger _logger;
+        public AddressProvider(Dictionary<Xchange, string> xchangeUrls, ILogger<AddressProvider> logger)
         {
+            _logger = logger;
             _xchangeUrls = xchangeUrls;
             _updateTimer = new Timer(1000 * 360);
             _updateTimer.Elapsed += UpdateTimer_Elapsed;
@@ -35,7 +38,8 @@ namespace MadXchange.Exchange.Services.Socket
         {
             foreach (var url in _xchangeUrls)
                 _addresses[url.Key] = await Dns.GetHostAddressesAsync(url.Value).ConfigureAwait(false);
-        
+
+            _logger.LogInformation("IP-Address Dns lookup result", _addresses);
         }
     }
 }

@@ -16,14 +16,14 @@ namespace MadXchange.Connector.Services
     {
         private readonly IApiKeySetStore _apiKeySetRepository;
 
-        // private readonly ISocketConnectionService _socketConnectionService;
+        private readonly ISocketConnectionService _socketConnectionService;
         private readonly ILogger _logger;
 
-        //public AccountManager(IApiKeySetStore apikeysetRepo, ISocketConnectionService socketConnectionService, ILogger<AccountManager> logger)
-        //{
-        //    _apiKeySetRepository = apikeysetRepo;
-        //    _socketConnectionService = socketConnectionService;
-        //    _logger = logger;
-        //}
+        public AccountManager(IApiKeySetStore apikeysetRepo, ISocketConnectionService socketConnectionService, ILogger<AccountManager> logger)
+        {
+            _apiKeySetRepository = apikeysetRepo;
+            _socketConnectionService = socketConnectionService;
+            _logger = logger;
+        }
     }
 }

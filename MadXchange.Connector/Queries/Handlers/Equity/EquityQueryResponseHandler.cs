@@ -3,7 +3,7 @@ using Convey.MessageBrokers;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-namespace MadXchange.Exchange.Handlers.Equity
+namespace MadXchange.Connector.Handlers.Equity
 {
     public class EquityQueryResponseHandler : IEventHandler<EquityRequestResponseEvent>
     {

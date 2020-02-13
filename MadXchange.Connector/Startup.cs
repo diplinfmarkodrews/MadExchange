@@ -14,12 +14,11 @@ using MadXchange.Connector.Installer;
 using MadXchange.Connector.Services;
 using MadXchange.Exchange.Domain.Models;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Serilog;
 using ServiceStack.Text;
 using System;
 using System.Runtime.Serialization;
@@ -35,13 +34,8 @@ namespace MadXchange.Connector
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var builder = new ConfigurationBuilder();
-            builder.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-            builder.AddJsonFile("exchangesettings.json", optional: false, reloadOnChange: true);
-            builder.AddJsonFile("testaccounts.json", optional: false, reloadOnChange: true);
-            builder.AddEnvironmentVariables();
-            Configuration = builder.Build();
 
+            Configuration = MyWebHostExtensions.GetConfiguration();
 
             JsConfig.Init(new Config
             {
@@ -58,36 +52,41 @@ namespace MadXchange.Connector
             };
             //JsConfig.AllowRuntimeType = type => type == typeof(WebResponseDto);
             services.AddPolicyRegistry();
-            services.AddHttpClientServices(Configuration);
-            services.AddVaultService(Configuration);
+            //services.AddHttpClientServices(Configuration);
+            //services.AddVaultService(Configuration);
+            //services.AddCacheServices(Configuration);
 
-            services.AddCacheServices(Configuration);
+            //services.AddSocketConnectionService();
+            //services.AddWebSocketHandler();
+            //services.AddExchangeAccessServices(Configuration);
 
-            services.AddSocketConnectionService();
-            services.AddWebSocketHandler();
-            services.AddExchangeAccessServices(Configuration);
-            
 
             //services.AddWebEncoders();
-            services.AddMetrics().AddMetricsEndpoints();
+            // services.AddMetrics().AddMetricsEndpoints();
 
-            services.AddOpenTracing();
-            services.AddLogging(logBuilder => logBuilder.AddSerilog().SetMinimumLevel(LogLevel.Debug).AddConsole());
-            
+            services.AddOpenTracingCoreServices();
+            services.AddLogging(logBuilder
+                => MyWebHostExtensions.CreateSerilogLogger(Configuration));
+
             services.AddSingleton<IServiceId, ServiceId>();
             services.AddConvey("connector")
                     .AddRedis()
-                    .AddEventHandlers()
+
+
+
                     .AddMetrics()
+                    .AddEventHandlers()
                     .AddInMemoryEventDispatcher()
                     .AddCommandHandlers()
                     .AddInMemoryCommandDispatcher()
                     .AddQueryHandlers()
                     .AddInMemoryQueryDispatcher()
-                    .AddRabbitMq(plugins: p => p.AddJaegerRabbitMqPlugin())
+
+
                     .AddExceptionToMessageMapper<ExceptionToMessageMapper>()
                     .AddJaeger()
                     .AddMongo()
+                    .AddRabbitMq()//plugins: p => p.AddJaegerRabbitMqPlugin())
                     .AddMongoRepository<ApiKeySet, Guid>("apikeys")
                     .AddMongoRepository<Order, Guid>("order")
                     .AddInitializer<IMongoDbInitializer>();
@@ -103,19 +102,39 @@ namespace MadXchange.Connector
                 app.UseDeveloperExceptionPage();
             }
             app.UseExceptionHandler();
-            // loggerFactory.AddSerilog();
-            app.UseWebSockets();
-            app.UseMetrics();
-            app.UseRouting();
-            app.MapWebSocketManager();
-            app.UseConvey();
             app.ConfigureEventBus();
-            app.UseMetricsActiveRequestMiddleware();
-            app.UseHealthAllEndpoints();
-
-            app.UseJaeger();
-            app.UsePingEndpoint();
            
+            app.UseConvey();
+            app.UseRabbitMq();
+            // loggerFactory.AddSerilog();
+            //app.UseWebSockets();
+            app.UseMetrics();
+           
+            app.UseJaeger();
+           // app.MapWebSocketManager();
+            
+            app.UseRouting();
+            
+            //app.UseMetricsAllMiddleware();
+            //app.UseHealthAllEndpoints();
+            //app.UseMetricsAllEndpoints();
+         
+            app.UsePingEndpoint();
+            //app.UseEndpoints()endpoints =>
+            //{
+            //    endpoints.MapDefaultControllerRoute();
+            //    endpoints.MapControllers();
+            //    endpoints.MapHealthChecks("/hc", new HealthCheckOptions()
+            //    {
+            //        Predicate = _ => true,
+            //        //ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            //    });
+            //    endpoints.MapHealthChecks("/liveness", new HealthCheckOptions
+            //    {
+            //        Predicate = r => r.Name.Contains("self")
+            //    });
+            //});
+
         }
     }
 }

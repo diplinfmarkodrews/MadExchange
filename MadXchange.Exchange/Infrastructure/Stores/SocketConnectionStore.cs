@@ -1,12 +1,12 @@
 ﻿using MadXchange.Connector.Services;
+using MadXchange.Exchange.Domain.Models;
+using MadXchange.Exchange.Helpers;
+using ServiceStack;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.WebSockets;
-using System.Threading;
 using System.Threading.Tasks;
-
 namespace MadXchange.Exchange.Infrastructure.Stores
 {
     public interface ISocketConnectionStore
@@ -16,34 +16,37 @@ namespace MadXchange.Exchange.Infrastructure.Stores
         int AddSocketConnection(WebSocketConnection socket);
         Guid RemoveSocket(int id);
         WebSocketConnection GetConnection(WebSocket socket);
+        WebSocketConnection GetConnection(Guid id);
+        WebSocketConnection GetConnection(int socketId);
     }
 
     public class SocketConnectionStore : ISocketConnectionStore
     {
 
-        private ConcurrentDictionary<int, WebSocketConnection> _socketConnections = new ConcurrentDictionary<int, WebSocketConnection>();
-        private ConcurrentDictionary<Guid, int> _connectionMapper = new ConcurrentDictionary<Guid, int>();
-        
+        private ConcurrentDictionary<Guid, WebSocketConnection> _socketConnections = new ConcurrentDictionary<Guid, WebSocketConnection>();
+        private ConcurrentDictionary<int, Guid> _connectionMapper = new ConcurrentDictionary<int, Guid>();
+        private Dictionary<int, TaskCompletionSource<SocketInvocationResult>> _waitingRemoteInvocations = new Dictionary<int, TaskCompletionSource<SocketInvocationResult>>();
 
         /// <summary>
         /// public accessors to the addrress dictionaries
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool Contains(int id) => _socketConnections.ContainsKey(id);
-        public WebSocketConnection GetConnection(int socketId) => _socketConnections.GetValueOrDefault(socketId);
-        public WebSocketConnection GetConnection(WebSocket socket) => _socketConnections.GetValueOrDefault(socket.GetHashCode());
-        public bool Contains(Guid accountId) => _connectionMapper.GetValueOrDefault(accountId) != default;
-        public WebSocket GetSocketById(Guid accountId) => _socketConnections[_connectionMapper[accountId]]?.Socket;
+        public bool Contains(int id) => _connectionMapper.ContainsKey(id);
+        public bool Contains(Guid accountId) => _socketConnections.ContainsKey(accountId);
+        public WebSocketConnection GetConnection(int socketId) => _socketConnections.GetValueOrDefault(_connectionMapper.GetValueOrDefault(socketId));
+        public WebSocketConnection GetConnection(WebSocket socket) => _socketConnections.GetValueOrDefault(_connectionMapper.GetValueOrDefault(socket.GetHashCode()));       
+        public WebSocketConnection GetConnection(Guid accountId) => _socketConnections[accountId];
         
 
         public int AddSocketConnection(WebSocketConnection socketConnection) 
         {
             try
             {
-                int socketId = socketConnection.Socket.GetHashCode();
-                _socketConnections.TryAdd(socketId, socketConnection);
-                _connectionMapper.TryAdd(socketConnection.Id, socketId);
+
+                int socketId = socketConnection.Socket.GetID();
+                _socketConnections.TryAdd(socketConnection.Id, socketConnection);
+                _connectionMapper.TryAdd(socketId, socketConnection.Id);
                 return socketId;
             }
             catch 
@@ -59,7 +62,7 @@ namespace MadXchange.Exchange.Infrastructure.Stores
             return 0;
         
         }
-                       
+                         
         /// <summary>
         /// Remove socketconnection and dispose connection and socket object.
         /// Returns either accountId or in case of a public socketconnection an empty Guid
@@ -69,7 +72,11 @@ namespace MadXchange.Exchange.Infrastructure.Stores
         public Guid RemoveSocket(int id) //connection has to be disposed
         {
             WebSocketConnection socket;
-            _socketConnections.TryRemove(id, out socket);
+            Guid gId;
+            
+            _connectionMapper.TryRemove(id, out gId);
+            _socketConnections.TryRemove(gId, out socket);
+            
             if (socket.IsPublic)
             {
                 socket.Dispose(true);

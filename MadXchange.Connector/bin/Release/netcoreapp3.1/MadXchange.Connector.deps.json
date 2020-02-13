@@ -24,6 +24,8 @@
     ".NETCoreApp,Version=v3.1": {
       "MadXchange.Connector/1.0.0": {
         "dependencies": {
+          "AspNetCore.HealthChecks.UI": "3.0.9",
+          "AspNetCore.HealthChecks.UI.Client": "3.0.2",
           "Convey": "0.4.246",
           "Convey.CQRS.Commands": "0.4.246",
           "Convey.CQRS.Events": "0.4.246",
@@ -42,6 +44,7 @@
           "MadXchange.Exchange": "1.0.0",
           "Microsoft.Extensions.Http.Polly": "3.1.1",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.9.10",
+          "Pipelines.Sockets.Unofficial": "2.1.1",
           "Polly": "7.2.0",
           "Polly.Extensions.Http": "3.0.0",
           "RxSocketWithIoPipeLines": "1.0.4",
@@ -60,6 +63,7 @@
           "StackExchange.Redis.Extensions.Core": "5.5.0",
           "System.Threading.ThreadPool": "4.3.0",
           "Vault": "0.9.1.3",
+          "WebSocketManager": "1.0.0",
           "modernhttpclient": "2.4.2",
           "System.Reactive.Reference": "4.3.0.0",
           "Microsoft.AspNetCore.Antiforgery.Reference": "3.1.0.0",
@@ -137,7 +141,7 @@
           "Microsoft.AspNetCore.SignalR": "3.1.0.0",
           "Microsoft.AspNetCore.SignalR.Protocols.Json": "3.1.0.0",
           "Microsoft.AspNetCore.StaticFiles": "3.1.0.0",
-          "Microsoft.AspNetCore.WebSockets": "3.1.0.0",
+          "Microsoft.AspNetCore.WebSockets.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.WebUtilities.Reference": "3.1.0.0",
           "Microsoft.CSharp.Reference": "4.0.0.0",
           "Microsoft.Extensions.Configuration.CommandLine": "3.1.0.0",
@@ -146,8 +150,8 @@
           "Microsoft.Extensions.Configuration.KeyPerFile": "3.1.0.0",
           "Microsoft.Extensions.Configuration.UserSecrets.Reference": "3.1.0.0",
           "Microsoft.Extensions.Configuration.Xml": "3.1.0.0",
-          "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "3.1.0.0",
-          "Microsoft.Extensions.Diagnostics.HealthChecks": "3.1.0.0",
+          "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.Reference": "3.1.0.0",
+          "Microsoft.Extensions.Diagnostics.HealthChecks.Reference": "3.1.0.0",
           "Microsoft.Extensions.FileProviders.Composite.Reference": "3.1.0.0",
           "Microsoft.Extensions.FileProviders.Embedded": "3.1.0.0",
           "Microsoft.Extensions.Hosting.Abstractions.Reference": "3.1.0.0",
@@ -297,7 +301,7 @@
           "System.Text.Encoding.Reference": "4.1.2.0",
           "System.Text.Encoding.Extensions.Reference": "4.1.2.0",
           "System.Text.Encodings.Web.Reference": "4.0.5.0",
-          "System.Text.Json": "4.0.1.0",
+          "System.Text.Json.Reference": "4.0.1.0",
           "System.Text.RegularExpressions.Reference": "4.2.2.0",
           "System.Threading.Channels.Reference": "4.0.2.0",
           "System.Threading.Reference": "4.1.2.0",
@@ -602,7 +606,7 @@
           "App.Metrics.Abstractions": "3.2.0",
           "App.Metrics.Concurrency": "2.0.1",
           "App.Metrics.Formatters.Ascii": "3.2.0",
-          "Microsoft.CSharp": "4.5.0"
+          "Microsoft.CSharp": "4.6.0"
         },
         "runtime": {
           "lib/netstandard2.0/App.Metrics.Core.dll": {
@@ -647,7 +651,7 @@
       "App.Metrics.Extensions.Hosting/3.1.0": {
         "dependencies": {
           "App.Metrics.Core": "3.2.0",
-          "Microsoft.Extensions.Hosting.Abstractions": "2.2.0"
+          "Microsoft.Extensions.Hosting.Abstractions": "3.0.0"
         },
         "runtime": {
           "lib/netstandard2.0/App.Metrics.Extensions.Hosting.dll": {
@@ -736,7 +740,7 @@
       "App.Metrics.Health.Abstractions/3.2.0": {
         "dependencies": {
           "App.Metrics.Concurrency": "2.0.1",
-          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.CSharp": "4.6.0",
           "System.Threading.Tasks.Extensions": "4.5.1",
           "System.ValueTuple": "4.5.0"
         },
@@ -798,7 +802,7 @@
         "dependencies": {
           "App.Metrics.Health": "3.1.0",
           "Microsoft.Extensions.DependencyInjection": "3.1.1",
-          "Microsoft.Extensions.DependencyModel": "2.1.0"
+          "Microsoft.Extensions.DependencyModel": "3.0.0"
         },
         "runtime": {
           "lib/netstandard2.0/App.Metrics.Health.Extensions.DependencyInjection.dll": {
@@ -813,7 +817,7 @@
       "App.Metrics.Health.Extensions.Hosting/3.1.0": {
         "dependencies": {
           "App.Metrics.Health.Core": "3.1.0",
-          "Microsoft.Extensions.Hosting.Abstractions": "2.2.0"
+          "Microsoft.Extensions.Hosting.Abstractions": "3.0.0"
         },
         "runtime": {
           "lib/netstandard2.0/App.Metrics.Health.Extensions.Hosting.dll": {
@@ -897,6 +901,40 @@
         },
         "compile": {
           "lib/netstandard2.0/App.Metrics.Reporting.InfluxDB.dll": {}
+        }
+      },
+      "AspNetCore.HealthChecks.UI/3.0.9": {
+        "dependencies": {
+          "AspNetCore.HealthChecks.UI.Client": "3.0.2",
+          "Microsoft.EntityFrameworkCore": "3.1.1",
+          "Microsoft.EntityFrameworkCore.Design": "3.0.0",
+          "Microsoft.EntityFrameworkCore.Sqlite": "3.0.0",
+          "Microsoft.EntityFrameworkCore.Sqlite.Design": "1.1.6",
+          "Microsoft.Extensions.Http": "3.1.1",
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/HealthChecks.UI.dll": {
+            "assemblyVersion": "3.0.9.0",
+            "fileVersion": "3.0.9.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/HealthChecks.UI.dll": {}
+        }
+      },
+      "AspNetCore.HealthChecks.UI.Client/3.0.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "3.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/HealthChecks.UI.Client.dll": {
+            "assemblyVersion": "3.0.2.0",
+            "fileVersion": "3.0.2.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/HealthChecks.UI.Client.dll": {}
         }
       },
       "Convey/0.4.246": {
@@ -1438,7 +1476,7 @@
           "Microsoft.Extensions.Configuration.FileExtensions": "3.1.1",
           "Microsoft.Extensions.DependencyInjection": "3.1.1",
           "Microsoft.Extensions.FileProviders.Physical": "3.1.1",
-          "Microsoft.Extensions.Hosting.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "3.0.0",
           "Microsoft.Extensions.Logging": "3.1.1",
           "Microsoft.Extensions.Options": "3.1.1",
           "System.Diagnostics.DiagnosticSource": "4.7.0",
@@ -1449,7 +1487,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Server.Abstractions": "2.1.1",
           "Microsoft.AspNetCore.Http.Abstractions": "2.1.1",
-          "Microsoft.Extensions.Hosting.Abstractions": "2.2.0"
+          "Microsoft.Extensions.Hosting.Abstractions": "3.0.0"
         }
       },
       "Microsoft.AspNetCore.Hosting.Server.Abstractions/2.1.1": {
@@ -1493,7 +1531,7 @@
       },
       "Microsoft.AspNetCore.JsonPatch/2.1.0": {
         "dependencies": {
-          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.CSharp": "4.6.0",
           "Newtonsoft.Json": "12.0.2"
         },
         "runtime": {
@@ -1552,7 +1590,7 @@
           "Microsoft.AspNetCore.ResponseCaching.Abstractions": "2.1.0",
           "Microsoft.AspNetCore.Routing": "2.1.0",
           "Microsoft.Extensions.DependencyInjection": "3.1.1",
-          "Microsoft.Extensions.DependencyModel": "2.1.0",
+          "Microsoft.Extensions.DependencyModel": "3.0.0",
           "Microsoft.Extensions.FileProviders.Abstractions": "3.1.1",
           "Microsoft.Extensions.Logging.Abstractions": "3.1.1",
           "System.Diagnostics.DiagnosticSource": "4.7.0",
@@ -1741,6 +1779,13 @@
           "Microsoft.Extensions.Options": "3.1.1"
         }
       },
+      "Microsoft.AspNetCore.WebSockets/2.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Extensions": "2.1.1",
+          "Microsoft.Extensions.Options": "3.1.1",
+          "System.Numerics.Vectors": "4.5.0"
+        }
+      },
       "Microsoft.AspNetCore.WebUtilities/2.1.1": {
         "dependencies": {
           "Microsoft.Net.Http.Headers": "2.1.1",
@@ -1852,26 +1897,30 @@
           "lib/netstandard2.0/Microsoft.CodeAnalysis.Razor.dll": {}
         }
       },
-      "Microsoft.CSharp/4.5.0": {},
-      "Microsoft.DotNet.PlatformAbstractions/2.1.0": {
+      "Microsoft.CSharp/4.6.0": {},
+      "Microsoft.Data.Sqlite.Core/3.0.0": {
         "dependencies": {
-          "System.AppContext": "4.3.0",
-          "System.Collections": "4.3.0",
-          "System.IO": "4.3.0",
-          "System.IO.FileSystem": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.5.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Runtime.InteropServices": "4.3.0",
-          "System.Runtime.InteropServices.RuntimeInformation": "4.3.0"
+          "SQLitePCLRaw.core": "2.0.0"
         },
         "runtime": {
-          "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll": {
-            "assemblyVersion": "2.1.0.0",
-            "fileVersion": "2.1.0.0"
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.19.46310"
           }
         },
         "compile": {
-          "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
+      "Microsoft.DotNet.PlatformAbstractions/3.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.DotNet.PlatformAbstractions.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.19.46305"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.DotNet.PlatformAbstractions.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore/3.1.1": {
@@ -1909,6 +1958,89 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/3.1.1": {},
+      "Microsoft.EntityFrameworkCore.Design/3.0.0": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.6.0",
+          "Microsoft.EntityFrameworkCore.Relational": "3.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Design.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.19.46310"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Design.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Relational/3.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.1.1"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.19.46310"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Relational.Design/1.1.6": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "3.0.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.Design.dll": {
+            "assemblyVersion": "1.1.6.0",
+            "fileVersion": "1.1.6.40621"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Relational.Design.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Sqlite/3.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Sqlite.Core": "3.0.0",
+          "SQLitePCLRaw.bundle_e_sqlite3": "2.0.0"
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Sqlite.Core/3.0.0": {
+        "dependencies": {
+          "Microsoft.Data.Sqlite.Core": "3.0.0",
+          "Microsoft.DotNet.PlatformAbstractions": "3.0.0",
+          "Microsoft.EntityFrameworkCore.Relational": "3.0.0",
+          "Microsoft.Extensions.DependencyModel": "3.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Sqlite.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.19.46310"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Sqlite.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Sqlite.Design/1.1.6": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational.Design": "1.1.6",
+          "Microsoft.EntityFrameworkCore.Sqlite": "3.0.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Sqlite.Design.dll": {
+            "assemblyVersion": "1.1.6.0",
+            "fileVersion": "1.1.6.40621"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.EntityFrameworkCore.Sqlite.Design.dll": {}
+        }
+      },
       "Microsoft.Extensions.Caching.Abstractions/3.1.1": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "3.1.1"
@@ -2063,24 +2195,28 @@
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.DependencyModel/2.1.0": {
+      "Microsoft.Extensions.DependencyModel/3.0.0": {
         "dependencies": {
-          "Microsoft.DotNet.PlatformAbstractions": "2.1.0",
-          "Newtonsoft.Json": "12.0.2",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Dynamic.Runtime": "4.3.0",
-          "System.Linq": "4.3.0"
+          "System.Text.Json": "4.6.0"
         },
         "runtime": {
-          "lib/netstandard1.6/Microsoft.Extensions.DependencyModel.dll": {
-            "assemblyVersion": "2.1.0.0",
-            "fileVersion": "2.1.0.0"
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.19.46305"
           }
         },
         "compile": {
-          "lib/netstandard1.6/Microsoft.Extensions.DependencyModel.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {}
         }
       },
+      "Microsoft.Extensions.Diagnostics.HealthChecks/3.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "3.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "3.0.0",
+          "Microsoft.Extensions.Options": "3.1.1"
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/3.0.0": {},
       "Microsoft.Extensions.FileProviders.Abstractions/3.1.1": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "3.1.1"
@@ -2126,7 +2262,7 @@
           "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {}
         }
       },
-      "Microsoft.Extensions.Hosting.Abstractions/2.2.0": {
+      "Microsoft.Extensions.Hosting.Abstractions/3.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "3.1.1",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.1",
@@ -2471,7 +2607,7 @@
       "OpenTracing.Contrib.NetCore/0.6.2": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.1",
-          "Microsoft.Extensions.Hosting.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "3.0.0",
           "Microsoft.Extensions.Logging": "3.1.1",
           "Microsoft.Extensions.Options": "3.1.1",
           "OpenTracing": "0.12.0",
@@ -2644,7 +2780,7 @@
       "Scrutor/3.1.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.1",
-          "Microsoft.Extensions.DependencyModel": "2.1.0"
+          "Microsoft.Extensions.DependencyModel": "3.0.0"
         },
         "runtime": {
           "lib/netstandard2.0/Scrutor.dll": {
@@ -2693,7 +2829,7 @@
       "Serilog.Extensions.Hosting/3.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.1",
-          "Microsoft.Extensions.Hosting.Abstractions": "2.2.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "3.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "3.1.1",
           "Serilog": "2.9.0",
           "Serilog.Extensions.Logging": "3.0.1"
@@ -2753,7 +2889,7 @@
       },
       "Serilog.Settings.Configuration/3.1.0": {
         "dependencies": {
-          "Microsoft.Extensions.DependencyModel": "2.1.0",
+          "Microsoft.Extensions.DependencyModel": "3.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "3.1.1",
           "Serilog": "2.9.0"
         },
@@ -2802,7 +2938,7 @@
       "Serilog.Sinks.Elasticsearch/8.0.1": {
         "dependencies": {
           "Elasticsearch.Net": "7.0.0",
-          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.CSharp": "4.6.0",
           "Serilog": "2.9.0",
           "Serilog.Formatting.Compact": "1.0.0",
           "Serilog.Formatting.Elasticsearch": "8.0.1",
@@ -3086,7 +3222,7 @@
       },
       "ServiceStack.Text/5.8.0": {
         "dependencies": {
-          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.CSharp": "4.6.0",
           "System.Memory": "4.5.3",
           "System.Reflection.Emit": "4.3.0",
           "System.Reflection.Emit.Lightweight": "4.3.0",
@@ -3104,7 +3240,7 @@
       },
       "ServiceStack.Text.Core/5.8.0": {
         "dependencies": {
-          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.CSharp": "4.6.0",
           "System.Memory": "4.5.3",
           "System.Reflection.Emit": "4.3.0",
           "System.Reflection.Emit.Lightweight": "4.3.0",
@@ -3126,6 +3262,119 @@
         },
         "compile": {
           "lib/netstandard2.0/SharpCompress.dll": {}
+        }
+      },
+      "SQLitePCLRaw.bundle_e_sqlite3/2.0.0": {
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.0",
+          "SQLitePCLRaw.lib.e_sqlite3": "2.0.0",
+          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/SQLitePCLRaw.batteries_v2.dll": {
+            "assemblyVersion": "2.0.0.581",
+            "fileVersion": "2.0.0.581"
+          },
+          "lib/netcoreapp3.0/SQLitePCLRaw.nativelibrary.dll": {
+            "assemblyVersion": "2.0.0.581",
+            "fileVersion": "2.0.0.581"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/netcoreapp3.0/SQLitePCLRaw.nativelibrary.dll": {}
+        }
+      },
+      "SQLitePCLRaw.core/2.0.0": {
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {
+            "assemblyVersion": "2.0.0.581",
+            "fileVersion": "2.0.0.581"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.lib.e_sqlite3/2.0.0": {
+        "runtimeTargets": {
+          "runtimes/alpine-x64/native/libe_sqlite3.so": {
+            "rid": "alpine-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm/native/libe_sqlite3.so": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libe_sqlite3.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-armel/native/libe_sqlite3.so": {
+            "rid": "linux-armel",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/libe_sqlite3.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libe_sqlite3.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x86/native/libe_sqlite3.so": {
+            "rid": "linux-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libe_sqlite3.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm/native/e_sqlite3.dll": {
+            "rid": "win-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/e_sqlite3.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/e_sqlite3.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/e_sqlite3.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.0": {
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {
+            "assemblyVersion": "2.0.0.581",
+            "fileVersion": "2.0.0.581"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
         }
       },
       "StackExchange.Redis/2.0.601": {
@@ -4160,6 +4409,7 @@
         }
       },
       "System.Text.Encodings.Web/4.5.0": {},
+      "System.Text.Json/4.6.0": {},
       "System.Text.RegularExpressions/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.1"
@@ -4386,6 +4636,7 @@
       },
       "RxSocketWithIoPipeLines/1.0.4": {
         "dependencies": {
+          "MadXchange.Exchange": "1.0.0",
           "Microsoft.Extensions.Configuration": "3.1.1",
           "Microsoft.Extensions.Configuration.Json": "3.1.1",
           "Microsoft.Extensions.DependencyInjection": "3.1.1",
@@ -4401,6 +4652,30 @@
         },
         "compile": {
           "MadXchange.Exchange.PipesIoStub.dll": {}
+        }
+      },
+      "WebSocketManager/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.WebSockets": "2.0.0",
+          "Newtonsoft.Json": "12.0.2",
+          "WebSocketManager.Common": "1.0.0"
+        },
+        "runtime": {
+          "WebSocketManager.dll": {}
+        },
+        "compile": {
+          "WebSocketManager.dll": {}
+        }
+      },
+      "WebSocketManager.Common/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "WebSocketManager.Common.dll": {}
+        },
+        "compile": {
+          "WebSocketManager.Common.dll": {}
         }
       },
       "System.Reactive.Reference/4.3.0.0": {
@@ -4864,7 +5139,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.WebSockets/3.1.0.0": {
+      "Microsoft.AspNetCore.WebSockets.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.AspNetCore.WebSockets.dll": {}
         },
@@ -4918,13 +5193,13 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/3.1.0.0": {
+      "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll": {}
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Diagnostics.HealthChecks/3.1.0.0": {
+      "Microsoft.Extensions.Diagnostics.HealthChecks.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.Diagnostics.HealthChecks.dll": {}
         },
@@ -5824,7 +6099,7 @@
         },
         "compileOnly": true
       },
-      "System.Text.Json/4.0.1.0": {
+      "System.Text.Json.Reference/4.0.1.0": {
         "compile": {
           "System.Text.Json.dll": {}
         },
@@ -6264,6 +6539,20 @@
       "sha512": "sha512-YZvxe9sXgdJjNEeZ2Dp9U038BB95BByununhZRRLW5+TfZDxroG0LVwAn+UhLPA6sjAZ6yzz41JGqPxRLAW4dQ==",
       "path": "app.metrics.reporting.influxdb/3.2.0",
       "hashPath": "app.metrics.reporting.influxdb.3.2.0.nupkg.sha512"
+    },
+    "AspNetCore.HealthChecks.UI/3.0.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nOduOQMe3lvyt2pxZWasE0bEZ4q/+mgox2RA1KqLJIBiRfGscwd8q1LrBR2j7fM/jZ8+4211f5c9TkoRUOO6eA==",
+      "path": "aspnetcore.healthchecks.ui/3.0.9",
+      "hashPath": "aspnetcore.healthchecks.ui.3.0.9.nupkg.sha512"
+    },
+    "AspNetCore.HealthChecks.UI.Client/3.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g2ofuba2hZTPF3522+sOqzeCf8a3ozCKUcumOeAGOGwkBgLqJfHDUamxj/pxEWU5COqjLdb4jXTxk4X3ilCv+w==",
+      "path": "aspnetcore.healthchecks.ui.client/3.0.2",
+      "hashPath": "aspnetcore.healthchecks.ui.client.3.0.2.nupkg.sha512"
     },
     "Convey/0.4.246": {
       "type": "package",
@@ -6804,6 +7093,13 @@
       "path": "microsoft.aspnetcore.server.kestrel.transport.sockets/2.1.2",
       "hashPath": "microsoft.aspnetcore.server.kestrel.transport.sockets.2.1.2.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.WebSockets/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-86CbAvJ3KL/sU/f5f0faCukdh/ARTth6Mey5NTGISPmIsz6EQWJvuSBBcAWIoScUv3LbAfA2FR6FdC9cbWSEXw==",
+      "path": "microsoft.aspnetcore.websockets/2.0.0",
+      "hashPath": "microsoft.aspnetcore.websockets.2.0.0.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.WebUtilities/2.1.1": {
       "type": "package",
       "serviceable": true,
@@ -6853,19 +7149,26 @@
       "path": "microsoft.codeanalysis.razor/2.1.0",
       "hashPath": "microsoft.codeanalysis.razor.2.1.0.nupkg.sha512"
     },
-    "Microsoft.CSharp/4.5.0": {
+    "Microsoft.CSharp/4.6.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
-      "path": "microsoft.csharp/4.5.0",
-      "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
+      "sha512": "sha512-kxn3M2rnAGy5N5DgcIwcE8QTePWU/XiYcQVzn9HqTls2NKluVzVSmVWRjK7OUPWbljCXuZxHyhEz9kPRIQeXow==",
+      "path": "microsoft.csharp/4.6.0",
+      "hashPath": "microsoft.csharp.4.6.0.nupkg.sha512"
     },
-    "Microsoft.DotNet.PlatformAbstractions/2.1.0": {
+    "Microsoft.Data.Sqlite.Core/3.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9KPDwvb/hLEVXYruVHVZ8BkebC8j17DmPb56LnqRF74HqSPLjCkrlFUjOtFpQPA2DeADBRTI/e69aCfRBfrhxw==",
-      "path": "microsoft.dotnet.platformabstractions/2.1.0",
-      "hashPath": "microsoft.dotnet.platformabstractions.2.1.0.nupkg.sha512"
+      "sha512": "sha512-HiWhKoocxkdDYooJe7xq4z+uRvK+mjQ1OfyCTA9sEMISDTktUIGaAaQOwALbh1+ZYCP7GLop8BV8yt7NhIFHUA==",
+      "path": "microsoft.data.sqlite.core/3.0.0",
+      "hashPath": "microsoft.data.sqlite.core.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.DotNet.PlatformAbstractions/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vNXBo/KzMer6lP6HBrPcM8mH57b/onaUPFwCcNTGCsuzvsRlWTYE/Cc04K6mdRxZSxLz3jtdli5vEkeuM/jjRA==",
+      "path": "microsoft.dotnet.platformabstractions/3.0.0",
+      "hashPath": "microsoft.dotnet.platformabstractions.3.0.0.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/3.1.1": {
       "type": "package",
@@ -6887,6 +7190,48 @@
       "sha512": "sha512-PrB8QZih5QMRhVjXZnwpFtgm14KU2M0ewilUIQ6W/qS7ugFBSlr1vaug2XnSdd2ODyZioc7Yypp4WNfaBIQg5Q==",
       "path": "microsoft.entityframeworkcore.analyzers/3.1.1",
       "hashPath": "microsoft.entityframeworkcore.analyzers.3.1.1.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Design/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rOV5eClv+dq09htWNHv56y7TYZVAbLc6O+09ljg2FfSUsvlOJDsWHBLqAUofevZ2QxHTTZlAJLZkZGEBC6gUww==",
+      "path": "microsoft.entityframeworkcore.design/3.0.0",
+      "hashPath": "microsoft.entityframeworkcore.design.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Relational/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lODmNpgEvFXcEIIxIr2KvkHT5x9Gqc69To0r6HYcwKXWJz71qP6yZ7h1ynM0aooTT4ggIVADJL9PJ0RLYdhYqA==",
+      "path": "microsoft.entityframeworkcore.relational/3.0.0",
+      "hashPath": "microsoft.entityframeworkcore.relational.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Relational.Design/1.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz7C0Ddnge16NRf4CU8GygYxOor3+oQ797//eXI+xbKlJr2ighAEkno9gOipDlym4SiFtKNNuOuBI/BDBGD7Kg==",
+      "path": "microsoft.entityframeworkcore.relational.design/1.1.6",
+      "hashPath": "microsoft.entityframeworkcore.relational.design.1.1.6.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Sqlite/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-u5904Uh1u80BFAWePFp3hkHLeKvYVv/9/BOWNX6f+JGCluFsNTLt/TIDy0APGcZygDSR4m9yHD23m6wamr29pA==",
+      "path": "microsoft.entityframeworkcore.sqlite/3.0.0",
+      "hashPath": "microsoft.entityframeworkcore.sqlite.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Sqlite.Core/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ecz+L3vwVQErl3wqT4TeDtzOitcXAKyoAkJ01pl0NBCVgiInVPzZGusrj8y6a8xeak/Dj84sRyIxUBzuN1Zq6g==",
+      "path": "microsoft.entityframeworkcore.sqlite.core/3.0.0",
+      "hashPath": "microsoft.entityframeworkcore.sqlite.core.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Sqlite.Design/1.1.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EfZa+dhD6KhiVk83d28rGgrcAlPw4d7I1FIA6dZyxqjblQ4VbwNufn1CqZ6XDc9qIUiD5GO53vGS0/Vh9MMM2w==",
+      "path": "microsoft.entityframeworkcore.sqlite.design/1.1.6",
+      "hashPath": "microsoft.entityframeworkcore.sqlite.design.1.1.6.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/3.1.1": {
       "type": "package",
@@ -6972,12 +7317,26 @@
       "path": "microsoft.extensions.dependencyinjection.abstractions/3.1.1",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.3.1.1.nupkg.sha512"
     },
-    "Microsoft.Extensions.DependencyModel/2.1.0": {
+    "Microsoft.Extensions.DependencyModel/3.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nS2XKqi+1A1umnYNLX2Fbm/XnzCxs5i+zXVJ3VC6r9t2z0NZr9FLnJN4VQpKigdcWH/iFTbMuX6M6WQJcTjVIg==",
-      "path": "microsoft.extensions.dependencymodel/2.1.0",
-      "hashPath": "microsoft.extensions.dependencymodel.2.1.0.nupkg.sha512"
+      "sha512": "sha512-Iaectmzg9Dc4ZbKX/FurrRjgO/I8rTumL5UU+Uube6vZuGetcnXoIgTA94RthFWePhdMVm8MMhVFJZdbzMsdyQ==",
+      "path": "microsoft.extensions.dependencymodel/3.0.0",
+      "hashPath": "microsoft.extensions.dependencymodel.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Diagnostics.HealthChecks/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LIuwGjTf6DGorUTo9kqCs5YeFu+cG6Wk+nP2OiD3YRTAmGMWMgy57l7H58pTACIMvBiWuXYHunzcB5gmkaqApA==",
+      "path": "microsoft.extensions.diagnostics.healthchecks/3.0.0",
+      "hashPath": "microsoft.extensions.diagnostics.healthchecks.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1Yrz6fJNtnVHVQPnkUeLUUlhmdkoeGcYqQ1XR7g09bphTT7ukgXHaWyijgsgAQJJeCVg83PEq3CJu3z0hpygUw==",
+      "path": "microsoft.extensions.diagnostics.healthchecks.abstractions/3.0.0",
+      "hashPath": "microsoft.extensions.diagnostics.healthchecks.abstractions.3.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.FileProviders.Abstractions/3.1.1": {
       "type": "package",
@@ -7007,12 +7366,12 @@
       "path": "microsoft.extensions.filesystemglobbing/3.1.1",
       "hashPath": "microsoft.extensions.filesystemglobbing.3.1.1.nupkg.sha512"
     },
-    "Microsoft.Extensions.Hosting.Abstractions/2.2.0": {
+    "Microsoft.Extensions.Hosting.Abstractions/3.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+k4AEn68HOJat5gj1TWa6X28WlirNQO9sPIIeQbia+91n03esEtMSSoekSTpMjUzjqtJWQN3McVx0GvSPFHF/Q==",
-      "path": "microsoft.extensions.hosting.abstractions/2.2.0",
-      "hashPath": "microsoft.extensions.hosting.abstractions.2.2.0.nupkg.sha512"
+      "sha512": "sha512-qeDWS5ErmkUN96BdQqpmeCmLk5HJWQ/SPw3ux5v5/Qb0hKZS5wojBMulnBC7JUEiBwg7Ir71Yjf1lFiRT5MdtQ==",
+      "path": "microsoft.extensions.hosting.abstractions/3.0.0",
+      "hashPath": "microsoft.extensions.hosting.abstractions.3.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Http/3.1.1": {
       "type": "package",
@@ -7587,6 +7946,34 @@
       "sha512": "sha512-HBbT47JHvNrsZX2dTBzUBOSzBt+EmIRGLIBkbxcP6Jef7DB4eFWQX5iHWV3Nj7hABFPCjISrZ8s0z72nF2zFHQ==",
       "path": "sharpcompress/0.23.0",
       "hashPath": "sharpcompress.0.23.0.nupkg.sha512"
+    },
+    "SQLitePCLRaw.bundle_e_sqlite3/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9OUrMD42UDotS7tA2SzKTDKazarYnjONlAar4Wq+L80Yg2MuO45+dK5xEx9BuM6eg699zkkPSK+FsinY+E6kYw==",
+      "path": "sqlitepclraw.bundle_e_sqlite3/2.0.0",
+      "hashPath": "sqlitepclraw.bundle_e_sqlite3.2.0.0.nupkg.sha512"
+    },
+    "SQLitePCLRaw.core/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FEk19g67ChWFRWsHQudSkps5KQYPweoBue6vK3UvD1c1BTZPZ0hjuYaghWRgEWcaTipH5MYmY5R2rLGVmI3Djw==",
+      "path": "sqlitepclraw.core/2.0.0",
+      "hashPath": "sqlitepclraw.core.2.0.0.nupkg.sha512"
+    },
+    "SQLitePCLRaw.lib.e_sqlite3/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gvDlCtiZf20mAyRS/j2pGo7eiWf4KYnR7F2e1w31Nhkam8bGPIPCH7gsqlSUJgiqUX388jKatwiDieKT3yH4RQ==",
+      "path": "sqlitepclraw.lib.e_sqlite3/2.0.0",
+      "hashPath": "sqlitepclraw.lib.e_sqlite3.2.0.0.nupkg.sha512"
+    },
+    "SQLitePCLRaw.provider.dynamic_cdecl/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4Z/Dtk/qqW/UTwmfAcfrzUUEkT7lf5lnAbKCUFLB6pPl0gL6p8CTj7/2zfw2LuT8Gjpd9XCus4LnrAj1p2J3Bw==",
+      "path": "sqlitepclraw.provider.dynamic_cdecl/2.0.0",
+      "hashPath": "sqlitepclraw.provider.dynamic_cdecl.2.0.0.nupkg.sha512"
     },
     "StackExchange.Redis/2.0.601": {
       "type": "package",
@@ -8253,6 +8640,13 @@
       "path": "system.text.encodings.web/4.5.0",
       "hashPath": "system.text.encodings.web.4.5.0.nupkg.sha512"
     },
+    "System.Text.Json/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4F8Xe+JIkVoDJ8hDAZ7HqLkjctN/6WItJIzQaifBwClC7wmoLSda/Sv2i6i1kycqDb3hWF4JCVbpAweyOKHEUA==",
+      "path": "system.text.json/4.6.0",
+      "hashPath": "system.text.json.4.6.0.nupkg.sha512"
+    },
     "System.Text.RegularExpressions/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -8397,6 +8791,16 @@
       "sha512": ""
     },
     "RxSocketWithIoPipeLines/1.0.4": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WebSocketManager/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WebSocketManager.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -8781,7 +9185,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.WebSockets/3.1.0.0": {
+    "Microsoft.AspNetCore.WebSockets.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -8826,12 +9230,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/3.1.0.0": {
+    "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Diagnostics.HealthChecks/3.1.0.0": {
+    "Microsoft.Extensions.Diagnostics.HealthChecks.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -9581,7 +9985,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Text.Json/4.0.1.0": {
+    "System.Text.Json.Reference/4.0.1.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
