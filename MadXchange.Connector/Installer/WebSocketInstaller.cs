@@ -14,9 +14,15 @@ namespace MadXchange.Connector.Installer
         public static IServiceCollection AddSocketConnectionService(this IServiceCollection services)
         {
             ////SocketConnection
-            services.AddSingleton<ISocketConnectionStore, SocketConnectionStore>();
-            services.AddSingleton<ISocketConnectionService, SocketConnectionService>();
-            //services.AddScoped<WebSocketConnection>();
+            //services.AddConnections();
+            services.AddTransient<ISocketConnectionStore, SocketConnectionStore>();                       
+            services.AddSingleton<ClientSocketMessageHandler>();
+            services.AddTransient<ISocketConnectionService, SocketConnectionService>();
+            //services.AddSingleton<WebSocketConnection>();
+            //services.AddMetricsTrackingMiddleware();
+
+            //services.AddSingleton<WebSocketMiddleware>();
+           // services.AddScoped<IAddressProvider, AddressProvider>();
             return services;
         }
         

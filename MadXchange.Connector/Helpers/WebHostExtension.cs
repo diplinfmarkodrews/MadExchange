@@ -1,10 +1,13 @@
-﻿using MadXchange.Connector;
+﻿using Funq;
+using MadXchange.Connector;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Polly;
 using Serilog;
+using ServiceStack;
+using ServiceStack.Logging;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -14,6 +17,8 @@ using System.Reflection;
 
 namespace Microsoft.AspNetCore.Hosting
 {
+    
+
     public static class MyWebHostExtensions
     {
 
@@ -85,45 +90,42 @@ namespace Microsoft.AspNetCore.Hosting
             context.Database.EnsureCreated();
             seeder(context, services);
         }
-       
+        
 
         public static IConfiguration GetConfiguration()
         {
+            
+            
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .AddJsonFile("exchangesettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)                
                 .AddJsonFile("testaccounts.json", optional: false, reloadOnChange: true)
                 .AddEnvironmentVariables();
-
-            var config = builder.Build();
-
-            if (config.GetValue<bool>("UseVault", false))
-            {
-                //builder.AddAzureKeyVault(
-                //    $"https://{config["Vault:Name"]}.vault.azure.net/",
-                //    config["Vault:ClientId"],
-                //    config["Vault:ClientSecret"]);
-            }
-
-            return config;
+            
+            return builder.Build();
         }
-       
 
+        private static void CreateServiceStackLogger(Serilog.ILogger serilogger) 
+        {
+            LogManager.LogFactory = new ServiceStack.Logging.Serilog.SerilogFactory(serilogger);
+
+        }
         public static Serilog.ILogger CreateSerilogLogger(IConfiguration configuration)
         {
-            var seqServerUrl = configuration["Serilog:SeqServerUrl"];
+            var loggerConf = configuration.GetSection("logger");
             //var logstashUrl = configuration["Serilog:LogstashgUrl"];
-            return new LoggerConfiguration()
+            var logger = new LoggerConfiguration()
+
                 .MinimumLevel.Debug()
                 .Enrich.WithProperty("ApplicationContext", AppName)
                 //.Enrich.AtLevel(Serilog.Events.LogEventLevel.Verbose,e=>e.)
                 .WriteTo.Console()
                 .WriteTo.File("logDebug.txt", rollingInterval: RollingInterval.Day)
-                .WriteTo.Seq(string.IsNullOrWhiteSpace(seqServerUrl) ? "http://seq" : seqServerUrl)
-                //.WriteTo.Http(string.IsNullOrWhiteSpace(logstashUrl) ? "http://logstash:8080" : logstashUrl)
-                .ReadFrom.Configuration(configuration)
+                .WriteTo.Seq("http://seq:5341")
+                //.WriteTo.Http(string.IsNullOrWhiteSpace(logstashUrl) ? "http://logstash:8080" : logstashUrl)                
                 .CreateLogger();
+            CreateServiceStackLogger(logger);
+            return logger;
         }
 
 

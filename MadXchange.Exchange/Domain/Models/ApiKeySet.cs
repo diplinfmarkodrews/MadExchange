@@ -1,4 +1,5 @@
 ﻿using Convey.Types;
+using MadXchange.Common.Types;
 using MadXchange.Exchange.Domain.Types;
 using System;
 using System.Collections.Generic;

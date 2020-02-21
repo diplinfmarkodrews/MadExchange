@@ -16,8 +16,6 @@ namespace MadXchange.Exchange.Domain.Models.Dto
 
         public Type ReturnType { get; set; }
 
-        
-
        
     }
 }

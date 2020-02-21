@@ -23,7 +23,6 @@ namespace MadXchange.Connector.Services
         /// since only post requests are cancelable here is the right place to generate the CancellationTokens
         /// </summary>
         private static readonly Dictionary<Guid, CancellationToken> _requestCancelTokenDic = new Dictionary<Guid, CancellationToken>();
-
         private readonly ILogger _logger;
 
         public CommandExecutionService(IPositionRequestService positionRequestService, IOrderRequestService orderRequestService, ILogger<CommandExecutionService> logger)

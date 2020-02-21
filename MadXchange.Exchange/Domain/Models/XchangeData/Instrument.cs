@@ -41,7 +41,7 @@ namespace MadXchange.Exchange.Domain.Models
             get;
         }
     }
-
+    [Serializable]
     public class Instrument : IInstrument
     {
         public Guid ID { get; set; }

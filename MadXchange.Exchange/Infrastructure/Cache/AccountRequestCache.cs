@@ -2,13 +2,14 @@
 using MadXchange.Exchange.Domain.Cache;
 using MadXchange.Exchange.Interfaces.Cache;
 using Microsoft.Extensions.Caching.Distributed;
+using ServiceStack.Redis;
 using System;
 
 namespace MadXchange.Exchange.Infrastructure.Cache
 {
     public class AccountRequestCache : CacheStorage<AccountCacheObject>, IAccountRequestCache
     {
-        public AccountRequestCache(IDistributedCache cache) : base("request", cache)
+        public AccountRequestCache(IRedisClientsManager cache) : base("request", cache)
         {
         }
 

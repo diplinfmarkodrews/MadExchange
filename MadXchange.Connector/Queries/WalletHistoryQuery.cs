@@ -1,9 +1,10 @@
 ﻿using Convey.CQRS.Queries;
+using MadXchange.Exchange.Domain.Models;
 
 namespace MadXchange.Connector.Queries
 {
-    public class WalletHistoryQuery<T> : IQuery<T>
+    public class WalletHistoryQuery : IQuery<WalletHistory>
     {
-        public T Data { get; }
+        
     }
 }

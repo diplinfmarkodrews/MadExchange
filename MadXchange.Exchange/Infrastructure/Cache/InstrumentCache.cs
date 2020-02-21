@@ -5,6 +5,7 @@ using MadXchange.Exchange.Domain.Types;
 using MadXchange.Exchange.Interfaces;
 using Microsoft.Extensions.Caching.Distributed;
 using ServiceStack;
+using ServiceStack.Redis;
 using System;
 using System.Threading.Tasks;
 
@@ -14,10 +15,10 @@ namespace MadXchange.Exchange.Infrastructure.Cache
     /// Defines implementation for accessing the distributed cache. ToDo Alternatively provide implementation for IRedisClient or typed IRedisTypedClient
     /// https://github.com/ServiceStack/ServiceStack.Redis
     /// </summary>
-
+    [Serializable]
     public class InstrumentCache : CacheStorage<InstrumentCacheObject>, IInstrumentCache
     {
-        public InstrumentCache(IDistributedCache cache) : base("instrument", cache)
+        public InstrumentCache(IRedisClientsManager cache) : base("instrument", cache)
         {
         }
 

@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace MadXchange.Exchange.Contracts.Http
 {
-    [DataContract]
+    [DataContract(Name = "HttpResponse")]
     public class HttpResponseDto
     {
         [DataMember]

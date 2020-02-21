@@ -9,7 +9,7 @@ namespace MadXchange.Connector.Messages.Events
     public class CancelOrderRejectedEvent : IRejectedEvent
     {
         public Guid Id { get; }
-        public ICommand Command { get; }
+        public CancelOrder Command { get; }
         public Order Order { get; }
         public DateTime TimeStamp { get; } = DateTime.UtcNow;
         public string Reason { get; }

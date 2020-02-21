@@ -1,5 +1,6 @@
 ﻿using MadXchange.Exchange.Contracts;
 using MadXchange.Exchange.Domain.Types;
+using MadXchange.Exchange.Helpers;
 using MadXchange.Exchange.Types;
 using Microsoft.Extensions.Configuration;
 using ServiceStack;
@@ -25,20 +26,23 @@ namespace MadXchange.Exchange.Configuration
     public class XchangeDescriptorConfig : IXchangeDescriptorConfiguration
     {
         private readonly IConfiguration _config;
-        private readonly XchangeDescriptor[] _exchangeDescriptors;
-
+        private XchangeDescriptor[] _exchangeDescriptors;
+        private static Dictionary<string, Type> _dataTypes;
+        
         public XchangeDescriptorConfig(IConfiguration config)
         {
             _config = config.GetSection("ExchangeDescriptors");
-            _exchangeDescriptors = ReadExchangeDescriptorConfiguration();
+            _dataTypes = XchangeConfigToolkit.GenerateTypeDictionary();
+            _exchangeDescriptors = ReadExchangeDescriptorConfiguration(_config);
         }
 
         public XchangeDescriptor[] StoredExchangeDescriptorConfiguration => _exchangeDescriptors;
 
+        public XchangeDescriptor[] ReadExchangeDescriptorConfiguration() => ReadExchangeDescriptorConfiguration(_config);
         //thats the main configuration function
-        public XchangeDescriptor[] ReadExchangeDescriptorConfiguration()
+        private XchangeDescriptor[] ReadExchangeDescriptorConfiguration(IConfiguration section)
         {
-            var descriptors = _config.GetChildren();
+            var descriptors = section.GetChildren();
             int exchangeConfigs = descriptors.Count();
             XchangeDescriptor[] exchanges = new XchangeDescriptor[exchangeConfigs + 1];
             if (exchangeConfigs == 0)
@@ -46,15 +50,17 @@ namespace MadXchange.Exchange.Configuration
 
             foreach (var exchange in descriptors)
             {
-                var exchangeDescriptor = new XchangeDescriptor();
+                var exchangeDescriptor = new XchangeDescriptor();                               
                 exchangeDescriptor.Name = exchange.GetValue<string>("Name");
-                exchangeDescriptor.BaseUrl = exchange.GetValue<string>("BaseUrl");                
+                exchangeDescriptor.BaseUrl = exchange.GetValue<string>("BaseUrl");  
+                exchangeDescriptor.ApiKeyString = exchange.GetValue<string>("ApiKeyString");
+                exchangeDescriptor.SignString = exchange.GetValue<string>("SignString");
+                exchangeDescriptor.TimeStampString = exchange.GetValue<string>("TimeStampString");
                 var exchangeEnum = Enum.Parse<Xchange>(exchangeDescriptor.Name);
                 exchangeDescriptor.Id = (int)exchangeEnum;
-                exchangeDescriptor.ReadDomainTypes(exchange.GetSection("DomainTypes"));
-                var endPoints = ReadExchangeEndPoints(exchange.GetSection("Routes"));
-                exchangeDescriptor.EndPoints = GeneratingEndPoints(endPoints);
-                exchangeDescriptor.EndPoints.Each(f => f.Url = exchangeDescriptor.BaseUrl.CombineWith(f.Url));
+                exchangeDescriptor.DomainTypes = XchangeConfigToolkit.GenerateDomainTypes(_dataTypes, exchange);                                
+                exchangeDescriptor.EndPoints = GeneratingEndPoints(exchange, exchangeDescriptor.BaseUrl);
+                exchangeDescriptor.SetEndPointReturnTypes();
                 exchangeDescriptor.SocketDescriptor = ReadSocketConfig(exchange);
                 if (VerifyExchangeDescriptor(exchangeDescriptor))
                     exchanges[exchangeDescriptor.Id] = exchangeDescriptor;
@@ -62,18 +68,8 @@ namespace MadXchange.Exchange.Configuration
             return exchanges;
         }
         
-        private ObjectDictionary ReadTypes(IConfigurationSection section) 
-        {
-            var result = new ObjectDictionary();
-            var typesConfig = section.GetSection("Types").GetChildren();
-            foreach (var type in typesConfig)
-            {
-                var members = type.GetChildren();
-                foreach (var m in members)
-                    result.Add(m.Key, m.Value);
-            }
-            return result;
-        }
+        
+
         private XchangeSocketDescriptor ReadSocketConfig(IConfigurationSection exchangeConfig)
         {
             var socketConfig = exchangeConfig.GetSection("Socket");
@@ -81,7 +77,6 @@ namespace MadXchange.Exchange.Configuration
             {
                 SocketUrl = exchangeConfig.GetSection("SocketUrl").Value,
                 KeepAliveInterval = exchangeConfig.GetSection("KeepAlive").Get<int>(),
-
             };
 
             
@@ -104,11 +99,14 @@ namespace MadXchange.Exchange.Configuration
         /// </summary>
         /// <param name="endPoints"></param>
         /// <returns></returns>
-        private EndPoint[] GeneratingEndPoints(Dictionary<string, EndPoint> endPoints)
+        private static EndPoint[] GeneratingEndPoints(IConfigurationSection exchange, string baseUrl)
         {
-            var endPointArray = new EndPoint[typeof(XchangeHttpOperation).GetTypeInfo().Fields().Length];
+            var endPoints = XchangeConfigToolkit.ReadExchangeEndPoints(null, exchange.GetSection("Routes"));
+            var endPointArray = new EndPoint[typeof(XchangeHttpOperation).GetTypeInfo().Fields().Length + 1];
             foreach (var eP in endPoints)
             {
+                                
+                eP.Value.Url = $"{baseUrl}{eP.Value.Url}";
                 var operation = XchangeHttpOperation.Unknown;
                 if (Enum.TryParse<XchangeHttpOperation>(eP.Key, out operation))
                 {
@@ -120,51 +118,8 @@ namespace MadXchange.Exchange.Configuration
             return endPointArray;
         }
 
-        private Dictionary<string, EndPoint> ReadExchangeEndPoints(IConfigurationSection routes)
-        {
-            var endPointDic = new Dictionary<string, EndPoint>();
-            foreach (var r in routes.GetChildren())
-            {
-                var endPoint = ReadEndPoint(r);
-                endPointDic.Add($"{r.Key}", endPoint);
-            }
-            return endPointDic;
-        }
+        
 
-        private EndPoint ReadEndPoint(IConfigurationSection cSection)
-        {
-            var endP = new EndPoint();
-            endP.Url = cSection.GetSection("Url")?.Value;
-            endP.Name = cSection.Key;
-            var paramSection = cSection.GetSection("Parameter").GetChildren();
-            var parameterCount = paramSection.Count();
-            if (parameterCount > 0)
-            {
-                endP.Parameter = new Dictionary<string, Parameter>();
-                for (int i = 0; i < parameterCount; i++)
-                {
-                    var paramAt = paramSection.ElementAt(i);
-                    var parameter = new Parameter();
-                    paramAt.Bind(parameter);
-                    endP.Parameter.Add(paramAt.Key, parameter);
-                }
-            }
-            endP.Result = cSection.GetSection("Result")?.Value ?? cSection.Key;
-            return endP;
-        }
-
-        private static IEnumerable<Type> ScanAssemblyForDataContracts()
-        {
-            var result = new List<Type>();
-            Assembly assembly = typeof(InstrumentDto).Assembly;
-            foreach (var type in assembly.GetTypes())
-            {
-                if (type.HasAttribute<DataContractAttribute>())
-                {
-                    result.Add(type);
-                }
-            }
-            return result;
-        }
+        
     }
 }

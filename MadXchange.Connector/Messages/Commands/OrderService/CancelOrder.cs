@@ -21,5 +21,7 @@ namespace MadXchange.Connector.Messages.Commands
             OrderId = orderId;
             Symbol = symbol;
         }
+
+       
     }
 }

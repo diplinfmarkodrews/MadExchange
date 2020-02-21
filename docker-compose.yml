@@ -1,0 +1,247 @@
+version: "3.5"
+
+services:
+  
+  nginx:
+    image: nginx:mainline-alpine   
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     tag: "{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})"
+    networks:
+      - madxchange
+    ports:
+      - '8080:80'
+    restart: on-failure
+    volumes:
+      - nginx:/etc/nginx/conf.d
+  
+  
+  consul:
+    image: consul
+    container_name: consul
+    restart: unless-stopped
+    ports:
+      - 8500:8500
+    #network_mode: host
+    networks:
+      - madxchange
+    # volumes:
+    #   - consul:/consul/data
+
+  fabio:
+    image: fabiolb/fabio
+    container_name: fabio
+    restart: unless-stopped
+    environment:
+    - FABIO_REGISTRY_CONSUL_ADDR=consul:8500
+    #network_mode: host
+    networks:
+      - madxchange
+    ports:
+    - 9998:9998
+    - 9999:9999
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: unless-stopped
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     tag: "{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})"
+    ports:
+      - 3001:3001
+    #network_mode: host
+    networks:
+      - madxchange
+    # volumes:
+    #   - grafana:/var/lib/grafana
+
+  jaeger:
+    image: jaegertracing/all-in-one
+    container_name: jaeger
+    restart: unless-stopped
+    ports:
+      - 5775:5775/udp
+      - 5778:5778
+      - 6831:6831/udp
+      - 6832:6832/udp
+      - 9411:9411
+      - 14268:14268
+      - 16686:16686
+    #network_mode: host
+    networks:
+      - madxchange
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     tag: "{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})"
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    #network_mode: host
+    networks:
+      - madxchange
+    volumes:
+      - mongo:/data/db
+
+  prometheus:
+    build: ./prometheus
+    container_name: prometheus
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     tag: "{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})"
+    restart: unless-stopped
+    ports:
+      - '9091:9091'
+    #network_mode: host
+    networks:
+      - madxchange
+    # volumes:
+    #   - prometheus:/prometheus
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    restart: unless-stopped
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     tag: "{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})"
+    ports:
+      - 5672:5672
+      - 15672:15672
+    #network_mode: host
+    networks:
+      - madxchange
+    # volumes: 
+    #   - rabbitmq:/var/lib/rabbitmq
+
+  influxdb:
+    image: influxdb:latest
+    container_name: influxdb
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     tag: "{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})"
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+      - "8090:8090"
+    networks:
+      - madxchange
+    volumes:
+      # Data persistency
+      # sudo mkdir -p /srv/docker/influxdb/data
+      - influxdb:/data
+
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: madxchange
+      MYSQL_USER: admokum
+      MYSQL_PASSWORD: admokum
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     tag: "{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})"
+    networks:
+      - madxchange
+    restart: on-failure
+    volumes:
+     - mariadb:/var/lib/mysql
+
+  memcached:
+    image: memcached:1.5.3-alpine
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     tag: "{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})"
+    networks:
+      - madxchange
+    restart: on-failure
+
+  redis:
+    image: redis
+    container_name: redis
+    restart: unless-stopped
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     tag: "{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})"
+    ports:
+      - 6379:6379
+    #network_mode: host
+    networks:
+      - madxchange
+    volumes: 
+      - redis:/data
+
+  seq:
+    image: datalust/seq 
+    container_name: seq
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - 5341:80
+    #network_mode: host
+    networks:
+      - madxchange
+    # volumes: 
+    #   - seq:/data
+
+
+  vault:
+    image: vault
+    container_name: vault
+    restart: unless-stopped
+    # logging:
+    #   driver: syslog
+    #   options:
+    #     tag: "{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})"
+    ports:
+      - 8200:8200
+    #network_mode: host
+    networks:
+      - madxchange
+    environment:
+      - VAULT_ADDR=http://127.0.0.1:8200
+      - VAULT_DEV_ROOT_TOKEN_ID=secret
+    cap_add:
+      - IPC_LOCK
+  
+
+networks:
+  madxchange:
+    name: madxchange-network
+
+volumes:
+  
+  # consul:
+  #   driver: local
+  # grafana:
+  #   driver: local
+  nginx:
+    driver: local
+  mongo:
+    driver: local
+  # prometheus:
+  #   driver: local
+  # rabbitmq:
+  #   driver: local
+  influxdb:
+    driver: local
+  mariadb:
+    driver: local
+  redis:
+    driver: local
+  # seq:
+  #   driver: local

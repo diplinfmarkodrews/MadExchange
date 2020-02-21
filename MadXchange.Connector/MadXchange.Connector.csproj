@@ -8,24 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Convey" Version="0.4.256" />
-    <PackageReference Include="Convey.Configurations.Vault" Version="0.4.226" />
-    <PackageReference Include="Convey.CQRS.Commands" Version="0.4.256" />
-    <PackageReference Include="Convey.CQRS.Events" Version="0.4.256" />
-    <PackageReference Include="Convey.CQRS.Queries" Version="0.4.256" />
-    <PackageReference Include="Convey.HTTP" Version="0.4.256" />
-    <PackageReference Include="Convey.Logging" Version="0.4.256" />
-    <PackageReference Include="Convey.MessageBrokers" Version="0.4.256" />
-    <PackageReference Include="Convey.MessageBrokers.CQRS" Version="0.4.256" />
-    <PackageReference Include="Convey.MessageBrokers.RabbitMQ" Version="0.4.256" />
-    <PackageReference Include="Convey.Metrics.AppMetrics" Version="0.4.256" />
-    <PackageReference Include="Convey.Persistence.MongoDB" Version="0.4.256" />
-    <PackageReference Include="Convey.Persistence.Redis" Version="0.4.256" />
-    <PackageReference Include="Convey.Tracing.Jaeger.RabbitMQ" Version="0.4.256" />
+    <Content Remove="XchangeConfigs\BitMex.json" />
+    <Content Remove="XchangeConfigs\Deribit.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
     <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="3.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
     <PackageReference Include="modernhttpclient" Version="2.4.2" />
+    <PackageReference Include="OpenTracing" Version="0.12.1" />
+    <PackageReference Include="OpenTracing.Contrib.Decorators" Version="0.0.3" />
     <PackageReference Include="Polly" Version="7.2.0" />
     <PackageReference Include="Polly.Extensions.Http" Version="3.0.0" />
     <PackageReference Include="Serilog" Version="2.9.0" />
@@ -33,11 +26,22 @@
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
     <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+    <PackageReference Include="Serilog.Sinks.Seq" Version="4.0.0" />
+    <PackageReference Include="ServiceStack.Admin.Core" Version="5.8.0" />
     <PackageReference Include="ServiceStack.Client.Core" Version="5.8.0" />
+    <PackageReference Include="ServiceStack.Common.Core" Version="5.8.0" />
     <PackageReference Include="ServiceStack.Core" Version="5.8.0" />
-    <PackageReference Include="ServiceStack.HttpClient" Version="5.8.0" />
+    <PackageReference Include="ServiceStack.HttpClient.Core" Version="5.8.0" />
     <PackageReference Include="ServiceStack.Interfaces.Core" Version="5.8.0" />
     <PackageReference Include="ServiceStack.Kestrel.Core" Version="5.8.0" />
+    <PackageReference Include="ServiceStack.Logging.Serilog" Version="5.8.0" />
+    <PackageReference Include="ServiceStack.MsgPack.Core" Version="5.8.0" />
+    <PackageReference Include="ServiceStack.OrmLite.Core" Version="5.8.0" />
+    <PackageReference Include="ServiceStack.OrmLite.Sqlite.Core" Version="5.8.0" />
+    <PackageReference Include="ServiceStack.ProtoBuf.Core" Version="5.8.0" />
+    <PackageReference Include="ServiceStack.RabbitMq.Core" Version="5.8.0" />
+    <PackageReference Include="ServiceStack.Redis.Core" Version="5.8.0" />
+    <PackageReference Include="ServiceStack.Server.Core" Version="5.8.0" />
     <PackageReference Include="ServiceStack.Text.Core" Version="5.8.0" />
     <PackageReference Include="StackExchange.Redis" Version="2.0.601" />
     <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="5.5.0" />

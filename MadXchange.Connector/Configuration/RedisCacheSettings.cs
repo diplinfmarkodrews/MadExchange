@@ -2,7 +2,8 @@
 {
     public class RedisCacheSettings
     {
-        public bool IsEnabled;
-        public string ConnectionString;
+        public bool IsEnabled { get; set; }
+        public string ConnectionString{ get; set; }
+        public string Instance { get; set; }
     }
 }

@@ -27,11 +27,12 @@ namespace MadXchange.Connector.Services
         private readonly ISocketConnectionStore _connectionStore;
         private readonly IXchangeDescriptorService _exchangeDescriptorService;
         private readonly IApiKeySetStore _apiKeySetStore;
-        private readonly ISignRequests _signService;
+        private readonly ISignRequestsService _signService;
 
-        public SocketConnectionService(ISignRequests signService, ISocketConnectionStore connectionStore, IXchangeDescriptorService exchangeDescriptorService, ILogger log)
+        public SocketConnectionService(ISignRequestsService signService, ISocketConnectionStore connectionStore, IApiKeySetStore keySetStore, IXchangeDescriptorService exchangeDescriptorService, ILogger<SocketConnectionService> log)
         {
             _logger = log;
+            _apiKeySetStore = keySetStore;
             _connectionStore = connectionStore;
             _exchangeDescriptorService = exchangeDescriptorService;
             _signService = signService;

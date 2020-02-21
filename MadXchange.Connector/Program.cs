@@ -1,15 +1,11 @@
-using Convey.Logging;
-using MadXchange.Connector.Installer;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using ServiceStack;
 using System;
 using System.IO;
+using ServiceStack.Host.NetCore;
 using System.Reflection;
-
-//using ServiceStack.Host.NetCore;
 
 namespace MadXchange.Connector
 {
@@ -20,20 +16,17 @@ namespace MadXchange.Connector
 
         public static int Main(string[] args)
         {
-            // IAppHost appHost = new Host(Assembly.GetExecutingAssembly())
-
-            var hostbuilder = CreateHostBuilder(args);
-            //MyWebHostExtensions.LogPackagesVersionInfo();
-            var host = hostbuilder.Build();
-            // 
-            host.Run();
+                                
             Log.Logger = MyWebHostExtensions.CreateSerilogLogger(MyWebHostExtensions.GetConfiguration());
             try
             {
+                var hostbuilder = CreateHostBuilder(args);
+                //MyWebHostExtensions.LogPackagesVersionInfo();
                 Log.Information("Configuring web host ({ApplicationContext})...", MyWebHostExtensions.AppName);
-                            
+                var host = hostbuilder.Build();
+                // 
                 Log.Information("Starting web host ({ApplicationContext})...", MyWebHostExtensions.AppName);
-                //host.Run();
+                host.Run();
                 return 0;
             }
             catch (Exception ex)
@@ -57,7 +50,31 @@ namespace MadXchange.Connector
                               .UseStartup<Startup>()
                               .UseKestrel()
                               //.UseSockets();//configureOptions: o=> o.NoDelay = true)
-                              .UseLogging();
-                });
+                              ;
+                });   
+    
     }
+    
 }
+
+/*
+ 
+      public class AppHost : AppSelfHostBase
+    {
+        /// <summary>
+        /// Base constructor requires a Name and Assembly where web service implementation is located
+        /// </summary>
+        public AppHost()
+            : base("ServiceStackHostEnvironment", typeof(MyServices).Assembly) { }
+
+        /// <summary>
+        /// Application specific configuration
+        /// This method should initialize any IoC resources utilized by your web service classes.
+        /// </summary>
+        public override void Configure(Container container)
+        {
+            //Config examples
+            //this.Plugins.Add(new PostmanFeature());
+            //this.Plugins.Add(new CorsFeature());
+        }
+    }*/

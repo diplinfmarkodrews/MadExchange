@@ -1,4 +1,5 @@
-﻿using Convey.Types;
+﻿
+using Convey.Types;
 using MadXchange.Exchange.Contracts;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace MadXchange.Exchange.Domain.Models
         public IEnumerable<ExecInst> ExecInst { get; set; }
         public string OrdRejReason { get; set; }
         public TimeInForce? TimeInForce { get; set; }
+        Guid Id { get; }
 
         bool IsOrderNewOrPartiallyFilled();
 

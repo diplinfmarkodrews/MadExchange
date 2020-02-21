@@ -3,6 +3,7 @@ using MadXchange.Exchange.Domain.Cache;
 using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Interfaces.Cache;
 using Microsoft.Extensions.Caching.Distributed;
+using ServiceStack.Redis;
 using System;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace MadXchange.Exchange.Infrastructure.Cache
 {
     public class PositionCache : CacheStorage<PositionCacheObject>, IPositionCache
     {
-        public PositionCache(IDistributedCache cache) : base("position", cache)
+        public PositionCache(IRedisClientsManager cache) : base("position", cache)
         {
         }
 

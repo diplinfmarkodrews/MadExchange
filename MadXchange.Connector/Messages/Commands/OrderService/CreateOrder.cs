@@ -59,5 +59,7 @@ namespace MadXchange.Connector.Messages.Commands
                 Side = request.Side.Value;
             }
         }
+
+      
     }
 }

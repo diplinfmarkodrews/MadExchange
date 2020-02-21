@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using ServiceStack;
+using ServiceStack.Text;
 
 namespace MadXchange.Connector.Services
 {
@@ -49,9 +51,9 @@ namespace MadXchange.Connector.Services
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             var guid = Guid.Parse("3ecf42a8-e7a6-4870-8a8b-164cd2d6d508");
-            //var pos = await _positionRequestService.PostLeverageAsync(guid, Exchange.Domain.Types.Xchange.ByBit, "BTCUSD", 2.0M, stoppingToken);
-            var ins = await _instrumentRequestService.GetInstrumentAsync(Xchange.ByBit, "BTCUSD");
-            _logger.LogInformation($"instrument request returned");
+            var pos = await _positionRequestService.GetPositionsAsync(guid, Xchange.ByBit, stoppingToken);
+            //var ins = await _instrumentRequestService.GetInstrumentAsync(Xchange.ByBit, "BTCUSD");
+            //_logger.LogInformation($"instrument request returned" );
         }
     }
 }

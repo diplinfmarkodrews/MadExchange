@@ -9,16 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.1" />
-    <PackageReference Include="ServiceStack.Client.Core" Version="5.8.0" />
-    <PackageReference Include="ServiceStack.Core" Version="5.8.0" />
-    <PackageReference Include="ServiceStack.HttpClient.Core" Version="5.8.0" />
-    <PackageReference Include="ServiceStack.Interfaces" Version="5.8.0" />
-    <PackageReference Include="ServiceStack.Interfaces.Core" Version="5.8.0" />
-    <PackageReference Include="ServiceStack.Redis.Core" Version="5.8.0" />
-    <PackageReference Include="ServiceStack.Text.Core" Version="5.8.0" />
-    <PackageReference Include="System.Net.WebSockets" Version="4.3.0" />
+    <Folder Include="Contracts\XchangeData\Validators\" />
   </ItemGroup>
 
 </Project>

@@ -10,12 +10,18 @@ using System.Timers;
 
 namespace MadXchange.Exchange.Services.Socket
 {
-    class AddressProvider
+    //public interface IAddressProvider 
+    //{
+    //    public IPAddress GetIPAddress(Xchange exchange);
+    //}
+
+    public class AddressProvider //:IAddressProvider
     {
         private Timer _updateTimer = new Timer();
         private Dictionary<Xchange, string> _xchangeUrls = new Dictionary<Xchange, string>();
         private ConcurrentDictionary<Xchange, IPAddress[]> _addresses = new ConcurrentDictionary<Xchange, IPAddress[]>();
         private readonly ILogger _logger;
+        public AddressProvider() { }
         public AddressProvider(Dictionary<Xchange, string> xchangeUrls, ILogger<AddressProvider> logger)
         {
             _logger = logger;

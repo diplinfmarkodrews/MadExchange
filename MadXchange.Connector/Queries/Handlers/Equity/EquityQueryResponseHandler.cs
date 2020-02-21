@@ -1,5 +1,6 @@
 ﻿using Convey.CQRS.Events;
 using Convey.MessageBrokers;
+using MadXchange.Common;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
@@ -18,7 +19,7 @@ namespace MadXchange.Connector.Handlers.Equity
 
         public async Task HandleAsync(EquityRequestResponseEvent @event)
         {
-            await _busPublisher.PublishAsync(@event);
+            //await _busPublisher.PublishAsync(@event);
             _log.LogTrace("RestRequest successful", @event);
             return;
         }

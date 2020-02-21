@@ -3,8 +3,8 @@ using System.Runtime.Serialization;
 
 namespace MadXchange.Exchange.Contracts
 {
-    [DataContract]
-    public class MarginDto : HttpMessageDto
+    [DataContract(Name = "Margin")]
+    public class MarginDto : HttpMessage
     {
         public Guid AccountId { get; set; }
 

@@ -1,24 +1,23 @@
-﻿using Convey.HTTP;
+﻿
 using MadXchange.Connector.Configuration;
-using MadXchange.Connector.Interfaces;
-using MadXchange.Connector.Services;
 using MadXchange.Exchange.Configuration;
 using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Domain.Types;
 using MadXchange.Exchange.Infrastructure.Stores;
 using MadXchange.Exchange.Services.HttpRequests;
 using MadXchange.Exchange.Services.HttpRequests.RequestExecution;
-using MadXchange.Exchange.Services.Socket;
 using MadXchange.Exchange.Services.Utils;
 using MadXchange.Exchange.Services.XchangeDescriptor;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ModernHttpClient;
+using Serilog;
 using ServiceStack;
+using ServiceStack.Logging;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
+using System.IO;
+using System.Net.Http;
 
 namespace MadXchange.Connector.Installer
 {
@@ -42,36 +41,49 @@ namespace MadXchange.Connector.Installer
             return result;
         }
 
+        public static IConfiguration XchangeConfig()
+        {
+            var confBuilder = new ConfigurationBuilder();
+            var exchangeFiles = Path.Combine($"{Directory.GetCurrentDirectory()}/XchangeConfigs/");
+            var exchangeConfigFiles = Directory.GetFiles(exchangeFiles);
+            foreach (var f in exchangeConfigFiles)
+                confBuilder.AddJsonFile(f, optional: true, reloadOnChange: true);
+            var config = confBuilder.Build();
+            return config;
+        }
+
         public static IServiceCollection AddExchangeAccessServices(this IServiceCollection services, IConfiguration config)
         {
+            var exchangeConfigs = XchangeConfig();
             var userKeys = ReadProviderAccounts(config);
-            services.AddSingleton<IXchangeDescriptorConfiguration, XchangeDescriptorConfig>(c => new XchangeDescriptorConfig(config));
-            services.AddSingleton<IXchangeDescriptorService, ExchangeDescriptorService>();
-            services.AddSingleton<IApiKeySetStore, ApiKeySetStore>(c => new ApiKeySetStore(userKeys));
-            services.AddSingleton<IRequestAccessService, RequestAccessService>();
-            services.AddSingleton<ISignRequests, SignRequestService>();
-            services.AddSingleton<IRequestExecutionService, RequestExecutionService>();
-            services.AddSingleton<IRestRequestService, RestRequestService>();
-            services.AddSingleton<IInstrumentRequestService, InstrumentRequestService>();
-            services.AddSingleton<IPositionRequestService, PositionRequestService>();
-            services.AddSingleton<IMarginRequestService, MarginRequestService>();
-            services.AddSingleton<IOrderRequestService, OrderRequestService>();
-            services.AddSingleton<IXchangeCommands, CommandExecutionService>();
+            services.AddSingleton<IXchangeDescriptorConfiguration, XchangeDescriptorConfig>(c => new XchangeDescriptorConfig(exchangeConfigs));
+            services.AddTransient<IXchangeDescriptorService, ExchangeDescriptorService>();
+            services.AddTransient<IApiKeySetStore, ApiKeySetStore>(c => new ApiKeySetStore(userKeys));
+            services.AddTransient<IRequestAccessService, RequestAccessService>();
+            services.AddTransient<ISignRequestsService, SignRequestService>();
+            services.AddTransient<IRequestExecutionService, RequestExecutionService>();
+            services.AddTransient<IRestRequestService, RestRequestService>();
+            services.AddTransient<IInstrumentRequestService, InstrumentRequestService>();
+            services.AddTransient<IPositionRequestService, PositionRequestService>();
+            //services.AddSingleton<IMarginRequestService, MarginRequestService>();
+            //services.AddSingleton<IOrderRequestService, OrderRequestService>();
+            //services.AddSingleton<IXchangeCommands, CommandExecutionService>();
             return services;
         }
 
         public static IServiceCollection AddHttpClientServices(this IServiceCollection services, IConfiguration configuration)
         {
             //bool legacy = configuration.GetValue<bool>("LegacyHttpMsgHandler");            
-            services.AddHttpClient<IHttpClient>("XCHANGE", cfg =>
-            {
-                
-                //JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new NativeMessageHandler(throwOnCaptiveNetwork: true, customSSLVerification: false);
+            services.AddHttpClient("XCHANGE", cfg =>
+            {                
+                JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new NativeMessageHandler(throwOnCaptiveNetwork: true, customSSLVerification: false);
                 JsonHttpClient.DefaultUserAgent = "MadMexIO";
+                JsonHttpClient.log = LogManager.GetLogger(typeof(JsonHttpClient));
+              
+            
             }).SetHandlerLifetime(TimeSpan.FromMinutes(5));
-            
-            
-
+                
+          
             //add http client services
             //services.AddHttpClient("GrantClient")
             //       .SetHandlerLifetime(TimeSpan.FromMinutes(5))

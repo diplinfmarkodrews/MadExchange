@@ -5,7 +5,7 @@ using System;
 
 namespace MadXchange.Exchange.Services.Utils
 {
-    public interface ISignRequests
+    public interface ISignRequestsService
     {
         void SignRequestObject(Guid accountId, ref XchangeRequestObject formParamString);
 
@@ -13,7 +13,7 @@ namespace MadXchange.Exchange.Services.Utils
         ObjectDictionary CreatSocketAuthRequest(Guid id);
     }
 
-    public class SignRequestService : ISignRequests
+    public class SignRequestService : ISignRequestsService
     {
         private readonly IExpiresTimeProvider _expiresTimeProvider;
         private readonly ISignatureProvider _signatureProvider;
@@ -75,6 +75,7 @@ namespace MadXchange.Exchange.Services.Utils
 
         private void SignRequestByBit(ApiKeySet account, ref XchangeRequestObject paramArray, long timeExpires)
         {
+            
             var signString = paramArray.AddApiKeyHeaders(account.ApiKey, timeExpires);
             string signature = _signatureProvider.CreateSignature(account.ApiSecret, signString); //{"ret_code":10007,"ret_msg":"Login failed, please login again.","ext_code":"","result":null,"ext_info":null,"token":"","time_now":"1580955671.063169"}
             paramArray.AddSignature(signature);

@@ -1,8 +1,0 @@
-C:\Users\MarkoMoto\source\repos\RxSocket\RxSocket\bin\Debug\netstandard2.0\RxSocket.deps.json
-C:\Users\MarkoMoto\source\repos\RxSocket\RxSocket\bin\Debug\netstandard2.0\RxSocket.dll
-C:\Users\MarkoMoto\source\repos\RxSocket\RxSocket\bin\Debug\netstandard2.0\RxSocket.pdb
-C:\Users\MarkoMoto\source\repos\RxSocket\RxSocket\obj\Debug\netstandard2.0\RxSocket.csprojAssemblyReference.cache
-C:\Users\MarkoMoto\source\repos\RxSocket\RxSocket\obj\Debug\netstandard2.0\RxSocket.AssemblyInfoInputs.cache
-C:\Users\MarkoMoto\source\repos\RxSocket\RxSocket\obj\Debug\netstandard2.0\RxSocket.AssemblyInfo.cs
-C:\Users\MarkoMoto\source\repos\RxSocket\RxSocket\obj\Debug\netstandard2.0\RxSocket.dll
-C:\Users\MarkoMoto\source\repos\RxSocket\RxSocket\obj\Debug\netstandard2.0\RxSocket.pdb

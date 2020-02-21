@@ -5,10 +5,35 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Convey.Persistence.MongoDB" Version="0.4.256" />
-    <PackageReference Include="Convey.Persistence.Redis" Version="0.4.256" />
-    <PackageReference Include="Convey.Tracing.Jaeger" Version="0.4.256" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="3.0.5" />
+    <PackageReference Include="Convey" Version="0.4.258" />
+    <PackageReference Include="Convey.Configurations.Vault" Version="0.4.226" />
+    <PackageReference Include="Convey.CQRS.Commands" Version="0.4.258" />
+    <PackageReference Include="Convey.CQRS.Events" Version="0.4.258" />
+    <PackageReference Include="Convey.CQRS.Queries" Version="0.4.258" />
+    <PackageReference Include="Convey.Discovery.Consul" Version="0.4.258" />
+    <PackageReference Include="Convey.Logging" Version="0.4.258" />
+    <PackageReference Include="Convey.Logging.CQRS" Version="0.4.258" />
+    <PackageReference Include="Convey.MessageBrokers" Version="0.4.258" />
+    <PackageReference Include="Convey.MessageBrokers.CQRS" Version="0.4.258" />
+    <PackageReference Include="Convey.MessageBrokers.RabbitMQ" Version="0.4.258" />
+    <PackageReference Include="Convey.Metrics.AppMetrics" Version="0.4.258" />
+    <PackageReference Include="Convey.Persistence.MongoDB" Version="0.4.258" />
+    <PackageReference Include="Convey.Persistence.Redis" Version="0.4.258" />
+    <PackageReference Include="Convey.Secrets.Vault" Version="0.4.258" />
+    <PackageReference Include="Convey.Tracing.Jaeger" Version="0.4.258" />
+    <PackageReference Include="Convey.Tracing.Jaeger.RabbitMQ" Version="0.4.258" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Redis.Core" Version="1.0.3" />
+    <PackageReference Include="NetCore.AutoRegisterDi" Version="1.1.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="5.1.2" />
+    <PackageReference Include="RabbitMQ.Client.Core.DependencyInjection" Version="3.2.0" />
+    <PackageReference Include="RawRabbit" Version="1.10.4" />
+    <PackageReference Include="RawRabbit.vNext" Version="1.10.4" />
+    <PackageReference Include="ServiceStack.Caching.Memcached" Version="5.8.0" />
+    <PackageReference Include="ServiceStack.Redis.Core" Version="5.8.0" />
+    <PackageReference Include="ServiceStack.Text.Core" Version="5.8.0" />
   </ItemGroup>
 
 </Project>

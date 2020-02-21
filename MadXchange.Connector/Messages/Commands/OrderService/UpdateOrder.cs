@@ -37,5 +37,7 @@ namespace MadXchange.Connector.Messages.Commands
             Price = request.Price;
             Amount = request.Qty;
         }
+
+     
     }
 }

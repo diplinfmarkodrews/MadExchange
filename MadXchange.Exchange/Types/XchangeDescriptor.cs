@@ -1,8 +1,6 @@
-﻿using MadXchange.Connector.Services;
-using MadXchange.Exchange.Domain.Types;
-using Microsoft.Extensions.Configuration;
-using ServiceStack;
+﻿using MadXchange.Exchange.Domain.Types;
 using System;
+using System.Collections.Generic;
 
 namespace MadXchange.Exchange.Types
 {
@@ -13,11 +11,9 @@ namespace MadXchange.Exchange.Types
         public string BaseUrl { get; set; }
         public EndPoint[] EndPoints { get; set; }
         public XchangeSocketDescriptor SocketDescriptor { get; set; }
-        public ObjectDictionary DomainTypes { get; set; }
-
-        internal void ReadDomainTypes(IConfigurationSection configurationSection)
-        {
-            throw new NotImplementedException();
-        }
+        public Dictionary<string, Type> DomainTypes { get; set; }
+        public string TimeStampString { get; internal set; }
+        public string ApiKeyString { get; internal set; }
+        public string SignString { get; internal set; }
     }
 }

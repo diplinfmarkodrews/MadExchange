@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace MadXchange.Exchange.Domain.Types
 {
@@ -11,13 +12,12 @@ namespace MadXchange.Exchange.Domain.Types
     {
         public string Name { get; set; }
         //endpoint urls are concarnated with baseurl
+        public string Method { get; set; }
         public string Url { get; set; }
         public Dictionary<string, Parameter> Parameter { get; set; }
         public string Result { get; set; }
-        public string SignString { get; internal set; }
-        public string TimeStampString { get; internal set; }
-        public string ApiKeyString { get; internal set; }
         public Type ReturnType { get; internal set; }
+        
         public int CompareTo(EndPoint obj)
         {
             return Name.CompareTo(obj);
@@ -28,6 +28,6 @@ namespace MadXchange.Exchange.Domain.Types
     {
         public string ExtName { get; set; }
         public string Type { get; set; }
-        public bool IsRequired { get; set; }
+        public bool Required { get; set; }
     }
 }

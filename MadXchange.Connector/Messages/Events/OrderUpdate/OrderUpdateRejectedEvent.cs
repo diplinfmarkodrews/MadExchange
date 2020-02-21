@@ -9,13 +9,13 @@ namespace MadXchange.Connector.Messages.Events
     public class OrderUpdateRejectedEvent : IRejectedEvent
     {
         public DateTime TimeStamp { get; } = DateTime.UtcNow;
-        public ICommand Command { get; }
-        public IOrder Order { get; }
+        public UpdateOrder Command { get; }
+        public Order Order { get; }
         public Guid Id { get; }
         public string Reason { get; }
         public string Code { get; }
 
-        public OrderUpdateRejectedEvent(UpdateOrder command, IOrder order)
+        public OrderUpdateRejectedEvent(UpdateOrder command, Order order)
         {
             Id = order?.Id ?? Guid.NewGuid();
             Command = command;

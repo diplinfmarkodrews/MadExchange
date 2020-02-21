@@ -5,8 +5,7 @@ using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Threading;
 using System.Threading.Tasks;
-using ServiceStack;
-using ServiceStack.Text;
+
 using System.IO;
 using System.Text;
 
@@ -38,8 +37,8 @@ namespace MadXchange.Exchange.Services.Socket
             {
                 if (result.MessageType == WebSocketMessageType.Text)
                 {                    
-                    var message = serializedMessage.GetDto<SocketMessage>();
-                    await _webSocketHandler.ReceiveAsync(socket, message).ConfigureAwait(false);
+                    //var message = serializedMessage.GetDto<SocketMessage>();
+                    //await _webSocketHandler.ReceiveAsync(socket, message).ConfigureAwait(false);
                     return;
                 }
                 else if (result.MessageType == WebSocketMessageType.Close && socket.CloseStatus != WebSocketCloseStatus.NormalClosure)

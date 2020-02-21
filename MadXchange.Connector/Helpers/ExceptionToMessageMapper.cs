@@ -1,4 +1,4 @@
-﻿using Convey.MessageBrokers.RabbitMQ;
+﻿
 using System;
 
 namespace MadXchange.Connector
@@ -9,5 +9,9 @@ namespace MadXchange.Connector
         {
             return exception;
         }
+    }
+
+    internal interface IExceptionToMessageMapper
+    {
     }
 }

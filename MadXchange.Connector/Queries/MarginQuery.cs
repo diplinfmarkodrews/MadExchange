@@ -3,7 +3,7 @@ using MadXchange.Exchange.Domain.Models;
 
 namespace MadXchange.Connector.Queries
 {
-    public class MarginQuery : IQuery<IMargin>
+    public class MarginQuery : IQuery<Margin>
     {
     }
 }

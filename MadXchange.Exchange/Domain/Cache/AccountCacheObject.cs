@@ -2,6 +2,7 @@
 
 namespace MadXchange.Exchange.Domain.Cache
 {
+    [Serializable]
     public class AccountCacheObject : ICacheObject
     {
         public Guid AccountId { get; }

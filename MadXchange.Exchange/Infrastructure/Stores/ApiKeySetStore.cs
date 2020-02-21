@@ -25,7 +25,7 @@ namespace MadXchange.Exchange.Infrastructure.Stores
 
     public class ApiKeySetStore : IApiKeySetStore
     {
-        private readonly Dictionary<Guid, ApiKeySet> _userDictionary = new Dictionary<Guid, ApiKeySet>();
+        private readonly Dictionary<Guid, ApiKeySet> _userDictionary;// = new Dictionary<Guid, ApiKeySet>();
 
         public ApiKeySetStore(Dictionary<Guid, ApiKeySet> userStore)
              => _userDictionary = userStore;       

@@ -11,7 +11,7 @@
         Unknown = 0,
         ByBit = 1,
         BitMex = 2,
-        Ftx = 3,
+        FTX = 3,
         Deribit = 4,
         Binance = 5,
         Coinbase = 6

@@ -1,5 +1,6 @@
 ﻿using Convey.CQRS.Commands;
 using Convey.CQRS.Events;
+using MadXchange.Common.Types;
 using MadXchange.Connector.Messages.Commands;
 using MadXchange.Exchange.Domain.Models;
 using System;
@@ -10,7 +11,7 @@ namespace MadXchange.Connector.Messages.Events
     {
         public Guid Id { get; }
         public DateTime TimeStamp { get; } = DateTime.UtcNow;
-        public ICommand Command { get; }
+        public CreateOrder Command { get; }
         public Order Order { get; }
         public string Reason { get; }
         public string Code { get; }

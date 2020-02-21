@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Convey.Types;
+using System;
 
 namespace MadXchange.Common.Types
 {
-    public abstract class BaseEntity : IIdentifiable
+    public abstract class BaseEntity : IIdentifiable<Guid>
     {
         public Guid Id { get; protected set; }
         public DateTime CreatedDate { get; protected set; }

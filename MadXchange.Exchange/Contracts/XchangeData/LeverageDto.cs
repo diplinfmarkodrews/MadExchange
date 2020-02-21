@@ -3,8 +3,8 @@ using System.Runtime.Serialization;
 
 namespace MadXchange.Exchange.Contracts
 {
-    [DataContract]
-    public class LeverageDto : HttpMessageDto
+    [DataContract(Name = "Leverage")]
+    public class LeverageDto : HttpMessage
     {
         public Guid AccountId { get; set; }
 

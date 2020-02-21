@@ -28,28 +28,28 @@ namespace MadXchange.Connector.Services
         DisConnected = 4,
         Error = 5
     }
-    
 
+    class RequestInvocation : IDisposable
+    {
+        public string RequestKey { get; }
+        public SocketRequest Request { get; set; }
+        public TaskCompletionSource<SocketInvocationResult> RequestCompletionSource { get; set; }
+        public RequestInvocation(string requestKey, SocketRequest request, TaskCompletionSource<SocketInvocationResult> task)
+        {
+            RequestKey = requestKey;
+            Request = request;
+            RequestCompletionSource = task;
+            //CancellationTokenSource cancellationSource
+        }
+        public void Dispose()
+        {
+            ((IDisposable)Request).Dispose();
+        }
+    }
     public sealed class WebSocketConnection : IDisposable
     {
 
-        private class RequestInvocation : IDisposable
-        {
-            public string RequestKey { get; } 
-            public SocketRequest Request { get; set; }
-            public TaskCompletionSource<SocketInvocationResult> RequestCompletionSource { get; set; }
-            public RequestInvocation(string requestKey, SocketRequest request, TaskCompletionSource<SocketInvocationResult> task) 
-            {
-                RequestKey = requestKey;
-                Request = request;
-                RequestCompletionSource = task;
-                //CancellationTokenSource cancellationSource
-            }
-            public void Dispose()
-            {
-                ((IDisposable)Request).Dispose();
-            }
-        }
+        
 
         public Guid Id { get; }
         public Xchange Xchange { get; }
@@ -69,10 +69,10 @@ namespace MadXchange.Connector.Services
         private XchangeSocketDescriptor _exchangeSocketDescriptor { get; }
         
         
-        private readonly ISignRequests _signRequestService;
+        private readonly ISignRequestsService _signRequestService;
         private bool _isAuthUrl;
         private Dictionary<string, RequestInvocation> _requestInvocations = new Dictionary<string, RequestInvocation>();
-        public WebSocketConnection(XchangeSocketDescriptor exchangeSocketDescriptor, IEnumerable<SocketSubscription> subscriptions, ISignRequests signService, Guid connectionId = default, bool isPublic = true)
+        public WebSocketConnection(XchangeSocketDescriptor exchangeSocketDescriptor, IEnumerable<SocketSubscription> subscriptions, ISignRequestsService signService, Guid connectionId = default, bool isPublic = true)
         {
 
             _exchangeSocketDescriptor = exchangeSocketDescriptor;

@@ -47,7 +47,7 @@ namespace MadXchange.Connector.Helpers
         {
             for (int i = 0; i < maxLoop; i++)
             {
-                Thread.Sleep(100);
+                Task.Run(()=>Task.Delay(100));
                 try
                 {
                     action?.Invoke().Wait();

@@ -46,25 +46,19 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
         {
             try
             {
-                string resp = await routeObject.Url.SendStringToUrlAsync(routeObject.Method, routeObject.ToOrderedJson()).ConfigureAwait(false);
-                return resp.FromJson<HttpResponseDto>();
+                string response = string.Empty;
+                if(routeObject.Method == "Get")                
+                    response = await routeObject.GetSignedUrl().GetJsonFromUrlAsync().ConfigureAwait(false);
+                else
+                    response = await routeObject.Url.SendStringToUrlAsync(routeObject.Method, routeObject.ToOrderedJson(), contentType: "application/json").ConfigureAwait(false);
+                return response.FromJson<HttpResponseDto>();
             }
             catch (Exception ex)
-            {
-                //var knownError = ex.IsBadRequest()
-                //                    || ex.IsNotFound()
-                //                    || ex.IsUnauthorized()
-                //                    || ex.IsForbidden()
-                //                    || ex.IsInternalServerError();
-
-                //var isAnyClientError = ex.IsAny400();
-                //var isAnyServerError = ex.IsAny500();
-
-                //HttpStatusCode? errorStatus = ex.GetStatus();
-                //string errorBody = ex.GetResponseBody();
+            {               
                 _logger.LogError($"Error sending {routeObject} request: {ex.Message}", ex, routeObject);
+                throw;
             }
-            return default;
+           
         }
     }
 }

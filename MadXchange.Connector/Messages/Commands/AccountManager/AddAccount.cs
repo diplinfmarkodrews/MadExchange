@@ -1,4 +1,6 @@
-﻿using Convey.CQRS.Commands;
+﻿
+
+using ServiceStack.Commands;
 
 namespace MadXchange.Connector.Messages.Commands.AccountManager
 {
@@ -9,5 +11,9 @@ namespace MadXchange.Connector.Messages.Commands.AccountManager
 
     public class AddAccount : ICommand
     {
+        public void Execute()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

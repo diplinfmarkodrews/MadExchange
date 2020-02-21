@@ -21,5 +21,7 @@ namespace MadXchange.Connector.Messages.Commands
             Symbol = symbol;
             Leverage = leverage;
         }
+
+      
     }
 }

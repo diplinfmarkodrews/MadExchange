@@ -24,9 +24,9 @@ namespace MadXchange.Exchange.Services.Socket
     public sealed class ClientSocketMessageHandler : WebSocketHandler
     {
         
-        private SocketConnectionStore _connectionStore;        
+        private readonly ISocketConnectionStore _connectionStore;        
 
-        public ClientSocketMessageHandler(SocketConnectionStore connectionStore)
+        public ClientSocketMessageHandler(ISocketConnectionStore connectionStore)
         {
             _connectionStore = connectionStore;
         }

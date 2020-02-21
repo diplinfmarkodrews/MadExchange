@@ -43,21 +43,121 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AspNetCore.HealthChecks.Rabbitmq": {
+              "target": "Package",
+              "version": "[3.0.5, )"
+            },
+            "Convey": {
+              "target": "Package",
+              "version": "[0.4.258, )"
+            },
+            "Convey.CQRS.Commands": {
+              "target": "Package",
+              "version": "[0.4.258, )"
+            },
+            "Convey.CQRS.Events": {
+              "target": "Package",
+              "version": "[0.4.258, )"
+            },
+            "Convey.CQRS.Queries": {
+              "target": "Package",
+              "version": "[0.4.258, )"
+            },
+            "Convey.Configurations.Vault": {
+              "target": "Package",
+              "version": "[0.4.226, )"
+            },
+            "Convey.Discovery.Consul": {
+              "target": "Package",
+              "version": "[0.4.258, )"
+            },
+            "Convey.Logging": {
+              "target": "Package",
+              "version": "[0.4.258, )"
+            },
+            "Convey.Logging.CQRS": {
+              "target": "Package",
+              "version": "[0.4.258, )"
+            },
+            "Convey.MessageBrokers": {
+              "target": "Package",
+              "version": "[0.4.258, )"
+            },
+            "Convey.MessageBrokers.CQRS": {
+              "target": "Package",
+              "version": "[0.4.258, )"
+            },
+            "Convey.MessageBrokers.RabbitMQ": {
+              "target": "Package",
+              "version": "[0.4.258, )"
+            },
+            "Convey.Metrics.AppMetrics": {
+              "target": "Package",
+              "version": "[0.4.258, )"
+            },
             "Convey.Persistence.MongoDB": {
               "target": "Package",
-              "version": "[0.4.256, )"
+              "version": "[0.4.258, )"
             },
             "Convey.Persistence.Redis": {
               "target": "Package",
-              "version": "[0.4.256, )"
+              "version": "[0.4.258, )"
+            },
+            "Convey.Secrets.Vault": {
+              "target": "Package",
+              "version": "[0.4.258, )"
             },
             "Convey.Tracing.Jaeger": {
               "target": "Package",
-              "version": "[0.4.256, )"
+              "version": "[0.4.258, )"
+            },
+            "Convey.Tracing.Jaeger.RabbitMQ": {
+              "target": "Package",
+              "version": "[0.4.258, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.Extensions.Caching.Redis": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Caching.Redis.Core": {
+              "target": "Package",
+              "version": "[1.0.3, )"
+            },
+            "NetCore.AutoRegisterDi": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[5.1.2, )"
+            },
+            "RabbitMQ.Client.Core.DependencyInjection": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "RawRabbit": {
+              "target": "Package",
+              "version": "[1.10.4, )"
+            },
+            "RawRabbit.vNext": {
+              "target": "Package",
+              "version": "[1.10.4, )"
+            },
+            "ServiceStack.Caching.Memcached": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.Redis.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.Text.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
             }
           },
           "imports": [
@@ -125,62 +225,6 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Convey": {
-              "target": "Package",
-              "version": "[0.4.256, )"
-            },
-            "Convey.CQRS.Commands": {
-              "target": "Package",
-              "version": "[0.4.256, )"
-            },
-            "Convey.CQRS.Events": {
-              "target": "Package",
-              "version": "[0.4.256, )"
-            },
-            "Convey.CQRS.Queries": {
-              "target": "Package",
-              "version": "[0.4.256, )"
-            },
-            "Convey.Configurations.Vault": {
-              "target": "Package",
-              "version": "[0.4.226, )"
-            },
-            "Convey.HTTP": {
-              "target": "Package",
-              "version": "[0.4.256, )"
-            },
-            "Convey.Logging": {
-              "target": "Package",
-              "version": "[0.4.256, )"
-            },
-            "Convey.MessageBrokers": {
-              "target": "Package",
-              "version": "[0.4.256, )"
-            },
-            "Convey.MessageBrokers.CQRS": {
-              "target": "Package",
-              "version": "[0.4.256, )"
-            },
-            "Convey.MessageBrokers.RabbitMQ": {
-              "target": "Package",
-              "version": "[0.4.256, )"
-            },
-            "Convey.Metrics.AppMetrics": {
-              "target": "Package",
-              "version": "[0.4.256, )"
-            },
-            "Convey.Persistence.MongoDB": {
-              "target": "Package",
-              "version": "[0.4.256, )"
-            },
-            "Convey.Persistence.Redis": {
-              "target": "Package",
-              "version": "[0.4.256, )"
-            },
-            "Convey.Tracing.Jaeger.RabbitMQ": {
-              "target": "Package",
-              "version": "[0.4.256, )"
-            },
             "Grpc.AspNetCore": {
               "target": "Package",
               "version": "[2.27.0, )"
@@ -192,6 +236,14 @@
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.9.10, )"
+            },
+            "OpenTracing": {
+              "target": "Package",
+              "version": "[0.12.1, )"
+            },
+            "OpenTracing.Contrib.Decorators": {
+              "target": "Package",
+              "version": "[0.0.3, )"
             },
             "Polly": {
               "target": "Package",
@@ -221,7 +273,19 @@
               "target": "Package",
               "version": "[3.3.0, )"
             },
+            "Serilog.Sinks.Seq": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "ServiceStack.Admin.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
             "ServiceStack.Client.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.Common.Core": {
               "target": "Package",
               "version": "[5.8.0, )"
             },
@@ -229,7 +293,7 @@
               "target": "Package",
               "version": "[5.8.0, )"
             },
-            "ServiceStack.HttpClient": {
+            "ServiceStack.HttpClient.Core": {
               "target": "Package",
               "version": "[5.8.0, )"
             },
@@ -238,6 +302,38 @@
               "version": "[5.8.0, )"
             },
             "ServiceStack.Kestrel.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.Logging.Serilog": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.MsgPack.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.OrmLite.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.OrmLite.Sqlite.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.ProtoBuf.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.RabbitMq.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.Redis.Core": {
+              "target": "Package",
+              "version": "[5.8.0, )"
+            },
+            "ServiceStack.Server.Core": {
               "target": "Package",
               "version": "[5.8.0, )"
             },
@@ -330,48 +426,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "dependencies": {
-            "Microsoft.Extensions.Configuration.Abstractions": {
-              "target": "Package",
-              "version": "[3.1.1, )"
-            },
-            "Microsoft.Extensions.Logging.Abstractions": {
-              "target": "Package",
-              "version": "[3.1.1, )"
-            },
-            "ServiceStack.Client.Core": {
-              "target": "Package",
-              "version": "[5.8.0, )"
-            },
-            "ServiceStack.Core": {
-              "target": "Package",
-              "version": "[5.8.0, )"
-            },
-            "ServiceStack.HttpClient.Core": {
-              "target": "Package",
-              "version": "[5.8.0, )"
-            },
-            "ServiceStack.Interfaces": {
-              "target": "Package",
-              "version": "[5.8.0, )"
-            },
-            "ServiceStack.Interfaces.Core": {
-              "target": "Package",
-              "version": "[5.8.0, )"
-            },
-            "ServiceStack.Redis.Core": {
-              "target": "Package",
-              "version": "[5.8.0, )"
-            },
-            "ServiceStack.Text.Core": {
-              "target": "Package",
-              "version": "[5.8.0, )"
-            },
-            "System.Net.WebSockets": {
-              "target": "Package",
-              "version": "[4.3.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

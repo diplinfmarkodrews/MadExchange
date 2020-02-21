@@ -4,8 +4,8 @@ using System.Runtime.Serialization;
 
 namespace MadXchange.Exchange.Contracts
 {
-    [DataContract]
-    public class OrderDto : HttpMessageDto
+    [DataContract(Name = "Order")]
+    public class OrderDto : HttpMessage
     {
         public Guid AccountId { get; set; }
 
@@ -19,13 +19,13 @@ namespace MadXchange.Exchange.Contracts
         public string ClOrdLinkId { get; set; }
 
         [DataMember]
-        public long? Account { get; set; }
+        public long? UserId { get; set; }
 
         [DataMember]
         public string Symbol { get; set; }
 
         [DataMember]
-        public OrderSide? Side { get; set; }
+        public OrderSide? OrderSide { get; set; }
 
         [DataMember]
         public decimal? OrderQty { get; set; }

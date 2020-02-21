@@ -7,7 +7,7 @@ namespace MadXchange.Connector.Interfaces
 {
     /// <summary>
     /// Executes orders on command input.
-    /// can implement price adaption, but how to implement cancellation?
+    /// can implement price adaption, but how to implement cancellation? ==>box command with cancellation token
     /// </summary>
     public interface IXchangeCommands
     {

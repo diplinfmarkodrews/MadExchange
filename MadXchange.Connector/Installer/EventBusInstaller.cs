@@ -1,4 +1,5 @@
-﻿using Convey.MessageBrokers.CQRS;
+﻿
+using Convey.MessageBrokers.CQRS;
 using Convey.MessageBrokers.RabbitMQ;
 using MadXchange.Connector.Messages.Commands;
 using MadXchange.Connector.Messages.Events;

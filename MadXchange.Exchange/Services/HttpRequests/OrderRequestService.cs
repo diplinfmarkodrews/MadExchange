@@ -47,30 +47,28 @@ namespace MadXchange.Exchange.Services.HttpRequests
 
         public async Task<OrderDto> PostNewOrderAsync(OrderPostRequestDto request, CancellationToken token = default)
         {
-            var route = _descriptorService.RequestDictionary(request.Exchange, XchangeHttpOperation.PostPlaceOrder, new ObjectDictionary() { });
-            ///Todo: provide requestparameter
+            var route = _descriptorService.RequestDictionary(request.Exchange, XchangeHttpOperation.PostPlaceOrder, (ObjectDictionary)request.MergeIntoObjectDictionary());            
             var res = await _restRequestService.SendRequestObjectAsync(request.AccountId, route, token).ConfigureAwait(false);
             return TypeSerializer.DeserializeFromString<OrderDto>(res.Result);
         }
 
         public async Task<OrderDto> PostUpdateOrderAsync(OrderPutRequestDto request, CancellationToken token = default)
         {
-            var route = _descriptorService.RequestDictionary(request.Exchange, XchangeHttpOperation.PostUpdateOrder, new ObjectDictionary());
-
+            var route = _descriptorService.RequestDictionary(request.Exchange, XchangeHttpOperation.PostUpdateOrder, (ObjectDictionary)request.MergeIntoObjectDictionary());
             var res = await _restRequestService.SendRequestObjectAsync(request.AccountId, route, token).ConfigureAwait(false);
             return TypeSerializer.DeserializeFromString<OrderDto>(res.Result);
         }
 
         public async Task<OrderDto[]> DeleteAllOrdersAsync(Xchange exchange, Guid accountId, string symbol, CancellationToken token = default)
         {
-            var route = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.CancelAllOrders, new ObjectDictionary() { { IXchangeDescriptorService.SymbolString, symbol } });
+            var route = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.PostCancelAllOrder, new ObjectDictionary() { { IXchangeDescriptorService.SymbolString, symbol } });
             var res = await _restRequestService.SendRequestObjectAsync(accountId, route, token).ConfigureAwait(false);
             return TypeSerializer.DeserializeFromString<OrderDto[]>(res.Result);
         }
 
         public async Task<OrderDto> DeleteOrderAsync(Xchange exchange, Guid accountId, string symbol, string orderId, CancellationToken token = default)
         {
-            var route = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.CancelOrder, new ObjectDictionary() { { IXchangeDescriptorService.OrderIdString, orderId }, { IXchangeDescriptorService.SymbolString, symbol } });
+            var route = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.PostCancelOrder, new ObjectDictionary() { { IXchangeDescriptorService.OrderIdString, orderId }, { IXchangeDescriptorService.SymbolString, symbol } });
             var res = await _restRequestService.SendRequestObjectAsync(accountId, route, token).ConfigureAwait(false);
             return TypeSerializer.DeserializeFromString<OrderDto>(res.Result);
         }

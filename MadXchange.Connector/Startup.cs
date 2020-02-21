@@ -1,41 +1,37 @@
 ﻿using Convey;
-using Convey.CQRS.Commands;
-using Convey.CQRS.Events;
-using Convey.CQRS.Queries;
-using Convey.MessageBrokers.RabbitMQ;
-
-//using Convey.MessageBrokers.RawRabbit;
+using Convey.Discovery.Consul;
 using Convey.Metrics.AppMetrics;
 using Convey.Persistence.MongoDB;
-using Convey.Persistence.Redis;
 using Convey.Tracing.Jaeger;
-using Convey.Tracing.Jaeger.RabbitMQ;
 using MadXchange.Connector.Installer;
 using MadXchange.Connector.Services;
 using MadXchange.Exchange.Domain.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Serilog;
 using ServiceStack.Text;
 using System;
 using System.Runtime.Serialization;
 
+
 namespace MadXchange.Connector
 {
-    public class Startup
+    public class Startup //: ModularStartup
     {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-
-        public IConfiguration Configuration { get; private set; }
+        private static IConfiguration Configuration = MyWebHostExtensions.GetConfiguration();
+        //public Startup(IConfiguration configuration)
+        //    : base(configuration, typeof(Startup).Assembly, typeof(Program).Assembly, typeof(ExchangeInstaller).Assembly, typeof(WebSocketInstaller).Assembly) { }
 
         public void ConfigureServices(IServiceCollection services)
         {
 
-            Configuration = MyWebHostExtensions.GetConfiguration();
+            IConfiguration configuration = MyWebHostExtensions.GetConfiguration();
 
             JsConfig.Init(new Config
             {
@@ -48,82 +44,133 @@ namespace MadXchange.Connector
             JsConfig.AllowRuntimeTypeWithAttributesNamed = new System.Collections.Generic.HashSet<string>
             {
                 nameof(DataContractAttribute),
+                nameof(DataMemberAttribute),
                 nameof(RuntimeSerializableAttribute)
             };
             //JsConfig.AllowRuntimeType = type => type == typeof(WebResponseDto);
-            services.AddPolicyRegistry();
-            //services.AddHttpClientServices(Configuration);
+
+            //services.RegisterAssemblyPublicNonGenericClasses()
+            //        .Where(c => c.Name.EndsWith("Service"))
+            //        .AsPublicImplementedInterfaces();
+            //services.RegisterAssemblyPublicNonGenericClasses()
+            //        .Where(c => c.Name.EndsWith("Provider"))
+            //        .AsPublicImplementedInterfaces();
+            //services.RegisterAssemblyPublicNonGenericClasses()
+            //        .Where(c => c.Name.EndsWith("DataContractAttribute"))
+            //        .AsPublicImplementedInterfaces();
+            //services.RegisterAssemblyPublicNonGenericClasses()
+            //        .Where(c => c.Name.EndsWith("Handle"))
+            //        .AsPublicImplementedInterfaces();
+            //services.RegisterAssemblyPublicNonGenericClasses()
+            //        .Where(c => c.Name.EndsWith("Descriptor"))
+            //        .AsPublicImplementedInterfaces();
+            //services.RegisterAssemblyPublicNonGenericClasses()
+            //       .Where(c => c.Name.EndsWith("Middleware"))
+            //       .AsPublicImplementedInterfaces();
+            //services.RegisterAssemblyPublicNonGenericClasses()
+            //       .Where(c => c.Name.EndsWith("Command"))
+            //       .AsPublicImplementedInterfaces();
+            //services.RegisterAssemblyPublicNonGenericClasses()
+            //        .Where(c => c.Name.EndsWith("Event"))
+            //        .AsPublicImplementedInterfaces();
+            //services.RegisterAssemblyPublicNonGenericClasses()
+            //        .Where(c => c.Name.EndsWith("Query"))
+            //        .AsPublicImplementedInterfaces();
+            
+            //services.AddPolicyRegistry();
+            services.AddHttpClientServices(Configuration);
             //services.AddVaultService(Configuration);
-            //services.AddCacheServices(Configuration);
-
+            
+            var _config = MyWebHostExtensions.GetConfiguration();//used for testaccounts, for dev only!!
+            services.AddCacheServices(_config);
+            services.AddExchangeAccessServices(_config);
             //services.AddSocketConnectionService();
-            //services.AddWebSocketHandler();
-            //services.AddExchangeAccessServices(Configuration);
+           // services.AddWebSocketHandler();
+            
 
 
-            //services.AddWebEncoders();
-            // services.AddMetrics().AddMetricsEndpoints();
-
-            services.AddOpenTracingCoreServices();
-            services.AddLogging(logBuilder
-                => MyWebHostExtensions.CreateSerilogLogger(Configuration));
-
-            services.AddSingleton<IServiceId, ServiceId>();
-            services.AddConvey("connector")
-                    .AddRedis()
-
-
-
-                    .AddMetrics()
-                    .AddEventHandlers()
-                    .AddInMemoryEventDispatcher()
-                    .AddCommandHandlers()
-                    .AddInMemoryCommandDispatcher()
-                    .AddQueryHandlers()
-                    .AddInMemoryQueryDispatcher()
-
-
-                    .AddExceptionToMessageMapper<ExceptionToMessageMapper>()
-                    .AddJaeger()
-                    .AddMongo()
-                    .AddRabbitMq()//plugins: p => p.AddJaegerRabbitMqPlugin())
-                    .AddMongoRepository<ApiKeySet, Guid>("apikeys")
-                    .AddMongoRepository<Order, Guid>("order")
-                    .AddInitializer<IMongoDbInitializer>();
+            
 
             services.AddHostedService<TimedPollService>();
+
+            //services.AddWebEncoders();
+            //services.AddMetrics().AddMetricsEndpoints();
+
+            //
+            //services.AddLogging(logBuilder
+            //   => MyWebHostExtensions.CreateSerilogLogger(Configuration));
+            services.AddSingleton<IServiceId, ServiceId>();
+            services.Configure<KestrelServerOptions>(options =>  options.Configure() )
+                   // .AddOpenTracing()
+                    .AddConvey("connector")
+                           
+                    //.AddConsul()
+                          
+                    .AddMongo()
+                   
+                    .AddMongoRepository<Order, Guid>("orders")
+                    //.AddMongoRepository<Position, Guid>("positions")
+                    //.AddMongoRepository<Margin, Guid>("margin")
+                    //.AddCommandHandlers()
+                    //.AddEventHandlers()
+                    //.AddQueryHandlers()
+                    //.AddInMemoryCommandDispatcher()
+                    //.AddInMemoryEventDispatcher()
+                    //.AddInMemoryQueryDispatcher()
+                    //.AddJaeger()
+                    //.AddMetrics()
+
+                    //.AddRabbitMq()
+                    //.AddRabbitMq(plugins: p => p.AddJaegerRabbitMqPlugin())
+                    //.AddRedis()
+                           
+                        ;
+                           
         }
+                        
+             
+        
 
         // This method gets called by the runtime.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)//, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app)//, ILoggerFactory loggerFactory)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            app.UseExceptionHandler();
-            app.ConfigureEventBus();
+
+            //app.UseDispatcherEndpoints(endpoints => endpoints
+            // .Get("", ctx => ctx.Response.WriteAsync("Orders Service"))
+            // .Get<GetOrder, OrderDto>("orders/{orderId}")
+            // .Post<CreateOrder>("orders",
+            //     afterDispatch: (cmd, ctx) => ctx.Response.Created($"orders/{cmd.OrderId}")))
+            app.UseSession();
+            //.Build();
+            //app.UseExceptionHandler(options: new ExceptionHandlerOptions().);
            
-            app.UseConvey();
-            app.UseRabbitMq();
-            // loggerFactory.AddSerilog();
-            //app.UseWebSockets();
-            app.UseMetrics();
-           
-            app.UseJaeger();
+           // app.UseWebSockets();
            // app.MapWebSocketManager();
-            
-            app.UseRouting();
-            
-            //app.UseMetricsAllMiddleware();
-            //app.UseHealthAllEndpoints();
-            //app.UseMetricsAllEndpoints();
-         
-            app.UsePingEndpoint();
-            //app.UseEndpoints()endpoints =>
+
+            //.UseInitializers()
+            // app.ConfigureEventBus();
+            //// app.UseRabbitMq();
+
+            // app.UseMetricsActiveRequestMiddleware();
+            // app.UseHealthEndpoint();
+            // //app.UseMetricsRequestTrackingMiddleware();
+            // app.UseHealthAllEndpoints();
+            // app.UsePingEndpoint();
+
+            //app.AddRabbitMq();
+            app.UseConvey()
+                .UseRouting()
+                
+                //.UsePingEndpoint()
+                //.ConfigureCache(Configuration)
+               // .UseJaeger().UseMetrics()
+                ;
+
+            //app.UseEndpoints(endpoints =>
             //{
-            //    endpoints.MapDefaultControllerRoute();
-            //    endpoints.MapControllers();
+                
+            //    //endpoints.MapDefaultControllerRoute();
+            //    //endpoints.MapControllers();
             //    endpoints.MapHealthChecks("/hc", new HealthCheckOptions()
             //    {
             //        Predicate = _ => true,
@@ -133,7 +180,24 @@ namespace MadXchange.Connector
             //    {
             //        Predicate = r => r.Name.Contains("self")
             //    });
+                
             //});
+            
+
+            
+             
+            
+            
+            //app.UseConvey();
+            
+            //app.UseVault();
+            ////UseLogging();
+            
+
+
+
+
+            //
 
         }
     }

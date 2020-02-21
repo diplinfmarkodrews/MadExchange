@@ -3,15 +3,15 @@ using System.Runtime.Serialization;
 
 namespace MadXchange.Exchange.Contracts
 {
-    [DataContract]
-    public class PositionDto : HttpMessageDto
+    [DataContract(Name = "Position")]
+    public class PositionDto : HttpMessage
     {
         public Guid AccountId { get; set; }
 
         [DataMember(IsRequired = true)]
         public string Symbol { get; set; }
 
-        [DataMember(Name = "size")]
+        [DataMember]
         public decimal? CurrentQty { get; set; }
 
         [DataMember]
@@ -29,7 +29,7 @@ namespace MadXchange.Exchange.Contracts
         [DataMember]
         public decimal? RealisedPnl { get; set; }
 
-        [DataMember(Name = "LiqPrice")]
+        [DataMember]
         public decimal? LiquidationPrice { get; set; }
 
         [DataMember]
@@ -41,18 +41,25 @@ namespace MadXchange.Exchange.Contracts
         [DataMember]
         public decimal? CumRealisedPnl { get; set; }
 
-        [DataMember(Name = "cum_commission")]
+        [DataMember]
         public decimal? CumCommission { get; set; }
 
         [DataMember]
         public decimal? PositionMargin { get; set; }
 
+        /// <summary>
+        /// Todo: make these properties type independent or depending on anouther type and route updates to the appropriate Cache channel
+        /// </summary>
         [DataMember]
         public decimal? WalletBalance { get; set; }
-
+        [DataMember]
+        public decimal? AvailableBalance { get; set; }
+        
         [DataMember]
         public decimal? OrderMargin { get; set; }
-
+        /////
+        /////
+        
         [DataMember]
         public decimal? BustPrice { get; set; }
 
