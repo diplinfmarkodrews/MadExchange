@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace MadXchange.Exchange.Domain.Models
 {
-    public interface IOrder : IIdentifiable<Guid>
+    public interface IOrder 
     {
         public string OrderId { get; set; }
         public long? Account { get; set; }
@@ -24,7 +24,7 @@ namespace MadXchange.Exchange.Domain.Models
         public IEnumerable<ExecInst> ExecInst { get; set; }
         public string OrdRejReason { get; set; }
         public TimeInForce? TimeInForce { get; set; }
-        Guid Id { get; }
+       
 
         bool IsOrderNewOrPartiallyFilled();
 
@@ -47,7 +47,7 @@ namespace MadXchange.Exchange.Domain.Models
         bool IsClose();
     }
 
-    public class Order : IOrder, IIdentifiable<Guid>
+    public class Order : IOrder
     {
         public Guid Id { get; }
         public string OrderId { get; set; }

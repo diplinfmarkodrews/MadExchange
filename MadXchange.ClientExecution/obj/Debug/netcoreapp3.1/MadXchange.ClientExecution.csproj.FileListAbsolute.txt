@@ -53,6 +53,7 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Convey.Discovery.Consul.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Convey.HTTP.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Convey.Logging.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Convey.Logging.CQRS.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Convey.MessageBrokers.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Convey.MessageBrokers.CQRS.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Convey.MessageBrokers.RabbitMQ.dll
@@ -61,6 +62,7 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Convey.Persistence.Redis.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Convey.Secrets.Vault.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Convey.Tracing.Jaeger.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Convey.Tracing.Jaeger.RabbitMQ.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\DnsClient.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Elasticsearch.Net.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Figgle.dll
@@ -135,11 +137,13 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Serilog.Sinks.PeriodicBatching.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Serilog.Sinks.Seq.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\ServiceStack.Caching.Memcached.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\ServiceStack.Common.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\ServiceStack.Interfaces.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\ServiceStack.Redis.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\ServiceStack.Text.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\SharpCompress.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\SmartFormat.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\StackExchange.Redis.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\StackExchange.Redis.StrongName.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
@@ -161,7 +165,9 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\MadXchange.Common.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\MadXchange.Exchange.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\MadXchange.Common.pdb
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\MadXchange.Exchange.pdb
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\obj\Debug\netcoreapp3.1\MadXchange.ClientExecution.csprojAssemblyReference.cache
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\obj\Debug\netcoreapp3.1\staticwebassets\MadXchange.ClientExecution.StaticWebAssets.Manifest.cache
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\obj\Debug\netcoreapp3.1\staticwebassets\MadXchange.ClientExecution.StaticWebAssets.xml
@@ -173,6 +179,8 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\obj\Debug\netcoreapp3.1\MadXchange.ClientExecution.csproj.CopyComplete
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\obj\Debug\netcoreapp3.1\MadXchange.ClientExecution.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\obj\Debug\netcoreapp3.1\MadXchange.ClientExecution.pdb
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Convey.Logging.CQRS.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Convey.Tracing.Jaeger.RabbitMQ.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\SmartFormat.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Protocols.Json.dll

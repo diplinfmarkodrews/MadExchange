@@ -58,10 +58,13 @@ namespace MadXchange.Exchange.Configuration
                 exchangeDescriptor.TimeStampString = exchange.GetValue<string>("TimeStampString");
                 var exchangeEnum = Enum.Parse<Xchange>(exchangeDescriptor.Name);
                 exchangeDescriptor.Id = (int)exchangeEnum;
-                exchangeDescriptor.DomainTypes = XchangeConfigToolkit.GenerateDomainTypes(_dataTypes, exchange);                                
+                exchangeDescriptor.DomainTypes = XchangeConfigToolkit.GenerateTypesDictionary(_dataTypes, exchange.GetSection("DomainTypes"));                                
                 exchangeDescriptor.EndPoints = GeneratingEndPoints(exchange, exchangeDescriptor.BaseUrl);
                 exchangeDescriptor.SetEndPointReturnTypes();
                 exchangeDescriptor.SocketDescriptor = ReadSocketConfig(exchange);
+                //not tested and not needed yet! exchangeDescriptor.SocketDescriptor.TypeDescriptors = XchangeConfigToolkit.GenerateTypesDictionary(_dataTypes, exchange.GetSection("Socket:Types"));
+                exchangeDescriptor.SocketDescriptor.Xchange = exchangeEnum;
+
                 if (VerifyExchangeDescriptor(exchangeDescriptor))
                     exchanges[exchangeDescriptor.Id] = exchangeDescriptor;
             }
@@ -75,12 +78,14 @@ namespace MadXchange.Exchange.Configuration
             var socketConfig = exchangeConfig.GetSection("Socket");
             var result = new XchangeSocketDescriptor()
             {
-                SocketUrl = exchangeConfig.GetSection("SocketUrl").Value,
-                KeepAliveInterval = exchangeConfig.GetSection("KeepAlive").Get<int>(),
+                SocketUrl = socketConfig.GetSection("SocketUrl").Value,
+                AuthUrl = socketConfig.GetValue<string>("AuthUrl"),
+                KeepAliveInterval = socketConfig.GetValue<int>("KeepAlive"),
+                ExpiresTime = socketConfig.GetValue<string>("ExpiresTime"),
             };
 
             
-            var stringValues = socketConfig.GetChildren().Where(c => c.GetChildren().Count() == 1);
+            //var stringValues = socketConfig.GetChildren().Where(c => c.GetChildren().Count() == 1);
             result.CombinedStrings = new Dictionary<string, string[]>();
 
             return result;

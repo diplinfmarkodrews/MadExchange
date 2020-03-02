@@ -1,9 +1,10 @@
-﻿using ServiceStack;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace MadXchange.Exchange.Domain.Models
 {
-    public interface ISocketSubscription 
+    public interface ISocketSubscription  
     {
         Guid Id { get; }
     }
@@ -16,23 +17,23 @@ namespace MadXchange.Exchange.Domain.Models
         public string Channel { get; }
         //topic is exchange definition of
         public string Topic { get; set; }
+        public IEnumerable<string> Args { get; set; }
         public bool IsSubscribed { get; set; }
-        
-        public ObjectDictionary Request { get; internal set; }
         public Type ReturnType { get; internal set; }
-        
 
-        public SocketSubscription(Guid id, string channel, string topic, ObjectDictionary requestDict, Type returnType)
+        public SocketSubscription(Guid id, string channel, string topic, List<string> args)
         {
             Id = id == Guid.Empty ? Guid.NewGuid() : id;
             Channel = channel;
-            Request = requestDict;
-            ReturnType = returnType;
-            Topic = topic;
-        }
-        
-     
+            var topicBuilder = new StringBuilder().Append(topic).Append('.').AppendJoin('.', args);
+            Topic = topicBuilder.ToString();
+            Args = args;
 
-        
+                           
+        }
+        public void SetupReturnType(Type type)
+            => ReturnType = type;
+
+      
     }
 }

@@ -16,5 +16,6 @@ namespace MadXchange.Exchange.Types
         public Dictionary<string, string[]> CombinedStrings { get; set; }
         //combine multible values to get response status
         public Dictionary<string, Func<string[], bool>> Accessors { get; set; }
+        public string ExpiresTime { get; internal set; }
     }
 }

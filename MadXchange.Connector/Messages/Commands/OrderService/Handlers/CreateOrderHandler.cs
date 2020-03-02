@@ -1,7 +1,6 @@
 ﻿using Convey.CQRS.Commands;
-using Convey.MessageBrokers;
 using MadXchange.Connector.Interfaces;
-using MadXchange.Exchange.Interfaces.Cache;
+using MadXchange.Exchange.Infrastructure.Cache;
 using Microsoft.Extensions.Logging;
 using OpenTracing;
 using System.Threading.Tasks;

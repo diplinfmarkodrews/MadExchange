@@ -938,6 +938,19 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.Policy.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Connections.Abstractions/3.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "3.1.2",
+          "System.IO.Pipelines": "4.7.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Connections.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Connections.Abstractions.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Cors/2.1.0": {
         "type": "package",
         "dependencies": {
@@ -1084,16 +1097,17 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Http.Extensions.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Http.Features/2.1.0": {
+      "Microsoft.AspNetCore.Http.Features/3.1.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "2.1.0"
+          "Microsoft.Extensions.Primitives": "3.1.2",
+          "System.IO.Pipelines": "4.7.0"
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {}
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Http.Features.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {}
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Http.Features.dll": {}
         }
       },
       "Microsoft.AspNetCore.JsonPatch/2.1.0": {
@@ -1415,6 +1429,47 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Routing.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Client.Core/3.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Common": "3.1.2",
+          "Microsoft.AspNetCore.SignalR.Protocols.Json": "3.1.2",
+          "Microsoft.Extensions.DependencyInjection": "3.1.2",
+          "Microsoft.Extensions.Logging": "3.1.2",
+          "System.Threading.Channels": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.AspNetCore.SignalR.Client.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.AspNetCore.SignalR.Client.Core.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Common/3.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Connections.Abstractions": "3.1.2",
+          "Microsoft.Extensions.Options": "3.1.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.SignalR.Common.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.SignalR.Common.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Protocols.Json/3.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.SignalR.Common": "3.1.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.SignalR.Protocols.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.SignalR.Protocols.Json.dll": {}
         }
       },
       "Microsoft.AspNetCore.WebUtilities/2.1.0": {
@@ -3465,13 +3520,13 @@
           "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll": {}
         }
       },
-      "System.IO.Pipelines/4.5.1": {
+      "System.IO.Pipelines/4.7.0": {
         "type": "package",
         "compile": {
-          "ref/netstandard1.3/System.IO.Pipelines.dll": {}
+          "ref/netcoreapp2.0/System.IO.Pipelines.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp2.1/System.IO.Pipelines.dll": {}
+          "lib/netcoreapp3.0/System.IO.Pipelines.dll": {}
         }
       },
       "System.Linq/4.3.0": {
@@ -3783,6 +3838,65 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.Net.WebHeaderCollection.dll": {}
+        }
+      },
+      "System.Net.WebSockets/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Primitives": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.3/System.Net.WebSockets.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Net.WebSockets.dll": {}
+        }
+      },
+      "System.Net.WebSockets.Client/4.3.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.Win32.Primitives": "4.3.0",
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Diagnostics.Tracing": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.Net.NameResolution": "4.3.0",
+          "System.Net.Primitives": "4.3.0",
+          "System.Net.Security": "4.3.0",
+          "System.Net.Sockets": "4.3.0",
+          "System.Net.WebHeaderCollection": "4.3.0",
+          "System.Net.WebSockets": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.Handles": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Security.Cryptography.Algorithms": "4.3.0",
+          "System.Security.Cryptography.Primitives": "4.3.0",
+          "System.Security.Cryptography.X509Certificates": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Text.Encoding.Extensions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Threading.Tasks": "4.3.0",
+          "System.Threading.Timer": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.3/System.Net.WebSockets.Client.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.3/System.Net.WebSockets.Client.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/netstandard1.3/System.Net.WebSockets.Client.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
         }
       },
       "System.ObjectModel/4.3.0": {
@@ -4536,13 +4650,13 @@
           "lib/netstandard1.3/System.Threading.dll": {}
         }
       },
-      "System.Threading.Channels/4.5.0": {
+      "System.Threading.Channels/4.7.0": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp2.1/System.Threading.Channels.dll": {}
+          "lib/netcoreapp3.0/System.Threading.Channels.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp2.1/System.Threading.Channels.dll": {}
+          "lib/netcoreapp3.0/System.Threading.Channels.dll": {}
         }
       },
       "System.Threading.Overlapped/4.3.0": {
@@ -4821,7 +4935,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "MadXchange.Common": "1.0.0"
+          "MadXchange.Common": "1.0.0",
+          "Microsoft.AspNetCore.SignalR.Client.Core": "3.1.2",
+          "System.Net.WebSockets.Client": "4.3.2"
         },
         "compile": {
           "bin/placeholder/MadXchange.Exchange.dll": {}
@@ -5714,6 +5830,24 @@
         "microsoft.aspnetcore.authorization.policy.nuspec"
       ]
     },
+    "Microsoft.AspNetCore.Connections.Abstractions/3.1.2": {
+      "sha512": "E2Ic909rHbvvFL8KGX3oX0KibrJ0+UK768HC9vxn9vEiij6vLzbEHWoqRrCACQbXqA134Wvjr0bVnO5td2cp3A==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.connections.abstractions/3.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Connections.Abstractions.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Connections.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Connections.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Connections.Abstractions.xml",
+        "lib/netstandard2.1/Microsoft.AspNetCore.Connections.Abstractions.dll",
+        "lib/netstandard2.1/Microsoft.AspNetCore.Connections.Abstractions.xml",
+        "microsoft.aspnetcore.connections.abstractions.3.1.2.nupkg.sha512",
+        "microsoft.aspnetcore.connections.abstractions.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Cors/2.1.0": {
       "sha512": "YOsWdk6cdIWWdXS4kAEtWcIpbjSff56bnLYGAfZuWcYLrvj7+vLgu4hGAFyX8vHg44cqdpnFU3FGPM5TOruW4w==",
       "type": "package",
@@ -5857,16 +5991,19 @@
         "microsoft.aspnetcore.http.extensions.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Http.Features/2.1.0": {
-      "sha512": "UmkUePxRjsQW0j5euFFscBwjvTu25b8+qIK/2fI3GvcqQ+mkwgbWNAT8b/Gkoei1m2bTWC07lSdutuRDPPLcJA==",
+    "Microsoft.AspNetCore.Http.Features/3.1.2": {
+      "sha512": "LfgiS7LgFKC8nkIafykwOC08Vys16gFBr31aSd1H2TYLNuJ/BuHFNwIiLZoE/Fz/eTZWHx4+izf6uy7dQeFjzw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.http.features/2.1.0",
+      "path": "microsoft.aspnetcore.http.features/3.1.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Http.Features.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
-        "microsoft.aspnetcore.http.features.2.1.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.features.3.1.2.nupkg.sha512",
         "microsoft.aspnetcore.http.features.nuspec"
       ]
     },
@@ -6174,6 +6311,54 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Routing.Abstractions.xml",
         "microsoft.aspnetcore.routing.abstractions.2.1.0.nupkg.sha512",
         "microsoft.aspnetcore.routing.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.SignalR.Client.Core/3.1.2": {
+      "sha512": "Lf3iPpNySRsDSzqLELfpIjr19hIv/YuGBoKBYGOgIjcxYo5XDAvx6R4gb+NVQUVP3nrlz0chBoPOTfY+M0YZMw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.signalr.client.core/3.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Client.Core.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Client.Core.xml",
+        "lib/netstandard2.1/Microsoft.AspNetCore.SignalR.Client.Core.dll",
+        "lib/netstandard2.1/Microsoft.AspNetCore.SignalR.Client.Core.xml",
+        "microsoft.aspnetcore.signalr.client.core.3.1.2.nupkg.sha512",
+        "microsoft.aspnetcore.signalr.client.core.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.SignalR.Common/3.1.2": {
+      "sha512": "quYmd7RkEvVuL2/A33btMVVvpCpSiPZzK/gi6VlZjmdWltIu6AKcgpB1DY14xkDg/oYDN1dtGBR4nYB5USVYGQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.signalr.common/3.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.SignalR.Common.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.SignalR.Common.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Common.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Common.xml",
+        "microsoft.aspnetcore.signalr.common.3.1.2.nupkg.sha512",
+        "microsoft.aspnetcore.signalr.common.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.SignalR.Protocols.Json/3.1.2": {
+      "sha512": "G5B9IPdq4tpO0S0SyNZo2MetAg2k6z09SYLSExXAlXpPKx7IAr01zcgp6IUbXAzxKDYjpVFobuEod1lkLgOSnQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.signalr.protocols.json/3.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.SignalR.Protocols.Json.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.SignalR.Protocols.Json.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Protocols.Json.xml",
+        "microsoft.aspnetcore.signalr.protocols.json.3.1.2.nupkg.sha512",
+        "microsoft.aspnetcore.signalr.protocols.json.nuspec"
       ]
     },
     "Microsoft.AspNetCore.WebUtilities/2.1.0": {
@@ -9696,23 +9881,24 @@
         "system.io.filesystem.primitives.nuspec"
       ]
     },
-    "System.IO.Pipelines/4.5.1": {
-      "sha512": "oY5m31iOIZhvW0C69YTdKQWIbiYjFLgxn9NFXA7XeWD947uEk0zOi9fLbGtYgbs1eF7kTQ4zl9IeGQHthz+m+A==",
+    "System.IO.Pipelines/4.7.0": {
+      "sha512": "S0L7oyWyQdVzD+5xIvcC8h44Vc+FY+qXDCLRh2+YsuBDORNphcxNX+tXR6ByLMjQ/7jDaXxsYBF6qbAr7ZIaFw==",
       "type": "package",
-      "path": "system.io.pipelines/4.5.1",
+      "path": "system.io.pipelines/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/netcoreapp2.1/System.IO.Pipelines.dll",
-        "lib/netcoreapp2.1/System.IO.Pipelines.xml",
+        "lib/netcoreapp3.0/System.IO.Pipelines.dll",
+        "lib/netcoreapp3.0/System.IO.Pipelines.xml",
         "lib/netstandard1.3/System.IO.Pipelines.dll",
         "lib/netstandard1.3/System.IO.Pipelines.xml",
         "lib/netstandard2.0/System.IO.Pipelines.dll",
         "lib/netstandard2.0/System.IO.Pipelines.xml",
-        "ref/netstandard1.3/System.IO.Pipelines.dll",
-        "system.io.pipelines.4.5.1.nupkg.sha512",
+        "ref/netcoreapp2.0/System.IO.Pipelines.dll",
+        "ref/netcoreapp2.0/System.IO.Pipelines.xml",
+        "system.io.pipelines.4.7.0.nupkg.sha512",
         "system.io.pipelines.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -10382,6 +10568,77 @@
         "ref/xamarinwatchos10/_._",
         "system.net.webheadercollection.4.3.0.nupkg.sha512",
         "system.net.webheadercollection.nuspec"
+      ]
+    },
+    "System.Net.WebSockets/4.3.0": {
+      "sha512": "u6fFNY5q4T8KerUAVbya7bR6b7muBuSTAersyrihkcmE5QhEOiH3t5rh4il15SexbVlpXFHGuMwr/m8fDrnkQg==",
+      "type": "package",
+      "path": "system.net.websockets/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Net.WebSockets.dll",
+        "lib/netstandard1.3/System.Net.WebSockets.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Net.WebSockets.dll",
+        "ref/netstandard1.3/System.Net.WebSockets.dll",
+        "ref/netstandard1.3/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/de/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/es/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/fr/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/it/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/ja/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/ko/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/ru/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/zh-hans/System.Net.WebSockets.xml",
+        "ref/netstandard1.3/zh-hant/System.Net.WebSockets.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.net.websockets.4.3.0.nupkg.sha512",
+        "system.net.websockets.nuspec"
+      ]
+    },
+    "System.Net.WebSockets.Client/4.3.2": {
+      "sha512": "LqSrocFY47SxEmu1fYWbUmXcFJ2B/PqnMtc6zudOTUhNINgo75hgmoHv46ynkJLmqjkpxPzl251SGWHc+jofFQ==",
+      "type": "package",
+      "path": "system.net.websockets.client/4.3.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Net.WebSockets.Client.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Net.WebSockets.Client.dll",
+        "ref/netstandard1.3/System.Net.WebSockets.Client.dll",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/unix/lib/netstandard1.3/System.Net.WebSockets.Client.dll",
+        "runtimes/win/lib/net46/System.Net.WebSockets.Client.dll",
+        "runtimes/win/lib/netcore50/System.Net.WebSockets.Client.dll",
+        "runtimes/win/lib/netstandard1.3/System.Net.WebSockets.Client.dll",
+        "system.net.websockets.client.4.3.2.nupkg.sha512",
+        "system.net.websockets.client.nuspec"
       ]
     },
     "System.ObjectModel/4.3.0": {
@@ -12526,22 +12783,22 @@
         "system.threading.nuspec"
       ]
     },
-    "System.Threading.Channels/4.5.0": {
-      "sha512": "MEH06N0rIGmRT4LOKQ2BmUO0IxfvmIY/PaouSq+DFQku72OL8cxfw8W99uGpTCFf2vx2QHLRSh374iSM3asdTA==",
+    "System.Threading.Channels/4.7.0": {
+      "sha512": "gdOOXBhtt2UpTxYJm1DRmoqNfYg5ypvhzhVt0vxKhzxXFjS81r8yIOSFsJYLRa1Jc14GBAqCnjxJstO3zBN7gg==",
       "type": "package",
-      "path": "system.threading.channels/4.5.0",
+      "path": "system.threading.channels/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/netcoreapp2.1/System.Threading.Channels.dll",
-        "lib/netcoreapp2.1/System.Threading.Channels.xml",
+        "lib/netcoreapp3.0/System.Threading.Channels.dll",
+        "lib/netcoreapp3.0/System.Threading.Channels.xml",
         "lib/netstandard1.3/System.Threading.Channels.dll",
         "lib/netstandard1.3/System.Threading.Channels.xml",
         "lib/netstandard2.0/System.Threading.Channels.dll",
         "lib/netstandard2.0/System.Threading.Channels.xml",
-        "system.threading.channels.4.5.0.nupkg.sha512",
+        "system.threading.channels.4.7.0.nupkg.sha512",
         "system.threading.channels.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"

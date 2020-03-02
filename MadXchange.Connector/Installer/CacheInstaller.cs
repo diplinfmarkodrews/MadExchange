@@ -1,8 +1,7 @@
 ﻿using MadXchange.Connector.Configuration;
+using MadXchange.Exchange.Handler;
 using MadXchange.Exchange.Infrastructure.Cache;
-using MadXchange.Exchange.Interfaces;
-using MadXchange.Exchange.Interfaces.Cache;
-using Microsoft.AspNetCore.Builder;
+using MadXchange.Exchange.Infrastructure.Stores;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ServiceStack.Redis;
@@ -17,23 +16,18 @@ namespace MadXchange.Connector.Installer
             //services.AddDistributedMemoryCache();
             //services.AddOptions();
             var redisCacheSettings = new RedisCacheSettings();
-            config.GetSection(key: "Redis").Bind(redisCacheSettings);
-            
-            services.AddSingleton(redisCacheSettings);
-            //if (!redisCacheSettings.IsEnabled)
-            //{
-            //    return services;
-            //}
-            services.AddMemoryCache();
-
+            config.GetSection(key: "Redis").Bind(redisCacheSettings);            
+            services.AddSingleton(redisCacheSettings);           
             services.AddSingleton<IRedisClientsManager, RedisManagerPool>(c => new RedisManagerPool(redisCacheSettings.ConnectionString));
-            
+            services.AddTransient<IRedisClient, RedisClient>();
             services.AddTransient<IAccountRequestCache, AccountRequestCache>();
-            //services.AddSingleton<IInstrumentCache, InstrumentCache>();
+            services.AddSingleton<IInstrumentStore, InstrumentStore>();
+            services.AddSingleton<IInstrumentCache, InstrumentCache>();
+            services.AddSingleton<IConnectionDataHandler, CacheDataHandler>();
             //services.AddSingleton<IOrderCache, OrderCache>();
             //services.AddSingleton<IPositionCache, PositionCache>();
             //services.AddSingleton<IMarginCache, MarginCache>();
-            //services.AddSingleton<ICacheManager<IAccountRequestCache>>();
+          
 
             return services;
         }
@@ -44,9 +38,12 @@ namespace MadXchange.Connector.Installer
         /// <param name="app"></param>
         /// <param name="config"></param>
         /// <returns></returns>
-        public static IApplicationBuilder ConfigureCache(this IApplicationBuilder app, IConfiguration config)
-        {
-            return app;
-        }
+        //public static IApplicationBuilder ConfigureCache(this IApplicationBuilder app)
+        //{
+        //    var redisClient = app.ApplicationServices.GetRequiredService<IRedisClient>();
+        //    var allkeys = redisClient.GetAllKeys();
+            
+        //    return app;
+        //}
     }
 }

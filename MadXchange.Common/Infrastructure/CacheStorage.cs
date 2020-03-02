@@ -1,70 +1,57 @@
 ﻿using MadXchange.Common.Helpers;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Caching.Redis;
+using ServiceStack.Redis;
 using System;
 using System.Threading.Tasks;
-using ServiceStack.Redis;
-using ServiceStack;
-using System.Diagnostics;
 
 namespace MadXchange.Common.Infrastructure
 {
     public class CacheStorage<T> : IDisposable
     {
-        protected readonly IRedisClient _distributedCache;
+        protected readonly IRedisClientsManager _redisClientManager;
         protected readonly string _cacheAdress;
 
-        public CacheStorage(string baseAdress, IRedisClientsManager cache)
+        public CacheStorage(string baseAdress, IRedisClientsManager cacheManager)
         {
             _cacheAdress = baseAdress;
-            _distributedCache = cache.GetClient();
-        }
-
-        protected string AdressString(string id) => $"{_cacheAdress}{id}";
-
-        protected void Set(string id, T item)
-        {
+            _redisClientManager = cacheManager;
             
-            var byteArray = Converter.ObjectToByteArray(item);
-            _distributedCache.Set(AdressString(id), byteArray);
-           
         }
+
+        protected IDisposable AquireLock(string id)         
+            => _redisClientManager.GetClient().AcquireLock(id);
+        
+
+
+        protected string AdressString(string id) 
+            => $"{_cacheAdress}{id}";
+
+        protected void Set(string id, T item)          
+            => _redisClientManager.GetClient().Set(AdressString(id), Converter.ObjectToByteArray(item));
+
 
         protected Task SetAsync(string id, T item)
-        {
-            var accountByteArray = Converter.ObjectToByteArray(item);
-            _distributedCache.Set(AdressString(id), accountByteArray);
-            
-            return Task.CompletedTask;
-        }
+            => Task.FromResult(_redisClientManager.GetClient().Set(AdressString(id), Converter.ObjectToByteArray(item))); 
+                    
 
-        protected T Get(string id)
-        {
-            var item = _distributedCache.Get<byte[]>(AdressString(id));
-            var cItem = Converter.ByteArrayToObject(item);
-            return (T)(cItem);
-        }
+        protected T Get(string id)                    
+            => (T)Converter.ByteArrayToObject(_redisClientManager.GetReadOnlyClient().Get<byte[]>(AdressString(id)));
+        
+        
+        protected Task<T> GetAsync(string id)                    
+            => Task.FromResult((T)Converter.ByteArrayToObject(_redisClientManager.GetReadOnlyClient().Get<byte[]>(AdressString(id))));
+        
 
-        protected Task<T> GetAsync(string id)
-        {
-            var item = _distributedCache.Get<byte[]>(AdressString(id));
-            var charAr = (T)Converter.ByteArrayToObject(item);
-            return Task.FromResult(charAr);
-        }
-
-        protected void Remove(string id)
-        {
-            _distributedCache.Remove(AdressString(id));
-        }
+        protected void Remove(string id)        
+            => _redisClientManager.GetClient().Remove(AdressString(id));
+        
 
         protected Task RemoveAsync(string id)
-        {
-            return Task.FromResult(_distributedCache.Remove(AdressString(id)));
-        }
+            => Task.FromResult(_redisClientManager.GetClient().Remove(AdressString(id)));
+        
 
         public void Dispose()
         {
-            _distributedCache.Dispose();
+           
         }
     }
 }

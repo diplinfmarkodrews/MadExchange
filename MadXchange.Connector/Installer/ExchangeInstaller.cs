@@ -78,8 +78,7 @@ namespace MadXchange.Connector.Installer
             {                
                 JsonHttpClient.GlobalHttpMessageHandlerFactory = () => new NativeMessageHandler(throwOnCaptiveNetwork: true, customSSLVerification: false);
                 JsonHttpClient.DefaultUserAgent = "MadMexIO";
-                JsonHttpClient.log = LogManager.GetLogger(typeof(JsonHttpClient));
-              
+                JsonHttpClient.log = LogManager.GetLogger(typeof(JsonHttpClient));              
             
             }).SetHandlerLifetime(TimeSpan.FromMinutes(5));
                 

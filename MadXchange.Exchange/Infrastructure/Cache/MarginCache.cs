@@ -1,8 +1,6 @@
 ﻿using MadXchange.Common.Infrastructure;
 using MadXchange.Exchange.Domain.Cache;
 using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Interfaces;
-using Microsoft.Extensions.Caching.Distributed;
 using ServiceStack;
 using ServiceStack.Redis;
 using System;
@@ -10,7 +8,14 @@ using System.Threading.Tasks;
 
 namespace MadXchange.Exchange.Infrastructure.Cache
 {
-    public class MarginCache : CacheStorage<MarginCacheObject>, IMarginCache
+    public interface IMarginCache
+    {
+        void Set(Guid accountId, string symbol, Margin item);
+        long Update(Guid accountId, string symbol, Margin item);
+        Task<Margin> GetAsync(Guid accountId, string symbol);
+        Task RemoveAsync(Guid accountId, string symbol);
+    }
+    public class MarginCache : CacheStorageTransient<MarginCacheObject>, IMarginCache
     {
         public MarginCache(IRedisClientsManager cache) : base("margin", cache)
         {

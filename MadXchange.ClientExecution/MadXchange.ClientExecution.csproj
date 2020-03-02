@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MadXchange.Common\MadXchange.Common.csproj" />
+    <ProjectReference Include="..\MadXchange.Exchange\MadXchange.Exchange.csproj" />
   </ItemGroup>
 
 </Project>

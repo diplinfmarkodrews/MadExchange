@@ -31,12 +31,12 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
 
         public async Task<HttpResponseDto> SendRequestObjectAsync(Guid accountId, XchangeRequestObject routeObject, CancellationToken token = default)
         {
-            //var permit = await _requestAccessService.RequestAccess(accountId, token);
+            var permit = await _requestAccessService.RequestAccess(accountId, token);
             //if request was cancelled by CancellationToken, request gets aborted before execution, no permission to send then, otherwise it will wait until access is granted
-            //if (!permit) return default;
+            if (!permit) return default;
             _signRequestService.SignRequestObject(accountId, ref routeObject);
             var response = await _requestExecutionService.SendRequestObjectAsync(routeObject).ConfigureAwait(false);
-            //_requestAccessService.UpdateAccountRequestCache(accountId, response);
+            _requestAccessService.UpdateAccountRequestCache(accountId, response);
             return response;
         }
 

@@ -43,11 +43,13 @@ namespace MadXchange.Exchange.Contracts
         Partial = 4
 
     }
+
     public interface ISocketMessage
     {
         public MessageType MessageType { get; }
         
     }
+
     [DataContract]
     public class SocketResponse : ISocketMessage
     {
@@ -60,38 +62,34 @@ namespace MadXchange.Exchange.Contracts
         public virtual bool IsSuccess() => isSuccess;
         public DateTime Timestamp { get; } = DateTime.UtcNow;
 
-        internal string GetTopic()
-        {
-            var result = string.Empty;
-            return result;
-        }
-        //internal Action<string> GetTopic(Action<) {  }
-    }
-    [DataContract]
-    public class SocketMessage : ISocketMessage
-    {
-        public MessageType MessageType { get; } = MessageType.Data;
-        
-        public DataType DataType { get; set; } 
-        [DataMember]
-        public ObjectDictionary Data { get; set; }
-
-        
-
-        public DateTime Timestamp { get; } = DateTime.UtcNow;
-
-        internal virtual string GetChannel()
-        {
-            throw new NotImplementedException();
-        }
-
+        internal string GetTopic(string topicString) => Response.GetValueOrDefault(topicString).ToString();
         
     }
-    public interface ISocketRequest : IReturn<SocketResponse>, IDisposable 
+
+    //[DataContract]
+    //public class SocketMessage : ISocketMessage
+    //{
+        
+    //    public MessageType MessageType { get; } = MessageType.Data;        
+    //    public DataType DataType { get; set; } 
+        
+    //    [DataMember]
+    //    public string Data { get; set; }
+        
+    //    public DateTime Timestamp { get; } = DateTime.UtcNow;
+
+    //    //internal virtual string GetChannel(string channelString)
+    //    //    => Data.GetValueOrDefault(channelString).ToString();
+
+    //}
+
+
+
+    public interface ISocketRequest : IReturnVoid, IDisposable 
     {
         SocketMethod Method { get; }
-
     }
+
     [DataContract]
     public class SocketRequest : ISocketRequest 
     {
@@ -99,16 +97,18 @@ namespace MadXchange.Exchange.Contracts
         public SocketMethod Method { get; set; }
         [DataMember]
         public ObjectDictionary Parameter { get;  }
-        public Func<string> GetTopic { get; }
-        public SocketRequest(SocketMethod method, ObjectDictionary parameter) 
+        
+        public SocketRequest(SocketMethod method, string[] parameter)
         {
-            Parameter = parameter;
+            Parameter = new ObjectDictionary() { { "op", method.ToString().ToLower() }, { "args", parameter } };            
             Method = method;
         }
-        public void ToSocketRequestDto() 
+
+        public string ToSocketRequestDto() 
         {
             Timestamp = DateTime.UtcNow;
             RequestDto = Parameter.ToJson();
+            return RequestDto;
         }
 
         public string RequestDto { get; private set; }

@@ -229,9 +229,17 @@
               "target": "Package",
               "version": "[2.27.0, )"
             },
+            "Microsoft.AspNetCore.Diagnostics.Elm": {
+              "target": "Package",
+              "version": "[0.2.2, )"
+            },
+            "Microsoft.AspNetCore.SignalR": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
             "Microsoft.Extensions.Http.Polly": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.2, )"
             },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
@@ -252,6 +260,14 @@
             "Polly.Extensions.Http": {
               "target": "Package",
               "version": "[3.0.0, )"
+            },
+            "Prometheus.Client.HttpRequestDurations": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Prometheus.Client.MetricServer": {
+              "target": "Package",
+              "version": "[3.1.0, )"
             },
             "Serilog": {
               "target": "Package",
@@ -360,6 +376,10 @@
             "modernhttpclient": {
               "target": "Package",
               "version": "[2.4.2, )"
+            },
+            "prometheus-net.AspNetCore": {
+              "target": "Package",
+              "version": "[3.4.0, )"
             }
           },
           "imports": [
@@ -426,6 +446,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.SignalR.Client.Core": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "System.Net.WebSockets.Client": {
+              "target": "Package",
+              "version": "[4.3.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -25,7 +25,9 @@ namespace MadXchange.Connector.Services
         private static readonly Dictionary<Guid, CancellationToken> _requestCancelTokenDic = new Dictionary<Guid, CancellationToken>();
         private readonly ILogger _logger;
 
-        public CommandExecutionService(IPositionRequestService positionRequestService, IOrderRequestService orderRequestService, ILogger<CommandExecutionService> logger)
+        public CommandExecutionService(IPositionRequestService positionRequestService, 
+                                          IOrderRequestService orderRequestService, 
+                              ILogger<CommandExecutionService> logger)
         {
             _positionRequestService = positionRequestService;
             _orderRequestService = orderRequestService;

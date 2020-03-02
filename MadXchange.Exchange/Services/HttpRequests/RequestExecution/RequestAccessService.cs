@@ -1,6 +1,6 @@
 ﻿using MadXchange.Exchange.Contracts.Http;
 using MadXchange.Exchange.Domain.Cache;
-using MadXchange.Exchange.Interfaces.Cache;
+using MadXchange.Exchange.Infrastructure.Cache;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading;
@@ -11,7 +11,6 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
     public interface IRequestAccessService
     {
         Task<bool> RequestAccess(Guid accountId, CancellationToken token);
-
         void UpdateAccountRequestCache(Guid accountId, HttpResponseDto resDto);
     }
 
@@ -32,9 +31,11 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
             var acCacheObj = RequestAccountAccess(accountId);
             int rqQueue = acCacheObj.RequestQueue;
             long timeDiffInTicks = (DateTime.UtcNow.Ticks - acCacheObj.NextRequestTime);
-            while (timeDiffInTicks < 0 || !token.IsCancellationRequested)
+            while (timeDiffInTicks > 0 && !token.IsCancellationRequested)
             {
-                await Task.Delay(rqQueue * (int)(Math.Abs(timeDiffInTicks) * TimeSpan.TicksPerMillisecond), token);
+                var delay = rqQueue * (int)(timeDiffInTicks * TimeSpan.TicksPerMillisecond);
+                delay = delay > 0 ? delay : 0;
+                await Task.Delay(delay, token).ConfigureAwait(false);
                 acCacheObj = _requestCache.GetAccount(accountId);
                 timeDiffInTicks = (int)(DateTime.UtcNow.Ticks - acCacheObj?.NextRequestTime);
             }
@@ -48,28 +49,24 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
         /// <returns></returns>
         private AccountCacheObject RequestAccountAccess(Guid accountId)
         {
+            //var lockObj = _requestCache.LockAccount(accountId);
             var accountCacheObject = _requestCache.GetAccount(accountId);
-            if (accountCacheObject is null) accountCacheObject = new AccountCacheObject(accountId);
-            accountCacheObject.RequestQueue++;
-            accountCacheObject.Timestamp = DateTime.UtcNow.Ticks;
+            accountCacheObject.RequestQueue++;           
+            accountCacheObject.Timestamp = DateTime.UtcNow.Ticks;           
             _requestCache.SetAccount(accountCacheObject);
             return accountCacheObject;
         }
 
         public void UpdateAccountRequestCache(Guid accountId, HttpResponseDto resDto)
         {
-            var acCacheObj = _requestCache.GetAccount(accountId);
-            if (acCacheObj is null)
-            {
-                acCacheObj = new AccountCacheObject(accountId);
-                acCacheObj.RequestQueue++;
-            }
+            var acCacheObj = _requestCache.GetAccount(accountId);            
             acCacheObj.LastRateLimit = resDto.RateLimit;
             acCacheObj.RateLimitStatus = resDto.RateLimitStatus;
-            var dtDto = DateTime.Parse(resDto.TimeNow);
-            acCacheObj.LastRequestTime = dtDto == default ? resDto.Timestamp : dtDto.Ticks;
+            acCacheObj.LastRequestTime = resDto.Timestamp;            
             acCacheObj.NextRequestTime = acCacheObj.LastRequestTime + _minRequestTimeDiff;
-            acCacheObj.RequestQueue--;
+            acCacheObj.RequestQueue --;
+            if(acCacheObj.RequestQueue < 0)
+                acCacheObj.RequestQueue = 0;
             acCacheObj.Timestamp = DateTime.UtcNow.Ticks;
             _requestCache.SetAccount(acCacheObj);
         }

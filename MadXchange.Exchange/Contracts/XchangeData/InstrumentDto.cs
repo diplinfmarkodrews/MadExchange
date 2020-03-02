@@ -1,4 +1,5 @@
-﻿using MadXchange.Exchange.Domain.Types;
+﻿using MadXchange.Exchange.Domain.Models;
+using MadXchange.Exchange.Domain.Types;
 using System;
 using System.Runtime.Serialization;
 
@@ -41,5 +42,9 @@ namespace MadXchange.Exchange.Contracts
         public decimal? PredictedFundingRate { get; set; }
         [DataMember]
         public DateTime NextFundingTime { get; set; }
+        [DataMember]
+        public DateTime UpdateAt { get; set; }
+
+        
     }
 }

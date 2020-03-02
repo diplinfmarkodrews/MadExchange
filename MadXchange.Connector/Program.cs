@@ -6,27 +6,28 @@ using System;
 using System.IO;
 using ServiceStack.Host.NetCore;
 using System.Reflection;
+using MadXchange.Connector.Services;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore;
 
 namespace MadXchange.Connector
 {
     public class Program
     {
-
         
-
         public static int Main(string[] args)
         {
                                 
-            Log.Logger = MyWebHostExtensions.CreateSerilogLogger(MyWebHostExtensions.GetConfiguration());
+            Log.Logger = MyWebHostExtensions.CreateSerilogLogger(MyWebHostExtensions.GetConfiguration());           
             try
             {
+                
                 var hostbuilder = CreateHostBuilder(args);
-                //MyWebHostExtensions.LogPackagesVersionInfo();
+                MyWebHostExtensions.LogPackagesVersionInfo();
                 Log.Information("Configuring web host ({ApplicationContext})...", MyWebHostExtensions.AppName);
-                var host = hostbuilder.Build();
-                // 
+                var host = hostbuilder.Build(); 
                 Log.Information("Starting web host ({ApplicationContext})...", MyWebHostExtensions.AppName);
-                host.Run();
+                host.Run();               
                 return 0;
             }
             catch (Exception ex)
@@ -41,17 +42,21 @@ namespace MadXchange.Connector
          
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.CaptureStartupErrors(true)
-                              .UseContentRoot(Directory.GetCurrentDirectory())
-                              .UseStartup<Startup>()
-                              .UseKestrel()
-                              //.UseSockets();//configureOptions: o=> o.NoDelay = true)
-                              ;
-                });   
+        public static IWebHostBuilder CreateHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                                 
+                    .UseSerilog(Log.Logger)
+                    .UseSetting(WebHostDefaults.DetailedErrorsKey, "true")
+                            
+                          //.UseHttpSys()
+                          .CaptureStartupErrors(true)
+                          .UseContentRoot(Directory.GetCurrentDirectory())
+                          .UseStartup<Startup>()
+                          //.UseIISIntegration()
+                          .UseKestrel()
+                          .UseSockets(configureOptions: o => o.NoDelay = true);
+                              
+                
     
     }
     

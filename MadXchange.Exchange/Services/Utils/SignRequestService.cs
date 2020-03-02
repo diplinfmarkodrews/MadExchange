@@ -10,7 +10,7 @@ namespace MadXchange.Exchange.Services.Utils
         void SignRequestObject(Guid accountId, ref XchangeRequestObject formParamString);
 
         string SignSocketUrl(Guid accountId, string socketUrl);
-        ObjectDictionary CreatSocketAuthRequest(Guid id);
+        string[] CreatSocketAuthString(Guid id);
     }
 
     public class SignRequestService : ISignRequestsService
@@ -74,16 +74,19 @@ namespace MadXchange.Exchange.Services.Utils
         }
 
         private void SignRequestByBit(ApiKeySet account, ref XchangeRequestObject paramArray, long timeExpires)
-        {
-            
+        {            
             var signString = paramArray.AddApiKeyHeaders(account.ApiKey, timeExpires);
             string signature = _signatureProvider.CreateSignature(account.ApiSecret, signString); //{"ret_code":10007,"ret_msg":"Login failed, please login again.","ext_code":"","result":null,"ext_info":null,"token":"","time_now":"1580955671.063169"}
             paramArray.AddSignature(signature);
         }
 
-        public ObjectDictionary CreatSocketAuthRequest(Guid id)
+        public string[] CreatSocketAuthString(Guid id)
         {
-            throw new NotImplementedException();
+            var apiKeySet = _apiKeySetStore.GetAccount(id);
+            var time = _expiresTimeProvider.Get(apiKeySet.Exchange);
+            var sign = _signatureProvider.CreateSignature(apiKeySet.ApiSecret, "GET/realtime" + time);
+            return new string[] { apiKeySet.ApiKey, time.ToString(), sign };
+
         }
     }
 }

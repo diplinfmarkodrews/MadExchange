@@ -1,15 +1,21 @@
 ﻿using MadXchange.Common.Infrastructure;
 using MadXchange.Exchange.Domain.Cache;
 using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Interfaces.Cache;
-using Microsoft.Extensions.Caching.Distributed;
 using ServiceStack.Redis;
 using System;
 using System.Threading.Tasks;
 
 namespace MadXchange.Exchange.Infrastructure.Cache
 {
-    public class OrderCache : CacheStorage<OrderCacheObject>, IOrderCache
+    public interface IOrderCache
+    {
+        public void AddOrder(Guid accountId, string symbol, string orderId, Order order);
+        public bool UpdateOrder(Guid accountId, string symbol, string orderId, Order order);
+        public void RemoveOrder(Guid accountId, string symbol, string orderId);
+        public Task<Order> GetOrderAsync(Guid accountId, string symbol, string orderId);
+    }
+
+    public class OrderCache : CacheStorageTransient<OrderCacheObject>, IOrderCache
     {
         public OrderCache(IRedisClientsManager cache) : base("order", cache)
         {

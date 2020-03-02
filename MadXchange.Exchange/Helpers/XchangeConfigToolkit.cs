@@ -167,21 +167,7 @@ namespace MadXchange.Exchange.Helpers
             endP.Result = cSection.GetSection("Result")?.Value ?? cSection.Key;
             return endP;
         }
-        /// <summary>
-        /// Reads all DomainTypes from a ExchangeConfigurationSection
-        /// </summary>
-        /// <param name="configurationSection"></param>
-        /// <returns></returns>
-        
-        public static Dictionary<string, StringDictionary> ReadDomainTypeDictionary(IConfiguration configurationSection)
-        {
-            var result = new Dictionary<string, StringDictionary>();
-            var configTypes = configurationSection.GetSection("DomainTypes").GetChildren();
-            foreach (var type in configTypes)          
-                result.Add(type.Key, ReadType(type));
-            
-            return result;
-        }
+       
         /// <summary>
         /// Read a type from a preselected ConfigurationSection
         /// </summary>
@@ -219,10 +205,10 @@ namespace MadXchange.Exchange.Helpers
         /// <param name="section"></param>
         /// <returns></returns>
         
-        public static Dictionary<string, Type> GenerateDomainTypes(Dictionary<string, Type> typeDic, IConfigurationSection section)
+        public static Dictionary<string, Type> GenerateTypesDictionary(Dictionary<string, Type> typeDic, IConfigurationSection section)
         {
             var typeDicRes = new Dictionary<string, Type>();
-            var domainDic = ReadDomainTypeDictionary(section);
+            var domainDic = ReadTypeDictionary(section);
             foreach (var type in domainDic)
             {
                 if (typeDic.ContainsKey(type.Key))
@@ -255,6 +241,22 @@ namespace MadXchange.Exchange.Helpers
 
             }
             return typeDicRes;
+        }
+
+        /// <summary>
+        /// Reads all DomainTypes from a ExchangeConfigurationSection
+        /// </summary>
+        /// <param name="configurationSection"></param>
+        /// <returns></returns>
+
+        public static Dictionary<string, StringDictionary> ReadTypeDictionary(IConfiguration configurationSection)
+        {
+            var result = new Dictionary<string, StringDictionary>();
+            var configTypes = configurationSection.GetChildren();
+            foreach (var type in configTypes)
+                result.Add(type.Key, ReadType(type));
+
+            return result;
         }
 
         private static IEnumerable<Type> ScanAssemblyForDataContracts()

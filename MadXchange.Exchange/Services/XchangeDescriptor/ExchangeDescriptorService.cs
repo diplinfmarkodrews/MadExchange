@@ -31,6 +31,7 @@ namespace MadXchange.Exchange.Services.XchangeDescriptor
         string GetPublicEndPointUrl(Xchange exchange, XchangeHttpOperation routeKey);
         XchangeSocketDescriptor GetSocketDescriptor(Xchange exchange);
         string GetSocketConnectionString(Xchange exchange);
+        Types.XchangeDescriptor GetXchangeDescriptor(Xchange xchange);
     }
 
     /// <summary>
@@ -62,6 +63,8 @@ namespace MadXchange.Exchange.Services.XchangeDescriptor
 
         public XchangeSocketDescriptor GetSocketDescriptor(Xchange exchange)
             => _exchangeDescriptors[(int)exchange].SocketDescriptor;
-        
+
+        public Types.XchangeDescriptor GetXchangeDescriptor(Xchange xchange)
+            => _exchangeDescriptors[(int)xchange];
     }
 }

@@ -44,16 +44,9 @@ namespace MadXchange.Exchange.Helpers
         /// <returns></returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int GetID(this WebSocket socket) => (int)socket.GetId();
-        /// <summary>
-        /// returns a type selcting from a predefined dictioary of types, give by the subscription for each socket
-        /// the sperator within the topic is crucial for this to work. other exchanges might use different  aproaches
-        /// </summary>
-        /// <param name="message"></param>
-        /// <param name="subscriptions"></param>
-        /// <returns></returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static SocketSubscription GetSubscription(this SocketMessage message, Dictionary<string, SocketSubscription> subscriptions) => subscriptions[message.GetChannel()];
-       
+  
+      
+
 
     }
 }

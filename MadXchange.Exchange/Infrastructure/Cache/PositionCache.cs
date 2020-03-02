@@ -1,25 +1,28 @@
 ﻿using MadXchange.Common.Infrastructure;
 using MadXchange.Exchange.Domain.Cache;
 using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Interfaces.Cache;
-using Microsoft.Extensions.Caching.Distributed;
 using ServiceStack.Redis;
 using System;
 using System.Threading.Tasks;
 
 namespace MadXchange.Exchange.Infrastructure.Cache
 {
-    public class PositionCache : CacheStorage<PositionCacheObject>, IPositionCache
+    public interface IPositionCache
+    {
+        void SetPosition(Guid accountId, string symbol, Position position);
+        Task<Position> GetPositionAsync(Guid accountId, string symbol);
+    }
+
+    public sealed class PositionCache : CacheStorageTransient<PositionCacheObject>, IPositionCache
     {
         public PositionCache(IRedisClientsManager cache) : base("position", cache)
         {
+            
         }
 
-        public async Task<Position> GetPositionAsync(Guid accountId, string symbol)
-        {
-            var positionCacheObj = await GetAsync($"{accountId}{symbol}");
-            return positionCacheObj.Position;
-        }
+        public async Task<Position> GetPositionAsync(Guid accountId, string symbol)                  
+            => (await GetAsync($"{accountId}{symbol}"))?.Position;
+              
 
         public void SetPosition(Guid accountId, string symbol, Position position)
         {
@@ -29,5 +32,6 @@ namespace MadXchange.Exchange.Infrastructure.Cache
             };
             Set($"{accountId}{symbol}", positionCacheObj);
         }
+
     }
 }

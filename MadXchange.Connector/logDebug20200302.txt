@@ -1,0 +1,675 @@
+2020-03-02 08:50:18.819 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 08:50:19.002 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 08:50:32.390 +01:00 [FTL] Program terminated unexpectedly (MadXchange.Connector)!
+System.ArgumentException: Cannot instantiate implementation type 'MadXchange.Exchange.Services.Socket.ConnectionDataHandler' for service type 'MadXchange.Exchange.Services.Socket.ConnectionDataHandler'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.Populate()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory..ctor(IEnumerable`1 descriptors)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngineCallback callback)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CompiledServiceProviderEngine..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngineCallback callback)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services)
+   at Microsoft.AspNetCore.Hosting.WebHost.Initialize()
+   at Microsoft.AspNetCore.Hosting.WebHostBuilder.Build()
+   at MadXchange.Connector.Program.Main(String[] args) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Program.cs:line 28
+2020-03-02 08:52:23.983 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 08:52:24.261 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 08:52:26.239 +01:00 [FTL] Program terminated unexpectedly (MadXchange.Connector)!
+System.ArgumentException: Cannot instantiate implementation type 'MadXchange.Exchange.Services.Socket.ConnectionDataHandler' for service type 'MadXchange.Exchange.Services.Socket.ConnectionDataHandler'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.Populate()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory..ctor(IEnumerable`1 descriptors)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngineCallback callback)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CompiledServiceProviderEngine..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngineCallback callback)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services)
+   at Microsoft.AspNetCore.Hosting.WebHost.Initialize()
+   at Microsoft.AspNetCore.Hosting.WebHostBuilder.Build()
+   at MadXchange.Connector.Program.Main(String[] args) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Program.cs:line 28
+2020-03-02 08:55:26.525 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 08:55:26.712 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 08:55:39.532 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 08:55:45.155 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 08:55:45.176 +01:00 [DBG] Hosting starting
+2020-03-02 08:55:45.466 +01:00 [FTL] Application startup exception
+System.InvalidOperationException: A suitable constructor for type 'MadXchange.Exchange.Handler.CacheDataHandler' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MadXchange.Connector.Installer.WebSocketInstaller.StartSocketConnections(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Installer\WebSocketInstaller.cs:line 51
+   at MadXchange.Connector.Startup.Configure(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Startup.cs:line 193
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at App.Metrics.AspNetCore.Tracking.DefaultMetricsTrackingStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsTrackingMiddleware|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Health.Endpoints.DefaultHealthEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddHealthEndpoints|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Endpoints.DefaultMetricsEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsEndpoints|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+2020-03-02 08:55:46.048 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 08:55:46.050 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 08:55:46.089 +01:00 [DBG] #2 Socket Connected
+2020-03-02 08:55:46.142 +01:00 [DBG] #3 Socket Connected
+2020-03-02 08:55:46.153 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 08:55:46.171 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:46.304 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 08:55:46.691 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:47.208 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:47.324 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 94C78531B77034870FCC5D8F386EDB1057843E40)
+2020-03-02 08:55:47.336 +01:00 [DBG] Hosting started
+2020-03-02 08:55:47.345 +01:00 [DBG] Loaded hosting startup assembly MadXchange.Connector
+2020-03-02 08:55:47.622 +01:00 [DBG] Connection id "0HLTUFSF665UD" accepted.
+2020-03-02 08:55:47.629 +01:00 [DBG] Connection id "0HLTUFSF665UD" started.
+2020-03-02 08:55:47.713 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:47.839 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessAuthentication(LazyAsyncResult lazyResult, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__69_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.InnerOnConnectionAsync(ConnectionContext context)
+2020-03-02 08:55:47.973 +01:00 [DBG] Connection id "0HLTUFSF665UD" stopped.
+2020-03-02 08:55:47.987 +01:00 [DBG] Connection id "0HLTUFSF665UD" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-03-02 08:55:48.302 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:48.813 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:49.317 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:49.846 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:50.356 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:50.867 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:51.373 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:51.887 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:52.093 +01:00 [DBG] Connection id "0HLTUFSF665UE" accepted.
+2020-03-02 08:55:52.114 +01:00 [DBG] Connection id "0HLTUFSF665UE" started.
+2020-03-02 08:55:52.238 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessAuthentication(LazyAsyncResult lazyResult, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__69_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.InnerOnConnectionAsync(ConnectionContext context)
+2020-03-02 08:55:52.331 +01:00 [DBG] Connection id "0HLTUFSF665UE" stopped.
+2020-03-02 08:55:52.333 +01:00 [DBG] Connection id "0HLTUFSF665UE" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-03-02 08:55:52.434 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:52.938 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:53.450 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:53.965 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:54.493 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:55.007 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:55.526 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:56.035 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:56.581 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:57.079 +01:00 [DBG] Connection id "0HLTUFSF665UF" accepted.
+2020-03-02 08:55:57.100 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:57.125 +01:00 [DBG] Connection id "0HLTUFSF665UF" started.
+2020-03-02 08:55:57.263 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessAuthentication(LazyAsyncResult lazyResult, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__69_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.InnerOnConnectionAsync(ConnectionContext context)
+2020-03-02 08:55:57.307 +01:00 [DBG] Connection id "0HLTUFSF665UF" stopped.
+2020-03-02 08:55:57.321 +01:00 [DBG] Connection id "0HLTUFSF665UF" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-03-02 08:55:57.639 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:58.145 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:58.655 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:59.170 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:55:59.676 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:56:00.191 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:56:00.703 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:56:01.219 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:56:01.726 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:56:02.086 +01:00 [DBG] Connection id "0HLTUFSF665UG" accepted.
+2020-03-02 08:56:02.093 +01:00 [DBG] Connection id "0HLTUFSF665UG" started.
+2020-03-02 08:56:02.238 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessAuthentication(LazyAsyncResult lazyResult, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__69_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.InnerOnConnectionAsync(ConnectionContext context)
+2020-03-02 08:56:02.254 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:56:02.354 +01:00 [DBG] Connection id "0HLTUFSF665UG" stopped.
+2020-03-02 08:56:02.381 +01:00 [DBG] Connection id "0HLTUFSF665UG" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-03-02 08:56:02.878 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:56:03.396 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:56:03.902 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:56:04.408 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:27.152 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 08:59:27.341 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 08:59:31.391 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 08:59:31.519 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 08:59:31.541 +01:00 [DBG] Hosting starting
+2020-03-02 08:59:32.074 +01:00 [FTL] Application startup exception
+System.InvalidOperationException: A suitable constructor for type 'MadXchange.Exchange.Infrastructure.Cache.InstrumentCache' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MadXchange.Connector.Installer.WebSocketInstaller.StartSocketConnections(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Installer\WebSocketInstaller.cs:line 51
+   at MadXchange.Connector.Startup.Configure(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Startup.cs:line 193
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at App.Metrics.AspNetCore.Tracking.DefaultMetricsTrackingStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsTrackingMiddleware|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Health.Endpoints.DefaultHealthEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddHealthEndpoints|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Endpoints.DefaultMetricsEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsEndpoints|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+2020-03-02 08:59:33.002 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 08:59:33.007 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 08:59:33.059 +01:00 [DBG] #2 Socket Connected
+2020-03-02 08:59:33.115 +01:00 [DBG] #3 Socket Connected
+2020-03-02 08:59:33.135 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 08:59:33.149 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:33.660 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:34.171 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:34.686 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:35.202 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:35.720 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:36.224 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:36.737 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:37.252 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:37.763 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:38.266 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:38.778 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:39.284 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:39.786 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:40.289 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:40.794 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:41.298 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:41.805 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:42.315 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:42.832 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:43.353 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:43.867 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:44.376 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:44.894 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:45.415 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:45.923 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:46.430 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:46.935 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:47.449 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:47.981 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:48.486 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:48.997 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:49.518 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 08:59:50.024 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:01:16.343 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 09:01:16.500 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 09:01:19.995 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 09:01:20.115 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 09:01:20.135 +01:00 [DBG] Hosting starting
+2020-03-02 09:01:20.566 +01:00 [FTL] Application startup exception
+System.InvalidOperationException: A suitable constructor for type 'MadXchange.Exchange.Infrastructure.Cache.InstrumentCache' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MadXchange.Connector.Installer.WebSocketInstaller.StartSocketConnections(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Installer\WebSocketInstaller.cs:line 51
+   at MadXchange.Connector.Startup.Configure(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Startup.cs:line 193
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at App.Metrics.AspNetCore.Tracking.DefaultMetricsTrackingStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsTrackingMiddleware|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Health.Endpoints.DefaultHealthEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddHealthEndpoints|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Endpoints.DefaultMetricsEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsEndpoints|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+2020-03-02 09:01:21.203 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 09:01:21.207 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 09:01:21.241 +01:00 [DBG] #2 Socket Connected
+2020-03-02 09:01:21.311 +01:00 [DBG] #3 Socket Connected
+2020-03-02 09:01:21.332 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 09:01:21.348 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:01:21.862 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:01:22.378 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:01:22.895 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:01:23.412 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:07:17.947 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 09:07:18.187 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 09:07:24.362 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 09:07:24.599 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 09:07:24.650 +01:00 [DBG] Hosting starting
+2020-03-02 09:07:25.479 +01:00 [FTL] Application startup exception
+System.InvalidOperationException: A suitable constructor for type 'MadXchange.Exchange.Infrastructure.Cache.InstrumentCache' could not be located. Ensure the type is concrete and services are registered for all parameters of a public constructor.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.<>c__DisplayClass7_0.<GetCallSite>b__0(Type type)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(Type serviceType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at MadXchange.Connector.Installer.WebSocketInstaller.StartSocketConnections(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Installer\WebSocketInstaller.cs:line 51
+   at MadXchange.Connector.Startup.Configure(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Startup.cs:line 193
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at App.Metrics.AspNetCore.Tracking.DefaultMetricsTrackingStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsTrackingMiddleware|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Health.Endpoints.DefaultHealthEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddHealthEndpoints|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Endpoints.DefaultMetricsEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsEndpoints|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+2020-03-02 09:07:26.554 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 09:07:26.569 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 09:07:26.632 +01:00 [DBG] #2 Socket Connected
+2020-03-02 09:07:26.759 +01:00 [DBG] #3 Socket Connected
+2020-03-02 09:07:26.786 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 09:07:26.799 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:07:27.447 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:07:27.990 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:07:28.497 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:07:29.041 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:07:29.615 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:07:30.169 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:07:30.715 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:07:31.236 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:09:54.258 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 09:09:54.435 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 09:09:58.025 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 09:09:58.154 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 09:09:58.174 +01:00 [DBG] Hosting starting
+2020-03-02 09:09:58.300 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 09:09:58.306 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 09:09:58.508 +01:00 [FTL] Application startup exception
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MadXchange.Connector.Services.WebSocketConnection..ctor(IConnectionDataHandler socketMessageHandler, XchangeSocketDescriptor exchangeSocketDescriptor, IEnumerable`1 subscriptions, ISignRequestsService signService, Guid connectionId, Boolean ispublic) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Exchange\Services\Socket\WebSocketConnection.cs:line 68
+   at MadXchange.Connector.Services.SocketConnectionService.RegisterSocketInstrument(Xchange exchange, IEnumerable`1 subscribtions, Guid id) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Exchange\Services\Socket\SocketConnectionService.cs:line 73
+   at MadXchange.Connector.Services.AccountManager.RegisterClients() in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Services\AccountManager.cs:line 43
+   at MadXchange.Connector.Installer.WebSocketInstaller.StartSocketConnections(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Installer\WebSocketInstaller.cs:line 52
+   at MadXchange.Connector.Startup.Configure(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Startup.cs:line 193
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at App.Metrics.AspNetCore.Tracking.DefaultMetricsTrackingStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsTrackingMiddleware|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Health.Endpoints.DefaultHealthEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddHealthEndpoints|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Endpoints.DefaultMetricsEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsEndpoints|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+2020-03-02 09:09:58.730 +01:00 [DBG] #2 Socket Connected
+2020-03-02 09:09:58.779 +01:00 [DBG] #3 Socket Connected
+2020-03-02 09:09:58.798 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 09:09:58.822 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:09:59.343 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:09:59.898 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:10:00.421 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:10:00.925 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:16:16.180 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 09:16:16.306 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 09:16:19.714 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 09:16:19.830 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 09:16:19.914 +01:00 [DBG] Hosting starting
+2020-03-02 09:16:20.038 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 09:16:20.042 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 09:16:20.235 +01:00 [FTL] Application startup exception
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MadXchange.Connector.Services.WebSocketConnection..ctor(IConnectionDataHandler socketMessageHandler, XchangeSocketDescriptor exchangeSocketDescriptor, IEnumerable`1 subscriptions, ISignRequestsService signService, Guid connectionId, Boolean ispublic) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Exchange\Services\Socket\WebSocketConnection.cs:line 68
+   at MadXchange.Connector.Services.SocketConnectionService.RegisterSocketInstrument(Xchange exchange, IEnumerable`1 subscribtions, Guid id) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Exchange\Services\Socket\SocketConnectionService.cs:line 73
+   at MadXchange.Connector.Services.AccountManager.RegisterClients() in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Services\AccountManager.cs:line 43
+   at MadXchange.Connector.Installer.WebSocketInstaller.StartSocketConnections(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Installer\WebSocketInstaller.cs:line 52
+   at MadXchange.Connector.Startup.Configure(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Startup.cs:line 193
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at App.Metrics.AspNetCore.Tracking.DefaultMetricsTrackingStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsTrackingMiddleware|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Health.Endpoints.DefaultHealthEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddHealthEndpoints|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Endpoints.DefaultMetricsEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsEndpoints|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+2020-03-02 09:16:20.513 +01:00 [DBG] #2 Socket Connected
+2020-03-02 09:16:20.573 +01:00 [DBG] #3 Socket Connected
+2020-03-02 09:16:20.631 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 09:16:20.649 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:16:21.176 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:16:21.689 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:16:22.204 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:16:22.718 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:16:23.234 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:16:23.751 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 09:16:24.268 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:10:30.604 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 10:10:30.720 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 10:10:34.232 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 10:10:34.479 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 10:10:34.495 +01:00 [DBG] Hosting starting
+2020-03-02 10:10:34.621 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 10:10:34.624 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 10:11:10.199 +01:00 [FTL] Application startup exception
+System.Collections.Generic.KeyNotFoundException: The given key 'Instrument' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at MadXchange.Connector.Services.WebSocketConnection..ctor(IConnectionDataHandler socketMessageHandler, XchangeDescriptor exchangeDescriptor, IEnumerable`1 subscriptions, ISignRequestsService signService, Guid connectionId, Boolean ispublic) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Exchange\Services\Socket\WebSocketConnection.cs:line 70
+   at MadXchange.Connector.Services.SocketConnectionService.RegisterSocketInstrument(Xchange exchange, IEnumerable`1 subscribtions, Guid id) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Exchange\Services\Socket\SocketConnectionService.cs:line 76
+   at MadXchange.Connector.Services.AccountManager.RegisterClients() in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Services\AccountManager.cs:line 43
+   at MadXchange.Connector.Installer.WebSocketInstaller.StartSocketConnections(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Installer\WebSocketInstaller.cs:line 52
+   at MadXchange.Connector.Startup.Configure(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Startup.cs:line 193
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at App.Metrics.AspNetCore.Tracking.DefaultMetricsTrackingStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsTrackingMiddleware|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Health.Endpoints.DefaultHealthEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddHealthEndpoints|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Endpoints.DefaultMetricsEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsEndpoints|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+2020-03-02 10:11:10.429 +01:00 [DBG] #2 Socket Connected
+2020-03-02 10:11:10.480 +01:00 [DBG] #3 Socket Connected
+2020-03-02 10:11:10.493 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 10:11:10.511 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:11:10.634 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 10:11:11.016 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:11:11.520 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:11:11.663 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 94C78531B77034870FCC5D8F386EDB1057843E40)
+2020-03-02 10:11:11.679 +01:00 [DBG] Hosting started
+2020-03-02 10:11:11.683 +01:00 [DBG] Loaded hosting startup assembly MadXchange.Connector
+2020-03-02 10:11:12.034 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:11:12.109 +01:00 [DBG] Connection id "0HLTUH6JJ29UU" accepted.
+2020-03-02 10:11:12.153 +01:00 [DBG] Connection id "0HLTUH6JJ29UU" started.
+2020-03-02 10:11:12.367 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessAuthentication(LazyAsyncResult lazyResult, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__69_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.InnerOnConnectionAsync(ConnectionContext context)
+2020-03-02 10:11:12.554 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:11:12.584 +01:00 [DBG] Connection id "0HLTUH6JJ29UU" stopped.
+2020-03-02 10:11:12.600 +01:00 [DBG] Connection id "0HLTUH6JJ29UU" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-03-02 10:11:13.094 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:11:13.599 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:11:14.106 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:11:14.657 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:11:15.168 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:11:15.688 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:11:16.206 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:11:16.719 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:11:17.071 +01:00 [DBG] Connection id "0HLTUH6JJ29UV" accepted.
+2020-03-02 10:11:17.074 +01:00 [DBG] Connection id "0HLTUH6JJ29UV" started.
+2020-03-02 10:11:17.187 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessAuthentication(LazyAsyncResult lazyResult, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__69_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.InnerOnConnectionAsync(ConnectionContext context)
+2020-03-02 10:11:17.193 +01:00 [DBG] Hosting shutdown
+2020-03-02 10:11:17.206 +01:00 [DBG] Connection id "0HLTUH6JJ29UV" stopped.
+2020-03-02 10:11:17.267 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:11:17.280 +01:00 [DBG] Connection id "0HLTUH6JJ29UV" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-03-02 10:17:51.668 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 10:17:51.796 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 10:17:55.110 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 10:17:55.213 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 10:17:55.228 +01:00 [DBG] Hosting starting
+2020-03-02 10:17:55.363 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 10:17:55.364 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 10:18:04.850 +01:00 [FTL] Application startup exception
+System.Collections.Generic.KeyNotFoundException: The given key 'Instrument' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at MadXchange.Connector.Services.WebSocketConnection..ctor(IConnectionDataHandler socketMessageHandler, XchangeDescriptor exchangeDescriptor, IEnumerable`1 subscriptions, ISignRequestsService signService, Guid connectionId, Boolean ispublic) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Exchange\Services\Socket\WebSocketConnection.cs:line 70
+   at MadXchange.Connector.Services.SocketConnectionService.RegisterSocketInstrument(Xchange exchange, IEnumerable`1 subscribtions, Guid id) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Exchange\Services\Socket\SocketConnectionService.cs:line 76
+   at MadXchange.Connector.Services.AccountManager.RegisterClients() in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Services\AccountManager.cs:line 43
+   at MadXchange.Connector.Installer.WebSocketInstaller.StartSocketConnections(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Installer\WebSocketInstaller.cs:line 52
+   at MadXchange.Connector.Startup.Configure(IApplicationBuilder app) in C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\Startup.cs:line 193
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor, Boolean wrapExceptions)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.Invoke(Object instance, IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConfigureBuilder.<>c__DisplayClass4_0.<Build>b__0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.Hosting.ConventionBasedStartup.Configure(IApplicationBuilder app)
+   at App.Metrics.AspNetCore.Tracking.DefaultMetricsTrackingStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsTrackingMiddleware|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Health.Endpoints.DefaultHealthEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddHealthEndpoints|0(IApplicationBuilder builder)
+   at App.Metrics.AspNetCore.Endpoints.DefaultMetricsEndpointsStartupFilter.<>c__DisplayClass0_0.<Configure>g__AddMetricsEndpoints|0(IApplicationBuilder builder)
+   at Microsoft.AspNetCore.HostFilteringStartupFilter.<>c__DisplayClass0_0.<Configure>b__0(IApplicationBuilder app)
+   at Microsoft.AspNetCore.Hosting.WebHost.BuildApplication()
+2020-03-02 10:18:05.062 +01:00 [DBG] #2 Socket Connected
+2020-03-02 10:18:05.108 +01:00 [DBG] #3 Socket Connected
+2020-03-02 10:18:05.120 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 10:18:05.135 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:18:05.258 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 10:18:05.646 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:18:06.155 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:18:06.246 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 94C78531B77034870FCC5D8F386EDB1057843E40)
+2020-03-02 10:18:06.274 +01:00 [DBG] Hosting started
+2020-03-02 10:18:06.295 +01:00 [DBG] Loaded hosting startup assembly MadXchange.Connector
+2020-03-02 10:18:06.668 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:18:07.108 +01:00 [DBG] Connection id "0HLTUHAF8PJAS" accepted.
+2020-03-02 10:18:07.115 +01:00 [DBG] Connection id "0HLTUHAF8PJAS" started.
+2020-03-02 10:18:07.249 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:18:07.266 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessAuthentication(LazyAsyncResult lazyResult, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__69_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.InnerOnConnectionAsync(ConnectionContext context)
+2020-03-02 10:18:07.386 +01:00 [DBG] Connection id "0HLTUHAF8PJAS" stopped.
+2020-03-02 10:18:07.398 +01:00 [DBG] Connection id "0HLTUHAF8PJAS" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-03-02 10:18:07.769 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:18:08.276 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:18:08.781 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:18:09.299 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:18:09.810 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:18:10.320 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:18:24.226 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 10:18:24.357 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 10:18:26.645 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 10:18:26.741 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 10:18:26.758 +01:00 [DBG] Hosting starting
+2020-03-02 10:18:26.867 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 10:18:26.869 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 10:20:29.235 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 10:20:29.361 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 10:20:32.887 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 10:20:33.056 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 10:20:33.072 +01:00 [DBG] Hosting starting
+2020-03-02 10:20:33.192 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 10:20:33.194 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 10:21:10.070 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 10:21:10.165 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 10:21:10.170 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 10:21:10.180 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 10:21:10.249 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 10:21:10.251 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 10:21:10.300 +01:00 [DBG] #2 Socket Connected
+2020-03-02 10:21:10.346 +01:00 [DBG] #3 Socket Connected
+2020-03-02 10:21:10.357 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 10:21:10.369 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:21:10.448 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 10:45:15.160 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 10:45:15.390 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 10:45:18.659 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 10:45:18.796 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 10:45:18.825 +01:00 [DBG] Hosting starting
+2020-03-02 10:45:18.947 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 10:45:18.949 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 10:45:19.068 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 10:45:19.123 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 10:45:19.285 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 10:45:19.294 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 10:45:19.324 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 10:45:19.327 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 10:45:19.389 +01:00 [DBG] #2 Socket Connected
+2020-03-02 10:45:19.446 +01:00 [DBG] #3 Socket Connected
+2020-03-02 10:45:19.476 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 10:45:19.487 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 10:45:19.624 +01:00 [DBG] Failed to locate the development https certificate at 'null'.

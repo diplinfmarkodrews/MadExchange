@@ -34,6 +34,9 @@
             "projectReferences": {
               "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj": {
                 "projectPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj"
+              },
+              "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj": {
+                "projectPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj"
               }
             }
           }
@@ -232,6 +235,80 @@
             "ServiceStack.Text.Core": {
               "target": "Package",
               "version": "[5.8.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj",
+        "projectName": "MadXchange.Exchange",
+        "projectPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj",
+        "packagesPath": "C:\\Users\\MarkoMoto\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\MarkoMoto\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\MarkoMoto\\Downloads": {},
+          "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj": {
+                "projectPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.SignalR.Client.Core": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "System.Net.WebSockets.Client": {
+              "target": "Package",
+              "version": "[4.3.2, )"
             }
           },
           "imports": [

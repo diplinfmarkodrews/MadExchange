@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Domain\Models\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
