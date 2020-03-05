@@ -3,7 +3,7 @@
 namespace MadXchange.Exchange.Domain.Cache
 {
     [Serializable]
-    public class AccountCacheObject : ICacheObject
+    public class AccountRequestCacheObject : ICacheObject
     {
         public Guid AccountId { get; }
         public int RateLimitStatus { get; set; }
@@ -19,7 +19,7 @@ namespace MadXchange.Exchange.Domain.Cache
         //Given in Ticks
         public long Timestamp { get; set; }
 
-        public AccountCacheObject(Guid accountId)
+        public AccountRequestCacheObject(Guid accountId)
         {
             AccountId = accountId;
         }

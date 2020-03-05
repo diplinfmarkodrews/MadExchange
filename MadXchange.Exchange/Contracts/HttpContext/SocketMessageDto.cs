@@ -13,13 +13,13 @@ namespace MadXchange.Exchange.Contracts
         [DataMember]
         public virtual string RetMsg { get; set; }
         [DataMember]
-        public string Request { get; set; }
+        public virtual string Request { get; set; }
         [DataMember]
         public virtual string Topic { get; set; }
         [DataMember]
         public virtual string Action { get; set; }
         [DataMember]
-        public virtual string Type { get; set; }
+        public virtual DataType Type { get; set; }
         [DataMember]
         public virtual string Data { get; set; }
         [DataMember(Name = "ConnId")]

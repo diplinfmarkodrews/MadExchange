@@ -12,7 +12,6 @@ namespace MadXchange.MadClient.Infrastructure
     {
         private readonly IContingencyOrderManager _corderManager;
         private readonly ILogger _logger;
-        private readonly MarginStore _marginStore;
         private readonly PositionStore _PositionStore;
         private readonly IRestClient _clientRestExec;
         private readonly IClientStore _clientStore;
@@ -25,7 +24,6 @@ namespace MadXchange.MadClient.Infrastructure
             _clientRestExec = client;
             _clientStore = clientStore;
             _PositionStore = new PositionStore();
-            _marginStore = new MarginStore();
         }
 
         #region ApiClient BaseInterface
@@ -92,10 +90,7 @@ namespace MadXchange.MadClient.Infrastructure
             StoreMargin(currency);
         }
 
-        public void StoreMargin(IMargin margin)
-        {
-            StoreMargin(margin);
-        }
+       
 
         public void StorePosition(IPosition position)
         {
@@ -131,10 +126,7 @@ namespace MadXchange.MadClient.Infrastructure
         //{
         //    return await _clientRestExec.GetMarginAsync();
         //}
-        public async Task<IMargin> GetMarginAsync(string cur)
-        {
-            return await _clientRestExec.GetMarginAsync(_accountId, cur);
-        }
+     
 
         public async Task<IPosition> GetPositionAsync(string symbol)
         {

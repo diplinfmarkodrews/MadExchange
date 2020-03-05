@@ -25,5 +25,6 @@ namespace MadXchange.Exchange.Contracts
 
         [DataMember]
         public decimal? OrderMargin { get; set; }
+        public DateTime Updated { get; internal set; }
     }
 }

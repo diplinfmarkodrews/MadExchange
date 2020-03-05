@@ -13,22 +13,18 @@ namespace MadXchange.Common.Infrastructure
         public CacheStorageTransient(string baseAdress, IRedisClientsManager cache)
         {
             _cacheAdress = baseAdress;
-            _redisClient = cache.GetClient();
-            
+            _redisClient = cache.GetClient();           
         }
 
         protected IDisposable AquireLock(string id)         
             => _redisClient.AcquireLock(id);
         
-
-
         protected string AdressString(string id) 
             => $"{_cacheAdress}{id}";
 
         protected void Set(string id, T item)          
             => _redisClient.Set(AdressString(id), Converter.ObjectToByteArray(item));           
         
-
         protected Task SetAsync(string id, T item)
         {
             _redisClient.Set(AdressString(id), Converter.ObjectToByteArray(item));            

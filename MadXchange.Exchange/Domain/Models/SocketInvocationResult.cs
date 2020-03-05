@@ -10,7 +10,7 @@ namespace MadXchange.Exchange.Domain.Models
     {
 
         internal SocketMethod SocketMethod { get; set; }
-        internal string RequestKey { get; set; }
+        internal Guid RequestKey { get; set; }
         internal SocketInvocationResult() : base() 
         {
         

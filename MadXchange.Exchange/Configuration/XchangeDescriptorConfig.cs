@@ -36,9 +36,12 @@ namespace MadXchange.Exchange.Configuration
             _exchangeDescriptors = ReadExchangeDescriptorConfiguration(_config);
         }
 
-        public XchangeDescriptor[] StoredExchangeDescriptorConfiguration => _exchangeDescriptors;
+        public XchangeDescriptor[] StoredExchangeDescriptorConfiguration
+            => _exchangeDescriptors;
 
-        public XchangeDescriptor[] ReadExchangeDescriptorConfiguration() => ReadExchangeDescriptorConfiguration(_config);
+        public XchangeDescriptor[] ReadExchangeDescriptorConfiguration()
+            => ReadExchangeDescriptorConfiguration(_config);
+        
         //thats the main configuration function
         private XchangeDescriptor[] ReadExchangeDescriptorConfiguration(IConfiguration section)
         {
@@ -64,7 +67,7 @@ namespace MadXchange.Exchange.Configuration
                 exchangeDescriptor.SocketDescriptor = ReadSocketConfig(exchange);
                 //not tested and not needed yet! exchangeDescriptor.SocketDescriptor.TypeDescriptors = XchangeConfigToolkit.GenerateTypesDictionary(_dataTypes, exchange.GetSection("Socket:Types"));
                 exchangeDescriptor.SocketDescriptor.Xchange = exchangeEnum;
-
+                exchangeDescriptor.SocketDescriptor.SubscriptionArgs.Each(s => s.Value.ReturnType = exchangeDescriptor.DomainTypes.GetValueOrDefault($"{s.Key}Dto"));
                 if (VerifyExchangeDescriptor(exchangeDescriptor))
                     exchanges[exchangeDescriptor.Id] = exchangeDescriptor;
             }
@@ -76,22 +79,35 @@ namespace MadXchange.Exchange.Configuration
         private XchangeSocketDescriptor ReadSocketConfig(IConfigurationSection exchangeConfig)
         {
             var socketConfig = exchangeConfig.GetSection("Socket");
+            
             var result = new XchangeSocketDescriptor()
             {
                 SocketUrl = socketConfig.GetSection("SocketUrl").Value,
                 AuthUrl = socketConfig.GetValue<string>("AuthUrl"),
                 KeepAliveInterval = socketConfig.GetValue<int>("KeepAlive"),
                 ExpiresTime = socketConfig.GetValue<string>("ExpiresTime"),
+                
             };
-
+            var subscriptionConf = socketConfig.GetSection("Types:Request:Types:Subscription");
+            var topics = subscriptionConf.GetSection("Topic").GetChildren();
+            var resolutions = socketConfig.GetSection("Fields:Resolution").Get<string[]>();
             
+            topics.Each(t => result.SubscriptionArgs.Add($"{t.Key}Dto", new SocketSubscriptionArgs() { Topic = t.Value }));
+            var publicSubscription = result.SubscriptionArgs.Where(s => (s.Key == "OrderBook" || s.Key == "Instrument"));
+            foreach(var s in publicSubscription)
+            {
+                s.Value.IsPublic = true;
+                s.Value.Args = new string[] { resolutions.FirstOrDefault() };
+               
+            }
             //var stringValues = socketConfig.GetChildren().Where(c => c.GetChildren().Count() == 1);
             result.CombinedStrings = new Dictionary<string, string[]>();
 
             return result;
         }
 
-       
+        
+
 
         private bool VerifyExchangeDescriptor(XchangeDescriptor descriptor)
         {

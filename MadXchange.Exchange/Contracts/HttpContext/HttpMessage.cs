@@ -7,6 +7,6 @@ namespace MadXchange.Exchange.Contracts
     public class HttpMessage
     {
         public Xchange Exchange { get; set; }
-        public DateTime Timestamp { get; } = DateTime.UtcNow;
+        public long Timestamp { get; } = DateTime.UtcNow.Ticks;
     }
 }

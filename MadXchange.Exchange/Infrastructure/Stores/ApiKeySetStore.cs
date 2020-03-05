@@ -19,6 +19,7 @@ namespace MadXchange.Exchange.Infrastructure.Stores
         public void RemoveAccount(Guid accountId);
 
         public bool Contains(Guid accountId);
+        public ApiKeySet Get(Xchange exchange);
 
         //events to signal accounts have been added or removed
     }
@@ -89,5 +90,8 @@ namespace MadXchange.Exchange.Infrastructure.Stores
 
         public IEnumerable<ApiKeySet> Get(Expression<Func<ApiKeySet, bool>> predicate = null, Func<IQueryable<ApiKeySet>, IOrderedQueryable<ApiKeySet>> orderBy = null, params Expression<Func<ApiKeySet, object>>[] includeProperties)
              => throw new NotSupportedException();
+
+        public ApiKeySet Get(Xchange exchange)
+            => _userDictionary.Values.FirstOrDefault(k => k.Exchange == exchange);
     }
 }

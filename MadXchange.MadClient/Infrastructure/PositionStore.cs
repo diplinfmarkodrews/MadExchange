@@ -26,28 +26,5 @@ namespace MadXchange.MadClient.Infrastructure
             return null;
         }
     }
-
-    public class MarginStore
-    {
-        private readonly Dictionary<string, IMargin> _MarginStore;
-
-        public MarginStore()
-        {
-            _MarginStore = new Dictionary<string, IMargin>();
-        }
-
-        public void Store(IMargin pos)
-        {
-            _MarginStore[pos.Currency] = pos;
-        }
-
-        public IMargin GetMargin(string symbol)
-        {
-            if (_MarginStore.ContainsKey(symbol))
-            {
-                return _MarginStore[symbol];
-            }
-            return null;
-        }
-    }
+    
 }

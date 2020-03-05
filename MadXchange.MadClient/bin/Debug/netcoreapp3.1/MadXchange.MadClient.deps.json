@@ -480,7 +480,7 @@
           }
         }
       },
-      "Convey/0.4.258": {
+      "Convey/0.4.273": {
         "dependencies": {
           "Figgle": "0.3.0",
           "Scrutor": "3.1.0"
@@ -494,7 +494,7 @@
       },
       "Convey.Configurations.Vault/0.4.226": {
         "dependencies": {
-          "Convey": "0.4.258",
+          "Convey": "0.4.273",
           "VaultSharp": "0.11.1002"
         },
         "runtime": {
@@ -504,9 +504,9 @@
           }
         }
       },
-      "Convey.CQRS.Commands/0.4.258": {
+      "Convey.CQRS.Commands/0.4.273": {
         "dependencies": {
-          "Convey": "0.4.258"
+          "Convey": "0.4.273"
         },
         "runtime": {
           "lib/netcoreapp3.1/Convey.CQRS.Commands.dll": {
@@ -515,9 +515,9 @@
           }
         }
       },
-      "Convey.CQRS.Events/0.4.258": {
+      "Convey.CQRS.Events/0.4.273": {
         "dependencies": {
-          "Convey": "0.4.258"
+          "Convey": "0.4.273"
         },
         "runtime": {
           "lib/netcoreapp3.1/Convey.CQRS.Events.dll": {
@@ -526,9 +526,9 @@
           }
         }
       },
-      "Convey.CQRS.Queries/0.4.258": {
+      "Convey.CQRS.Queries/0.4.273": {
         "dependencies": {
-          "Convey": "0.4.258"
+          "Convey": "0.4.273"
         },
         "runtime": {
           "lib/netcoreapp3.1/Convey.CQRS.Queries.dll": {
@@ -537,10 +537,10 @@
           }
         }
       },
-      "Convey.Discovery.Consul/0.4.258": {
+      "Convey.Discovery.Consul/0.4.273": {
         "dependencies": {
-          "Convey": "0.4.258",
-          "Convey.HTTP": "0.4.258",
+          "Convey": "0.4.273",
+          "Convey.HTTP": "0.4.273",
           "Microsoft.Extensions.Hosting.Abstractions": "3.1.1",
           "Microsoft.Extensions.Http": "3.1.1"
         },
@@ -551,9 +551,9 @@
           }
         }
       },
-      "Convey.HTTP/0.4.258": {
+      "Convey.HTTP/0.4.273": {
         "dependencies": {
-          "Convey": "0.4.258",
+          "Convey": "0.4.273",
           "Microsoft.Extensions.Http": "3.1.1",
           "Polly": "7.2.0"
         },
@@ -564,9 +564,9 @@
           }
         }
       },
-      "Convey.Logging/0.4.258": {
+      "Convey.Logging/0.4.273": {
         "dependencies": {
-          "Convey": "0.4.258",
+          "Convey": "0.4.273",
           "Microsoft.Extensions.Logging": "3.1.2",
           "Serilog": "2.9.0",
           "Serilog.AspNetCore": "3.2.0",
@@ -583,13 +583,13 @@
           }
         }
       },
-      "Convey.Logging.CQRS/0.4.258": {
+      "Convey.Logging.CQRS/0.4.273": {
         "dependencies": {
-          "Convey": "0.4.258",
-          "Convey.CQRS.Commands": "0.4.258",
-          "Convey.CQRS.Events": "0.4.258",
-          "Convey.CQRS.Queries": "0.4.258",
-          "Convey.Logging": "0.4.258",
+          "Convey": "0.4.273",
+          "Convey.CQRS.Commands": "0.4.273",
+          "Convey.CQRS.Events": "0.4.273",
+          "Convey.CQRS.Queries": "0.4.273",
+          "Convey.Logging": "0.4.273",
           "SmartFormat.NET": "2.5.0"
         },
         "runtime": {
@@ -599,9 +599,9 @@
           }
         }
       },
-      "Convey.MessageBrokers/0.4.258": {
+      "Convey.MessageBrokers/0.4.273": {
         "dependencies": {
-          "Convey": "0.4.258",
+          "Convey": "0.4.273",
           "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
@@ -611,11 +611,11 @@
           }
         }
       },
-      "Convey.MessageBrokers.CQRS/0.4.258": {
+      "Convey.MessageBrokers.CQRS/0.4.273": {
         "dependencies": {
-          "Convey.CQRS.Commands": "0.4.258",
-          "Convey.CQRS.Events": "0.4.258",
-          "Convey.MessageBrokers": "0.4.258"
+          "Convey.CQRS.Commands": "0.4.273",
+          "Convey.CQRS.Events": "0.4.273",
+          "Convey.MessageBrokers": "0.4.273"
         },
         "runtime": {
           "lib/netcoreapp3.1/Convey.MessageBrokers.CQRS.dll": {
@@ -624,10 +624,10 @@
           }
         }
       },
-      "Convey.MessageBrokers.RabbitMQ/0.4.258": {
+      "Convey.MessageBrokers.RabbitMQ/0.4.273": {
         "dependencies": {
-          "Convey": "0.4.258",
-          "Convey.MessageBrokers": "0.4.258",
+          "Convey": "0.4.273",
+          "Convey.MessageBrokers": "0.4.273",
           "Microsoft.Extensions.Caching.Memory": "3.1.2",
           "Microsoft.Extensions.Logging": "3.1.2",
           "Polly": "7.2.0",
@@ -640,7 +640,7 @@
           }
         }
       },
-      "Convey.Metrics.AppMetrics/0.4.258": {
+      "Convey.Metrics.AppMetrics/0.4.273": {
         "dependencies": {
           "App.Metrics.AspNetCore": "3.2.0",
           "App.Metrics.AspNetCore.Core": "3.2.0",
@@ -662,7 +662,7 @@
           "App.Metrics.Reporting.Console": "3.2.0",
           "App.Metrics.Reporting.Http": "3.2.0",
           "App.Metrics.Reporting.InfluxDB": "3.2.0",
-          "Convey": "0.4.258"
+          "Convey": "0.4.273"
         },
         "runtime": {
           "lib/netcoreapp3.1/Convey.Metrics.AppMetrics.dll": {
@@ -671,10 +671,10 @@
           }
         }
       },
-      "Convey.Persistence.MongoDB/0.4.258": {
+      "Convey.Persistence.MongoDB/0.4.273": {
         "dependencies": {
-          "Convey": "0.4.258",
-          "Convey.CQRS.Queries": "0.4.258",
+          "Convey": "0.4.273",
+          "Convey.CQRS.Queries": "0.4.273",
           "MongoDB.Driver": "2.10.1"
         },
         "runtime": {
@@ -684,9 +684,9 @@
           }
         }
       },
-      "Convey.Persistence.Redis/0.4.258": {
+      "Convey.Persistence.Redis/0.4.273": {
         "dependencies": {
-          "Convey": "0.4.258",
+          "Convey": "0.4.273",
           "Microsoft.Extensions.Caching.StackExchangeRedis": "3.1.1"
         },
         "runtime": {
@@ -696,9 +696,9 @@
           }
         }
       },
-      "Convey.Secrets.Vault/0.4.258": {
+      "Convey.Secrets.Vault/0.4.273": {
         "dependencies": {
-          "Convey": "0.4.258",
+          "Convey": "0.4.273",
           "VaultSharp": "0.11.1002"
         },
         "runtime": {
@@ -708,9 +708,9 @@
           }
         }
       },
-      "Convey.Tracing.Jaeger/0.4.258": {
+      "Convey.Tracing.Jaeger/0.4.273": {
         "dependencies": {
-          "Convey": "0.4.258",
+          "Convey": "0.4.273",
           "Jaeger": "0.3.6",
           "OpenTracing.Contrib.NetCore": "0.6.2"
         },
@@ -721,10 +721,10 @@
           }
         }
       },
-      "Convey.Tracing.Jaeger.RabbitMQ/0.4.258": {
+      "Convey.Tracing.Jaeger.RabbitMQ/0.4.273": {
         "dependencies": {
-          "Convey.MessageBrokers.RabbitMQ": "0.4.258",
-          "Convey.Tracing.Jaeger": "0.4.258"
+          "Convey.MessageBrokers.RabbitMQ": "0.4.273",
+          "Convey.Tracing.Jaeger": "0.4.273"
         },
         "runtime": {
           "lib/netcoreapp3.1/Convey.Tracing.Jaeger.RabbitMQ.dll": {
@@ -2123,14 +2123,6 @@
           }
         }
       },
-      "ServiceStack.Caching.Memcached/5.8.0": {
-        "runtime": {
-          "lib/net45/ServiceStack.Caching.Memcached.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.8.0.0"
-          }
-        }
-      },
       "ServiceStack.Common.Core/5.8.0": {
         "dependencies": {
           "ServiceStack.Interfaces.Core": "5.8.0",
@@ -3405,23 +3397,23 @@
       "MadXchange.Common/1.0.0": {
         "dependencies": {
           "AspNetCore.HealthChecks.Rabbitmq": "3.0.5",
-          "Convey": "0.4.258",
-          "Convey.CQRS.Commands": "0.4.258",
-          "Convey.CQRS.Events": "0.4.258",
-          "Convey.CQRS.Queries": "0.4.258",
+          "Convey": "0.4.273",
+          "Convey.CQRS.Commands": "0.4.273",
+          "Convey.CQRS.Events": "0.4.273",
+          "Convey.CQRS.Queries": "0.4.273",
           "Convey.Configurations.Vault": "0.4.226",
-          "Convey.Discovery.Consul": "0.4.258",
-          "Convey.Logging": "0.4.258",
-          "Convey.Logging.CQRS": "0.4.258",
-          "Convey.MessageBrokers": "0.4.258",
-          "Convey.MessageBrokers.CQRS": "0.4.258",
-          "Convey.MessageBrokers.RabbitMQ": "0.4.258",
-          "Convey.Metrics.AppMetrics": "0.4.258",
-          "Convey.Persistence.MongoDB": "0.4.258",
-          "Convey.Persistence.Redis": "0.4.258",
-          "Convey.Secrets.Vault": "0.4.258",
-          "Convey.Tracing.Jaeger": "0.4.258",
-          "Convey.Tracing.Jaeger.RabbitMQ": "0.4.258",
+          "Convey.Discovery.Consul": "0.4.273",
+          "Convey.Logging": "0.4.273",
+          "Convey.Logging.CQRS": "0.4.273",
+          "Convey.MessageBrokers": "0.4.273",
+          "Convey.MessageBrokers.CQRS": "0.4.273",
+          "Convey.MessageBrokers.RabbitMQ": "0.4.273",
+          "Convey.Metrics.AppMetrics": "0.4.273",
+          "Convey.Persistence.MongoDB": "0.4.273",
+          "Convey.Persistence.Redis": "0.4.273",
+          "Convey.Secrets.Vault": "0.4.273",
+          "Convey.Tracing.Jaeger": "0.4.273",
+          "Convey.Tracing.Jaeger.RabbitMQ": "0.4.273",
           "Microsoft.EntityFrameworkCore": "3.1.2",
           "Microsoft.Extensions.Caching.Redis": "2.2.0",
           "Microsoft.Extensions.Caching.Redis.Core": "1.0.3",
@@ -3430,7 +3422,6 @@
           "RabbitMQ.Client.Core.DependencyInjection": "3.2.0",
           "RawRabbit": "1.10.4",
           "RawRabbit.vNext": "1.10.4",
-          "ServiceStack.Caching.Memcached": "5.8.0",
           "ServiceStack.Redis.Core": "5.8.0",
           "ServiceStack.Text.Core": "5.8.0"
         },
@@ -3722,12 +3713,12 @@
       "path": "aspnetcore.healthchecks.rabbitmq/3.0.5",
       "hashPath": "aspnetcore.healthchecks.rabbitmq.3.0.5.nupkg.sha512"
     },
-    "Convey/0.4.258": {
+    "Convey/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-3xso5GYbKBR5kD1BEJSDCngGxoVCDBPmpZqB5bOWE1I+I1uQkFtttgjI4U514w87EaIN6iBQYwAIRSitAiowRA==",
-      "path": "convey/0.4.258",
-      "hashPath": "convey.0.4.258.nupkg.sha512"
+      "sha512": "sha512-wFW+9SDE0u5UhfUmm5bz57Vt2xcCJjYy1dhN+2BGMuPsPdMhoqFlTcqTDdmi4klVf//XIZEradwk3q8QsgjTQw==",
+      "path": "convey/0.4.273",
+      "hashPath": "convey.0.4.273.nupkg.sha512"
     },
     "Convey.Configurations.Vault/0.4.226": {
       "type": "package",
@@ -3736,117 +3727,117 @@
       "path": "convey.configurations.vault/0.4.226",
       "hashPath": "convey.configurations.vault.0.4.226.nupkg.sha512"
     },
-    "Convey.CQRS.Commands/0.4.258": {
+    "Convey.CQRS.Commands/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-83aSwAt5jzz/p5VLZh8OPADy+IXCqCQSmriYx+bX2tSrSWWx3Fe/i0s63zwDXAlTq9DntHF6KK6zhhicfGORnA==",
-      "path": "convey.cqrs.commands/0.4.258",
-      "hashPath": "convey.cqrs.commands.0.4.258.nupkg.sha512"
+      "sha512": "sha512-TV4Zh1KerIn2erk8KA9E0cKp/w+2yQEEKZ8E9EqYHknmhFztXD5xUTyKEi9wtB6MpjWBjpC/3B37xIopR6K/iQ==",
+      "path": "convey.cqrs.commands/0.4.273",
+      "hashPath": "convey.cqrs.commands.0.4.273.nupkg.sha512"
     },
-    "Convey.CQRS.Events/0.4.258": {
+    "Convey.CQRS.Events/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gYOSYsPsQgXl77YhLsqosDksUQNFiTW+uFbW08zUX5tMZm7oN4Aki3aCVzm69p4LZCAdAksOyG/uSm0K5DWXlg==",
-      "path": "convey.cqrs.events/0.4.258",
-      "hashPath": "convey.cqrs.events.0.4.258.nupkg.sha512"
+      "sha512": "sha512-zhbyvG1ivA7J3IeKLPTgtwdTN/pDy/bge9QhC0spEIxoQjySQac8aSx+RCuH0CBgUBf6OZ+/1BcljfJ3jZU7gg==",
+      "path": "convey.cqrs.events/0.4.273",
+      "hashPath": "convey.cqrs.events.0.4.273.nupkg.sha512"
     },
-    "Convey.CQRS.Queries/0.4.258": {
+    "Convey.CQRS.Queries/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-c8P9wbuHEyULk4PpC0egEm6hqUHxeBTKN9NcXy7kpbMGf5OvVi5OVdRZkqVVVHPLGZIjZ80unh90Jy4izdcmHA==",
-      "path": "convey.cqrs.queries/0.4.258",
-      "hashPath": "convey.cqrs.queries.0.4.258.nupkg.sha512"
+      "sha512": "sha512-KYv7cOKcH8XXCXuF7tktCq997YeTOSI5Cf1dsDn7ytqHIIcLnfNgxblEgZcKYik9H21oZmd4xCBnVbYNccP9Mg==",
+      "path": "convey.cqrs.queries/0.4.273",
+      "hashPath": "convey.cqrs.queries.0.4.273.nupkg.sha512"
     },
-    "Convey.Discovery.Consul/0.4.258": {
+    "Convey.Discovery.Consul/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HN5M2KFeQ+o73/Fbcc84ofMRFvxnx90jG8ssbRPBfMX1maXLbqVOtER3uG5kOxuxn7T2M06aGaTvcrD6K0bexg==",
-      "path": "convey.discovery.consul/0.4.258",
-      "hashPath": "convey.discovery.consul.0.4.258.nupkg.sha512"
+      "sha512": "sha512-gmYc6dHT/FmnbZaJB33icYLokNdTkpoJXK14TI6uCjYgVqrgagKKJXktf/UL37XI9mo7+VQyCdL86xt3s6yoWg==",
+      "path": "convey.discovery.consul/0.4.273",
+      "hashPath": "convey.discovery.consul.0.4.273.nupkg.sha512"
     },
-    "Convey.HTTP/0.4.258": {
+    "Convey.HTTP/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-AxoA9cuAOKzV8o4GJY4eCOGa7ta4On63R3X0hazRWy5HLRGonQ0oMwS3O9kcgctZmh10tBC3VWxXqlD8vAeKaA==",
-      "path": "convey.http/0.4.258",
-      "hashPath": "convey.http.0.4.258.nupkg.sha512"
+      "sha512": "sha512-vwZK4nAgWV3gHGCamVffv6Vdwoj5gY56KpO2paHtebm7z3eRufMVpAhsxFuuOiXZxDbwbg+IWdKSFOCc5Bkrew==",
+      "path": "convey.http/0.4.273",
+      "hashPath": "convey.http.0.4.273.nupkg.sha512"
     },
-    "Convey.Logging/0.4.258": {
+    "Convey.Logging/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-uuI3HZQPiSlxBES+dk/Z2b8ANedubOF9COof9KhRReW8PtUQNlNubZwzM7VRfn0SiqndGKWXlDuPF4sARIgaSQ==",
-      "path": "convey.logging/0.4.258",
-      "hashPath": "convey.logging.0.4.258.nupkg.sha512"
+      "sha512": "sha512-yvLhe9A/SGnRA37VFwDtfli1qBK8EbeeeO/L774es0G33rq7jVRKP1GcbGZ5Wofvbkrc1MCHBT50WqrKmtWlzw==",
+      "path": "convey.logging/0.4.273",
+      "hashPath": "convey.logging.0.4.273.nupkg.sha512"
     },
-    "Convey.Logging.CQRS/0.4.258": {
+    "Convey.Logging.CQRS/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kSV/gJ231qreUAT0tlQovZxpBk4jYYY/fADgythb6u4Z/FtUxaY0a2KqJ+wwlN/HZC/bPUhBusaJxt/SmbpHbw==",
-      "path": "convey.logging.cqrs/0.4.258",
-      "hashPath": "convey.logging.cqrs.0.4.258.nupkg.sha512"
+      "sha512": "sha512-tr25I5rflt5hDHTHe8EkCBsbjJoCLj79nFjeCkCAGMQUiIFz7ZITTkSVVpVa7AqP5n0Y0DLmVT7D5EbOpLOX9A==",
+      "path": "convey.logging.cqrs/0.4.273",
+      "hashPath": "convey.logging.cqrs.0.4.273.nupkg.sha512"
     },
-    "Convey.MessageBrokers/0.4.258": {
+    "Convey.MessageBrokers/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-S3F30Ryj4qCLB+OOxDVOGHJZQzYShKYUb8MAn4Ei0JiTdC1rRdfGl+VQMKJ1RDARTF/QHj1kkUQRhWtfbsy08w==",
-      "path": "convey.messagebrokers/0.4.258",
-      "hashPath": "convey.messagebrokers.0.4.258.nupkg.sha512"
+      "sha512": "sha512-4kdl8VuSlSx4/Iy36nrZ25C6cVc/oxl4/vv4O7YwY2E5M5aZC6Xzp1Fto/A4EqVpDoFO2UkX2Y5EV28CuBXnSw==",
+      "path": "convey.messagebrokers/0.4.273",
+      "hashPath": "convey.messagebrokers.0.4.273.nupkg.sha512"
     },
-    "Convey.MessageBrokers.CQRS/0.4.258": {
+    "Convey.MessageBrokers.CQRS/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-11qUBPuS+EsNjlMW9pRwRbv+noNUF1UsQXrbJyPk3S2FBUHPvc37bKd0cDWgKlBvojjlQQQvJ7nr1x1gKh+2vw==",
-      "path": "convey.messagebrokers.cqrs/0.4.258",
-      "hashPath": "convey.messagebrokers.cqrs.0.4.258.nupkg.sha512"
+      "sha512": "sha512-U0ZbnLFSRHNSzTjTF5rmYyAbd9QpsoU6OndJvm03j7AUQ36W/aeugDMolYOa0RPOy5nbKFsfMnEK+AaMXc/l8g==",
+      "path": "convey.messagebrokers.cqrs/0.4.273",
+      "hashPath": "convey.messagebrokers.cqrs.0.4.273.nupkg.sha512"
     },
-    "Convey.MessageBrokers.RabbitMQ/0.4.258": {
+    "Convey.MessageBrokers.RabbitMQ/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-X4hQU+IrFTlFbnJEBm6UNxIySoZUxi50r8OoSnonOnXh8D/vo6KOohg+R/CGamnvaMhJ5ht4fbZO864tUQ/isQ==",
-      "path": "convey.messagebrokers.rabbitmq/0.4.258",
-      "hashPath": "convey.messagebrokers.rabbitmq.0.4.258.nupkg.sha512"
+      "sha512": "sha512-b4QkLaENLsongC3mEJDuYAosSXBIY3ZTv5ZFpqUueiRs1WbWtwHz29K0GqzIpP1kJqa+XXDI+FdfPoq+he4rog==",
+      "path": "convey.messagebrokers.rabbitmq/0.4.273",
+      "hashPath": "convey.messagebrokers.rabbitmq.0.4.273.nupkg.sha512"
     },
-    "Convey.Metrics.AppMetrics/0.4.258": {
+    "Convey.Metrics.AppMetrics/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-l/d2M5zX0gPDRAxlFF13Nh+N0i/ZB8e6DOWfGyvuuhlXlfb3/zYFCFvMjNsqNxfk5+Z3I0u87h+KeNMtGLEa6Q==",
-      "path": "convey.metrics.appmetrics/0.4.258",
-      "hashPath": "convey.metrics.appmetrics.0.4.258.nupkg.sha512"
+      "sha512": "sha512-0VK5/prl4HU0CSKi4pUfOPK4WiE4sk/qYozMnmLnGrpa5WRq4yBQVKQ6/rg0R1iy9sI2FHf+ae7wE/ryYHoz5Q==",
+      "path": "convey.metrics.appmetrics/0.4.273",
+      "hashPath": "convey.metrics.appmetrics.0.4.273.nupkg.sha512"
     },
-    "Convey.Persistence.MongoDB/0.4.258": {
+    "Convey.Persistence.MongoDB/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-DyXwAi16xhGk6dTItJvhbo2IZ34uyLzfG09e5zFsOdcfiGPhz0sWRJpk0N7cgO1jfs7aUiEuMtNoaZhU4vGwhw==",
-      "path": "convey.persistence.mongodb/0.4.258",
-      "hashPath": "convey.persistence.mongodb.0.4.258.nupkg.sha512"
+      "sha512": "sha512-+QXho3/o+I0UiujIFwlc1e6jDMMfgrARcpQq08td8Vkr2qHX2eq0KnciDFMd4YAWwHxGstuPhDE9/wdRFGDgaQ==",
+      "path": "convey.persistence.mongodb/0.4.273",
+      "hashPath": "convey.persistence.mongodb.0.4.273.nupkg.sha512"
     },
-    "Convey.Persistence.Redis/0.4.258": {
+    "Convey.Persistence.Redis/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-WEXzx1wsK1KKswZ5X5pYMU9YURK75U2tvH7/a4oc0CUTvUA1efYlC6oZF7XYenUz06AP0OVhGCOKq9/acC1Uzg==",
-      "path": "convey.persistence.redis/0.4.258",
-      "hashPath": "convey.persistence.redis.0.4.258.nupkg.sha512"
+      "sha512": "sha512-DfdP5HlyDKJujdko4qe2jnnvqlixMNc3K2NNjjyCU0hD6NWqCcbOeJZbE42eA/fyv6fN1vNNwxCJfL3LKGgFng==",
+      "path": "convey.persistence.redis/0.4.273",
+      "hashPath": "convey.persistence.redis.0.4.273.nupkg.sha512"
     },
-    "Convey.Secrets.Vault/0.4.258": {
+    "Convey.Secrets.Vault/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-iVUMbhX/cqoGD5pqR7f+/4s6L0ebjVRGJ9EbSMRzO9X7j1VwtqdiMF54SqmnVEE47W5PfM5WGidNRQMZPDiKQw==",
-      "path": "convey.secrets.vault/0.4.258",
-      "hashPath": "convey.secrets.vault.0.4.258.nupkg.sha512"
+      "sha512": "sha512-UPtTIfK0hk3XeCt5SZxt+b0bqgV3scSLWH1QUC2PutWLAHRqBOu5H4ahgMZIkBpvQuUaCE3sV8Y2acDzsi+2Xg==",
+      "path": "convey.secrets.vault/0.4.273",
+      "hashPath": "convey.secrets.vault.0.4.273.nupkg.sha512"
     },
-    "Convey.Tracing.Jaeger/0.4.258": {
+    "Convey.Tracing.Jaeger/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-flSVszyLX0bMLJeEXz1RxoMht8ry1h42LoHSTIwH1yrkMGSKf61o0UDt681TT++aANQQSofLlIbGitGJfQqBfQ==",
-      "path": "convey.tracing.jaeger/0.4.258",
-      "hashPath": "convey.tracing.jaeger.0.4.258.nupkg.sha512"
+      "sha512": "sha512-GsH+o0LZmiItJPzEgSgU5Ode71kYJJ5Fzi3o+WCF63mdhTokk29bb29LACoCJeSto3fqp+hN4LCDbrl2ydo40g==",
+      "path": "convey.tracing.jaeger/0.4.273",
+      "hashPath": "convey.tracing.jaeger.0.4.273.nupkg.sha512"
     },
-    "Convey.Tracing.Jaeger.RabbitMQ/0.4.258": {
+    "Convey.Tracing.Jaeger.RabbitMQ/0.4.273": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-PbXM1y864zcNej0wSimMhcDA8tbzruxLgqL/cWa6jsovgq1KMX4LzNdm/7g4Fq4HgVKNiG9SMkjvscL5Rt5U7w==",
-      "path": "convey.tracing.jaeger.rabbitmq/0.4.258",
-      "hashPath": "convey.tracing.jaeger.rabbitmq.0.4.258.nupkg.sha512"
+      "sha512": "sha512-BF0pzpBn59C4RQzQjCy7fJJWnepfBzm7p2GKLOYtSqoKl6EmqeK+l+EAiVq5VUBBZ7TRR8uIsLlRrsCZOVRTCQ==",
+      "path": "convey.tracing.jaeger.rabbitmq/0.4.273",
+      "hashPath": "convey.tracing.jaeger.rabbitmq.0.4.273.nupkg.sha512"
     },
     "DnsClient/1.2.0": {
       "type": "package",
@@ -4883,13 +4874,6 @@
       "sha512": "sha512-02HTAboPlG6+/u63+o4bffS5f9VOLMn0/76OsK+Ii90IufoTO6YWIEzZ84KUYjmQnjToe0lrVbLa7qOJdUCYbg==",
       "path": "serilog.sinks.seq/4.0.0",
       "hashPath": "serilog.sinks.seq.4.0.0.nupkg.sha512"
-    },
-    "ServiceStack.Caching.Memcached/5.8.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-aMBu5FP3bglNcWe102bPAxL4vNhnxjC+cIsNwFwM8kgo1q37GuCYP+OfULEK0wTrDkImqxqgOSvWWK3z8bnTag==",
-      "path": "servicestack.caching.memcached/5.8.0",
-      "hashPath": "servicestack.caching.memcached.5.8.0.nupkg.sha512"
     },
     "ServiceStack.Common.Core/5.8.0": {
       "type": "package",

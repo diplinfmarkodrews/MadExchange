@@ -15,15 +15,17 @@ namespace MadXchange.Connector.Services
 {
     public interface ISocketConnectionService
     {
-        void RegisterSocketClient(Guid accountId, IEnumerable<SocketSubscription> subscritions);
+        void RegisterSocketClient(Guid accountId);
         void DeRegisterSocketClient(Guid accountId);
-        void RegisterSocketInstrument(Xchange exchange, IEnumerable<SocketSubscription> subscribtions, Guid id = default);
+        void RegisterPublicSocket(Xchange exchange, (string, string)[] subscribtions, Guid id = default);
         void DeRegisterSocketInstrument(Xchange exchange, Guid id);
     }
 
     public class SocketConnectionService : ISocketConnectionService
     {
         private readonly ILogger _logger;
+        private readonly ILoggerFactory _loggerFactory;
+        private readonly OpenTracing.ITracer _tracer;
         private readonly ISocketConnectionStore _connectionStore;
         private readonly IXchangeDescriptorService _exchangeDescriptorService;
         private readonly IApiKeySetStore _apiKeySetStore;
@@ -34,10 +36,13 @@ namespace MadXchange.Connector.Services
                                          ISignRequestsService signService, 
                                        ISocketConnectionStore connectionStore, 
                                               IApiKeySetStore keySetStore, 
-                                    IXchangeDescriptorService exchangeDescriptorService, 
-                             ILogger<SocketConnectionService> log)
+                                    IXchangeDescriptorService exchangeDescriptorService,
+                                          OpenTracing.ITracer tracer,
+                                               ILoggerFactory log)
         {
-            _logger = log;
+            _logger = log.CreateLogger<SocketConnectionService>();
+            _loggerFactory = log;
+            _tracer = tracer;
             _apiKeySetStore = keySetStore;
             _connectionStore = connectionStore;
             _exchangeDescriptorService = exchangeDescriptorService;
@@ -46,50 +51,53 @@ namespace MadXchange.Connector.Services
         }
         
 
-        public void RegisterSocketClient(Guid accountId, IEnumerable<SocketSubscription> subscritions)
+        public void RegisterSocketClient(Guid accountId)
         {
-            _logger.LogInformation($"socket connection added, id: {accountId}, subscriptions:\n{subscritions.Dump()}");
+                      
+            _logger.LogInformation($"adding client websocket connection, id: {accountId}");
             WebSocketConnection webSocketConnection;
             if (!_connectionStore.Contains(accountId))
             {
                 
                 webSocketConnection = new WebSocketConnection(socketMessageHandler: _clientSocketDataHandler, 
-                                                          exchangeDescriptor: _exchangeDescriptorService.GetXchangeDescriptor(_apiKeySetStore.XchangeOf(accountId)), 
-                                                                     subscriptions: subscritions, 
-                                                                       signService: _signService, 
-                                                                      connectionId: accountId, 
+                                                                exchangeDescriptor: _exchangeDescriptorService.GetXchangeDescriptor(_apiKeySetStore.XchangeOf(accountId)),                                                                       
+                                                                       signService: _signService,
+                                                                            tracer: _tracer,
+                                                                            logger: _loggerFactory.CreateLogger<WebSocketConnection>(),
+                                                                      connectionId: accountId,                                                                                 
                                                                           ispublic: false);
 
                 _connectionStore.AddSocketConnection(webSocketConnection);
                
             }
             else            
-                webSocketConnection = _connectionStore.GetConnection(accountId);                       
-            Task.Run(async() => await webSocketConnection.StartConnectionAsync().ConfigureAwait(false));           
+                webSocketConnection = _connectionStore.GetConnection(accountId);        
+            
+            Task.Run(async() => await webSocketConnection.StartConnectionAsync().ConfigureAwait(false));
+            _logger.LogInformation($"client websocket connection added, id: {accountId}");
         }
 
         
 
-        public void RegisterSocketInstrument(Xchange exchange, IEnumerable<SocketSubscription> subscribtions, Guid id = default)
+        public void RegisterPublicSocket(Xchange exchange, (string, string)[] subscribtions, Guid id = default)
         {
-
+            _logger.LogInformation($"adding public websocket connection, Exchange: {exchange} \n subscriptions: {subscribtions}");
             var connection = new WebSocketConnection(socketMessageHandler: _clientSocketDataHandler, 
-                                                 exchangeDescriptor: _exchangeDescriptorService.GetXchangeDescriptor(exchange), 
-                                                            subscriptions: subscribtions, 
-                                                              signService: _signService, 
+                                                       exchangeDescriptor: _exchangeDescriptorService.GetXchangeDescriptor(exchange),                                                           
+                                                              signService: _signService,
+                                                                   tracer: _tracer,
+                                                                   logger: _loggerFactory.CreateLogger<WebSocketConnection>(),
+                                                         subscriptionTags: subscribtions,
                                                              connectionId: id, 
                                                                  ispublic: true);
 
-            _connectionStore.AddSocketConnection(connection);            
-            Task.Run(async() => await connection.StartConnectionAsync()).ConfigureAwait(false);            
+            _connectionStore.AddSocketConnection(connection);       
+            
+            Task.Run(async() => await connection.StartConnectionAsync()).ConfigureAwait(false);
+            _logger.LogInformation($"public websocket connection added, Exchange: {exchange} has id: {connection.Id}");
         }        
 
-        private string GetConnectionString(Xchange exchange) => _exchangeDescriptorService.GetSocketConnectionString(exchange);
-
-        
-        
-        
-        
+ 
         /// <summary>
         /// Deregister SocketClient with accountId
         /// </summary>

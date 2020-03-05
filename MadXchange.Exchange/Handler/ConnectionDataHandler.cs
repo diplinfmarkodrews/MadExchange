@@ -6,7 +6,7 @@ namespace MadXchange.Exchange.Handler
 
     public interface IConnectionDataHandler
     {
-        Task HandleDataAsync(SocketMsgPack socketMsgPack);
+        Task HandleDataAsync(IDataPack socketMsgPack);
     }
     /// <summary>
     /// Handles incoming requests of websocketconnections.
@@ -15,7 +15,7 @@ namespace MadXchange.Exchange.Handler
     public abstract class ConnectionDataHandler : IConnectionDataHandler
     {
              
-        public abstract Task HandleDataAsync(SocketMsgPack socketMsgPack);
+        public abstract Task HandleDataAsync(IDataPack socketMsgPack);
        
     }
 }

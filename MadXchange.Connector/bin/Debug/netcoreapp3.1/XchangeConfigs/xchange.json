@@ -26,7 +26,8 @@
                 "args": [ "{Channel}", "{Channel}.{Filter}", "{Channel}.{Filter}.{Resolution}|{Resolution}" ],
                 "Topic": {
                   "Position": "position",
-                  "Instrument": "instrument_info.{Resolution}.{Symbol}",
+                  "Instrument": "instrument_info",
+                  "OrderBook": "orderBook_200",
                   "Order": "order",
                   "Execution": "execution"
                 }
@@ -81,11 +82,14 @@
       "ApiKeyString": "api_key",
       "SignString": "sign",
       "TimeStampString": "timestamp",
-      "DomainTypes": {
-
-
-        "OrderBookL2": {
-
+      "DomainTypes": 
+      {
+        "OrderBook": {
+          "symbol": "Symbol",
+          "id": "Id",
+          "Side": "Side",
+          "price": "Price",
+          "size": "Size"
         },
         "Instrument": {
           "id": "Id",
@@ -93,12 +97,12 @@
           "last_price_e4": "LastPrice", //the latest price
           "ask_price": "AskPrice",
           "bid_price": "BidPrice",
-          "last_tick_direction": "", //the direction of last tick:PlusTick,ZeroPlusTick,MinusTick,ZeroMinusTick
-          "prev_price_24h_e4": "", //the price of prev 24h
+          "last_tick_direction": "LastTickDirection", //the direction of last tick:PlusTick,ZeroPlusTick,MinusTick,ZeroMinusTick
+          "prev_price_24h_e4": "PrevPrice24", //the price of prev 24h
           "price_24h_pcnt_e6": "", //the current lastprice percentage change from prev 24h price
-          "high_price_24h_e4": "", //the highest price of prev 24h
-          "low_price_24h_e4": "", //the lowest price of prev 24h
-          "prev_price_1h_e4": "", //the price of prev 1h
+          "high_price_24h_e4": "HighPrice24", //the highest price of prev 24h
+          "low_price_24h_e4": "LowPrice24", //the lowest price of prev 24h
+          "prev_price_1h_e4": "PrevPrice1h", //the price of prev 1h
           "price_1h_pcnt_e6": "", //the current lastprice percentage change from prev 1h price
           "mark_price_e4": "MarkPrice", //mark price
           "index_price_e4": "IndexPrice", //index price
@@ -156,7 +160,7 @@
           "exec_fee": "ExecFee",
           "leaves_qty": "LeavesQty",
           "is_maker": "IsMaker",
-          "trade_time": "XTimestamp"
+          "trade_time": "TradeTime"
         },
         "Order": {
           "order_id": "OrderId",

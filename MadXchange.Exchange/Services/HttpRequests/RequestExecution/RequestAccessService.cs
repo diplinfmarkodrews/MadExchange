@@ -28,9 +28,11 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
 
         public async Task<bool> RequestAccess(Guid accountId, CancellationToken token)
         {
+            var resultLock = await _requestCache.LockAccount(accountId).ConfigureAwait(false);
             var acCacheObj = RequestAccountAccess(accountId);
+            resultLock.Dispose();
             int rqQueue = acCacheObj.RequestQueue;
-            long timeDiffInTicks = (DateTime.UtcNow.Ticks - acCacheObj.NextRequestTime);
+            long timeDiffInTicks = (acCacheObj.NextRequestTime - DateTime.UtcNow.Ticks);
             while (timeDiffInTicks > 0 && !token.IsCancellationRequested)
             {
                 var delay = rqQueue * (int)(timeDiffInTicks * TimeSpan.TicksPerMillisecond);
@@ -47,7 +49,7 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
         /// </summary>
         /// <param name="accountId"></param>
         /// <returns></returns>
-        private AccountCacheObject RequestAccountAccess(Guid accountId)
+        private AccountRequestCacheObject RequestAccountAccess(Guid accountId)
         {
             //var lockObj = _requestCache.LockAccount(accountId);
             var accountCacheObject = _requestCache.GetAccount(accountId);

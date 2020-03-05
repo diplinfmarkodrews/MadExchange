@@ -9,21 +9,21 @@ namespace MadXchange.Exchange.Domain.Models
 {
     public interface IOrder 
     {
-        public string OrderId { get; set; }
-        public long? Account { get; set; }
-        public string Symbol { get; set; }
-        public OrderSide? Side { get; set; }
-        public decimal? OrderQty { get; set; }
-        public decimal? Price { get; set; }
-        public OrderStatus? OrdStatus { get; set; }
-        public long TransactTime { get; set; }
-        public long Timestamp { get; set; }
-        public OrderType? OrdType { get; set; }
-        public string Text { get; set; }
-        public decimal? AvgPx { get; set; }
-        public IEnumerable<ExecInst> ExecInst { get; set; }
-        public string OrdRejReason { get; set; }
-        public TimeInForce? TimeInForce { get; set; }
+        public string OrderId { get; }
+        public long? UserId { get; }
+        public string Symbol { get; }
+        public OrderSide? Side { get; }
+        public decimal? OrderQty { get; }
+        public decimal? Price { get; }
+        public OrderStatus? OrdStatus { get; }
+        public long TransactTime { get; }
+        public long Timestamp { get; }
+        public OrderType? OrdType { get; }
+        public string Text { get; }
+        public decimal? AvgPx { get; }
+        public IEnumerable<ExecInst> ExecInst { get; }
+        public string OrdRejReason { get; }
+        public TimeInForce? TimeInForce { get; }
        
 
         bool IsOrderNewOrPartiallyFilled();
@@ -46,19 +46,18 @@ namespace MadXchange.Exchange.Domain.Models
 
         bool IsClose();
     }
-
+    [Serializable]
     public class Order : IOrder
     {
         public Guid Id { get; }
         public string OrderId { get; set; }
-        public long? Account { get; set; }
+        public long? UserId { get; set; }
         public string Symbol { get; set; }
         public OrderSide? Side { get; set; }
         public decimal? OrderQty { get; set; }
         public decimal? Price { get; set; }
         public OrderStatus? OrdStatus { get; set; }
-        public long TransactTime { get; set; }
-        public long Timestamp { get; set; }
+        public long TransactTime { get; set; }        
         public decimal? LeavesQty { get; set; }
         public decimal? ExecutedQty { get; set; }
         public OrderType? OrdType { get; set; }
@@ -68,86 +67,94 @@ namespace MadXchange.Exchange.Domain.Models
         public string OrdRejReason { get; set; }
         public TimeInForce? TimeInForce { get; set; }
 
-        public Order()
+        public long Timestamp { get; set; }
+        
+
+        public static Order FromModel(OrderDto data)
+            => new Order()
+            {
+                Symbol = data.Symbol,
+                OrderId = data.OrderId,
+                UserId = data.UserId,
+                Side = data.OrderSide,
+                OrderQty = data.OrderQty,
+                Price = data.Price,
+                OrdStatus = data.OrdStatus,
+                LeavesQty = data.LeavesQty,
+                ExecutedQty = data.ExecutedQty,
+                OrdType = data.OrdType,
+                Text = data.Text,
+                AvgPx = data.AvgPx,
+                OrdRejReason = data.OrdRejReason,
+                TimeInForce = data.TimeInForce,
+                TransactTime = data.TransactTime.ToUnixTimeSeconds(),
+                Timestamp = data.Timestamp,
+                // tado add OrderProperties
+                ExecInst = new List<ExecInst>() { }
+
+            };
+        
+        public static Order[] FromModel(OrderDto[] datas) 
         {
+            var result = new Order[datas.Length];
+            for (int i = 0; i < datas.Length; i++)
+                result[i] = FromModel(datas[i]);
+
+            return result;
         }
 
         public bool IsReduceOnly()
-        {
-            return this.ExecInst.Any(p => p == Contracts.ExecInst.ReduceOnly);
-        }
+            => ExecInst.Any(p => p == Contracts.ExecInst.ReduceOnly);
 
         public bool IsPostOnly()
-        {
-            return this.ExecInst.Any(p => p == Contracts.ExecInst.ParticipateDoNotInitiate);
-        }
+            => ExecInst.Any(p => p == Contracts.ExecInst.ParticipateDoNotInitiate);
+        
 
         public bool IsClose()
-        {
-            return ExecInst.Any(p => p == Contracts.ExecInst.Close);
-        }
+            => ExecInst.Any(p => p == Contracts.ExecInst.Close);
+
 
         public bool IsPegPriceOrder()
-        {
-            if (OrdType == OrderType.Stop || OrdType == OrderType.MarketIfTouched)
-            {
-                return true;
-            }
-            return false;
-        }
+            => (OrdType == OrderType.Stop || 
+                OrdType == OrderType.MarketIfTouched) 
+                ? true
+                : false;
 
         public bool IsOrderNewOrPartiallyFilled()
-        {
-            if (OrdStatus == OrderStatus.New || OrdStatus == OrderStatus.PartiallyFilled)
-            {
-                return true;
-            }
-            return false;
-        }
+            => (OrdStatus == OrderStatus.New || 
+                OrdStatus == OrderStatus.PartiallyFilled) 
+                ? true
+                : false;
 
         public bool IsOrderFilled()
-        {
-            if (OrdStatus == OrderStatus.Filled)
-            {
-                return true;
-            }
-            return false;
-        }
+            => (OrdStatus == OrderStatus.Filled) ? true : false;
 
         public bool IsOrderTerminated()
-        {
-            if (OrdStatus == OrderStatus.Filled || OrdStatus == OrderStatus.Rejected || OrdStatus == OrderStatus.Canceled || OrdStatus == OrderStatus.Expired || OrdStatus == OrderStatus.Stopped)
-            {
-                return true;
-            }
-            return false;
-        }
+            => (OrdStatus == OrderStatus.Filled   ||
+                OrdStatus == OrderStatus.Rejected ||
+                OrdStatus == OrderStatus.Canceled ||
+                OrdStatus == OrderStatus.Expired  ||
+                OrdStatus == OrderStatus.Stopped) 
+                ? true 
+                : false;
 
         public bool IsOrderAborted()
-        {
-            if (OrdStatus == OrderStatus.Rejected || OrdStatus == OrderStatus.Canceled || OrdStatus == OrderStatus.Expired || OrdStatus == OrderStatus.Stopped)
-            {
-                return true;
-            }
-            return false;
-        }
+            => (OrdStatus == OrderStatus.Rejected ||
+                OrdStatus == OrderStatus.Canceled ||
+                OrdStatus == OrderStatus.Expired ||
+                OrdStatus == OrderStatus.Stopped)
+                ? true
+                : false;
 
         public bool IsOrderPartiallyFilled()
-        {
-            if (OrdStatus == OrderStatus.PartiallyFilled)
-            {
-                return true;
-            }
-            return false;
-        }
+            => (OrdStatus == OrderStatus.PartiallyFilled)
+                ? true
+                : false;
 
         public bool IsOrderNew()
-        {
-            if (OrdStatus == OrderStatus.New)
-            {
-                return true;
-            }
-            return false;
-        }
+            => (OrdStatus == OrderStatus.New)
+                ? true
+                : false;
+            
     }
 }

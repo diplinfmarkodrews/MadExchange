@@ -21,6 +21,7 @@ using Prometheus;
 using Convey.CQRS.Commands;
 using Convey.CQRS.Events;
 using Convey.CQRS.Queries;
+using Microsoft.Extensions.Logging;
 
 namespace MadXchange.Connector
 {
@@ -56,15 +57,14 @@ namespace MadXchange.Connector
             //JsConfig.AllowRuntimeType = type => type == typeof(WebResponseDto);
 
             
-            //services.AddPolicyRegistry();
+            services.AddPolicyRegistry();
             services.AddHttpClientServices(Configuration);
             //services.AddVaultService(Configuration);
             
             var _config = MyWebHostExtensions.GetConfiguration();//used for testaccounts, for dev only!!
             services.AddCacheServices(_config);
             services.AddExchangeAccessServices(_config);
-            services.AddSocketConnectionService();
-           
+            services.AddSocketConnectionService();          
             
             services.AddCors(options =>
             {
@@ -77,13 +77,11 @@ namespace MadXchange.Connector
             });
 
           
-
-
             /////
-            services.AddWebEncoders(); ///check this => SocketException do not appear!!!
+            services.AddWebEncoders(); //check this => SocketException do not appear!!!
             services.AddMetrics()
-                    .AddMetricsEndpoints();
-                    //.AddMetricsTrackingMiddleware()
+                    .AddMetricsEndpoints()
+                    .AddMetricsTrackingMiddleware();
                     //.AddMetricsReportingHostedService((exc, context) => Log.Logger.Error("exception: ", context.Exception));
 
             //
@@ -107,7 +105,7 @@ namespace MadXchange.Connector
 
                     .AddInMemoryEventDispatcher()
                     .AddInMemoryQueryDispatcher()
-                    //.AddJaeger()
+                    .AddJaeger()
                     .AddMetrics();
                     
                     //.AddRabbitMq()
@@ -117,16 +115,15 @@ namespace MadXchange.Connector
                         
             services.AddHostedService<TimedPollService>();
         }
-                        
-             
-        
+
+
+
 
         // This method gets called by the runtime.
         public void Configure(IApplicationBuilder app)//, ILoggerFactory loggerFactory)
         {
-            //var serviceScopeFactory = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>();
-            var serviceProvider = app.ApplicationServices;// serviceScopeFactory.CreateScope().ServiceProvider;
-
+           
+            ILoggerFactory loggerFactory = app.ApplicationServices.GetRequiredService<ILoggerFactory>();
             //app.UseDispatcherEndpoints(endpoints => endpoints
             // .Get("", ctx => ctx.Response.WriteAsync("Orders Service"))
             // .Get<GetOrder, OrderDto>("orders/{orderId}")
@@ -145,11 +142,11 @@ namespace MadXchange.Connector
             //app.UseExceptionHandler("/Error");
             //.UseInitializers()
             // app.ConfigureEventBus();
-            //// app.UseRabbitMq();
+            // app.UseRabbitMq();
 
-            // app.UseMetricsActiveRequestMiddleware();
+            app.UseMetricsActiveRequestMiddleware();
             // app.UseHealthEndpoint();
-            //app.UseMetricsRequestTrackingMiddleware();
+            app.UseMetricsRequestTrackingMiddleware();
             // app.UseHealthAllEndpoints();
             // app.UsePingEndpoint();
             //app.ConfigureCache();
@@ -166,30 +163,8 @@ namespace MadXchange.Connector
             app.UseMetricServer();
             app.UseHttpMetrics();
 
-            
-             app.UsePingEndpoint()
-            //.ConfigureCache(Configuration)
-            // .UseJaeger().UseMetrics()
-            ;
-
-
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.Map("/Error", (c) => Log.Logger.Debug(c));
-            //    //endpoints.MapDefaultControllerRoute();
-            //    //endpoints.MapControllers();
-            //    endpoints.MapHealthChecks("/hc", new HealthCheckOptions()
-            //    {
-            //        Predicate = _ => true,
-            //        //ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-            //    });
-            //    endpoints.MapHealthChecks("/liveness", new HealthCheckOptions
-            //    {
-            //        Predicate = r => r.Name.Contains("self")
-            //    });
-
-            //});
-
+            app.UsePingEndpoint();
+            app.UseJaeger();
             app.StartSocketConnections();
         }
     }

@@ -13,10 +13,7 @@ namespace MadXchange.Exchange.Infrastructure.Cache
     public interface IInstrumentCache
     {
         public Task<Instrument> GetInstrumentAsync(Guid id, Xchange exchange, string symbol);
-
-        public Task<OrderBook> GetOrderBookAsync(Guid id, Xchange exchange, string symbol);
-
-        public long UpdateInstrument(Guid id, Xchange exchange, string symbol, long timeStamp, Instrument item);
+        public long Update(Guid id, Xchange exchange, string symbol, long timeStamp, Instrument item);       
     }
 
     /// <summary>
@@ -26,13 +23,10 @@ namespace MadXchange.Exchange.Infrastructure.Cache
 
     public class InstrumentCache : CacheStorage<InstrumentCacheObject>, IInstrumentCache
     {
-        private readonly IInstrumentStore _instrumentStore;
-                
-        public InstrumentCache(IInstrumentStore instrumentStore, IRedisClientsManager cacheClientManager) : base("Instrument", cacheClientManager)
-        {
-            _instrumentStore = instrumentStore;
-           
-        }
+        private readonly IInstrumentStore _instrumentStore = new InstrumentStore();
+
+        public InstrumentCache(IRedisClientsManager cacheClientManager) : base("Instrument", cacheClientManager) { }
+       
 
         /// <summary>
         /// Updates Instrument CacheInstances
@@ -41,7 +35,7 @@ namespace MadXchange.Exchange.Infrastructure.Cache
         /// <param name="symbol"></param>
         /// <param name="instrumentDto"></param>
         /// <returns></returns>
-        public long UpdateInstrument(Guid id, Xchange exchange, string symbol, long timeStamp, Instrument instrumentDto)
+        public long Update(Guid id, Xchange exchange, string symbol, long timeStamp, Instrument instrumentDto)
         {
             var keyString = $"{id}{exchange}{symbol}";
             var cacheObject = _instrumentStore.GetInstrument(keyString, id, exchange, symbol);            
@@ -54,9 +48,8 @@ namespace MadXchange.Exchange.Infrastructure.Cache
             => (await GetAsync($"{id}{exchange}{symbol}")).Instrument;
                                 
 
-        public async Task<OrderBook> GetOrderBookAsync(Guid id, Xchange exchange, string symbol)
-        {
-            throw new NotImplementedException();
-        }
+       
+
+      
     }
 }

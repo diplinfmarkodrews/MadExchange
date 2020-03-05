@@ -62,20 +62,36 @@ namespace MadXchange.Exchange.Contracts
         public virtual bool IsSuccess() => isSuccess;
         public DateTime Timestamp { get; } = DateTime.UtcNow;
 
-        internal string GetTopic(string topicString) => Response.GetValueOrDefault(topicString).ToString();
+        public string GetTopic(string topicString)
+            => Response.GetValueOrDefault(topicString).ToString();
         
     }
+    [DataContract]
+    public class SocketDataLayer 
+    {
+        
 
+        [DataMember]
+        public string Insert { get; set; }
+
+        [DataMember]
+        public string Update { get; set; }
+
+        [DataMember]
+        public string Delete { get; set; }
+       
+
+    }
     //[DataContract]
     //public class SocketMessage : ISocketMessage
     //{
-        
+
     //    public MessageType MessageType { get; } = MessageType.Data;        
     //    public DataType DataType { get; set; } 
-        
+
     //    [DataMember]
     //    public string Data { get; set; }
-        
+
     //    public DateTime Timestamp { get; } = DateTime.UtcNow;
 
     //    //internal virtual string GetChannel(string channelString)
@@ -112,8 +128,9 @@ namespace MadXchange.Exchange.Contracts
         }
 
         public string RequestDto { get; private set; }
-        public DateTime Timestamp { get; private set; } 
-       
+        public DateTime Timestamp { get; private set; }
+        public Guid Id { get; } = Guid.NewGuid();
+
 
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls

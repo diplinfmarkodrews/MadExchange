@@ -506,7 +506,7 @@
           "lib/netstandard2.0/HealthChecks.RabbitMQ.dll": {}
         }
       },
-      "Convey/0.4.258": {
+      "Convey/0.4.273": {
         "type": "package",
         "dependencies": {
           "Figgle": "0.3.0",
@@ -538,10 +538,10 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Convey.CQRS.Commands/0.4.258": {
+      "Convey.CQRS.Commands/0.4.273": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.258"
+          "Convey": "0.4.273"
         },
         "compile": {
           "lib/netcoreapp3.1/Convey.CQRS.Commands.dll": {}
@@ -550,10 +550,10 @@
           "lib/netcoreapp3.1/Convey.CQRS.Commands.dll": {}
         }
       },
-      "Convey.CQRS.Events/0.4.258": {
+      "Convey.CQRS.Events/0.4.273": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.258"
+          "Convey": "0.4.273"
         },
         "compile": {
           "lib/netcoreapp3.1/Convey.CQRS.Events.dll": {}
@@ -562,10 +562,10 @@
           "lib/netcoreapp3.1/Convey.CQRS.Events.dll": {}
         }
       },
-      "Convey.CQRS.Queries/0.4.258": {
+      "Convey.CQRS.Queries/0.4.273": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.258"
+          "Convey": "0.4.273"
         },
         "compile": {
           "lib/netcoreapp3.1/Convey.CQRS.Queries.dll": {}
@@ -574,11 +574,11 @@
           "lib/netcoreapp3.1/Convey.CQRS.Queries.dll": {}
         }
       },
-      "Convey.Discovery.Consul/0.4.258": {
+      "Convey.Discovery.Consul/0.4.273": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.258",
-          "Convey.HTTP": "0.4.258",
+          "Convey": "0.4.273",
+          "Convey.HTTP": "0.4.273",
           "Microsoft.Extensions.Hosting.Abstractions": "3.1.1",
           "Microsoft.Extensions.Http": "3.1.1"
         },
@@ -589,10 +589,10 @@
           "lib/netcoreapp3.1/Convey.Discovery.Consul.dll": {}
         }
       },
-      "Convey.HTTP/0.4.258": {
+      "Convey.HTTP/0.4.273": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.258",
+          "Convey": "0.4.273",
           "Microsoft.Extensions.Http": "3.1.1",
           "Polly": "7.2.0"
         },
@@ -603,10 +603,10 @@
           "lib/netcoreapp3.1/Convey.HTTP.dll": {}
         }
       },
-      "Convey.Logging/0.4.258": {
+      "Convey.Logging/0.4.273": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.258",
+          "Convey": "0.4.273",
           "Microsoft.Extensions.Logging": "3.1.1",
           "Serilog": "2.9.0",
           "Serilog.AspNetCore": "3.2.0",
@@ -623,14 +623,14 @@
           "lib/netcoreapp3.1/Convey.Logging.dll": {}
         }
       },
-      "Convey.Logging.CQRS/0.4.258": {
+      "Convey.Logging.CQRS/0.4.273": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.258",
-          "Convey.CQRS.Commands": "0.4.258",
-          "Convey.CQRS.Events": "0.4.258",
-          "Convey.CQRS.Queries": "0.4.258",
-          "Convey.Logging": "0.4.258",
+          "Convey": "0.4.273",
+          "Convey.CQRS.Commands": "0.4.273",
+          "Convey.CQRS.Events": "0.4.273",
+          "Convey.CQRS.Queries": "0.4.273",
+          "Convey.Logging": "0.4.273",
           "SmartFormat.NET": "2.5.0"
         },
         "compile": {
@@ -640,10 +640,10 @@
           "lib/netcoreapp3.1/Convey.Logging.CQRS.dll": {}
         }
       },
-      "Convey.MessageBrokers/0.4.258": {
+      "Convey.MessageBrokers/0.4.273": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.258",
+          "Convey": "0.4.273",
           "Newtonsoft.Json": "12.0.2"
         },
         "compile": {
@@ -653,12 +653,12 @@
           "lib/netcoreapp3.1/Convey.MessageBrokers.dll": {}
         }
       },
-      "Convey.MessageBrokers.CQRS/0.4.258": {
+      "Convey.MessageBrokers.CQRS/0.4.273": {
         "type": "package",
         "dependencies": {
-          "Convey.CQRS.Commands": "0.4.258",
-          "Convey.CQRS.Events": "0.4.258",
-          "Convey.MessageBrokers": "0.4.258"
+          "Convey.CQRS.Commands": "0.4.273",
+          "Convey.CQRS.Events": "0.4.273",
+          "Convey.MessageBrokers": "0.4.273"
         },
         "compile": {
           "lib/netcoreapp3.1/Convey.MessageBrokers.CQRS.dll": {}
@@ -667,11 +667,11 @@
           "lib/netcoreapp3.1/Convey.MessageBrokers.CQRS.dll": {}
         }
       },
-      "Convey.MessageBrokers.RabbitMQ/0.4.258": {
+      "Convey.MessageBrokers.RabbitMQ/0.4.273": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.258",
-          "Convey.MessageBrokers": "0.4.258",
+          "Convey": "0.4.273",
+          "Convey.MessageBrokers": "0.4.273",
           "Microsoft.Extensions.Caching.Memory": "3.1.1",
           "Microsoft.Extensions.Logging": "3.1.1",
           "Polly": "7.2.0",
@@ -687,7 +687,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Convey.Metrics.AppMetrics/0.4.258": {
+      "Convey.Metrics.AppMetrics/0.4.273": {
         "type": "package",
         "dependencies": {
           "App.Metrics.AspNetCore": "3.2.0",
@@ -710,7 +710,7 @@
           "App.Metrics.Reporting.Console": "3.2.0",
           "App.Metrics.Reporting.Http": "3.2.0",
           "App.Metrics.Reporting.InfluxDB": "3.2.0",
-          "Convey": "0.4.258"
+          "Convey": "0.4.273"
         },
         "compile": {
           "lib/netcoreapp3.1/Convey.Metrics.AppMetrics.dll": {}
@@ -719,11 +719,11 @@
           "lib/netcoreapp3.1/Convey.Metrics.AppMetrics.dll": {}
         }
       },
-      "Convey.Persistence.MongoDB/0.4.258": {
+      "Convey.Persistence.MongoDB/0.4.273": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.258",
-          "Convey.CQRS.Queries": "0.4.258",
+          "Convey": "0.4.273",
+          "Convey.CQRS.Queries": "0.4.273",
           "MongoDB.Driver": "2.10.1"
         },
         "compile": {
@@ -733,10 +733,10 @@
           "lib/netcoreapp3.1/Convey.Persistence.MongoDB.dll": {}
         }
       },
-      "Convey.Persistence.Redis/0.4.258": {
+      "Convey.Persistence.Redis/0.4.273": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.258",
+          "Convey": "0.4.273",
           "Microsoft.Extensions.Caching.StackExchangeRedis": "3.1.1"
         },
         "compile": {
@@ -746,10 +746,10 @@
           "lib/netcoreapp3.1/Convey.Persistence.Redis.dll": {}
         }
       },
-      "Convey.Secrets.Vault/0.4.258": {
+      "Convey.Secrets.Vault/0.4.273": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.258",
+          "Convey": "0.4.273",
           "VaultSharp": "0.11.1002"
         },
         "compile": {
@@ -762,10 +762,10 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Convey.Tracing.Jaeger/0.4.258": {
+      "Convey.Tracing.Jaeger/0.4.273": {
         "type": "package",
         "dependencies": {
-          "Convey": "0.4.258",
+          "Convey": "0.4.273",
           "Jaeger": "0.3.6",
           "OpenTracing.Contrib.NetCore": "0.6.2"
         },
@@ -779,11 +779,11 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Convey.Tracing.Jaeger.RabbitMQ/0.4.258": {
+      "Convey.Tracing.Jaeger.RabbitMQ/0.4.273": {
         "type": "package",
         "dependencies": {
-          "Convey.MessageBrokers.RabbitMQ": "0.4.258",
-          "Convey.Tracing.Jaeger": "0.4.258"
+          "Convey.MessageBrokers.RabbitMQ": "0.4.273",
+          "Convey.Tracing.Jaeger": "0.4.273"
         },
         "compile": {
           "lib/netcoreapp3.1/Convey.Tracing.Jaeger.RabbitMQ.dll": {}
@@ -2782,15 +2782,6 @@
         },
         "runtime": {
           "lib/netstandard1.3/Serilog.Sinks.Seq.dll": {}
-        }
-      },
-      "ServiceStack.Caching.Memcached/5.8.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/ServiceStack.Caching.Memcached.dll": {}
-        },
-        "runtime": {
-          "lib/net45/ServiceStack.Caching.Memcached.dll": {}
         }
       },
       "ServiceStack.Common.Core/5.8.0": {
@@ -4892,23 +4883,23 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "AspNetCore.HealthChecks.Rabbitmq": "3.0.5",
-          "Convey": "0.4.258",
-          "Convey.CQRS.Commands": "0.4.258",
-          "Convey.CQRS.Events": "0.4.258",
-          "Convey.CQRS.Queries": "0.4.258",
+          "Convey": "0.4.273",
+          "Convey.CQRS.Commands": "0.4.273",
+          "Convey.CQRS.Events": "0.4.273",
+          "Convey.CQRS.Queries": "0.4.273",
           "Convey.Configurations.Vault": "0.4.226",
-          "Convey.Discovery.Consul": "0.4.258",
-          "Convey.Logging": "0.4.258",
-          "Convey.Logging.CQRS": "0.4.258",
-          "Convey.MessageBrokers": "0.4.258",
-          "Convey.MessageBrokers.CQRS": "0.4.258",
-          "Convey.MessageBrokers.RabbitMQ": "0.4.258",
-          "Convey.Metrics.AppMetrics": "0.4.258",
-          "Convey.Persistence.MongoDB": "0.4.258",
-          "Convey.Persistence.Redis": "0.4.258",
-          "Convey.Secrets.Vault": "0.4.258",
-          "Convey.Tracing.Jaeger": "0.4.258",
-          "Convey.Tracing.Jaeger.RabbitMQ": "0.4.258",
+          "Convey.Discovery.Consul": "0.4.273",
+          "Convey.Logging": "0.4.273",
+          "Convey.Logging.CQRS": "0.4.273",
+          "Convey.MessageBrokers": "0.4.273",
+          "Convey.MessageBrokers.CQRS": "0.4.273",
+          "Convey.MessageBrokers.RabbitMQ": "0.4.273",
+          "Convey.Metrics.AppMetrics": "0.4.273",
+          "Convey.Persistence.MongoDB": "0.4.273",
+          "Convey.Persistence.Redis": "0.4.273",
+          "Convey.Secrets.Vault": "0.4.273",
+          "Convey.Tracing.Jaeger": "0.4.273",
+          "Convey.Tracing.Jaeger.RabbitMQ": "0.4.273",
           "Microsoft.EntityFrameworkCore": "3.1.2",
           "Microsoft.Extensions.Caching.Redis": "2.2.0",
           "Microsoft.Extensions.Caching.Redis.Core": "1.0.3",
@@ -4917,7 +4908,6 @@
           "RabbitMQ.Client.Core.DependencyInjection": "3.2.0",
           "RawRabbit": "1.10.4",
           "RawRabbit.vNext": "1.10.4",
-          "ServiceStack.Caching.Memcached": "5.8.0",
           "ServiceStack.Redis.Core": "5.8.0",
           "ServiceStack.Text.Core": "5.8.0"
         },
@@ -5459,14 +5449,14 @@
         "lib/netstandard2.0/HealthChecks.RabbitMQ.dll"
       ]
     },
-    "Convey/0.4.258": {
-      "sha512": "3xso5GYbKBR5kD1BEJSDCngGxoVCDBPmpZqB5bOWE1I+I1uQkFtttgjI4U514w87EaIN6iBQYwAIRSitAiowRA==",
+    "Convey/0.4.273": {
+      "sha512": "wFW+9SDE0u5UhfUmm5bz57Vt2xcCJjYy1dhN+2BGMuPsPdMhoqFlTcqTDdmi4klVf//XIZEradwk3q8QsgjTQw==",
       "type": "package",
-      "path": "convey/0.4.258",
+      "path": "convey/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.0.4.258.nupkg.sha512",
+        "convey.0.4.273.nupkg.sha512",
         "convey.nuspec",
         "lib/netcoreapp3.1/Convey.dll"
       ]
@@ -5483,194 +5473,194 @@
         "lib/netcoreapp3.1/Convey.Configurations.Vault.dll"
       ]
     },
-    "Convey.CQRS.Commands/0.4.258": {
-      "sha512": "83aSwAt5jzz/p5VLZh8OPADy+IXCqCQSmriYx+bX2tSrSWWx3Fe/i0s63zwDXAlTq9DntHF6KK6zhhicfGORnA==",
+    "Convey.CQRS.Commands/0.4.273": {
+      "sha512": "TV4Zh1KerIn2erk8KA9E0cKp/w+2yQEEKZ8E9EqYHknmhFztXD5xUTyKEi9wtB6MpjWBjpC/3B37xIopR6K/iQ==",
       "type": "package",
-      "path": "convey.cqrs.commands/0.4.258",
+      "path": "convey.cqrs.commands/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.cqrs.commands.0.4.258.nupkg.sha512",
+        "convey.cqrs.commands.0.4.273.nupkg.sha512",
         "convey.cqrs.commands.nuspec",
         "lib/netcoreapp3.1/Convey.CQRS.Commands.dll"
       ]
     },
-    "Convey.CQRS.Events/0.4.258": {
-      "sha512": "gYOSYsPsQgXl77YhLsqosDksUQNFiTW+uFbW08zUX5tMZm7oN4Aki3aCVzm69p4LZCAdAksOyG/uSm0K5DWXlg==",
+    "Convey.CQRS.Events/0.4.273": {
+      "sha512": "zhbyvG1ivA7J3IeKLPTgtwdTN/pDy/bge9QhC0spEIxoQjySQac8aSx+RCuH0CBgUBf6OZ+/1BcljfJ3jZU7gg==",
       "type": "package",
-      "path": "convey.cqrs.events/0.4.258",
+      "path": "convey.cqrs.events/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.cqrs.events.0.4.258.nupkg.sha512",
+        "convey.cqrs.events.0.4.273.nupkg.sha512",
         "convey.cqrs.events.nuspec",
         "lib/netcoreapp3.1/Convey.CQRS.Events.dll"
       ]
     },
-    "Convey.CQRS.Queries/0.4.258": {
-      "sha512": "c8P9wbuHEyULk4PpC0egEm6hqUHxeBTKN9NcXy7kpbMGf5OvVi5OVdRZkqVVVHPLGZIjZ80unh90Jy4izdcmHA==",
+    "Convey.CQRS.Queries/0.4.273": {
+      "sha512": "KYv7cOKcH8XXCXuF7tktCq997YeTOSI5Cf1dsDn7ytqHIIcLnfNgxblEgZcKYik9H21oZmd4xCBnVbYNccP9Mg==",
       "type": "package",
-      "path": "convey.cqrs.queries/0.4.258",
+      "path": "convey.cqrs.queries/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.cqrs.queries.0.4.258.nupkg.sha512",
+        "convey.cqrs.queries.0.4.273.nupkg.sha512",
         "convey.cqrs.queries.nuspec",
         "lib/netcoreapp3.1/Convey.CQRS.Queries.dll"
       ]
     },
-    "Convey.Discovery.Consul/0.4.258": {
-      "sha512": "HN5M2KFeQ+o73/Fbcc84ofMRFvxnx90jG8ssbRPBfMX1maXLbqVOtER3uG5kOxuxn7T2M06aGaTvcrD6K0bexg==",
+    "Convey.Discovery.Consul/0.4.273": {
+      "sha512": "gmYc6dHT/FmnbZaJB33icYLokNdTkpoJXK14TI6uCjYgVqrgagKKJXktf/UL37XI9mo7+VQyCdL86xt3s6yoWg==",
       "type": "package",
-      "path": "convey.discovery.consul/0.4.258",
+      "path": "convey.discovery.consul/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.discovery.consul.0.4.258.nupkg.sha512",
+        "convey.discovery.consul.0.4.273.nupkg.sha512",
         "convey.discovery.consul.nuspec",
         "lib/netcoreapp3.1/Convey.Discovery.Consul.dll"
       ]
     },
-    "Convey.HTTP/0.4.258": {
-      "sha512": "AxoA9cuAOKzV8o4GJY4eCOGa7ta4On63R3X0hazRWy5HLRGonQ0oMwS3O9kcgctZmh10tBC3VWxXqlD8vAeKaA==",
+    "Convey.HTTP/0.4.273": {
+      "sha512": "vwZK4nAgWV3gHGCamVffv6Vdwoj5gY56KpO2paHtebm7z3eRufMVpAhsxFuuOiXZxDbwbg+IWdKSFOCc5Bkrew==",
       "type": "package",
-      "path": "convey.http/0.4.258",
+      "path": "convey.http/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.http.0.4.258.nupkg.sha512",
+        "convey.http.0.4.273.nupkg.sha512",
         "convey.http.nuspec",
         "lib/netcoreapp3.1/Convey.HTTP.dll"
       ]
     },
-    "Convey.Logging/0.4.258": {
-      "sha512": "uuI3HZQPiSlxBES+dk/Z2b8ANedubOF9COof9KhRReW8PtUQNlNubZwzM7VRfn0SiqndGKWXlDuPF4sARIgaSQ==",
+    "Convey.Logging/0.4.273": {
+      "sha512": "yvLhe9A/SGnRA37VFwDtfli1qBK8EbeeeO/L774es0G33rq7jVRKP1GcbGZ5Wofvbkrc1MCHBT50WqrKmtWlzw==",
       "type": "package",
-      "path": "convey.logging/0.4.258",
+      "path": "convey.logging/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.logging.0.4.258.nupkg.sha512",
+        "convey.logging.0.4.273.nupkg.sha512",
         "convey.logging.nuspec",
         "lib/netcoreapp3.1/Convey.Logging.dll"
       ]
     },
-    "Convey.Logging.CQRS/0.4.258": {
-      "sha512": "kSV/gJ231qreUAT0tlQovZxpBk4jYYY/fADgythb6u4Z/FtUxaY0a2KqJ+wwlN/HZC/bPUhBusaJxt/SmbpHbw==",
+    "Convey.Logging.CQRS/0.4.273": {
+      "sha512": "tr25I5rflt5hDHTHe8EkCBsbjJoCLj79nFjeCkCAGMQUiIFz7ZITTkSVVpVa7AqP5n0Y0DLmVT7D5EbOpLOX9A==",
       "type": "package",
-      "path": "convey.logging.cqrs/0.4.258",
+      "path": "convey.logging.cqrs/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.logging.cqrs.0.4.258.nupkg.sha512",
+        "convey.logging.cqrs.0.4.273.nupkg.sha512",
         "convey.logging.cqrs.nuspec",
         "lib/netcoreapp3.1/Convey.Logging.CQRS.dll"
       ]
     },
-    "Convey.MessageBrokers/0.4.258": {
-      "sha512": "S3F30Ryj4qCLB+OOxDVOGHJZQzYShKYUb8MAn4Ei0JiTdC1rRdfGl+VQMKJ1RDARTF/QHj1kkUQRhWtfbsy08w==",
+    "Convey.MessageBrokers/0.4.273": {
+      "sha512": "4kdl8VuSlSx4/Iy36nrZ25C6cVc/oxl4/vv4O7YwY2E5M5aZC6Xzp1Fto/A4EqVpDoFO2UkX2Y5EV28CuBXnSw==",
       "type": "package",
-      "path": "convey.messagebrokers/0.4.258",
+      "path": "convey.messagebrokers/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.messagebrokers.0.4.258.nupkg.sha512",
+        "convey.messagebrokers.0.4.273.nupkg.sha512",
         "convey.messagebrokers.nuspec",
         "lib/netcoreapp3.1/Convey.MessageBrokers.dll"
       ]
     },
-    "Convey.MessageBrokers.CQRS/0.4.258": {
-      "sha512": "11qUBPuS+EsNjlMW9pRwRbv+noNUF1UsQXrbJyPk3S2FBUHPvc37bKd0cDWgKlBvojjlQQQvJ7nr1x1gKh+2vw==",
+    "Convey.MessageBrokers.CQRS/0.4.273": {
+      "sha512": "U0ZbnLFSRHNSzTjTF5rmYyAbd9QpsoU6OndJvm03j7AUQ36W/aeugDMolYOa0RPOy5nbKFsfMnEK+AaMXc/l8g==",
       "type": "package",
-      "path": "convey.messagebrokers.cqrs/0.4.258",
+      "path": "convey.messagebrokers.cqrs/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.messagebrokers.cqrs.0.4.258.nupkg.sha512",
+        "convey.messagebrokers.cqrs.0.4.273.nupkg.sha512",
         "convey.messagebrokers.cqrs.nuspec",
         "lib/netcoreapp3.1/Convey.MessageBrokers.CQRS.dll"
       ]
     },
-    "Convey.MessageBrokers.RabbitMQ/0.4.258": {
-      "sha512": "X4hQU+IrFTlFbnJEBm6UNxIySoZUxi50r8OoSnonOnXh8D/vo6KOohg+R/CGamnvaMhJ5ht4fbZO864tUQ/isQ==",
+    "Convey.MessageBrokers.RabbitMQ/0.4.273": {
+      "sha512": "b4QkLaENLsongC3mEJDuYAosSXBIY3ZTv5ZFpqUueiRs1WbWtwHz29K0GqzIpP1kJqa+XXDI+FdfPoq+he4rog==",
       "type": "package",
-      "path": "convey.messagebrokers.rabbitmq/0.4.258",
+      "path": "convey.messagebrokers.rabbitmq/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.messagebrokers.rabbitmq.0.4.258.nupkg.sha512",
+        "convey.messagebrokers.rabbitmq.0.4.273.nupkg.sha512",
         "convey.messagebrokers.rabbitmq.nuspec",
         "lib/netcoreapp3.1/Convey.MessageBrokers.RabbitMQ.dll"
       ]
     },
-    "Convey.Metrics.AppMetrics/0.4.258": {
-      "sha512": "l/d2M5zX0gPDRAxlFF13Nh+N0i/ZB8e6DOWfGyvuuhlXlfb3/zYFCFvMjNsqNxfk5+Z3I0u87h+KeNMtGLEa6Q==",
+    "Convey.Metrics.AppMetrics/0.4.273": {
+      "sha512": "0VK5/prl4HU0CSKi4pUfOPK4WiE4sk/qYozMnmLnGrpa5WRq4yBQVKQ6/rg0R1iy9sI2FHf+ae7wE/ryYHoz5Q==",
       "type": "package",
-      "path": "convey.metrics.appmetrics/0.4.258",
+      "path": "convey.metrics.appmetrics/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.metrics.appmetrics.0.4.258.nupkg.sha512",
+        "convey.metrics.appmetrics.0.4.273.nupkg.sha512",
         "convey.metrics.appmetrics.nuspec",
         "lib/netcoreapp3.1/Convey.Metrics.AppMetrics.dll"
       ]
     },
-    "Convey.Persistence.MongoDB/0.4.258": {
-      "sha512": "DyXwAi16xhGk6dTItJvhbo2IZ34uyLzfG09e5zFsOdcfiGPhz0sWRJpk0N7cgO1jfs7aUiEuMtNoaZhU4vGwhw==",
+    "Convey.Persistence.MongoDB/0.4.273": {
+      "sha512": "+QXho3/o+I0UiujIFwlc1e6jDMMfgrARcpQq08td8Vkr2qHX2eq0KnciDFMd4YAWwHxGstuPhDE9/wdRFGDgaQ==",
       "type": "package",
-      "path": "convey.persistence.mongodb/0.4.258",
+      "path": "convey.persistence.mongodb/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.persistence.mongodb.0.4.258.nupkg.sha512",
+        "convey.persistence.mongodb.0.4.273.nupkg.sha512",
         "convey.persistence.mongodb.nuspec",
         "lib/netcoreapp3.1/Convey.Persistence.MongoDB.dll"
       ]
     },
-    "Convey.Persistence.Redis/0.4.258": {
-      "sha512": "WEXzx1wsK1KKswZ5X5pYMU9YURK75U2tvH7/a4oc0CUTvUA1efYlC6oZF7XYenUz06AP0OVhGCOKq9/acC1Uzg==",
+    "Convey.Persistence.Redis/0.4.273": {
+      "sha512": "DfdP5HlyDKJujdko4qe2jnnvqlixMNc3K2NNjjyCU0hD6NWqCcbOeJZbE42eA/fyv6fN1vNNwxCJfL3LKGgFng==",
       "type": "package",
-      "path": "convey.persistence.redis/0.4.258",
+      "path": "convey.persistence.redis/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.persistence.redis.0.4.258.nupkg.sha512",
+        "convey.persistence.redis.0.4.273.nupkg.sha512",
         "convey.persistence.redis.nuspec",
         "lib/netcoreapp3.1/Convey.Persistence.Redis.dll"
       ]
     },
-    "Convey.Secrets.Vault/0.4.258": {
-      "sha512": "iVUMbhX/cqoGD5pqR7f+/4s6L0ebjVRGJ9EbSMRzO9X7j1VwtqdiMF54SqmnVEE47W5PfM5WGidNRQMZPDiKQw==",
+    "Convey.Secrets.Vault/0.4.273": {
+      "sha512": "UPtTIfK0hk3XeCt5SZxt+b0bqgV3scSLWH1QUC2PutWLAHRqBOu5H4ahgMZIkBpvQuUaCE3sV8Y2acDzsi+2Xg==",
       "type": "package",
-      "path": "convey.secrets.vault/0.4.258",
+      "path": "convey.secrets.vault/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.secrets.vault.0.4.258.nupkg.sha512",
+        "convey.secrets.vault.0.4.273.nupkg.sha512",
         "convey.secrets.vault.nuspec",
         "lib/netcoreapp3.1/Convey.Secrets.Vault.dll"
       ]
     },
-    "Convey.Tracing.Jaeger/0.4.258": {
-      "sha512": "flSVszyLX0bMLJeEXz1RxoMht8ry1h42LoHSTIwH1yrkMGSKf61o0UDt681TT++aANQQSofLlIbGitGJfQqBfQ==",
+    "Convey.Tracing.Jaeger/0.4.273": {
+      "sha512": "GsH+o0LZmiItJPzEgSgU5Ode71kYJJ5Fzi3o+WCF63mdhTokk29bb29LACoCJeSto3fqp+hN4LCDbrl2ydo40g==",
       "type": "package",
-      "path": "convey.tracing.jaeger/0.4.258",
+      "path": "convey.tracing.jaeger/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.tracing.jaeger.0.4.258.nupkg.sha512",
+        "convey.tracing.jaeger.0.4.273.nupkg.sha512",
         "convey.tracing.jaeger.nuspec",
         "lib/netcoreapp3.1/Convey.Tracing.Jaeger.dll"
       ]
     },
-    "Convey.Tracing.Jaeger.RabbitMQ/0.4.258": {
-      "sha512": "PbXM1y864zcNej0wSimMhcDA8tbzruxLgqL/cWa6jsovgq1KMX4LzNdm/7g4Fq4HgVKNiG9SMkjvscL5Rt5U7w==",
+    "Convey.Tracing.Jaeger.RabbitMQ/0.4.273": {
+      "sha512": "BF0pzpBn59C4RQzQjCy7fJJWnepfBzm7p2GKLOYtSqoKl6EmqeK+l+EAiVq5VUBBZ7TRR8uIsLlRrsCZOVRTCQ==",
       "type": "package",
-      "path": "convey.tracing.jaeger.rabbitmq/0.4.258",
+      "path": "convey.tracing.jaeger.rabbitmq/0.4.273",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "convey.tracing.jaeger.rabbitmq.0.4.258.nupkg.sha512",
+        "convey.tracing.jaeger.rabbitmq.0.4.273.nupkg.sha512",
         "convey.tracing.jaeger.rabbitmq.nuspec",
         "lib/netcoreapp3.1/Convey.Tracing.Jaeger.RabbitMQ.dll"
       ]
@@ -8018,19 +8008,6 @@
         "lib/netstandard1.3/Serilog.Sinks.Seq.xml",
         "serilog.sinks.seq.4.0.0.nupkg.sha512",
         "serilog.sinks.seq.nuspec"
-      ]
-    },
-    "ServiceStack.Caching.Memcached/5.8.0": {
-      "sha512": "aMBu5FP3bglNcWe102bPAxL4vNhnxjC+cIsNwFwM8kgo1q37GuCYP+OfULEK0wTrDkImqxqgOSvWWK3z8bnTag==",
-      "type": "package",
-      "path": "servicestack.caching.memcached/5.8.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/ServiceStack.Caching.Memcached.dll",
-        "lib/net45/ServiceStack.Caching.Memcached.xml",
-        "servicestack.caching.memcached.5.8.0.nupkg.sha512",
-        "servicestack.caching.memcached.nuspec"
       ]
     },
     "ServiceStack.Common.Core/5.8.0": {
@@ -13526,17 +13503,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'ServiceStack.Caching.Memcached 5.8.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "ServiceStack.Caching.Memcached",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }

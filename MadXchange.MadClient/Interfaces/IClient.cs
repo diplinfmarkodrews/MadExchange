@@ -27,12 +27,10 @@ namespace MadXchange.Common.Mex.Infrastructure
     {
         public Guid AccountId { get; }
         public IPosition Position { get; set; }
-        public IMargin Margin { get; set; }
 
-        public PositionEvent(IPosition position = null, IMargin margin = null)
+        public PositionEvent(IPosition position = null)
         {
             Position = position;
-            Margin = margin;
         }
     }
 

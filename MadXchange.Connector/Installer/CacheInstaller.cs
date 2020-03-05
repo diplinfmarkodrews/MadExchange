@@ -12,21 +12,23 @@ namespace MadXchange.Connector.Installer
     {
         public static IServiceCollection AddCacheServices(this IServiceCollection services, IConfiguration config)
         {
-            //services.AddSession( );
-            //services.AddDistributedMemoryCache();
-            //services.AddOptions();
+          
             var redisCacheSettings = new RedisCacheSettings();
             config.GetSection(key: "Redis").Bind(redisCacheSettings);            
             services.AddSingleton(redisCacheSettings);           
             services.AddSingleton<IRedisClientsManager, RedisManagerPool>(c => new RedisManagerPool(redisCacheSettings.ConnectionString));
             services.AddTransient<IRedisClient, RedisClient>();
+            
             services.AddTransient<IAccountRequestCache, AccountRequestCache>();
-            services.AddSingleton<IInstrumentStore, InstrumentStore>();
+            
+            services.AddSingleton<IOrderBookCache, OrderBookCache>();
+            services.AddSingleton<IOrderCache, OrderCache>();
+            services.AddSingleton<IPositionCache, PositionCache>();
             services.AddSingleton<IInstrumentCache, InstrumentCache>();
             services.AddSingleton<IConnectionDataHandler, CacheDataHandler>();
-            //services.AddSingleton<IOrderCache, OrderCache>();
-            //services.AddSingleton<IPositionCache, PositionCache>();
-            //services.AddSingleton<IMarginCache, MarginCache>();
+            
+            
+            
           
 
             return services;

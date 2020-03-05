@@ -1,28 +1,27 @@
-﻿using System;
+﻿using MadXchange.Exchange.Contracts;
+using System;
 
 namespace MadXchange.Exchange.Domain.Models
 {
+
     public interface IPosition
     {
         string Symbol { get; }
-        public DateTime Created { get; set; }
-        decimal? CurrentQty { get; set; }
-        decimal? PositionValue { get; set; }
-        decimal? Leverage { get; set; }
-        decimal? UnrealisedPnl { get; set; }
-        decimal? RealisedPnl { get; set; }
-
-        //OrderSide? Side { get; set; }
-        decimal? LiquidationPrice { get; set; }
-
-        decimal? EntryPrice { get; set; }
-        decimal? PositionMargin { get; set; }
-
-        decimal? CumRealisedPnl { get; set; }
-        decimal? CumUnRealisedPnl { get; set; }
-        DateTime Timestamp { get; set; }
+        public DateTime Created { get; }
+        decimal? CurrentQty { get; }
+        decimal? PositionValue { get; }
+        decimal? Leverage { get; }
+        decimal? UnrealisedPnl { get; }
+        decimal? RealisedPnl { get; }
+        decimal? LiquidationPrice { get; }
+        decimal? EntryPrice { get; }
+        decimal? PositionMargin { get; }
+        decimal? CumRealisedPnl { get; }
+        DateTime Updated { get; }
+        long Timestamp { get; }
     }
 
+    [Serializable]
     public class Position : IPosition
     {
         public string Symbol { get; set; }
@@ -32,16 +31,64 @@ namespace MadXchange.Exchange.Domain.Models
         public decimal? PositionValue { get; set; }
         public decimal? UnrealisedPnl { get; set; }
         public decimal? RealisedPnl { get; set; }
-
-        //  public OrderSide? Side { get; set; }
         public decimal? LiquidationPrice { get; set; }
-
         public decimal? EntryPrice { get; set; }
-        public decimal? PositionMargin { get; set; }
-       
-
-        public DateTime Timestamp { get; set; }
+        public decimal? PositionMargin { get; set; }               
         public decimal? CumRealisedPnl { get; set; }
-        public decimal? CumUnRealisedPnl { get; set; }
+        public decimal? WalletBalance { get; set; }
+        public decimal? AvailableBalance { get; set; }
+        public DateTime Updated { get; set; }
+        public decimal? MarginBalance { get; set; }
+        public string Currency { get; set; }
+        public long Timestamp { get; set; }
+
+        public static Position FromModel(MarginDto data)
+            => new Position()
+            {
+                Currency = data.Currency,
+                WalletBalance = data.WalletBalance,
+                AvailableBalance = data.AvailableMargin,
+                Updated = data.Updated,
+                Timestamp = data.Timestamp
+            };
+
+        public static Position[] FromModel(MarginDto[] insert)
+        {
+            var result = new Position[insert.Length];
+            for (int i = 0; i < insert.Length; i++)
+                result[i] = FromModel(insert[i]);
+
+            return result;
+        }
+
+        public static Position FromModel(PositionDto position)
+            => new Position()
+            {
+                Symbol = position.Symbol,
+                CurrentQty = position.CurrentQty,
+                Created = position.CreatedAt,
+                Leverage = position.Leverage,
+                PositionValue = position.PositionValue,
+                PositionMargin = position.PositionMargin,
+                UnrealisedPnl = position.UnrealisedPnl,
+                RealisedPnl = position.RealisedPnl,
+                LiquidationPrice = position.LiquidationPrice,
+                EntryPrice = position.EntryPrice,
+                CumRealisedPnl = position.CumRealisedPnl,
+                Updated = position.UpdatedAt,
+                Timestamp = position.Timestamp,
+                WalletBalance = position.WalletBalance,
+                AvailableBalance = position.AvailableBalance
+            };
+        
+        public static Position[] FromModel(PositionDto[] insert)
+        {
+            var result = new Position[insert.Length];
+            for (int i = 0; i < insert.Length; i++)
+                result[i] = FromModel(insert[i]);
+            
+            return result;
+        }
+        
     }
 }

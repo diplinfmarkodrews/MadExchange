@@ -16,11 +16,7 @@ namespace MadXchange.Exchange.Interfaces
 
     public interface IRestEquity
     {
-        Task<IEnumerable<IWalletHistory>> GetWalletHistory(Guid accountId);
-
-        Task<IEnumerable<IMargin>> GetMarginAsync(Guid accountId);
-
-        Task<IMargin> GetMarginAsync(Guid accountId, string cur);
+        Task<IEnumerable<IWalletHistory>> GetWalletHistory(Guid accountId);      
     }
 
     public interface IRestPosition

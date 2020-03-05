@@ -22,8 +22,11 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
         private readonly IRequestExecutionService _requestExecutionService;
         private readonly ISignRequestsService _signRequestService;
 
-        public RestRequestService(IRequestExecutionService requestExecutionService, IRequestAccessService accessService, ISignRequestsService signRequestService)
+        public RestRequestService(IRequestExecutionService requestExecutionService, 
+                                     IRequestAccessService accessService, 
+                                      ISignRequestsService signRequestService)        
         {
+
             _requestAccessService = accessService;
             _requestExecutionService = requestExecutionService;
             _signRequestService = signRequestService;
@@ -31,7 +34,7 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
 
         public async Task<HttpResponseDto> SendRequestObjectAsync(Guid accountId, XchangeRequestObject routeObject, CancellationToken token = default)
         {
-            var permit = await _requestAccessService.RequestAccess(accountId, token);
+            var permit = await _requestAccessService.RequestAccess(accountId, token).ConfigureAwait(false);
             //if request was cancelled by CancellationToken, request gets aborted before execution, no permission to send then, otherwise it will wait until access is granted
             if (!permit) return default;
             _signRequestService.SignRequestObject(accountId, ref routeObject);

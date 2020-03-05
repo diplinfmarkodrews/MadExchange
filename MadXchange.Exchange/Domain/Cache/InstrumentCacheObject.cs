@@ -30,11 +30,9 @@ namespace MadXchange.Exchange.Domain.Cache
             || Instrument.BidPrice == default
             ? false
             : true;
-
         
         public void Update(long timeStamp, Instrument instrument) 
-        {            
-            
+        {                        
             Instrument.PopulateWithNonDefaultValues(instrument);
             Timestamp = timeStamp;
         }

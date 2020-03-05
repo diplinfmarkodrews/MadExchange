@@ -10,22 +10,17 @@ namespace MadXchange.MadClient.Infrastructure
     public class ClientStore : IClientStore
     {
         private readonly Guid _accountId;
-        private readonly IDictionary<string, IMargin> _margin;
         private readonly IDictionary<string, IPosition> _position;
         private readonly IDictionary<string, IDictionary<string, IOrder>> _openOrders;
         private readonly bool _isSocket;
 
-        public ClientStore(IDictionary<string, IMargin> margin, IDictionary<string, IPosition> position, IDictionary<string, IDictionary<string, IOrder>> orders)
+        public ClientStore(IDictionary<string, IPosition> position, IDictionary<string, IDictionary<string, IOrder>> orders)
         {
-            _margin = margin;
             _position = position;
             _openOrders = orders;
         }
 
-        public async Task<IMargin> GetMarginAsync(string currency)
-        {
-            return _margin[currency];
-        }
+   
 
         public async Task<IPosition> GetPositionAsync(string currency)
         {

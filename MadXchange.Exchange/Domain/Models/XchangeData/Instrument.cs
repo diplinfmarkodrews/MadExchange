@@ -10,7 +10,7 @@ namespace MadXchange.Exchange.Domain.Models
     
     }
     [Serializable]
-    public sealed class Instrument
+    public sealed class Instrument : IInstrument
     {
         public string Symbol { get; set; }
 
@@ -46,9 +46,16 @@ namespace MadXchange.Exchange.Domain.Models
 
         public DateTime UpdatedAt { get; set; }
 
-        public static Instrument FromModel(InstrumentDto model)
+        public static Instrument[] FromModel(InstrumentDto[] models) 
         {
-            return new Instrument()
+            var result = new Instrument[models.Length];
+            for (int i = 0; i < models.Length; i++)            
+                result[i] = Instrument.FromModel(models[i]);
+            return result;
+        }
+
+        public static Instrument FromModel(InstrumentDto model)
+            => new Instrument()
             {
                 Symbol = model.Symbol,
                 AskPrice = model.AskPrice,
@@ -68,7 +75,7 @@ namespace MadXchange.Exchange.Domain.Models
                 NextFundingTime = model.NextFundingTime,
                 UpdatedAt = model.UpdateAt
             }; 
-        }
+        
 
         public InstrumentDto ToModel()
         {

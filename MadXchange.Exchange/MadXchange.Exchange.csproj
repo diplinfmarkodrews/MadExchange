@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Contracts\XchangeData\Validators\" />
-    <Folder Include="Services\Socket\Handler\" />
   </ItemGroup>
 
   <ItemGroup>

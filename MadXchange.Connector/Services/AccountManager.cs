@@ -1,6 +1,11 @@
-﻿using MadXchange.Exchange.Domain.Models;
+﻿using MadXchange.Exchange.Contracts;
+using MadXchange.Exchange.Contracts.XchangeData;
+using MadXchange.Exchange.Domain.Models;
+using MadXchange.Exchange.Domain.Types;
 using MadXchange.Exchange.Infrastructure.Stores;
 using Microsoft.Extensions.Logging;
+using OpenTracing;
+using ServiceStack;
 using System;
 using System.Collections.Generic;
 
@@ -9,7 +14,10 @@ namespace MadXchange.Connector.Services
     public interface IAccountManager
     {
         void RegisterClients();
+        
         void DeRegisterClients();
+
+        void RegisterClients(params Guid[] accounts);
     }
 
     /// <summary>
@@ -23,11 +31,11 @@ namespace MadXchange.Connector.Services
         private readonly ISocketConnectionService _socketConnectionService;
         private readonly ILogger _logger;
 
-        public AccountManager(IApiKeySetStore apikeysetRepo, ISocketConnectionService socketConnectionService, ILogger<AccountManager> logger)
+        public AccountManager(IApiKeySetStore apikeysetRepo, ISocketConnectionService socketConnectionService, ILoggerFactory logger)
         {
             _apiKeySetRepository = apikeysetRepo;
             _socketConnectionService = socketConnectionService;
-            _logger = logger;
+            _logger = logger.CreateLogger<AccountManager>();
         }
 
         public void DeRegisterClients()
@@ -35,13 +43,19 @@ namespace MadXchange.Connector.Services
             throw new NotImplementedException();
         }
 
-        public void RegisterClients() 
+        public void RegisterClients(params Guid[] accounts) 
         {
-            var subscriptions = new List<SocketSubscription>();
-            var btcSubscription = new SocketSubscription(Guid.NewGuid(), "Instrument", "instrument_info", new List<string>() { "100ms", "BTCUSD" });
-            subscriptions.Add(btcSubscription);
-            _socketConnectionService.RegisterSocketInstrument(Exchange.Domain.Types.Xchange.ByBit, subscriptions, Guid.NewGuid());
+            
+           
+        }
+
+        public void RegisterClients() 
+        {        
+            var keyset = _apiKeySetRepository.Get(Xchange.ByBit);
+            _socketConnectionService.RegisterSocketClient(keyset.Id);            
+            _socketConnectionService.RegisterPublicSocket(Xchange.ByBit, new (string, string)[] { ("OrderBook", "BTCUSD"), ("OrderBook", "ETHUSD") }, Guid.NewGuid());
             
         }
+        
     }
 }

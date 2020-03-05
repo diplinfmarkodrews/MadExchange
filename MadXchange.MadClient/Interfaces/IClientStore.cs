@@ -9,7 +9,7 @@ namespace MadXchange.MadClient.Interface
     /// </summary>
     public interface IClientStore
     {
-        Task<IMargin> GetMarginAsync(string cur);
+        
 
         Task<IPosition> GetPositionAsync(string symbol);
 

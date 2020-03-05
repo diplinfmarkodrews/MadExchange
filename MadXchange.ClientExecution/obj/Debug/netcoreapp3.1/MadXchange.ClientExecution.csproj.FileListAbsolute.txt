@@ -137,7 +137,6 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Serilog.Sinks.PeriodicBatching.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Serilog.Sinks.Seq.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\ServiceStack.Caching.Memcached.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\ServiceStack.Common.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\ServiceStack.Interfaces.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\ServiceStack.Redis.dll

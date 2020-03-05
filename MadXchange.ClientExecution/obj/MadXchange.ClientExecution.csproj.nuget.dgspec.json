@@ -126,19 +126,19 @@
             },
             "Convey": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Convey.CQRS.Commands": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Convey.CQRS.Events": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Convey.CQRS.Queries": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Convey.Configurations.Vault": {
               "target": "Package",
@@ -146,51 +146,51 @@
             },
             "Convey.Discovery.Consul": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Convey.Logging": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Convey.Logging.CQRS": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Convey.MessageBrokers": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Convey.MessageBrokers.CQRS": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Convey.MessageBrokers.RabbitMQ": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Convey.Metrics.AppMetrics": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Convey.Persistence.MongoDB": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Convey.Persistence.Redis": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Convey.Secrets.Vault": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Convey.Tracing.Jaeger": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Convey.Tracing.Jaeger.RabbitMQ": {
               "target": "Package",
-              "version": "[0.4.258, )"
+              "version": "[0.4.273, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -223,10 +223,6 @@
             "RawRabbit.vNext": {
               "target": "Package",
               "version": "[1.10.4, )"
-            },
-            "ServiceStack.Caching.Memcached": {
-              "target": "Package",
-              "version": "[5.8.0, )"
             },
             "ServiceStack.Redis.Core": {
               "target": "Package",

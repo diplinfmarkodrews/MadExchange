@@ -4,6 +4,7 @@ using MadXchange.Exchange.Services.Socket;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.WebSockets;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Serilog;
 using System.Reflection;
 

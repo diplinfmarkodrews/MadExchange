@@ -673,3 +673,507 @@ System.IO.IOException: The handshake failed due to an unexpected packet format.
 2020-03-02 10:45:19.476 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
 2020-03-02 10:45:19.487 +01:00 [VRB] Delaying for 00:00:00.5000000
 2020-03-02 10:45:19.624 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 11:00:20.720 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 11:00:20.851 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 11:00:41.242 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 11:00:45.709 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 11:00:45.727 +01:00 [DBG] Hosting starting
+2020-03-02 11:00:45.846 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 11:00:45.849 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 11:00:45.948 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 11:00:46.126 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 11:00:46.134 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 11:00:46.143 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 11:00:46.172 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 11:00:46.173 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 11:00:46.223 +01:00 [DBG] #2 Socket Connected
+2020-03-02 11:00:46.270 +01:00 [DBG] #3 Socket Connected
+2020-03-02 11:00:46.282 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 11:00:46.293 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 11:00:46.396 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 11:00:46.801 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 11:02:43.579 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 11:02:43.732 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 11:02:46.374 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 11:02:46.461 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 11:02:46.476 +01:00 [DBG] Hosting starting
+2020-03-02 11:02:46.594 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 11:02:46.597 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 11:02:46.735 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 11:02:46.845 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 11:02:46.852 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 11:02:46.868 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 11:02:46.914 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 11:02:46.916 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 11:02:46.964 +01:00 [DBG] #2 Socket Connected
+2020-03-02 11:02:47.007 +01:00 [DBG] #3 Socket Connected
+2020-03-02 11:02:47.018 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 11:02:47.030 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 11:02:47.125 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 11:02:47.579 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 11:10:40.632 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 11:10:40.768 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 11:10:43.242 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 11:10:43.359 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 11:10:43.378 +01:00 [DBG] Hosting starting
+2020-03-02 11:10:43.510 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 11:10:43.516 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 11:10:43.615 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 11:10:43.693 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 11:10:43.714 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 11:10:43.777 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 11:10:43.808 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 11:10:43.810 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 11:10:43.864 +01:00 [DBG] #2 Socket Connected
+2020-03-02 11:10:43.903 +01:00 [DBG] #3 Socket Connected
+2020-03-02 11:10:43.920 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 11:10:43.962 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 11:10:44.031 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 11:10:44.482 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 11:11:43.561 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 11:11:43.802 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 11:11:46.261 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 11:11:46.352 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 11:11:46.369 +01:00 [DBG] Hosting starting
+2020-03-02 11:11:46.491 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 11:11:46.494 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 11:11:46.592 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 11:11:46.792 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 11:11:46.795 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 11:11:46.804 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 11:11:46.830 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 11:11:46.835 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 11:11:46.895 +01:00 [DBG] #2 Socket Connected
+2020-03-02 11:11:46.941 +01:00 [DBG] #3 Socket Connected
+2020-03-02 11:11:46.955 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 11:11:46.972 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 11:11:47.037 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 11:16:56.015 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 11:16:56.202 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 11:16:59.536 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 11:16:59.665 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 11:16:59.683 +01:00 [DBG] Hosting starting
+2020-03-02 11:16:59.822 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 11:16:59.855 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 11:16:59.957 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 11:17:00.185 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 11:17:00.196 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 11:17:00.211 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 11:17:00.245 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 11:17:00.246 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 11:17:00.315 +01:00 [DBG] #2 Socket Connected
+2020-03-02 11:17:00.367 +01:00 [DBG] #3 Socket Connected
+2020-03-02 11:17:00.379 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 11:17:00.390 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 11:17:00.494 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 11:17:00.906 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 11:17:01.410 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:12.004 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 13:33:12.352 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 13:33:24.782 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 13:33:25.141 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 13:33:25.169 +01:00 [DBG] Hosting starting
+2020-03-02 13:33:25.583 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 13:33:25.586 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 13:33:25.839 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 13:33:26.424 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 13:33:26.518 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 13:33:26.552 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 13:33:26.634 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 13:33:26.656 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 13:33:26.939 +01:00 [DBG] #2 Socket Connected
+2020-03-02 13:33:27.115 +01:00 [DBG] #3 Socket Connected
+2020-03-02 13:33:27.161 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 13:33:27.216 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:27.603 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 13:33:27.769 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:28.455 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:30.137 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:30.838 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:31.475 +01:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 94C78531B77034870FCC5D8F386EDB1057843E40)
+2020-03-02 13:33:31.537 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:31.683 +01:00 [DBG] Hosting started
+2020-03-02 13:33:31.711 +01:00 [VRB] 1 meters all ticked in 24873 ticks using App.Metrics.Scheduling.DefaultMeterTickerScheduler
+2020-03-02 13:33:31.768 +01:00 [DBG] Loaded hosting startup assembly MadXchange.Connector
+2020-03-02 13:33:31.777 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 13:33:31.975 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 13:33:32.210 +01:00 [DBG] Connection id "0HLTUKNLK0GL9" accepted.
+2020-03-02 13:33:32.277 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:32.306 +01:00 [DBG] Connection id "0HLTUKNLK0GL9" started.
+2020-03-02 13:33:32.894 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:32.925 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessAuthentication(LazyAsyncResult lazyResult, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__69_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.InnerOnConnectionAsync(ConnectionContext context)
+2020-03-02 13:33:33.283 +01:00 [DBG] Connection id "0HLTUKNLK0GL9" stopped.
+2020-03-02 13:33:33.357 +01:00 [DBG] Connection id "0HLTUKNLK0GL9" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-03-02 13:33:33.527 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:34.203 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:34.772 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:35.479 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:36.159 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:36.694 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:36.999 +01:00 [VRB] 1 meters all ticked in 4901 ticks using App.Metrics.Scheduling.DefaultMeterTickerScheduler
+2020-03-02 13:33:37.007 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 13:33:37.012 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 13:33:37.142 +01:00 [DBG] Connection id "0HLTUKNLK0GLA" accepted.
+2020-03-02 13:33:37.149 +01:00 [DBG] Connection id "0HLTUKNLK0GLA" started.
+2020-03-02 13:33:37.229 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:38.027 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessAuthentication(LazyAsyncResult lazyResult, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__69_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.InnerOnConnectionAsync(ConnectionContext context)
+2020-03-02 13:33:38.255 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:38.492 +01:00 [DBG] Connection id "0HLTUKNLK0GLA" stopped.
+2020-03-02 13:33:38.581 +01:00 [DBG] Connection id "0HLTUKNLK0GLA" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-03-02 13:33:39.028 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:39.568 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:40.127 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:40.707 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:41.227 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:41.765 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:42.152 +01:00 [DBG] Connection id "0HLTUKNLK0GLB" accepted.
+2020-03-02 13:33:42.162 +01:00 [VRB] 1 meters all ticked in 668 ticks using App.Metrics.Scheduling.DefaultMeterTickerScheduler
+2020-03-02 13:33:42.185 +01:00 [DBG] Connection id "0HLTUKNLK0GLB" started.
+2020-03-02 13:33:42.197 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 13:33:42.330 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:42.470 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 13:33:42.899 +01:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException: The handshake failed due to an unexpected packet format.
+   at System.Net.Security.SslStream.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslStream.ProcessAuthentication(LazyAsyncResult lazyResult, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.BeginAuthenticateAsServer(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken, AsyncCallback asyncCallback, Object asyncState)
+   at System.Net.Security.SslStream.<>c.<AuthenticateAsServerAsync>b__69_0(SslServerAuthenticationOptions arg1, CancellationToken arg2, AsyncCallback callback, Object state)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncImpl[TArg1,TArg2](Func`5 beginMethod, Func`2 endFunction, Action`1 endAction, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state, TaskCreationOptions creationOptions)
+   at System.Threading.Tasks.TaskFactory.FromAsync[TArg1,TArg2](Func`5 beginMethod, Action`1 endMethod, TArg1 arg1, TArg2 arg2, Object state)
+   at System.Net.Security.SslStream.AuthenticateAsServerAsync(SslServerAuthenticationOptions sslServerAuthenticationOptions, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.InnerOnConnectionAsync(ConnectionContext context)
+2020-03-02 13:33:43.267 +01:00 [DBG] Connection id "0HLTUKNLK0GLB" stopped.
+2020-03-02 13:33:43.297 +01:00 [DBG] Connection id "0HLTUKNLK0GLB" sending FIN because: "The Socket transport's send loop completed gracefully."
+2020-03-02 13:33:43.450 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:44.136 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:44.787 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:45.380 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:45.895 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:33:46.415 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:53:16.435 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 13:53:16.846 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 13:53:25.955 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 13:53:26.203 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 13:53:26.260 +01:00 [DBG] Hosting starting
+2020-03-02 13:53:26.623 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 13:53:26.646 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 13:53:26.893 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 13:53:27.445 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 13:53:27.502 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 13:53:27.521 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 13:53:27.604 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 13:53:27.606 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 13:53:27.696 +01:00 [DBG] #2 Socket Connected
+2020-03-02 13:53:27.863 +01:00 [DBG] #3 Socket Connected
+2020-03-02 13:53:27.926 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 13:53:27.946 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 13:53:28.143 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 14:39:54.616 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 14:39:54.843 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 14:40:00.172 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 14:40:00.328 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 14:40:00.530 +01:00 [DBG] Hosting starting
+2020-03-02 14:40:00.764 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 14:40:00.767 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 14:40:00.998 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 14:40:01.313 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 14:40:01.346 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 14:40:01.367 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 14:40:01.524 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 14:40:01.526 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 14:40:01.589 +01:00 [DBG] #2 Socket Connected
+2020-03-02 14:40:01.646 +01:00 [DBG] #3 Socket Connected
+2020-03-02 14:40:01.664 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 14:40:01.697 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 14:40:02.027 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 14:40:02.232 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 14:40:02.865 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 14:40:12.624 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 14:40:12.626 +01:00 [VRB] 1 meters all ticked in 14588 ticks using App.Metrics.Scheduling.DefaultMeterTickerScheduler
+2020-03-02 14:40:13.020 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 14:40:13.024 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 14:40:20.239 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 14:41:55.224 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 14:41:55.459 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 14:41:59.062 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 14:41:59.178 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 14:41:59.211 +01:00 [DBG] Hosting starting
+2020-03-02 14:41:59.357 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 14:41:59.361 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 14:41:59.538 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 14:41:59.697 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 14:41:59.705 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 14:41:59.721 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 14:41:59.779 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 14:41:59.781 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 14:41:59.861 +01:00 [DBG] #2 Socket Connected
+2020-03-02 14:41:59.905 +01:00 [DBG] #3 Socket Connected
+2020-03-02 14:41:59.926 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 14:41:59.947 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 14:42:00.023 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 14:42:03.368 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 14:46:41.281 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 14:46:41.484 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 14:46:47.124 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 14:46:47.355 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 14:46:47.405 +01:00 [DBG] Hosting starting
+2020-03-02 14:46:47.585 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 14:46:47.595 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 14:46:47.767 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 14:46:48.185 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 14:46:48.189 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 14:46:48.203 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 14:46:48.241 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 14:46:48.247 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 14:46:48.366 +01:00 [DBG] #2 Socket Connected
+2020-03-02 14:46:48.470 +01:00 [DBG] #3 Socket Connected
+2020-03-02 14:46:48.488 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 14:46:48.517 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 14:46:48.704 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 14:46:53.345 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 14:46:53.416 +01:00 [VRB] 1 meters all ticked in 27526 ticks using App.Metrics.Scheduling.DefaultMeterTickerScheduler
+2020-03-02 14:46:53.474 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 14:46:53.478 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 14:46:56.373 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:06:05.263 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 16:06:05.466 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 16:06:10.603 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 16:06:10.989 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 16:06:11.036 +01:00 [DBG] Hosting starting
+2020-03-02 16:06:11.210 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 16:06:11.214 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 16:06:11.419 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:06:11.831 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 16:06:11.839 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 16:06:11.859 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:06:11.925 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:06:11.929 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:06:12.037 +01:00 [DBG] #2 Socket Connected
+2020-03-02 16:06:12.154 +01:00 [DBG] #3 Socket Connected
+2020-03-02 16:06:12.183 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 16:06:12.202 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:06:12.349 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 16:06:12.723 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:06:13.270 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:06:19.041 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:06:28.510 +01:00 [VRB] 1 meters all ticked in 17162 ticks using App.Metrics.Scheduling.DefaultMeterTickerScheduler
+2020-03-02 16:06:28.587 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:07:59.939 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:08:00.339 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:08:02.755 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:08:10.553 +01:00 [VRB] 1 meters all ticked in 11306 ticks using App.Metrics.Scheduling.DefaultMeterTickerScheduler
+2020-03-02 16:08:10.600 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:08:10.645 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:09:49.965 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 16:09:50.443 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 16:09:56.922 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 16:09:57.190 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 16:09:57.310 +01:00 [DBG] Hosting starting
+2020-03-02 16:09:57.523 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 16:09:57.530 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 16:09:57.696 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:09:58.186 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 16:09:58.190 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 16:09:58.204 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:09:58.276 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:09:58.280 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:09:58.351 +01:00 [DBG] #2 Socket Connected
+2020-03-02 16:09:58.430 +01:00 [DBG] #3 Socket Connected
+2020-03-02 16:09:58.468 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 16:09:58.484 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:09:58.614 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 16:09:58.995 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:09:59.507 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:10:03.248 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:11:09.125 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 16:11:09.349 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 16:11:12.930 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 16:11:13.043 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 16:11:13.110 +01:00 [DBG] Hosting starting
+2020-03-02 16:11:13.261 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 16:11:13.265 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 16:11:13.389 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:11:13.600 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 16:11:13.606 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 16:11:13.614 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:11:13.757 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:11:13.759 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:11:13.823 +01:00 [DBG] #2 Socket Connected
+2020-03-02 16:11:13.872 +01:00 [DBG] #3 Socket Connected
+2020-03-02 16:11:13.883 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 16:11:13.894 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:11:14.041 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 16:11:14.402 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:11:19.229 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:11:25.572 +01:00 [VRB] 1 meters all ticked in 35437 ticks using App.Metrics.Scheduling.DefaultMeterTickerScheduler
+2020-03-02 16:11:25.586 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:11:25.591 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:11:29.790 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:14:04.161 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 16:14:04.447 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 16:14:10.237 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 16:14:10.546 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 16:14:10.577 +01:00 [DBG] Hosting starting
+2020-03-02 16:14:10.800 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 16:14:10.810 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 16:14:11.067 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:14:11.518 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 16:14:11.535 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 16:14:11.551 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:14:11.716 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:14:11.718 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:14:11.841 +01:00 [DBG] #2 Socket Connected
+2020-03-02 16:14:11.933 +01:00 [DBG] #3 Socket Connected
+2020-03-02 16:14:11.954 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 16:14:11.979 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:14:12.151 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 16:14:18.540 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:14:18.468 +01:00 [VRB] 1 meters all ticked in 25945 ticks using App.Metrics.Scheduling.DefaultMeterTickerScheduler
+2020-03-02 16:14:20.119 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:14:20.124 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:14:21.770 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:17:25.903 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 16:17:26.097 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 16:17:29.583 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 16:17:29.745 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 16:17:29.796 +01:00 [DBG] Hosting starting
+2020-03-02 16:17:29.995 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 16:17:29.999 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 16:17:30.159 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:17:30.544 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 16:17:30.628 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 16:17:30.661 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:17:30.756 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:17:30.778 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:17:30.858 +01:00 [DBG] #2 Socket Connected
+2020-03-02 16:17:30.923 +01:00 [DBG] #3 Socket Connected
+2020-03-02 16:17:30.939 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 16:17:30.953 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:17:31.050 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 16:17:35.274 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:17:37.154 +01:00 [VRB] 1 meters all ticked in 32433 ticks using App.Metrics.Scheduling.DefaultMeterTickerScheduler
+2020-03-02 16:17:37.161 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:17:37.163 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:17:38.084 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:17:42.113 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:18:25.050 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 16:18:25.297 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 16:18:28.721 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 16:18:28.843 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 16:18:28.863 +01:00 [DBG] Hosting starting
+2020-03-02 16:18:29.019 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 16:18:29.036 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 16:18:29.156 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:18:29.430 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 16:18:29.436 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 16:18:29.454 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:18:29.489 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:18:29.490 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:18:29.552 +01:00 [DBG] #2 Socket Connected
+2020-03-02 16:18:29.610 +01:00 [DBG] #3 Socket Connected
+2020-03-02 16:18:29.626 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 16:18:29.637 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:18:29.711 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 16:18:30.154 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:18:34.174 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:18:35.015 +01:00 [VRB] 1 meters all ticked in 129263 ticks using App.Metrics.Scheduling.DefaultMeterTickerScheduler
+2020-03-02 16:18:35.019 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:18:35.030 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:18:37.200 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:19:41.580 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:19:41.614 +01:00 [VRB] 1 meters all ticked in 4918 ticks using App.Metrics.Scheduling.DefaultMeterTickerScheduler
+2020-03-02 16:19:41.662 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:19:41.673 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:20:07.979 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 16:20:08.235 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 16:20:13.182 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 16:20:13.311 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 16:20:13.334 +01:00 [DBG] Hosting starting
+2020-03-02 16:20:13.506 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 16:20:13.513 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 16:20:13.668 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:20:14.094 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 16:20:14.106 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 16:20:14.135 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:20:14.184 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:20:14.186 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:20:14.267 +01:00 [DBG] #2 Socket Connected
+2020-03-02 16:20:19.937 +01:00 [VRB] 1 meters all ticked in 18073 ticks using App.Metrics.Scheduling.DefaultMeterTickerScheduler
+2020-03-02 16:20:19.955 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:20:19.956 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:20:19.970 +01:00 [DBG] #3 Socket Connected
+2020-03-02 16:20:19.993 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 16:20:20.011 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:20:22.690 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 16:20:34.370 +01:00 [VRB] 1 meters all ticked in 19946 ticks using App.Metrics.Scheduling.DefaultMeterTickerScheduler
+2020-03-02 16:21:46.565 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 16:21:46.803 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 16:21:51.940 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 16:21:52.105 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 16:21:52.220 +01:00 [DBG] Hosting starting
+2020-03-02 16:21:52.392 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 16:21:52.421 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 16:21:52.591 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:21:52.885 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 16:21:52.935 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 16:21:52.950 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 16:21:52.986 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 16:21:52.989 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 16:21:53.096 +01:00 [DBG] #2 Socket Connected
+2020-03-02 16:21:53.171 +01:00 [DBG] #3 Socket Connected
+2020-03-02 16:21:53.208 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 16:21:53.221 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 16:21:53.301 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 16:21:58.023 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 23:50:23.210 +01:00 [VRB] Package versions (MadXchange.Connector)
+2020-03-02 23:50:23.337 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-02 23:50:27.153 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-02 23:50:27.335 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-02 23:50:27.353 +01:00 [DBG] Hosting starting
+2020-03-02 23:50:27.442 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-02 23:50:27.444 +01:00 [DBG] New Redis Slaves: 
+2020-03-02 23:50:27.543 +01:00 [VRB] Adding Apdex Apdex|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"AllowWarmup":true,"ApdexTSeconds":0.5,"ResetOnReporting":false,"Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"none","$type":"Unit"},"Name":"Apdex","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"ApdexOptions"} none {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 23:50:27.586 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule with period "01:00:00"
+2020-03-02 23:50:27.588 +01:00 [VRB] App.Metrics.Scheduling.DefaultReservoirRescaleScheduler Schedule Started
+2020-03-02 23:50:27.594 +01:00 [VRB] Adding Timer Transactions|server:DESKTOP-3S9BPSB,app:MadXchange.Connector,env:development - {"DurationUnit":"Milliseconds","RateUnit":"Minutes","Reservoir":null,"Context":"Application.HttpRequests","MeasurementUnit":{"Name":"req","$type":"Unit"},"Name":"Transactions","Tags":{"Count":0,"Keys":null,"Values":null,"$type":"MetricTags"},"$type":"TimerOptions"} req "Milliseconds" "Minutes" {"server":"DESKTOP-3S9BPSB","app":"MadXchange.Connector","env":"development"}
+2020-03-02 23:50:27.622 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 23:50:27.625 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 23:50:27.679 +01:00 [DBG] #2 Socket Connected
+2020-03-02 23:50:27.728 +01:00 [DBG] #3 Socket Connected
+2020-03-02 23:50:27.738 +01:00 [WRN] Instrumentation has not been started because no tracer was registered.
+2020-03-02 23:50:27.748 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 23:50:27.823 +01:00 [DBG] Failed to locate the development https certificate at 'null'.
+2020-03-02 23:50:28.257 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 23:50:28.774 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 23:50:33.930 +01:00 [VRB] Delaying for 00:00:00.5000000
+2020-03-02 23:50:38.227 +01:00 [VRB] 1 meters all ticked in 45048 ticks using App.Metrics.Scheduling.DefaultMeterTickerScheduler
+2020-03-02 23:50:38.231 +01:00 [VRB] Starting App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler
+2020-03-02 23:50:38.233 +01:00 [VRB] App.Metrics.Scheduling.DefaultMeterTickerScheduler scheduler started
+2020-03-02 23:50:40.218 +01:00 [VRB] Delaying for 00:00:00.5000000

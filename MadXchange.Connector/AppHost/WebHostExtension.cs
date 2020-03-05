@@ -113,9 +113,8 @@ namespace Microsoft.AspNetCore.Hosting
         {
             var loggerConf = configuration.GetSection("logger");
             //var logstashUrl = configuration["Serilog:LogstashgUrl"];
-            var logger = new LoggerConfiguration()                
-                
-                .MinimumLevel.Verbose()
+            var logger = new LoggerConfiguration()                               
+                .MinimumLevel.Debug()
                 .Enrich.WithProperty("ApplicationContext", AppName)                
                 .WriteTo.Console()        
                 .WriteTo.File("logDebug.txt", rollingInterval: RollingInterval.Day)

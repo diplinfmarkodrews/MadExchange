@@ -149,7 +149,6 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\De
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Serilog.Sinks.RollingFile.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Serilog.Sinks.Seq.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.Admin.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.Caching.Memcached.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.Client.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.Common.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.dll
