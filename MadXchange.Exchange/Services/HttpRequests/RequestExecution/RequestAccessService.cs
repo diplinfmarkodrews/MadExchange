@@ -29,7 +29,7 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
         public async Task<bool> RequestAccess(Guid accountId, CancellationToken token)
         {
             var resultLock = await _requestCache.LockAccount(accountId).ConfigureAwait(false);
-            var acCacheObj = RequestAccountAccess(accountId);
+            var acCacheObj = await RequestAccountAccess(accountId).ConfigureAwait(false);
             resultLock.Dispose();
             int rqQueue = acCacheObj.RequestQueue;
             long timeDiffInTicks = (acCacheObj.NextRequestTime - DateTime.UtcNow.Ticks);
@@ -49,13 +49,13 @@ namespace MadXchange.Exchange.Services.HttpRequests.RequestExecution
         /// </summary>
         /// <param name="accountId"></param>
         /// <returns></returns>
-        private AccountRequestCacheObject RequestAccountAccess(Guid accountId)
+        private async Task<AccountRequestCacheObject> RequestAccountAccess(Guid accountId)
         {
             //var lockObj = _requestCache.LockAccount(accountId);
-            var accountCacheObject = _requestCache.GetAccount(accountId);
+            var accountCacheObject = await _requestCache.GetAccountAsync(accountId);
             accountCacheObject.RequestQueue++;           
             accountCacheObject.Timestamp = DateTime.UtcNow.Ticks;           
-            _requestCache.SetAccount(accountCacheObject);
+            await _requestCache.SetAccountAsync(accountCacheObject);
             return accountCacheObject;
         }
 

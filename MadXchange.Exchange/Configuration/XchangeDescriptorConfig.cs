@@ -67,7 +67,7 @@ namespace MadXchange.Exchange.Configuration
                 exchangeDescriptor.SocketDescriptor = ReadSocketConfig(exchange);
                 //not tested and not needed yet! exchangeDescriptor.SocketDescriptor.TypeDescriptors = XchangeConfigToolkit.GenerateTypesDictionary(_dataTypes, exchange.GetSection("Socket:Types"));
                 exchangeDescriptor.SocketDescriptor.Xchange = exchangeEnum;
-                exchangeDescriptor.SocketDescriptor.SubscriptionArgs.Each(s => s.Value.ReturnType = exchangeDescriptor.DomainTypes.GetValueOrDefault($"{s.Key}Dto"));
+                exchangeDescriptor.SocketDescriptor.SubscriptionArgs.Each(s => s.Value.ReturnType = exchangeDescriptor.DomainTypes.GetValueOrDefault(s.Key));
                 if (VerifyExchangeDescriptor(exchangeDescriptor))
                     exchanges[exchangeDescriptor.Id] = exchangeDescriptor;
             }
@@ -93,7 +93,7 @@ namespace MadXchange.Exchange.Configuration
             var resolutions = socketConfig.GetSection("Fields:Resolution").Get<string[]>();
             
             topics.Each(t => result.SubscriptionArgs.Add($"{t.Key}Dto", new SocketSubscriptionArgs() { Topic = t.Value }));
-            var publicSubscription = result.SubscriptionArgs.Where(s => (s.Key == "OrderBook" || s.Key == "Instrument"));
+            var publicSubscription = result.SubscriptionArgs.Where(s => (s.Key == "OrderBookDto" || s.Key == "InstrumentDto"));
             foreach(var s in publicSubscription)
             {
                 s.Value.IsPublic = true;

@@ -21,7 +21,7 @@ namespace MadXchange.Exchange.Infrastructure.Cache
     /// https://github.com/ServiceStack/ServiceStack.Redis
     /// </summary>
 
-    public class InstrumentCache : CacheStorage<InstrumentCacheObject>, IInstrumentCache
+    public class InstrumentCache : CacheStorageTransient<InstrumentCacheObject>, IInstrumentCache
     {
         private readonly IInstrumentStore _instrumentStore = new InstrumentStore();
 
@@ -37,7 +37,7 @@ namespace MadXchange.Exchange.Infrastructure.Cache
         /// <returns></returns>
         public long Update(Guid id, Xchange exchange, string symbol, long timeStamp, Instrument instrumentDto)
         {
-            var keyString = $"{id}{exchange}{symbol}";
+            var keyString = $"{exchange}{symbol}{id}";
             var cacheObject = _instrumentStore.GetInstrument(keyString, id, exchange, symbol);            
             cacheObject.Update(timeStamp, instrumentDto);           
             Set(keyString, cacheObject);

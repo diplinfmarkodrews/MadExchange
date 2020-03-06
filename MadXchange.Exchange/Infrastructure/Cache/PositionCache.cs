@@ -18,7 +18,7 @@ namespace MadXchange.Exchange.Infrastructure.Cache
       
     }
 
-    public sealed class PositionCache : CacheStorage<PositionCacheObject>, IPositionCache
+    public sealed class PositionCache : CacheStorageTransient<PositionCacheObject>, IPositionCache
     {
 
         private IPositionStore _positionStore = new PositionStore();

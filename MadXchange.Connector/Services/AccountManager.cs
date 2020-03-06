@@ -13,10 +13,8 @@ namespace MadXchange.Connector.Services
 {
     public interface IAccountManager
     {
-        void RegisterClients();
-        
+        void RegisterClients();        
         void DeRegisterClients();
-
         void RegisterClients(params Guid[] accounts);
     }
 
@@ -53,8 +51,9 @@ namespace MadXchange.Connector.Services
         {        
             var keyset = _apiKeySetRepository.Get(Xchange.ByBit);
             _socketConnectionService.RegisterSocketClient(keyset.Id);            
-            _socketConnectionService.RegisterPublicSocket(Xchange.ByBit, new (string, string)[] { ("OrderBook", "BTCUSD"), ("OrderBook", "ETHUSD") }, Guid.NewGuid());
-            
+           // _socketConnectionService.RegisterPublicSocket(Xchange.ByBit, new (string, string)[] { ("OrderBook", "BTCUSD"), ("OrderBook", "ETHUSD") }, Guid.NewGuid());
+           // _socketConnectionService.RegisterPublicSocket(Xchange.ByBit, new (string, string)[] { ("OrderBook", "ETHUSD") }, Guid.NewGuid());
+
         }
         
     }

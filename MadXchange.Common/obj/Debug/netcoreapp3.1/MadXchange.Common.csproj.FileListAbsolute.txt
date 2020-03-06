@@ -1,8 +1,8 @@
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Common\bin\Debug\netcoreapp3.1\MadXchange.Common.deps.json
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Common\bin\Debug\netcoreapp3.1\MadXchange.Common.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Common\bin\Debug\netcoreapp3.1\MadXchange.Common.pdb
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Common\obj\Debug\netcoreapp3.1\MadXchange.Common.csprojAssemblyReference.cache
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Common\obj\Debug\netcoreapp3.1\MadXchange.Common.AssemblyInfoInputs.cache
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Common\obj\Debug\netcoreapp3.1\MadXchange.Common.AssemblyInfo.cs
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Common\obj\Debug\netcoreapp3.1\MadXchange.Common.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Common\obj\Debug\netcoreapp3.1\MadXchange.Common.pdb
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Common\obj\Debug\netcoreapp3.1\MadXchange.Common.csprojAssemblyReference.cache

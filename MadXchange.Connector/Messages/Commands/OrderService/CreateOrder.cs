@@ -32,7 +32,7 @@ namespace MadXchange.Connector.Messages.Commands
             TimeInForce = tif;
             if (amount.HasValue)
             {
-                Side = amount > 0.0M ? OrderSide.Long : OrderSide.Short;
+                Side = amount > 0.0M ? OrderSide.Buy : OrderSide.Sell;
             }
             else
             {
@@ -52,7 +52,7 @@ namespace MadXchange.Connector.Messages.Commands
             TimeInForce = request.TimeInForce;
             if (Amount.HasValue)
             {
-                Side = Amount > 0.0M ? OrderSide.Long : OrderSide.Short;
+                Side = Amount > 0.0M ? OrderSide.Buy : OrderSide.Sell;
             }
             else
             {

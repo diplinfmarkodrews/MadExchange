@@ -29,10 +29,10 @@ namespace MadXchange.Exchange.Domain.Models
 
             Id = id == Guid.Empty ? Guid.NewGuid() : id;
             Channel = channel;
-            var topicBuilder = new StringBuilder().Append(topic)
-                                                  .Append('.');
+            var topicBuilder = new StringBuilder().Append(topic);
+                                                  
             if (args != null && args.Count() > 0)
-                topicBuilder.AppendJoin('.', args);
+                topicBuilder.Append('.').AppendJoin('.', args);
                                       
             Topic = topicBuilder.ToString();
             ReturnType = returnType;

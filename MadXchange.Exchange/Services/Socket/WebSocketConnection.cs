@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using ServiceStack;
 using ServiceStack.Text;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -44,13 +45,13 @@ namespace MadXchange.Connector.Services
         private ClientWebSocket _clientWebSocket;       
         public TimeSpan KeepAliveInterval { get;  }
         public string SocketUrl { get; }
-        public ConnectionStatus Status { get; internal set; } = ConnectionStatus.Offline;
+        public ConnectionStatus Status { get; private set; } = ConnectionStatus.Offline;
         private readonly IConnectionDataHandler _clientSocketMessageHandle;
         private readonly ISignRequestsService _signRequestService;
         private bool _isAuthUrl;
         private readonly ILogger _logger;
         private readonly OpenTracing.ITracer _tracer;
-        private List<RequestInvocation> _requestInvocations = new List<RequestInvocation>();
+        private ConcurrentBag<RequestInvocation> _requestInvocations = new ConcurrentBag<RequestInvocation>();
 
         public WebSocketConnection(IConnectionDataHandler socketMessageHandler, 
                                         XchangeDescriptor exchangeDescriptor,                            
@@ -90,7 +91,6 @@ namespace MadXchange.Connector.Services
                 // create a new web-socket so the next connect call works.
                 _clientWebSocket?.Dispose();
                 _clientWebSocket = CreateClientWebSocket();
-
             }
             // don't do anything, we are already connected.
             else
@@ -98,14 +98,22 @@ namespace MadXchange.Connector.Services
             var url = SocketUrl;
             if (!IsPublic && _isAuthUrl)
                 url = _signRequestService.SignSocketUrl(Id, SocketUrl);
-            bool initialized = false;
 
-            await _clientWebSocket.ConnectAsync(new Uri(url), CancellationToken.None).ConfigureAwait(false);
+            bool initialized = false;           
+            try
+            {
+                await _clientWebSocket.ConnectAsync(new Uri(url), CancellationToken.None).ConfigureAwait(false);
+                    
+            }
+            catch 
+            {
+            }
             
-            Task.Run(() => StartListenTcp().ConfigureAwait(false));
+            Task.Run(async() => await StartListenTcp().ConfigureAwait(false));
             var request = InitOnConnected();
             if (!initialized && request != default)
-                await SendRequestAsync(request, CancellationToken.None);
+                await SendRequestAsync(request, CancellationToken.None).ConfigureAwait(false);
+
 
         }
 
@@ -219,20 +227,19 @@ namespace MadXchange.Connector.Services
 
             TaskCompletionSource<SocketInvocationResult> task = new TaskCompletionSource<SocketInvocationResult>();
             var reqInvocation = new RequestInvocation(request.Id, request, task);
-            new CancellationTokenSource(1000).Token.Register(() =>
+            new CancellationTokenSource(1000 * 120).Token.Register(() =>
             {
-                _requestInvocations.Remove(reqInvocation);
+                _requestInvocations.TryTake(out reqInvocation);
                 task.SetException(new TimeoutException($"Timeout, {Id}: did not receive a response to request {request.Id}"));
             });
             _requestInvocations.Add(reqInvocation);
-
             var encodedMessage = Encoding.UTF8.GetBytes(request.ToSocketRequestDto());
             await _clientWebSocket.SendAsync(buffer: new ArraySegment<byte>(array: encodedMessage,
-                                                                 offset: 0,
-                                                                  count: encodedMessage.Length),
-                              messageType: WebSocketMessageType.Text,
-                             endOfMessage: true,
-                        cancellationToken: token).ConfigureAwait(false);
+                                                                           offset: 0,
+                                                                            count: encodedMessage.Length),
+                                        messageType: WebSocketMessageType.Text,
+                                       endOfMessage: true,
+                                  cancellationToken: token).ConfigureAwait(false);
         }
         /// <summary>
         /// method to remove requestinvocation
@@ -245,29 +252,35 @@ namespace MadXchange.Connector.Services
         {
                        
             var invocationFound = _requestInvocations.FirstOrDefault();
+            bool requestSuccess = message.Success.GetValueOrDefault(false);
             if (invocationFound != null)
             {
-                
-                bool requestSuccess = message.Success.GetValueOrDefault(false);               
-                _requestInvocations.Remove(invocationFound);  
+
+                _requestInvocations.TryTake(out invocationFound);
                 if (invocationFound.Request.Method == SocketMethod.Subscribe)
                 {
                     //
-                    var subscription = Subscriptions.Values.FirstOrDefault();
+                    var subscription = Subscriptions.Values.FirstOrDefault(s=>s.Id == invocationFound.Request.Id);
                     if (subscription != null)
                         subscription.IsSubscribed = requestSuccess;
                 }
-                if (requestSuccess)
-                {
-                    var newRequest = CreateSubscriptionRequestFromInactive();
-                    if (newRequest == null) 
-                        SetStatus(ConnectionStatus.Subscribed);
-                    return newRequest;
-                }
-                throw new SocketRequestException(Id, $"SocketRequest failed, please file the response:\n{message.Dump()}");
 
             }
-            throw new InvalidOperationException($"InvocationDescriptor was not found\n{message.Dump()}");            
+            else 
+            {
+                _logger.LogWarning($"socket request invocation not fount, message: \n{message.Dump()}");
+                throw new InvalidOperationException("request invocation not found");
+            }
+            if (requestSuccess)
+            {
+                var newRequest = CreateSubscriptionRequestFromInactive();
+                if (newRequest == null)
+                    SetStatus(ConnectionStatus.Subscribed);
+                return newRequest;
+            }
+            //throw new SocketRequestException(Id, $"SocketRequest failed, please file the response:\n{message.Dump()}");
+            return default;
+            
         }
 
 
@@ -350,28 +363,33 @@ namespace MadXchange.Connector.Services
                                                                             insert: TypeSerializer.DeserializeFromString(laer2.Insert, subscription.ReturnArrayType),
                                                                             update: TypeSerializer.DeserializeFromString(laer2.Update, subscription.ReturnArrayType),
                                                                             delete: TypeSerializer.DeserializeFromString(laer2.Delete, subscription.ReturnArrayType),
-                                                                         timestamp: socketMessage.Timestamp
-                                                                                ));
+                                                                         timestamp: socketMessage.Timestamp));
                 return Task.CompletedTask;
             }
-
+            if (subscription.Channel == "OrderBook")
+            {
+                _clientSocketMessageHandle.HandleDataAsync(new SocketMsgPack(id: Id,
+                                                                        xchange: Xchange,
+                                                                           data: TypeSerializer.DeserializeFromString(socketMessage.Data, subscription.ReturnArrayType),
+                                                                      timestamp: socketMessage.Timestamp));
+                return Task.CompletedTask;
+            }
             _clientSocketMessageHandle.HandleDataAsync(new SocketMsgPack(id: Id,
-                                                                    xchange: Xchange,
-                                                                       data: TypeSerializer.DeserializeFromString(socketMessage.Data, subscription.ReturnType),
-                                                                  timestamp: socketMessage.Timestamp
-                                                                        ));
+                                                                        xchange: Xchange,
+                                                                           data: TypeSerializer.DeserializeFromString(socketMessage.Data, subscription.ReturnType),
+                                                                      timestamp: socketMessage.Timestamp));
             return Task.CompletedTask;
         }
 
 
         [MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
-        private Task HandleCtrlMessage(SocketMessageDto message)
+        private async Task HandleCtrlMessage(SocketMessageDto message)
         {          
             var socketRequest = OnCtrlMessage(message);
             if (socketRequest != null)
-                return Task.FromResult(SendRequestAsync(socketRequest, CancellationToken.None).ConfigureAwait(false));
+                await SendRequestAsync(socketRequest, CancellationToken.None).ConfigureAwait(false);
 
-            return Task.CompletedTask;
+            return;
         }
 
 

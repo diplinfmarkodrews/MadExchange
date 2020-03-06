@@ -19,7 +19,7 @@ namespace MadXchange.Exchange.Infrastructure.Cache
     }
 
 
-    public class OrderBookCache : CacheStorage<OrderBookCacheObject>, IOrderBookCache
+    public class OrderBookCache : CacheStorageTransient<OrderBookCacheObject>, IOrderBookCache
     {
         private IOrderBookStore _orderBookStore = new OrderBookStore();
 
@@ -42,6 +42,7 @@ namespace MadXchange.Exchange.Infrastructure.Cache
                                   insert: inserts,
                                   update: updates,
                                   delete: deletes);
+
             Set(keyString, cacheObject);
             return cacheObject.Timestamp;
         }
@@ -70,9 +71,11 @@ namespace MadXchange.Exchange.Infrastructure.Cache
             return cacheObject.Timestamp;
         }
 
+        public Dictionary<long, OrderBook> GetOrderBook(Guid id, Xchange exchange, string symbol)
+            => _orderBookStore.GetOrderBook(CreateKeyString(id, exchange, symbol), id, exchange, symbol)?.OrderBook;
+        
         public async Task<Dictionary<long, OrderBook>> GetOrderBookAsync(Guid id, Xchange exchange, string symbol)
-        {
-            return (await GetAsync(CreateKeyString(id, exchange, symbol))).OrderBook;
-        }
+            => (await GetAsync(CreateKeyString(id, exchange, symbol)))?.OrderBook;
+        
     }
 }

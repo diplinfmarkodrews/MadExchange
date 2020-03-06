@@ -25,35 +25,20 @@ namespace MadXchange.Common.Infrastructure
         protected void Set(string id, T item)          
             => _redisClient.Set(AdressString(id), Converter.ObjectToByteArray(item));           
         
-        protected Task SetAsync(string id, T item)
-        {
-            _redisClient.Set(AdressString(id), Converter.ObjectToByteArray(item));            
-            return Task.CompletedTask;
-        }
+        protected Task SetAsync(string id, T item)          
+            => Task.FromResult(_redisClient.Set(AdressString(id), Converter.ObjectToByteArray(item)));        
 
         protected T Get(string id)
-        {
-            var item = _redisClient.Get<byte[]>(AdressString(id));
-            var cItem = Converter.ByteArrayToObject(item);
-            return (T)(cItem);
-        }
+            => (T)(Converter.ByteArrayToObject(_redisClient.Get<byte[]>(AdressString(id))));        
 
         protected Task<T> GetAsync(string id)
-        {
-            var item = _redisClient.Get<byte[]>(AdressString(id));
-            var charAr = (T)Converter.ByteArrayToObject(item);
-            return Task.FromResult(charAr);
-        }
-
+            => Task.FromResult((T)Converter.ByteArrayToObject(_redisClient.Get<byte[]>(AdressString(id))));
+        
         protected void Remove(string id)
-        {
-            _redisClient.Remove(AdressString(id));
-        }
+            => _redisClient.Remove(AdressString(id));
 
         protected Task RemoveAsync(string id)
-        {
-            return Task.FromResult(_redisClient.Remove(AdressString(id)));
-        }
+            => Task.FromResult(_redisClient.Remove(AdressString(id)));
 
         public void Dispose()
         {

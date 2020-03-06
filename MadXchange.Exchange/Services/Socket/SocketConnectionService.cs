@@ -40,6 +40,7 @@ namespace MadXchange.Connector.Services
                                           OpenTracing.ITracer tracer,
                                                ILoggerFactory log)
         {
+
             _logger = log.CreateLogger<SocketConnectionService>();
             _loggerFactory = log;
             _tracer = tracer;
@@ -76,12 +77,11 @@ namespace MadXchange.Connector.Services
             Task.Run(async() => await webSocketConnection.StartConnectionAsync().ConfigureAwait(false));
             _logger.LogInformation($"client websocket connection added, id: {accountId}");
         }
-
         
 
         public void RegisterPublicSocket(Xchange exchange, (string, string)[] subscribtions, Guid id = default)
         {
-            _logger.LogInformation($"adding public websocket connection, Exchange: {exchange} \n subscriptions: {subscribtions}");
+            _logger.LogInformation($"adding public websocket connection, Exchange: {exchange} \n subscriptions: {subscribtions.Dump()}");
             var connection = new WebSocketConnection(socketMessageHandler: _clientSocketDataHandler, 
                                                        exchangeDescriptor: _exchangeDescriptorService.GetXchangeDescriptor(exchange),                                                           
                                                               signService: _signService,

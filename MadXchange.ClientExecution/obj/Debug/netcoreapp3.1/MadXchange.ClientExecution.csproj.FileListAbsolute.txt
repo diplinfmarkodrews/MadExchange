@@ -76,9 +76,14 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Jaeger.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Jaeger.Thrift.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Jaeger.Thrift.VendoredThrift.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
@@ -178,8 +183,3 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\obj\Debug\netcoreapp3.1\MadXchange.ClientExecution.csproj.CopyComplete
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\obj\Debug\netcoreapp3.1\MadXchange.ClientExecution.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\obj\Debug\netcoreapp3.1\MadXchange.ClientExecution.pdb
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Connections.Abstractions.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Client.Core.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Common.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.ClientExecution\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Protocols.Json.dll

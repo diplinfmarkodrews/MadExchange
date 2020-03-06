@@ -4,7 +4,7 @@
       "Name": "ByBit",
       "Socket": {
         "SocketUrl": "wss://stream-testnet.bybit.com/realtime",
-        "AuthtUrl": "{SocketUrl}?api_key={ApiKey}&expires={ExpiresTime}&signature={Signature}",
+        "AuthUrl": "{SocketUrl}?api_key={ApiKey}&expires={ExpiresTime}&signature={Signature}",
         "ExpiresTime": "{UnixMS}+1000",
         "Signature": "GET/realtime{ExpiresTime}",
         "KeepAlive": 15,
@@ -28,8 +28,8 @@
                   "Position": "position",
                   "Instrument": "instrument_info",
                   "OrderBook": "orderBook_200",
-                  "Order": "order",
-                  "Execution": "execution"
+                  "Order": "order"
+                  //"Execution": "execution"
                 }
               }
             }
@@ -87,7 +87,7 @@
         "OrderBook": {
           "symbol": "Symbol",
           "id": "Id",
-          "Side": "Side",
+          "side": "Side",
           "price": "Price",
           "size": "Size"
         },

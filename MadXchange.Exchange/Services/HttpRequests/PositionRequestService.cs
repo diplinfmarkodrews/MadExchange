@@ -39,7 +39,9 @@ namespace MadXchange.Exchange.Services.HttpRequests
             var requestObject = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.GetPosition, new ObjectDictionary() { { IXchangeDescriptorService.SymbolString, symbol } });
             var response = await _restRequestService.SendRequestObjectAsync(accountId, requestObject, token).ConfigureAwait(false);
             var result = TypeSerializer.DeserializeFromString<PositionDto>(response.Result);
-            result.AccountId = accountId;
+            result.AccountId = accountId;            
+            result.Exchange = exchange;
+            result.Timestamp = result.Timestamp;
             return result;
         }
 
@@ -48,7 +50,7 @@ namespace MadXchange.Exchange.Services.HttpRequests
             var requestObject = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.GetPositionList, new ObjectDictionary());
             var response = await _restRequestService.SendRequestObjectAsync(accountId, requestObject, token).ConfigureAwait(false);
             var result = TypeSerializer.DeserializeFromString<PositionDto[]>(response.Result);
-            result.Each(p => { p.AccountId = accountId; p.Exchange = exchange; });
+            result.Each(p => { p.AccountId = accountId; p.Exchange = exchange; p.Timestamp = response.Timestamp; });
             return result;
         }
 
@@ -57,7 +59,7 @@ namespace MadXchange.Exchange.Services.HttpRequests
             var requestObject = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.GetLeverage, new ObjectDictionary());
             var response = await _restRequestService.SendRequestObjectAsync(accountId, requestObject, token).ConfigureAwait(false);
             var result = TypeSerializer.DeserializeFromString<LeverageDto[]>(response.Result);
-            result.Each(p => p.AccountId = accountId);
+            result.Each(p => { p.AccountId = accountId; p.Exchange = exchange; p.Timestamp = response.Timestamp; });
             return result;
         }
 
@@ -67,6 +69,8 @@ namespace MadXchange.Exchange.Services.HttpRequests
             var response = await _restRequestService.SendRequestObjectAsync(accountId, route, token).ConfigureAwait(false);
             var result = TypeSerializer.DeserializeFromString<LeverageDto>(response.Result);
             result.AccountId = accountId;
+            result.Exchange = exchange;
+            result.Timestamp = result.Timestamp;
             return result;
         }
     }

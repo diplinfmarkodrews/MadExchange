@@ -27,9 +27,13 @@ namespace MadXchange.Exchange.Domain.Cache
         }
         public void Update(long timestamp, Position[] insert, Position[] update, Position[] delete)
         {
-            insert.Each(item => Data.Add(item.Symbol, item));
+            insert.Each(item => 
+            {
+                if (!Data.TryAdd(item.Symbol, item))
+                    Data[item.Symbol].PopulateWithNonDefaultValues(item);
+            });
             update.Each(item => Data[item.Symbol].PopulateWithNonDefaultValues(item));
-            delete.Each(item => Data.Remove(item.Symbol));
+            delete.Each(item => Data.TryRemove(item.Symbol, out item));
             Timestamp = timestamp;
         }
     }

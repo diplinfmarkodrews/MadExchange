@@ -5,8 +5,6 @@ using ServiceStack;
 using System;
 using System.IO;
 using ServiceStack.Host.NetCore;
-using System.Reflection;
-using MadXchange.Connector.Services;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 
@@ -43,18 +41,14 @@ namespace MadXchange.Connector
         }
 
         public static IWebHostBuilder CreateHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                                 
-                    .UseSerilog(Log.Logger)
-                    .UseSetting(WebHostDefaults.DetailedErrorsKey, "true")
-                            
-                          //.UseHttpSys()
-                          .CaptureStartupErrors(true)
-                          .UseContentRoot(Directory.GetCurrentDirectory())
-                          .UseStartup<Startup>()
-                          //.UseIISIntegration()
-                          .UseKestrel()
-                          .UseSockets(configureOptions: o => o.NoDelay = true);
+            WebHost.CreateDefaultBuilder(args)                                 
+                   .UseSerilog(Log.Logger)
+                   .UseSetting(WebHostDefaults.DetailedErrorsKey, "true")
+                   .CaptureStartupErrors(true)
+                   .UseContentRoot(Directory.GetCurrentDirectory())
+                   .UseStartup<Startup>()
+                   .UseKestrel()
+                   .UseSockets(configureOptions: o => o.NoDelay = true);
                               
                 
     

@@ -12,6 +12,8 @@ namespace MadXchange.Exchange.Infrastructure.Cache
         void SetAccount(AccountRequestCacheObject account);
         AccountRequestCacheObject GetAccount(Guid accountId);
         Task<IDisposable> LockAccount(Guid accountId);
+        Task<AccountRequestCacheObject> GetAccountAsync(Guid accountId);
+        Task SetAccountAsync(AccountRequestCacheObject accountCacheObject);
     }
 
     public class AccountRequestCache : CacheStorageTransient<AccountRequestCacheObject>, IAccountRequestCache
@@ -26,6 +28,11 @@ namespace MadXchange.Exchange.Infrastructure.Cache
 
         public Task<IDisposable> LockAccount(Guid accountId)        
             => Task.FromResult(AquireLock($"{accountId}"));
-        
+
+        public async Task<AccountRequestCacheObject> GetAccountAsync(Guid accountId)
+            => (await GetAsync($"{accountId}").ConfigureAwait(false)) ?? new AccountRequestCacheObject(accountId) { NextRequestTime = DateTime.UtcNow.Ticks };
+
+        public async Task SetAccountAsync(AccountRequestCacheObject accountCacheObject)
+            => await SetAsync($"{accountCacheObject.AccountId}", accountCacheObject).ConfigureAwait(false);
     }
 }

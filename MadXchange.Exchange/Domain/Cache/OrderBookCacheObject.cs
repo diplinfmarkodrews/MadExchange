@@ -25,16 +25,30 @@ namespace MadXchange.Exchange.Infrastructure.Stores
         public void Update(long timeStamp, OrderBook[] insert, OrderBook[] update, OrderBook[] delete)
         {
             Timestamp = timeStamp;
-            insert.Each(item => OrderBook.Add(item.Id, item));
-            update.Each(item => OrderBook[item.Id].PopulateWithNonDefaultValues(item));
-            delete.Each(item => OrderBook.Remove(item.Id));
+            insert.Each(item => 
+            { 
+                if (!OrderBook.TryAdd(item.Id, item)) 
+                    OrderBook[item.Id].PopulateWithNonDefaultValues(item); 
+            });
+            update.Each(item =>
+            {
+                if (OrderBook.ContainsKey(item.Id))
+                    OrderBook[item.Id].PopulateWithNonDefaultValues(item);
+                else
+                    OrderBook.TryAdd(item.Id, item);
+            });
+            delete.Each(item => OrderBook.TryRemove(item.Id, out item));
         }
 
 
         public void Insert(long timeStamp, OrderBook[] insert)
         {
             Timestamp = timeStamp;
-            insert.Each(item => OrderBook.Add(item.Id, item));
+            insert.Each(item =>
+                {
+                    if (!OrderBook.TryAdd(item.Id, item))
+                        OrderBook[item.Id].PopulateWithNonDefaultValues(item);
+                });
         }
        
     }

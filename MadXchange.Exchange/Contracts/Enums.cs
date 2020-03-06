@@ -50,10 +50,10 @@ namespace MadXchange.Exchange.Contracts
         Unknown = 0,
 
         [EnumMember]
-        Long = 1,
+        Buy = 1,
 
         [EnumMember]
-        Short = 2
+        Sell = 2
     }
 
     [DataContract]

@@ -9,36 +9,41 @@ namespace MadXchange.Exchange.Domain.Cache
     public class OrderCacheObject : ICacheObject
     {
         public Guid AccountId { get; }
-        public Dictionary<string, Order> Orders { get; } = new Dictionary<string, Order>();       
+        public Dictionary<string, Order> Orders { get; } = new Dictionary<string, Order>();
         public long Timestamp { get; private set; }
 
         public OrderCacheObject(Guid accountId)
         {
-            AccountId = accountId; 
+            AccountId = accountId;
         }
-        
-        public void Insert(long timestamp, Order order) 
+
+        public void Insert(long timestamp, Order order)
         {
-            Orders.Add(order.OrderId, order);
+            if (!Orders.TryAdd(order.OrderId, order))
+                Orders[order.OrderId].PopulateWithNonDefaultValues(order);
             Timestamp = timestamp;
-
         }
 
-        public void Update(long timestamp, Order[] insert, Order[] update, Order[] delete) 
+        public void Update(long timestamp, Order[] insert, Order[] update, Order[] delete)
         {
-            insert.Each(order => Orders.Add(order.OrderId, order));
+            insert.Each(order =>
+            {
+                if (!Orders.TryAdd(order.OrderId, order))
+                    Orders[order.OrderId].PopulateWithNonDefaultValues(order);
+            });
+                
             update.Each(order => Orders[order.OrderId].PopulateWithNonDefaultValues(order));
-            delete.Each(order => Orders.Remove(order.OrderId));
+            delete.Each(order => Orders.TryRemove(order.OrderId, out order));
             Timestamp = timestamp;
         }
         public void InsertOrder(long timestamp, Order order)
-            => Orders.Add(order.OrderId, order);
+            => Orders.TryAdd(order.OrderId, order);
 
         public void UpdateOrder(Order order)        
             => Orders[order.OrderId].PopulateWithNonDefaultValues(order);
 
         private void Delete(Order order)
-            => Orders.Remove(order.OrderId);
+            => Orders.TryRemove(order.OrderId, out order);
 
         public void ChangeOrderId(string oldOrderId, string newOrderId)
             => Orders.MoveKey(oldOrderId, newOrderId);

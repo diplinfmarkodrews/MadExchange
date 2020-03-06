@@ -1,27 +1,22 @@
 ﻿using Convey;
-using Convey.Discovery.Consul;
+using Convey.CQRS.Commands;
+using Convey.CQRS.Events;
+using Convey.CQRS.Queries;
+using Convey.MessageBrokers.RabbitMQ;
 using Convey.Metrics.AppMetrics;
-using Convey.Persistence.MongoDB;
 using Convey.Tracing.Jaeger;
 using MadXchange.Connector.Installer;
 using MadXchange.Connector.Services;
-using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Services.Socket;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Prometheus;
 using Serilog;
 using ServiceStack.Text;
 using System;
 using System.Runtime.Serialization;
-using Prometheus;
-using Convey.CQRS.Commands;
-using Convey.CQRS.Events;
-using Convey.CQRS.Queries;
-using Microsoft.Extensions.Logging;
 
 namespace MadXchange.Connector
 {
@@ -78,7 +73,7 @@ namespace MadXchange.Connector
 
           
             /////
-            services.AddWebEncoders(); //check this => SocketException do not appear!!!
+            services.AddWebEncoders();
             services.AddMetrics()
                     .AddMetricsEndpoints()
                     .AddMetricsTrackingMiddleware();
@@ -106,9 +101,9 @@ namespace MadXchange.Connector
                     .AddInMemoryEventDispatcher()
                     .AddInMemoryQueryDispatcher()
                     .AddJaeger()
-                    .AddMetrics();
-                    
-                    //.AddRabbitMq()
+                    .AddMetrics()
+
+                    .AddRabbitMq();
                     //.AddRabbitMq(plugins: p => p.AddJaegerRabbitMqPlugin())
                     //.AddRedis()
                            

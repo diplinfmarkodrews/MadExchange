@@ -49,11 +49,11 @@ namespace MadXchange.Exchange.Types
             var result = new SocketSubscription[subscriptionTags.Count()];
             for (int i = 0; i < result.Length; i++)
             {
-                var subscriptionArg = SubscriptionArgs[subscriptionTags[i].Item1];
+                var subscriptionArg = SubscriptionArgs[$"{subscriptionTags[i].Item1}Dto"];
                 result[i] = new SocketSubscription(id: Guid.NewGuid(), 
                                               channel: subscriptionTags[i].Item1,
                                                 topic: subscriptionArg.Topic,
-                                                 args: subscriptionArg.Args.ToList().Append(subscriptionTags[i].Item2),
+                                                 args: subscriptionArg.Args.Append(subscriptionTags[i].Item2).ToList(),
                                            returnType: subscriptionArg.ReturnType);
             }
 

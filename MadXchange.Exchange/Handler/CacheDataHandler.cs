@@ -54,13 +54,12 @@ namespace MadXchange.Exchange.Handler
             {
                 var instrument = Instrument.FromModel((InstrumentDto)socketMsgPack.Data);
                 _instrumentCache.Update(id: socketMsgPack.Id,
-                                            exchange: socketMsgPack.Exchange,
-                                              symbol: instrument.Symbol,
-                                           timeStamp: socketMsgPack.Timestamp,
-                                                item: instrument);
+                                  exchange: socketMsgPack.Exchange,
+                                    symbol: instrument.Symbol,
+                                 timeStamp: socketMsgPack.Timestamp,
+                                      item: instrument);
                 
-                return Task.CompletedTask;
-                                            
+                return Task.CompletedTask;                                           
             }
 
             if(dataType == typeof(OrderBookDto[]))
@@ -111,7 +110,7 @@ namespace MadXchange.Exchange.Handler
         /// <returns></returns>
         private Task HandleDataAsync(SocketUpdatePack socketMsgPack)
         {
-            _logger.LogDebug($"socket message received:\n{socketMsgPack.Dump()}");
+            _logger.LogDebug($"socket update message received:\n{socketMsgPack.Dump()}");
             var dataType = socketMsgPack.Update.GetType();
             if (dataType == typeof(InstrumentDto[]))
             {
@@ -129,13 +128,15 @@ namespace MadXchange.Exchange.Handler
             if (dataType == typeof(OrderBookDto[]))
             {
                 var orderBookUpdates = OrderBook.FromModel((OrderBookDto[])socketMsgPack.Update);
+                var orderBookInserts = OrderBook.FromModel((OrderBookDto[])socketMsgPack.Insert);
+                var orderBookDeletes = OrderBook.FromModel((OrderBookDto[])socketMsgPack.Delete);
                 _orderBookCache.Update(id: socketMsgPack.Id,
                                  exchange: socketMsgPack.Exchange,
-                                   symbol: orderBookUpdates[0]?.Symbol,
+                                   symbol: orderBookUpdates.Length > 0 ? orderBookUpdates[0].Symbol : orderBookInserts.Length > 0 ? orderBookInserts[0].Symbol : orderBookDeletes[0].Symbol,
                                 timeStamp: socketMsgPack.Timestamp,
-                                   insert: OrderBook.FromModel((OrderBookDto[])socketMsgPack.Insert),
+                                   insert: orderBookInserts,
                                    update: orderBookUpdates,
-                                   delete: OrderBook.FromModel((OrderBookDto[])socketMsgPack.Delete));
+                                   delete: orderBookDeletes);
                 
                 return Task.CompletedTask;
 

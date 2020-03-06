@@ -50,7 +50,7 @@ namespace MadXchange.Exchange.Services.Utils
         private string SignUrlByBit(ApiKeySet keyPair, long timeExpires)
         {
             var signString = _signatureProvider.CreateSignature(keyPair.ApiSecret, "GET/realtime" + timeExpires);
-            return $"api_key={keyPair}&expires={timeExpires}&signature={signString}";
+            return $"api_key={keyPair.ApiKey}&expires={timeExpires}&signature={signString}";
         }
 
         /// <summary>
