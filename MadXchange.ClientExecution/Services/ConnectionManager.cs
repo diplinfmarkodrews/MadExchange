@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Convey.MessageBrokers;
-using ServiceStack; 
+using MadXchange.Connector.Messages.Commands.AccountManager;
+using ServiceStack;
+using ServiceStack.Messaging;
+
 namespace MadXchange.ClientExecution.Services
 {
     public class ConnectionManager : IService
     {
-        private readonly IBusPublisher _busPublisher;
-        public ConnectionManager(IBusPublisher busPublisher) 
+        private readonly IMessageQueueClient _rabbitMqClient;
+        public ConnectionManager(IMessageQueueClient messageQueueClient) 
         {
-            _busPublisher = busPublisher;
+            _rabbitMqClient = messageQueueClient;
         }
-        public async Task OnClientRegister(ClientRegisterSocket registerClient) 
+        public void OnClientRegister(ClientRegisterSocket registerClient) 
         {
-            await _busPublisher.PublishAsync(registerClient, "myId").ConfigureAwait(false);
+            var message = _rabbitMqClient.CreateMessage<ClientRegisterSocket>(registerClient);
+            _rabbitMqClient.Publish("myId", message);
         }
     }
 }

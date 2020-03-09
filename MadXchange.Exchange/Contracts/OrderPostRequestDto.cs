@@ -16,5 +16,18 @@ namespace MadXchange.Exchange.Contracts
         public OrderType? OrdType { get; set; }
         public TimeInForce? TimeInForce { get; set; }
         public IEnumerable<ExecInst> Execs { get; set; }
+
+        public OrderPostRequestDto(Guid accountId, Xchange exchange, string symbol, decimal? qty, decimal? price, OrderSide? side, OrderType ordType, TimeInForce tif, IEnumerable<ExecInst> execs)
+        {
+            AccountId = accountId;
+            Exchange = exchange;
+            Symbol = symbol;
+            Quantity = qty;
+            Price = price;
+            Side = side;
+            OrdType = ordType;
+            TimeInForce = tif;
+            Execs = execs;
+        }
     }
 }

@@ -12,5 +12,15 @@ namespace MadXchange.Exchange.Contracts
         public string OrderId { get; set; }
         public decimal? Qty { get; set; }
         public decimal? Price { get; set; }
+
+        public OrderPutRequestDto(Guid accountId, Xchange exchange, string symbol, string orderId, decimal? qty, decimal? price)
+        {
+            AccountId = accountId;
+            Exchange = exchange;
+            Symbol = symbol;
+            OrderId = orderId;
+            Qty = qty;
+            Price = price;
+        }
     }
 }

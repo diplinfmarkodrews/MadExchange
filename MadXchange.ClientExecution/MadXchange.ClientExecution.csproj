@@ -7,17 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="Protos\greet.proto" GrpcServices="MadMex" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MadXchange.Common\MadXchange.Common.csproj" />
-    <ProjectReference Include="..\MadXchange.Exchange\MadXchange.Exchange.csproj" />
+    <ProjectReference Include="..\MadXchange.Connector\MadXchange.Connector.csproj" />
   </ItemGroup>
 
 </Project>

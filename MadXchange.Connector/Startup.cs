@@ -77,37 +77,22 @@ namespace MadXchange.Connector
             services.AddMetrics()
                     .AddMetricsEndpoints()
                     .AddMetricsTrackingMiddleware();
-                    //.AddMetricsReportingHostedService((exc, context) => Log.Logger.Error("exception: ", context.Exception));
 
-            //
-            //services.AddLogging(logBuilder
-            //   => MyWebHostExtensions.CreateSerilogLogger(Configuration));
+
             services.AddSingleton<IServiceId, ServiceId>();
 
             services.AddOpenTracing();
             services.AddConvey("connector")
-
-                    //.AddConsul()
-
-                    //.AddMongo()
-
-                    //.AddMongoRepository<Order, Guid>("orders");
-                    //.AddMongoRepository<Position, Guid>("positions")
-                    //.AddMongoRepository<Margin, Guid>("margin")
                     .AddCommandHandlers()
                     .AddEventHandlers()
                     .AddQueryHandlers()
-
+                    .AddInMemoryCommandDispatcher()
                     .AddInMemoryEventDispatcher()
                     .AddInMemoryQueryDispatcher()
                     .AddJaeger()
                     .AddMetrics()
-
                     .AddRabbitMq();
-                    //.AddRabbitMq(plugins: p => p.AddJaegerRabbitMqPlugin())
-                    //.AddRedis()
-                           
-                        
+
             services.AddHostedService<TimedPollService>();
         }
 
@@ -119,32 +104,15 @@ namespace MadXchange.Connector
         {
            
             ILoggerFactory loggerFactory = app.ApplicationServices.GetRequiredService<ILoggerFactory>();
-            //app.UseDispatcherEndpoints(endpoints => endpoints
-            // .Get("", ctx => ctx.Response.WriteAsync("Orders Service"))
-            // .Get<GetOrder, OrderDto>("orders/{orderId}")
-            // .Post<CreateOrder>("orders",
-            //     afterDispatch: (cmd, ctx) => ctx.Response.Created($"orders/{cmd.OrderId}")))
-            //app.UseSession();
-            //.Build();
-            //app.UseExceptionHandler(options: new ExceptionHandlerOptions());
-            app.UseStatusCodePagesWithReExecute("/Errors/{0}");
-            // Exception handling logging below
+
+
             app.UseElmCapture();
             //app.UseElmPage();
+            app.UseConvey();
             app.UseDeveloperExceptionPage();
-
-
-            //app.UseExceptionHandler("/Error");
-            //.UseInitializers()
-            // app.ConfigureEventBus();
-            // app.UseRabbitMq();
-
             app.UseMetricsActiveRequestMiddleware();
-            // app.UseHealthEndpoint();
             app.UseMetricsRequestTrackingMiddleware();
-            // app.UseHealthAllEndpoints();
-            // app.UsePingEndpoint();
-            //app.ConfigureCache();
+
             var webSocketOptions = new WebSocketOptions()
             {
                 KeepAliveInterval = TimeSpan.FromSeconds(120),
@@ -153,7 +121,7 @@ namespace MadXchange.Connector
            
             app.UseWebSockets(webSocketOptions);
            
-           // app.UseConvey();
+           // 
             app.UseRouting();
             app.UseMetricServer();
             app.UseHttpMetrics();

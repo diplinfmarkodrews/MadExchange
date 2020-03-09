@@ -60,7 +60,6 @@
 
   <ItemGroup>
     <Folder Include="Connected Services\" />
-    <Folder Include="Messages\Commands\AccountManager\Handlers\NewFolder\" />
     <Folder Include="Queries\Handlers\Instrument\" />
     <Folder Include="Queries\Handlers\Order\" />
     <Folder Include="Queries\Handlers\Position\" />

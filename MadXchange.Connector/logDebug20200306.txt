@@ -23130,3 +23130,17 @@
 2020-03-06 04:06:07.382 +01:00 [INF] client websocket connection added, id: 495686fe-c034-426c-94dd-2f1f5bf00389
 2020-03-06 04:06:07.496 +01:00 [DBG] #6 Socket Connected
 2020-03-06 04:06:07.585 +01:00 [DBG] #7 Socket Connected
+2020-03-06 06:26:14.784 +01:00 [INF] Configuring web host (MadXchange.Connector)...
+2020-03-06 06:26:34.747 +01:00 [DBG] Using Metrics Reporter App.Metrics.Reporting.InfluxDB.InfluxDbMetricsReporter. Url: http://localhost:8086/write?db=test FlushInterval: 00:00:05
+2020-03-06 06:26:40.811 +01:00 [INF] Starting web host (MadXchange.Connector)...
+2020-03-06 06:26:40.825 +01:00 [DBG] Hosting starting
+2020-03-06 06:26:41.034 +01:00 [DBG] New Redis Masters: localhost:6379
+2020-03-06 06:26:41.134 +01:00 [DBG] New Redis Slaves: 
+2020-03-06 06:26:41.182 +01:00 [DBG] #2 Socket Connected
+2020-03-06 06:26:41.217 +01:00 [DBG] #3 Socket Connected
+2020-03-06 06:26:41.226 +01:00 [DBG] #4 Socket Connected
+2020-03-06 06:26:41.232 +01:00 [DBG] #5 Socket Connected
+2020-03-06 06:26:44.145 +01:00 [INF] adding client websocket connection, id: 495686fe-c034-426c-94dd-2f1f5bf00389
+2020-03-06 06:26:44.158 +01:00 [INF] client websocket connection added, id: 495686fe-c034-426c-94dd-2f1f5bf00389
+2020-03-06 06:26:44.256 +01:00 [DBG] #6 Socket Connected
+2020-03-06 06:26:44.267 +01:00 [DBG] #7 Socket Connected

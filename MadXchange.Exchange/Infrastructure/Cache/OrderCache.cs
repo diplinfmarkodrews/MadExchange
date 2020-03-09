@@ -36,7 +36,8 @@ namespace MadXchange.Exchange.Infrastructure.Cache
         public async Task<Dictionary<string, Order>> GetOrderAsync(Guid accountId)
         {
             var orderById = await GetAsync($"{accountId}");
-            if (orderById is null) return null;
+            if (orderById is null) 
+                return null;
 
             return orderById.Orders;
         }

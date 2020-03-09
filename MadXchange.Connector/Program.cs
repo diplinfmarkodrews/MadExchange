@@ -23,7 +23,11 @@ namespace MadXchange.Connector
                 var hostbuilder = CreateHostBuilder(args);
                 MyWebHostExtensions.LogPackagesVersionInfo();
                 Log.Information("Configuring web host ({ApplicationContext})...", MyWebHostExtensions.AppName);
-                var host = hostbuilder.Build(); 
+                var host = hostbuilder.Build();
+                var proc = new System.Diagnostics.Process();
+                proc.StartInfo.UseShellExecute = true;
+                proc.StartInfo.FileName = "http://localhost:5000/";
+                proc.Start();
                 Log.Information("Starting web host ({ApplicationContext})...", MyWebHostExtensions.AppName);
                 host.Run();               
                 return 0;

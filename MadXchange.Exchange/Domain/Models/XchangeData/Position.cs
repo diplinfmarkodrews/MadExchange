@@ -1,4 +1,5 @@
 ﻿using MadXchange.Exchange.Contracts;
+using MadXchange.Exchange.Domain.Types;
 using System;
 
 namespace MadXchange.Exchange.Domain.Models
@@ -41,10 +42,12 @@ namespace MadXchange.Exchange.Domain.Models
         public decimal? MarginBalance { get; set; }
         public string Currency { get; set; }
         public long Timestamp { get; set; }
+        public Xchange Exchange { get; private set; }
 
         public static Position FromModel(MarginDto data)
             => new Position()
             {
+                Exchange = data.Exchange,
                 Currency = data.Currency,
                 WalletBalance = data.WalletBalance,
                 AvailableBalance = data.AvailableMargin,
@@ -64,6 +67,7 @@ namespace MadXchange.Exchange.Domain.Models
         public static Position FromModel(PositionDto position)
             => new Position()
             {
+                Exchange = position.Exchange,
                 Symbol = position.Symbol,
                 CurrentQty = position.CurrentQty,
                 Created = position.CreatedAt,
@@ -80,7 +84,16 @@ namespace MadXchange.Exchange.Domain.Models
                 WalletBalance = position.WalletBalance,
                 AvailableBalance = position.AvailableBalance
             };
-        
+
+        public static Position FromModel(LeverageDto leverage)
+            => new Position()
+            {
+                Exchange = leverage.Exchange,
+                Symbol = leverage.Symbol,
+                Leverage = leverage.Leverage,
+                Timestamp = leverage.Timestamp,
+            };
+
         public static Position[] FromModel(PositionDto[] insert)
         {
             var result = new Position[insert.Length];
