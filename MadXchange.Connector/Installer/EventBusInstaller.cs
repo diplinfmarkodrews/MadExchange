@@ -1,21 +1,14 @@
 ﻿using Convey.MessageBrokers.CQRS;
 using Convey.MessageBrokers.RabbitMQ;
-using MadXchange.Connector.Messages.Commands;
-using MadXchange.Connector.Messages.Events;
+using MadXchange.Connector.Messages.Commands.AccountManager;
 using MadXchange.Exchange.Messages.Commands.OrderService;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace MadXchange.Connector.Installer
 {
     public static class EventBusInstaller
     {
-        public static IServiceCollection AddEventBusServices(this IServiceCollection services, IConfiguration config)
-        {
-             
-            return services;
-        }
+        
 
         public static IApplicationBuilder ConfigureEventBus(this IApplicationBuilder app)
         {
@@ -24,7 +17,10 @@ namespace MadXchange.Connector.Installer
                 .SubscribeCommand<UpdateOrder>()
                 .SubscribeCommand<CancelOrder>()
                 .SubscribeCommand<SetLeverage>()
-                .SubscribeCommand<CancelCommand>();
+                .SubscribeCommand<CancelCommand>()
+                .SubscribeCommand<AddAccount>()
+                .SubscribeCommand<RemoveAccount>()
+                .SubscribeCommand<UpdateAccount>();
             return app;
         }
     }
