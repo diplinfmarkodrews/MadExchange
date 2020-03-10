@@ -1,5 +1,6 @@
 ﻿using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Domain.Types;
+using MadXchange.Exchange.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,12 +85,6 @@ namespace MadXchange.Exchange.Infrastructure.Stores
 
         public Xchange XchangeOf(Guid id)
              => _userDictionary[id].Exchange;
-
-        public Task<IEnumerable<ApiKeySet>> GetAsync(Expression<Func<ApiKeySet, bool>> predicate = null, Func<IQueryable<ApiKeySet>, IOrderedQueryable<ApiKeySet>> orderBy = null, params Expression<Func<ApiKeySet, object>>[] includeProperties)
-             => throw new NotSupportedException();
-
-        public IEnumerable<ApiKeySet> Get(Expression<Func<ApiKeySet, bool>> predicate = null, Func<IQueryable<ApiKeySet>, IOrderedQueryable<ApiKeySet>> orderBy = null, params Expression<Func<ApiKeySet, object>>[] includeProperties)
-             => throw new NotSupportedException();
 
         public ApiKeySet Get(Xchange exchange)
             => _userDictionary.Values.FirstOrDefault(k => k.Exchange == exchange);

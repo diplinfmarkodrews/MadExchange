@@ -1,4 +1,5 @@
 ﻿using MadXchange.Exchange.Domain.Types;
+using MadXchange.Exchange.Types;
 using Microsoft.Extensions.Logging;
 using ServiceStack;
 using System.Collections.Concurrent;

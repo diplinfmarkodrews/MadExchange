@@ -2,6 +2,7 @@
 using MadXchange.Exchange.Domain.Types;
 using System;
 using ServiceStack;
+using MadXchange.Exchange.Types;
 
 namespace MadXchange.Exchange.Domain.Cache
 {

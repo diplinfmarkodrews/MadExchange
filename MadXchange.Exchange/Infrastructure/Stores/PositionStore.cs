@@ -13,7 +13,7 @@ namespace MadXchange.Exchange.Infrastructure.Stores
 
     public class PositionStore : IPositionStore
     {
-        private Dictionary<Guid, PositionCacheObject> _positionCacheObjects = new Dictionary<Guid, PositionCacheObject>();
+        private readonly Dictionary<Guid, PositionCacheObject> _positionCacheObjects = new Dictionary<Guid, PositionCacheObject>();
 
         public PositionCacheObject GetPosition(Guid accountId)
             => _positionCacheObjects.GetValueOrDefault(accountId, new PositionCacheObject(accountId));

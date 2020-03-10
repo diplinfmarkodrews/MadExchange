@@ -1,11 +1,10 @@
-﻿using MadXchange.Exchange.Domain.Types;
+﻿using MadXchange.Exchange.Types;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MadXchange.Exchange.Infrastructure.Stores
 {
-    
+
     public interface IOrderBookStore
     {
         OrderBookCacheObject GetOrderBook(string key, Guid id, Xchange exchange, string symbol);
@@ -14,7 +13,7 @@ namespace MadXchange.Exchange.Infrastructure.Stores
 
     public class OrderBookStore : IOrderBookStore
     {
-        private Dictionary<string, OrderBookCacheObject> _orderBookCacheObjects = new Dictionary<string, OrderBookCacheObject>();
+        private readonly Dictionary<string, OrderBookCacheObject> _orderBookCacheObjects = new Dictionary<string, OrderBookCacheObject>();
 
         public OrderBookCacheObject GetOrderBook(string key, Guid id, Xchange exchange, string symbol)
             => _orderBookCacheObjects.GetValueOrDefault(key, new OrderBookCacheObject(id, exchange, symbol));

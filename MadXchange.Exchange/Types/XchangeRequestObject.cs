@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-namespace MadXchange.Exchange.Domain.Models
+namespace MadXchange.Exchange.Types
 {
     /// <summary>
     /// Gets generated for each request and holds individual information to generate final request

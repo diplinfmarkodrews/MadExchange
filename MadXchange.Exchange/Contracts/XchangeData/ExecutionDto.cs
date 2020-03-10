@@ -5,6 +5,9 @@ using System.Text;
 
 namespace MadXchange.Exchange.Contracts
 {
+    /// <summary>
+    /// private exection socket => executed orders 
+    /// </summary>
     [DataContract(Name = "Execution")]
     public class ExecutionDto : HttpMessage
     {

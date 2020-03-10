@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Prometheus;
 using Serilog;
 using ServiceStack.Text;
@@ -25,6 +24,7 @@ namespace MadXchange.Connector
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         private static IConfiguration Configuration = MyWebHostExtensions.GetConfiguration();
+
         //public Startup(IConfiguration configuration)
         //    : base(configuration, typeof(Startup).Assembly, typeof(Program).Assembly, typeof(ExchangeInstaller).Assembly, typeof(WebSocketInstaller).Assembly) { }
 
@@ -49,9 +49,10 @@ namespace MadXchange.Connector
                 nameof(DataMemberAttribute),
                 nameof(RuntimeSerializableAttribute)
             };
-            //JsConfig.AllowRuntimeType = type => type == typeof(WebResponseDto);
+           
+            //services.AddAuthenticationCore();
+            //services.AddAuthorizationCore();
 
-            
             services.AddPolicyRegistry();
             services.AddHttpClientServices(Configuration);
             //services.AddVaultService(Configuration);
@@ -97,35 +98,23 @@ namespace MadXchange.Connector
         }
 
 
-
-
         // This method gets called by the runtime.
         public void Configure(IApplicationBuilder app)//, ILoggerFactory loggerFactory)
         {
-           
-            ILoggerFactory loggerFactory = app.ApplicationServices.GetRequiredService<ILoggerFactory>();
 
-
-            app.UseElmCapture();
-            //app.UseElmPage();
+            app.UseElmCapture();            
             app.UseConvey();
-            app.UseDeveloperExceptionPage();
             app.UseMetricsActiveRequestMiddleware();
             app.UseMetricsRequestTrackingMiddleware();
-
             var webSocketOptions = new WebSocketOptions()
             {
                 KeepAliveInterval = TimeSpan.FromSeconds(120),
                 ReceiveBufferSize = 4 * 1024
-            };
-           
+            };           
             app.UseWebSockets(webSocketOptions);
-           
-           // 
             app.UseRouting();
             app.UseMetricServer();
             app.UseHttpMetrics();
-
             app.UsePingEndpoint();
             app.UseJaeger();
             app.StartSocketConnections();

@@ -3,6 +3,7 @@ using MadXchange.Exchange.Domain.Cache;
 using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Domain.Types;
 using MadXchange.Exchange.Infrastructure.Stores;
+using MadXchange.Exchange.Types;
 using ServiceStack.Redis;
 using System;
 using System.Threading.Tasks;

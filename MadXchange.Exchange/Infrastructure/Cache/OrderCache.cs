@@ -15,14 +15,18 @@ namespace MadXchange.Exchange.Infrastructure.Cache
     {
       
         public Task<Dictionary<string, Order>> GetOrderAsync(Guid accountId);
-        void InsertOrder(Guid id, long timestamp, Order insert);
+        void Insert(Guid id, long timestamp, Order insert);
         void Update(Guid id, long timeStamp, Order[] insert, Order[] update, Order[] delete);
+
+        Task InsertAsync(Guid id, long timestamp, Order insert);
+        Task UpdateAsync(Guid id, long timestamp, Order insert);
+        Task UpdateAsync(Guid id, long timeStamp, Order[] insert, Order[] update, Order[] delete);
     }
 
     public class OrderCache : CacheStorageTransient<OrderCacheObject>, IOrderCache
     {
 
-        private IOrderStore _orderStore = new OrderStore();
+        private readonly IOrderStore _orderStore = new OrderStore();
 
         public OrderCache(IRedisClientsManager cache) : base("order", cache) { }
         
@@ -60,7 +64,7 @@ namespace MadXchange.Exchange.Infrastructure.Cache
             Set($"{accountId}", orderCacheObj);                                        
         }
 
-        public void InsertOrder(Guid id, long timestamp, Order insert)
+        public void Insert(Guid id, long timestamp, Order insert)
         {
             var orderCache = _orderStore.GetOrderCache(id);
             if (orderCache == null)
@@ -73,13 +77,39 @@ namespace MadXchange.Exchange.Infrastructure.Cache
 
         public void Update(Guid id, long timeStamp, Order[] insert, Order[] update, Order[] delete)
         {
-            var positionCache = _orderStore.GetOrderCache(id);
-            positionCache?.Update(timestamp: timeStamp,
-                                     insert: insert,
-                                     update: update,
-                                     delete: delete);
+            var orderCache = _orderStore.GetOrderCache(id);
+            orderCache.Update(timestamp: timeStamp,
+                                 insert: insert,
+                                 update: update,
+                                 delete: delete);
 
-            Set($"{id}", positionCache);
+            Set($"{id}", orderCache);
+        }
+
+        public async Task InsertAsync(Guid id, long timestamp, Order insert)
+        {
+            var orderCache = _orderStore.GetOrderCache(id);
+            if (orderCache == null)
+                _orderStore.Insert(id);
+
+            orderCache.InsertOrder(timestamp, insert);
+            await SetAsync($"{id}", orderCache).ConfigureAwait(false);
+        }
+
+        public async Task UpdateAsync(Guid id, long timeStamp, Order[] insert, Order[] update, Order[] delete)
+        {
+            var orderCache = _orderStore.GetOrderCache(id);
+            orderCache.Update(timestamp: timeStamp,
+                                 insert: insert,
+                                 update: update,
+                                 delete: delete);
+
+            await SetAsync($"{id}", orderCache).ConfigureAwait(false);
+        }
+
+        public Task UpdateAsync(Guid id, long timestamp, Order insert)
+        {
+            throw new NotImplementedException();
         }
     }
 }

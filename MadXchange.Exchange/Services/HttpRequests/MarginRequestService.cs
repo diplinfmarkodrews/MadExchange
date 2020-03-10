@@ -2,6 +2,7 @@
 using MadXchange.Exchange.Domain.Types;
 using MadXchange.Exchange.Services.HttpRequests.RequestExecution;
 using MadXchange.Exchange.Services.XchangeDescriptor;
+using MadXchange.Exchange.Types;
 using Microsoft.Extensions.Logging;
 using ServiceStack;
 using ServiceStack.Text;

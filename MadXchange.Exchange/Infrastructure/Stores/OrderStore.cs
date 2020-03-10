@@ -17,7 +17,7 @@ namespace MadXchange.Exchange.Infrastructure.Stores
     public class OrderStore : IOrderStore
     {
         
-        private Dictionary<Guid, OrderCacheObject> _orderCacheObjects = new Dictionary<Guid, OrderCacheObject>();
+        private readonly Dictionary<Guid, OrderCacheObject> _orderCacheObjects = new Dictionary<Guid, OrderCacheObject>();
      
         public OrderCacheObject GetOrderCache(Guid id)
             => _orderCacheObjects.GetValueOrDefault(id);

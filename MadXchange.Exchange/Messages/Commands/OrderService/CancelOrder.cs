@@ -1,6 +1,6 @@
 ﻿using Convey.CQRS.Commands;
 using MadXchange.Exchange.Domain.Types;
-
+using MadXchange.Exchange.Types;
 using System;
 
 namespace MadXchange.Exchange.Messages.Commands.OrderService

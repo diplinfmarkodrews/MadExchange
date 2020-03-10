@@ -1,6 +1,7 @@
 ﻿using Convey.CQRS.Commands;
 using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Domain.Types;
+using MadXchange.Exchange.Types;
 using System;
 using System.Collections.Generic;
 

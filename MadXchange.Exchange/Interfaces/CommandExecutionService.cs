@@ -40,7 +40,7 @@ namespace MadXchange.Exchange.Interfaces
         /// we generate tokens for each command, reference them by their ids and store them in the commandstore.
         /// on cancel we retrieve the token from the command store and cancel it.
         /// </summary>
-        private static readonly Dictionary<Guid, CancellationToken> _requestCancelTokenDic = new Dictionary<Guid, CancellationToken>();
+        
         private readonly ILogger _logger;
 
         public CommandExecutionService(IPositionRequestService positionRequestService, 
@@ -48,7 +48,7 @@ namespace MadXchange.Exchange.Interfaces
                                                 IPositionCache positionCache,
                                                    IOrderCache orderCache,
                                                  ICommandStore commandStore,
-                              ILogger<CommandExecutionService> logger) : base()
+                              ILogger<CommandExecutionService> logger) 
         {
 
             _positionRequestService = positionRequestService;
@@ -67,9 +67,10 @@ namespace MadXchange.Exchange.Interfaces
                                                                          symbol: cancelOrder.Symbol,
                                                                         orderId: cancelOrder.OrderId,
                                                                           token: token).ConfigureAwait(false);
+
             _commandStore.ClearCommand(cancelOrder.Id);
             var orderResult = Order.FromModel(response);
-            _orderCache.InsertOrder(cancelOrder.AccountId, orderResult.Timestamp, orderResult);
+            await _orderCache.UpdateAsync(cancelOrder.AccountId, orderResult.Timestamp, orderResult);
             return orderResult;
 
         }
@@ -87,11 +88,12 @@ namespace MadXchange.Exchange.Interfaces
                                                                                                       tif: createOrder.TimeInForce.GetValueOrDefault(TimeInForce.ImmediateOrCancel),
                                                                                                     execs: createOrder.Execs),
                                                                                                     token: token).ConfigureAwait(false);
+
             _commandStore.ClearCommand(createOrder.Id);
             var order = Order.FromModel(response);
             // todo error handling
             //on success the order is inserted into our order cache
-            _orderCache.InsertOrder(createOrder.AccountId, response.Timestamp, order);
+            await _orderCache.InsertAsync(createOrder.AccountId, response.Timestamp, order);
             
             return order;
 
@@ -110,11 +112,15 @@ namespace MadXchange.Exchange.Interfaces
 
             _commandStore.ClearCommand(updateOrder.Id);
             var order = Order.FromModel(response);
-            //todo error handling, update cache..
-            //
+            if (string.IsNullOrEmpty(response.OrdRejReason))
+            {
+                
+                //todo error handling, update cache..
+                //
 
-
-
+                await _orderCache.UpdateAsync(updateOrder.AccountId, response.Timestamp, order).ConfigureAwait(false);
+                
+            }
             return order;
         }
 
@@ -126,9 +132,10 @@ namespace MadXchange.Exchange.Interfaces
                                                                               symbol: setLeverage.Symbol, 
                                                                             leverage: setLeverage.Leverage, 
                                                                                token: token).ConfigureAwait(false);
-            _commandStore.ClearCommand(setLeverage.Id);
-                        
+
+            _commandStore.ClearCommand(setLeverage.Id);                        
             var pos  = Position.FromModel(response);
+            await _positionCache.UpdateLeverageAsync(setLeverage.AccountId, response.Timestamp, pos).ConfigureAwait(false);
             return pos;
         }
 

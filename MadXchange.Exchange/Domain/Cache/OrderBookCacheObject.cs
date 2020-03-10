@@ -1,5 +1,5 @@
 ﻿using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Domain.Types;
+using MadXchange.Exchange.Types;
 using ServiceStack;
 using System;
 using System.Collections.Generic;

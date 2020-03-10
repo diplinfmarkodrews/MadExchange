@@ -1,5 +1,4 @@
-﻿using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Domain.Types;
+﻿using MadXchange.Exchange.Domain.Types;
 using MadXchange.Exchange.Handler;
 using MadXchange.Exchange.Infrastructure.Stores;
 using MadXchange.Exchange.Services.Utils;
@@ -8,10 +7,9 @@ using MadXchange.Exchange.Types;
 using Microsoft.Extensions.Logging;
 using ServiceStack.Text;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MadXchange.Connector.Services
+namespace MadXchange.Exchange.Services.Socket
 {
     public interface ISocketConnectionService
     {

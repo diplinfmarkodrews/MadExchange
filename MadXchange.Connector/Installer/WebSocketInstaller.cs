@@ -1,5 +1,6 @@
-﻿using MadXchange.Connector.Services;
-using MadXchange.Exchange.Infrastructure.Stores;
+﻿using MadXchange.Exchange.Infrastructure.Stores;
+using MadXchange.Exchange.Interfaces;
+using MadXchange.Exchange.Services.Socket;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 

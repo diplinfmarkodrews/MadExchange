@@ -2,6 +2,7 @@
 using MadXchange.Exchange.Domain.Types;
 using MadXchange.Exchange.Services.HttpRequests.RequestExecution;
 using MadXchange.Exchange.Services.XchangeDescriptor;
+using MadXchange.Exchange.Types;
 using Microsoft.Extensions.Logging;
 using ServiceStack;
 using ServiceStack.Text;
@@ -47,19 +48,29 @@ namespace MadXchange.Exchange.Services.HttpRequests
 
         public async Task<PositionDto[]> GetPositionsAsync(Guid accountId, Xchange exchange, CancellationToken token = default)
         {
-            var requestObject = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.GetPositionList, new ObjectDictionary());
+            var requestObject = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.GetPositionList);
             var response = await _restRequestService.SendRequestObjectAsync(accountId, requestObject, token).ConfigureAwait(false);
             var result = TypeSerializer.DeserializeFromString<PositionDto[]>(response.Result);
-            result.Each(p => { p.AccountId = accountId; p.Exchange = exchange; p.Timestamp = response.Timestamp; });
+            result.Each(p => 
+            { 
+                p.AccountId = accountId; 
+                p.Exchange = exchange; 
+                p.Timestamp = response.Timestamp; 
+            });
             return result;
         }
 
         public async Task<LeverageDto[]> GetLeverageAsync(Guid accountId, Xchange exchange, CancellationToken token = default)
         {
-            var requestObject = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.GetLeverage, new ObjectDictionary());
+            var requestObject = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.GetLeverage);
             var response = await _restRequestService.SendRequestObjectAsync(accountId, requestObject, token).ConfigureAwait(false);
             var result = TypeSerializer.DeserializeFromString<LeverageDto[]>(response.Result);
-            result.Each(p => { p.AccountId = accountId; p.Exchange = exchange; p.Timestamp = response.Timestamp; });
+            result.Each(p => 
+            { 
+                p.AccountId = accountId; 
+                p.Exchange = exchange; 
+                p.Timestamp = response.Timestamp; 
+            });
             return result;
         }
 

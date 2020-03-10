@@ -8,6 +8,7 @@ using MadXchange.Exchange.Services.HttpRequests;
 using MadXchange.Exchange.Services.HttpRequests.RequestExecution;
 using MadXchange.Exchange.Services.Utils;
 using MadXchange.Exchange.Services.XchangeDescriptor;
+using MadXchange.Exchange.Types;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ModernHttpClient;

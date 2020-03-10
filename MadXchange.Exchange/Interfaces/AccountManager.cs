@@ -1,15 +1,11 @@
-﻿using MadXchange.Exchange.Contracts;
-using MadXchange.Exchange.Contracts.XchangeData;
-using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Domain.Types;
+﻿using MadXchange.Exchange.Domain.Types;
 using MadXchange.Exchange.Infrastructure.Stores;
+using MadXchange.Exchange.Services.Socket;
+using MadXchange.Exchange.Types;
 using Microsoft.Extensions.Logging;
-using OpenTracing;
-using ServiceStack;
 using System;
-using System.Collections.Generic;
 
-namespace MadXchange.Connector.Services
+namespace MadXchange.Exchange.Interfaces
 {
     public interface IAccountManager
     {

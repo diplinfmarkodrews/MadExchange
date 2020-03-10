@@ -1,11 +1,10 @@
 ﻿using MadXchange.Common.Infrastructure;
 using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Domain.Types;
 using MadXchange.Exchange.Infrastructure.Stores;
+using MadXchange.Exchange.Types;
 using ServiceStack.Redis;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MadXchange.Exchange.Infrastructure.Cache
@@ -21,7 +20,7 @@ namespace MadXchange.Exchange.Infrastructure.Cache
 
     public class OrderBookCache : CacheStorageTransient<OrderBookCacheObject>, IOrderBookCache
     {
-        private IOrderBookStore _orderBookStore = new OrderBookStore();
+        private readonly IOrderBookStore _orderBookStore = new OrderBookStore();
 
         public OrderBookCache(IRedisClientsManager cacheClientManager) : base("OrderBook", cacheClientManager) { }
        

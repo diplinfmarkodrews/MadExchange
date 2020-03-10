@@ -1,5 +1,6 @@
 ﻿using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Infrastructure.Stores;
+using MadXchange.Exchange.Types;
 using ServiceStack;
 using System;
 

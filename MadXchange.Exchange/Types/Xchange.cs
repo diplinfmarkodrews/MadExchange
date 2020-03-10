@@ -1,4 +1,4 @@
-﻿namespace MadXchange.Exchange.Domain.Types
+﻿namespace MadXchange.Exchange.Types
 {
     public enum Env
     {

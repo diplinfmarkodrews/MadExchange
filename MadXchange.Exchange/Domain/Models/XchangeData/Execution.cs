@@ -3,6 +3,7 @@ using System;
 
 namespace MadXchange.Exchange.Domain.Models.XchangeData
 {
+
     [Serializable]
     public class Execution
     {

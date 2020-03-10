@@ -76,7 +76,7 @@ namespace MadXchange.Exchange.Handler
 
             if (dataType == typeof(OrderDto))
             {
-                _orderCache.InsertOrder(id: socketMsgPack.Id,
+                _orderCache.Insert(id: socketMsgPack.Id,
                                  timestamp: socketMsgPack.Timestamp,
                                     insert: Order.FromModel((OrderDto)socketMsgPack.Data));
 

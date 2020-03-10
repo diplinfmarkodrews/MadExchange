@@ -1,6 +1,6 @@
 ﻿using MadXchange.Exchange.Contracts.Http;
-using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Services.Utils;
+using MadXchange.Exchange.Types;
 using System;
 using System.Threading;
 using System.Threading.Tasks;

@@ -1,6 +1,4 @@
-﻿using MadXchange.Connector.Services;
-using MadXchange.Exchange.Configuration;
-using MadXchange.Exchange.Domain.Models;
+﻿using MadXchange.Exchange.Configuration;
 using MadXchange.Exchange.Domain.Types;
 using MadXchange.Exchange.Types;
 using ServiceStack;
@@ -54,10 +52,7 @@ namespace MadXchange.Exchange.Services.XchangeDescriptor
 
         private EndPoint GetExchangeEndPoint(Xchange exchange, XchangeHttpOperation routeKey)
             => _exchangeDescriptors[(int)exchange].EndPoints[(int)routeKey];
-
-        public XchangeRequestObject RequestDictionary(Xchange exchange, XchangeHttpOperation routeKey, ObjectDictionary paramObjDict = default)
-            => new XchangeRequestObject(_exchangeDescriptors[(int)exchange], GetExchangeEndPoint(exchange, routeKey), paramObjDict);
-
+        
         public string GetSocketConnectionString(Xchange exchange)
             => _exchangeDescriptors[(int)exchange].SocketDescriptor.SocketUrl;
 
@@ -66,5 +61,8 @@ namespace MadXchange.Exchange.Services.XchangeDescriptor
 
         public Types.XchangeDescriptor GetXchangeDescriptor(Xchange xchange)
             => _exchangeDescriptors[(int)xchange];
+
+        public XchangeRequestObject RequestDictionary(Xchange exchange, XchangeHttpOperation routeKey, ObjectDictionary paramObjDict = default)
+            => new XchangeRequestObject(_exchangeDescriptors[(int)exchange], GetExchangeEndPoint(exchange, routeKey), paramObjDict);
     }
 }

@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using ServiceStack;
 using ServiceStack.Text;
+using MadXchange.Exchange.Types;
 
 namespace MadXchange.Connector.Services
 {

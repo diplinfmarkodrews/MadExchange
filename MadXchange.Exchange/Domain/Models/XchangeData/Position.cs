@@ -1,5 +1,6 @@
 ﻿using MadXchange.Exchange.Contracts;
 using MadXchange.Exchange.Domain.Types;
+using MadXchange.Exchange.Types;
 using System;
 
 namespace MadXchange.Exchange.Domain.Models

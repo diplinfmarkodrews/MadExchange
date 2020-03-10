@@ -1,5 +1,6 @@
 ﻿using MadXchange.Exchange.Contracts.Http;
 using MadXchange.Exchange.Domain.Models;
+using MadXchange.Exchange.Types;
 using Microsoft.Extensions.Logging;
 using ServiceStack;
 using System;

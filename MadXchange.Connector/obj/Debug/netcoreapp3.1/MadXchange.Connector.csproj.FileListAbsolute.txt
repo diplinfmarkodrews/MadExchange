@@ -68,13 +68,6 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\De
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\DnsClient.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Elasticsearch.Net.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Figgle.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Grpc.AspNetCore.Server.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Grpc.AspNetCore.Server.ClientFactory.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Grpc.Core.Api.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Grpc.Net.Client.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Grpc.Net.ClientFactory.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Grpc.Net.Common.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Jaeger.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Jaeger.Thrift.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Jaeger.Thrift.VendoredThrift.dll
@@ -124,7 +117,6 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\De
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\MongoDB.Driver.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\MongoDB.Driver.Core.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\MongoDB.Libmongocrypt.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\MsgPack.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\NetCore.AutoRegisterDi.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
@@ -160,7 +152,6 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\De
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Serilog.Sinks.PeriodicBatching.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Serilog.Sinks.RollingFile.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\Serilog.Sinks.Seq.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.Admin.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.Client.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.Common.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.dll
@@ -168,10 +159,8 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\De
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.Interfaces.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.Kestrel.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.Logging.Serilog.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.MsgPack.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.OrmLite.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.OrmLite.Sqlite.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.ProtoBuf.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.RabbitMq.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.Redis.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\ServiceStack.Server.dll
@@ -179,14 +168,12 @@ C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\De
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\SharpCompress.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\SmartFormat.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\StackExchange.Redis.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\StackExchange.Redis.Extensions.Core.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\StackExchange.Redis.StrongName.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\System.Diagnostics.PerformanceCounter.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
-C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\Users\MarkoMoto\source\repos\MadXchange.Connector\MadXchange.Connector\bin\Debug\netcoreapp3.1\System.ServiceModel.Primitives.dll

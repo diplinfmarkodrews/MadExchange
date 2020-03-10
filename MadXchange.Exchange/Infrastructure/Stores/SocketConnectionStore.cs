@@ -1,4 +1,4 @@
-﻿using MadXchange.Connector.Services;
+﻿using MadXchange.Exchange.Services.Socket;
 using System;
 using System.Collections.Concurrent;
 

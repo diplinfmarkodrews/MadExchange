@@ -12,10 +12,13 @@ namespace MadXchange.Exchange.Infrastructure.Cache
     {
         void Insert(Guid id, long timestamp, Position position);        
         void Update(Guid id, long timeStamp, Position[] insert, Position[] update, Position[] delete);
+        void UpdateLeverage(Guid id, long timeStamp, Position leverage);//leverage is hold in Position
 
         Task InsertAsync(Guid id, long timestamp, Position position);
         Task UpdateAsync(Guid id, long timeStamp, Position[] insert, Position[] update, Position[] delete);
+        Task UpdateLeverageAsync(Guid id, long timeStamp, Position leverage);
       
+
     }
 
     public sealed class PositionCache : CacheStorageTransient<PositionCacheObject>, IPositionCache
@@ -65,6 +68,16 @@ namespace MadXchange.Exchange.Infrastructure.Cache
                                      delete: delete);
 
             await SetAsync($"{id}", positionCache);
+        }
+
+        public void UpdateLeverage(Guid id, long timeStamp, Position leverage)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UpdateLeverageAsync(Guid id, long timeStamp, Position leverage)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using MadXchange.Connector.Domain.Models;
 using MadXchange.Exchange.Contracts;
 using MadXchange.Exchange.Domain.Models;
-using MadXchange.Exchange.Domain.Types;
-using MadXchange.Exchange.Exceptions;
 using MadXchange.Exchange.Handler;
 using MadXchange.Exchange.Services.Utils;
 using MadXchange.Exchange.Types;
@@ -21,7 +19,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 
-namespace MadXchange.Connector.Services
+namespace MadXchange.Exchange.Services.Socket
 {
 
     public enum ConnectionStatus 
@@ -54,7 +52,7 @@ namespace MadXchange.Connector.Services
         private ConcurrentBag<RequestInvocation> _requestInvocations = new ConcurrentBag<RequestInvocation>();
 
         public WebSocketConnection(IConnectionDataHandler socketMessageHandler, 
-                                        XchangeDescriptor exchangeDescriptor,                            
+                                  Types.XchangeDescriptor exchangeDescriptor,                            
                                      ISignRequestsService signService,
                                       OpenTracing.ITracer tracer,
                              ILogger<WebSocketConnection> logger,
