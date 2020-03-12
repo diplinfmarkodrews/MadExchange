@@ -31,8 +31,7 @@ namespace MadXchange.Connector
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddOptions();
-            IConfiguration configuration = MyWebHostExtensions.GetConfiguration();
+            services.AddOptions();            
             services.AddLogging(builder => builder.AddSerilog(Log.Logger));
             services.AddElm();
             JsConfig.Init(new Config
@@ -49,17 +48,16 @@ namespace MadXchange.Connector
                 nameof(DataMemberAttribute),
                 nameof(RuntimeSerializableAttribute)
             };
-           
+
+            //services.AddVaultService(Configuration);
             //services.AddAuthenticationCore();
             //services.AddAuthorizationCore();
 
             services.AddPolicyRegistry();
             services.AddHttpClientServices(Configuration);
-            //services.AddVaultService(Configuration);
-            
-            var _config = MyWebHostExtensions.GetConfiguration();//used for testaccounts, for dev only!!
-            services.AddCacheServices(_config);
-            services.AddExchangeAccessServices(_config);
+                                   
+            services.AddCacheServices(Configuration); //and redis configuration => move to CacheService
+            services.AddExchangeAccessServices(Configuration);
             services.AddSocketConnectionService();          
             
             services.AddCors(options =>
@@ -71,25 +69,21 @@ namespace MadXchange.Connector
                     .SetIsOriginAllowed((host) => true)
                     .AllowCredentials());
             });
-
           
             /////
             services.AddWebEncoders();
             services.AddMetrics()
                     .AddMetricsEndpoints()
                     .AddMetricsTrackingMiddleware();
-
-
             services.AddSingleton<IServiceId, ServiceId>();
-
             services.AddOpenTracing();
             services.AddConvey("connector")
                     .AddCommandHandlers()
                     .AddEventHandlers()
-                    .AddQueryHandlers()
+                    //.AddQueryHandlers()
                     .AddInMemoryCommandDispatcher()
                     .AddInMemoryEventDispatcher()
-                    .AddInMemoryQueryDispatcher()
+                    //.AddInMemoryQueryDispatcher()
                     .AddJaeger()
                     .AddMetrics()
                     .AddRabbitMq();
@@ -115,7 +109,7 @@ namespace MadXchange.Connector
             app.UseRouting();
             app.UseMetricServer();
             app.UseHttpMetrics();
-            app.UsePingEndpoint();
+            //app.UsePingEndpoint();
             app.UseJaeger();
             app.StartSocketConnections();
         }

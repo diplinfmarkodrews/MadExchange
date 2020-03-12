@@ -29,6 +29,8 @@
                   "Instrument": "instrument_info",
                   "OrderBook": "orderBook_200",
                   "Order": "order"
+                  //"Trade": "trade" => has to be set public 
+
                   //"Execution": "execution"
                 }
               }

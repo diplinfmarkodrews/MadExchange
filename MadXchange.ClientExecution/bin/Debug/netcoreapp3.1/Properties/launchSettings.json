@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "ClientTradeExecutionService": {
+    "MadXchange.Connector": {
       "commandName": "Project",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

@@ -63,21 +63,25 @@ namespace MadXchange.Exchange.Infrastructure.Cache
         {
             var positionCache = _positionStore.GetPosition(id);
             positionCache.Update(timestamp: timeStamp,
-                                     insert: insert,
-                                     update: update,
-                                     delete: delete);
+                                    insert: insert,
+                                    update: update,
+                                    delete: delete);
 
             await SetAsync($"{id}", positionCache);
         }
 
         public void UpdateLeverage(Guid id, long timeStamp, Position leverage)
         {
-            throw new NotImplementedException();
+            var positionCache = _positionStore.GetPosition(id);
+            positionCache.Update(timeStamp, leverage);
+            Set($"{id}", positionCache);
         }
 
-        public Task UpdateLeverageAsync(Guid id, long timeStamp, Position leverage)
+        public async Task UpdateLeverageAsync(Guid id, long timeStamp, Position leverage)
         {
-            throw new NotImplementedException();
+            var positionCache = _positionStore.GetPosition(id);
+            positionCache.Update(timeStamp, leverage);
+            await SetAsync($"{id}", positionCache);
         }
     }
 }

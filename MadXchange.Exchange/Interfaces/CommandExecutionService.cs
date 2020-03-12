@@ -96,7 +96,6 @@ namespace MadXchange.Exchange.Interfaces
             await _orderCache.InsertAsync(createOrder.AccountId, response.Timestamp, order);
             
             return order;
-
         }
 
         public async Task<Order> UpdateOrderAsync(UpdateOrder updateOrder)

@@ -1,6 +1,6 @@
 ﻿using Convey.MessageBrokers.CQRS;
 using Convey.MessageBrokers.RabbitMQ;
-using MadXchange.Connector.Messages.Commands.AccountManager;
+using MadXchange.Exchange.Messages.Commands.AccountManager;
 using MadXchange.Exchange.Messages.Commands.OrderService;
 using Microsoft.AspNetCore.Builder;
 

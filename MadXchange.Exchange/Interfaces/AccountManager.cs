@@ -47,7 +47,7 @@ namespace MadXchange.Exchange.Interfaces
         {        
             var keyset = _apiKeySetRepository.Get(Xchange.ByBit);
             _socketConnectionService.RegisterSocketClient(keyset.Id);            
-           // _socketConnectionService.RegisterPublicSocket(Xchange.ByBit, new (string, string)[] { ("OrderBook", "BTCUSD"), ("OrderBook", "ETHUSD") }, Guid.NewGuid());
+            _socketConnectionService.RegisterPublicSocket(Xchange.ByBit, new (string, string)[] { ("OrderBook", "BTCUSD"), ("OrderBook", "ETHUSD") }, Guid.NewGuid());
            // _socketConnectionService.RegisterPublicSocket(Xchange.ByBit, new (string, string)[] { ("OrderBook", "ETHUSD") }, Guid.NewGuid());
 
         }

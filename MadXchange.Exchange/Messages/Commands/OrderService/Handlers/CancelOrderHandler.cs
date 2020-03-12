@@ -1,6 +1,5 @@
 ﻿using Convey.CQRS.Commands;
 using Convey.MessageBrokers;
-using MadXchange.Connector.Messages.Events;
 using MadXchange.Exchange.Interfaces;
 using MadXchange.Exchange.Messages.Events;
 using Microsoft.Extensions.Logging;

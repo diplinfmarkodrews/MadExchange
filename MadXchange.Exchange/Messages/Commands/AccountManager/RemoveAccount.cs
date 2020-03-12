@@ -1,6 +1,6 @@
 ﻿using Convey.CQRS.Commands;
 
-namespace MadXchange.Connector.Messages.Commands.AccountManager
+namespace MadXchange.Exchange.Messages.Commands.AccountManager
 {
     public class RemoveAccount : ICommand
     {

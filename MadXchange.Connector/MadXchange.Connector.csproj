@@ -50,10 +50,6 @@
 
   <ItemGroup>
     <Folder Include="Connected Services\" />
-    <Folder Include="Queries\Handlers\Instrument\" />
-    <Folder Include="Queries\Handlers\Order\" />
-    <Folder Include="Queries\Handlers\Position\" />
-    <Folder Include="Queries\Handlers\UserIdentity\" />
   </ItemGroup>
 
   <ItemGroup>

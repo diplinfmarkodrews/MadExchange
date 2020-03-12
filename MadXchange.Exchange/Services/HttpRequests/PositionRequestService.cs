@@ -76,7 +76,11 @@ namespace MadXchange.Exchange.Services.HttpRequests
 
         public async Task<LeverageDto> PostLeverageAsync(Guid accountId, Xchange exchange, string symbol, decimal leverage, CancellationToken token = default)
         {
-            var route = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.PostLeverage, new ObjectDictionary() { { IXchangeDescriptorService.LeverageString, (int)leverage }, { IXchangeDescriptorService.SymbolString, symbol } });
+            var route = _descriptorService.RequestDictionary(exchange, XchangeHttpOperation.PostLeverage, new ObjectDictionary() 
+                                                                                            { 
+                                                                                                { IXchangeDescriptorService.LeverageString, (int)leverage }, 
+                                                                                                { IXchangeDescriptorService.SymbolString, symbol } 
+                                                                                            });
             var response = await _restRequestService.SendRequestObjectAsync(accountId, route, token).ConfigureAwait(false);
             var result = TypeSerializer.DeserializeFromString<LeverageDto>(response.Result);
             result.AccountId = accountId;

@@ -30,7 +30,11 @@ namespace MadXchange.Exchange.Services.HttpRequests
             var requestDictionary = _descriptorService.GetPublicEndPointUrl(exchange, XchangeHttpOperation.GetInstrument); //
             var res = await _restRequestService.SendGetAsync(requestDictionary).ConfigureAwait(false);         
             var result = TypeSerializer.DeserializeFromString<InstrumentDto[]>(res.Result);
-            result.Each(f => f.Exchange = exchange);
+            result.Each(f =>
+            {
+                f.Exchange = exchange;
+                f.Timestamp = res.Timestamp;                
+            });
             return result;
           
         }

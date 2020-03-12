@@ -5,7 +5,7 @@ using MadXchange.Exchange.Types;
 using System;
 using System.Collections.Generic;
 
-namespace MadXchange.Connector.Messages.Commands.AccountManager
+namespace MadXchange.Exchange.Messages.Commands.AccountManager
 {
 
     public class ClientRegisterSocket : ICommand

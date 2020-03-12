@@ -1,6 +1,5 @@
 ﻿using Convey.MessageBrokers.CQRS;
 using Convey.MessageBrokers.RabbitMQ;
-using MadXchange.Connector.Messages.Events;
 using MadXchange.Exchange.Messages.Events;
 using MadXchange.Exchange.Messages.Events.CancelCommand;
 using Microsoft.AspNetCore.Builder;

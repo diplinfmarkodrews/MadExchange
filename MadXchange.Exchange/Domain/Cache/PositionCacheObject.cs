@@ -32,9 +32,22 @@ namespace MadXchange.Exchange.Domain.Cache
                 if (!Data.TryAdd(item.Symbol, item))
                     Data[item.Symbol].PopulateWithNonDefaultValues(item);
             });
-            update.Each(item => Data[item.Symbol].PopulateWithNonDefaultValues(item));
+            update.Each(item => 
+            {
+                if(Data.ContainsKey(item.Symbol))
+                    Data[item.Symbol].PopulateWithNonDefaultValues(item);
+                else 
+                    Data[item.Symbol] = item;
+                
+            });
             delete.Each(item => Data.TryRemove(item.Symbol, out item));
             Timestamp = timestamp;
+        }
+
+        public void Update(long timeStamp, Position leverage)
+        {
+            Timestamp = timeStamp;
+            Data[leverage.Symbol].Leverage = leverage.Leverage;
         }
     }
 }

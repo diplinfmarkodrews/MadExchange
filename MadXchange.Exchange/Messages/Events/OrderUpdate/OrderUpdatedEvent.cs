@@ -3,7 +3,7 @@ using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Messages.Commands.OrderService;
 using System;
 
-namespace MadXchange.Connector.Messages.Events
+namespace MadXchange.Exchange.Messages.Events
 {
     public class OrderUpdatedEvent : IEvent
     {

@@ -1,11 +1,10 @@
 ﻿using Convey.CQRS.Commands;
 using Convey.CQRS.Events;
-using MadXchange.Connector.Messages.Commands;
 using MadXchange.Exchange.Domain.Models;
 using MadXchange.Exchange.Messages.Commands.OrderService;
 using System;
 
-namespace MadXchange.Connector.Messages.Events
+namespace MadXchange.Exchange.Messages.Events
 {
     public class LeverageSetRejectedEvent : IRejectedEvent
     {
