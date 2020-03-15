@@ -8,7 +8,8 @@
 MadExchange is a high performance trade execution engine for (crypto) exchanges. Through its microservice architecture its highly scalable, allowing to trade on any number of accounts.
 The Connector is very flexible, which makes integration of additional exchanges easy, fast and robust at the same time.
 It only needs a configuration file, which describes the endpoints and datatypes of an exchange. 
-Data is de/serialized with the fastest serializer available for dotnet framework. Reflection is used to map incoming data into the common domain model. 
+Data is de/serialized with the fastest serializer available for dotnet framework, provided by ServiceStack. 
+Reflection is used to map incoming data into the common domain model. The Reflectioninformation is described by just these configfiles.
 As a common Data Store, the service architecture uses the distributed 
 cache Redis, providing realtime data-access for tradeexecution. 
 For other usecases, the Connector can be configured to store incoming data in databases or other data services, timeseries dbs, etc.
@@ -23,8 +24,10 @@ Todo :)
 ![MadExchange.TradeExecution.Service](/MadExchange.TradeExecution.Service.png)
 ![MadExchange.TradeController.Service + DataAggregationService](/MadExchange.Controller.Service+DataAggregation.Service.png)
 
- This project is licensed under the terms of the MIT license.
- 
+ ---------------
+ *This project is licensed under the terms of the MIT license.*
+ ---------------
+
 **RoadMap **
 ----------------
 
