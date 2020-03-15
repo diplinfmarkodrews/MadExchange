@@ -23,8 +23,8 @@ Todo :)
 ![MadExchange.TradeExecution.Service](/MadExchange.TradeExecution.Service.png)
 ![MadExchange.TradeController.Service + DataAggregationService](/MadExchange.Controller.Service+DataAggregation.Service.png)
 
-
-
+ This project is licensed under the terms of the MIT license.
+ 
 **RoadMap **
 ----------------
 
