@@ -1,6 +1,6 @@
 # Distributed MadExchange TradeEngine .NET Core
 
-**Coinbase, Bybit, Bitmex, FTX, Blade, etc..**
+  
 
 **What is Distributed MadExchange Trade Engine ?**
 ----------------
@@ -16,6 +16,8 @@ For other usecases, the Connector can be configured to store incoming data in da
 The Connector supports http requests and websocket subscriptions.
 All control data is handled by RabbitMq, within a cqrs pattern.
 The result is a clean service operation abstraction.
+
+*Coinbase, Bybit, Bitmex, FTX, Blade, etc.. exchange integration will follow*
 
 Trade execution
 Todo :)
