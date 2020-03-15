@@ -7,6 +7,8 @@ using System.IO;
 using ServiceStack.Host.NetCore;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
+using Funq;
+
 
 namespace MadXchange.Connector
 {
@@ -16,10 +18,15 @@ namespace MadXchange.Connector
         public static int Main(string[] args)
         {
                                 
-            Log.Logger = MyWebHostExtensions.CreateSerilogLogger(MyWebHostExtensions.GetConfiguration());           
+            Log.Logger = MyWebHostExtensions.CreateSerilogLogger(MyWebHostExtensions.GetConfiguration());
             try
             {
-                
+                //use ServiceStack Smart AppHostHttpListener for higher request throughput
+                //var appHost = new AppHost.AppHost(); 
+                //Since request throughput will be one big(small) bottleneck further optimizations will be required
+                //to push the limits in parallel order execution.
+                //An approach that obtrudes here is request batching. It still needs to be implemented, but since already supported by 
+                //servicestack will be easy peasy
                 var hostbuilder = CreateHostBuilder(args);
                 MyWebHostExtensions.LogPackagesVersionInfo();
                 Log.Information("Configuring web host ({ApplicationContext})...", MyWebHostExtensions.AppName);
@@ -29,7 +36,7 @@ namespace MadXchange.Connector
                 proc.StartInfo.FileName = "http://localhost:5000/";
                 proc.Start();
                 Log.Information("Starting web host ({ApplicationContext})...", MyWebHostExtensions.AppName);
-                host.Run();               
+                host.Run();
                 return 0;
             }
             catch (Exception ex)
@@ -57,27 +64,9 @@ namespace MadXchange.Connector
                 
     
     }
-    
+   
 }
 
-/*
- 
-      public class AppHost : AppSelfHostBase
-    {
-        /// <summary>
-        /// Base constructor requires a Name and Assembly where web service implementation is located
-        /// </summary>
-        public AppHost()
-            : base("ServiceStackHostEnvironment", typeof(MyServices).Assembly) { }
 
-        /// <summary>
-        /// Application specific configuration
-        /// This method should initialize any IoC resources utilized by your web service classes.
-        /// </summary>
-        public override void Configure(Container container)
-        {
-            //Config examples
-            //this.Plugins.Add(new PostmanFeature());
-            //this.Plugins.Add(new CorsFeature());
-        }
-    }*/
+
+

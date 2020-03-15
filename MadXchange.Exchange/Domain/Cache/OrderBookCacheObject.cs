@@ -22,7 +22,7 @@ namespace MadXchange.Exchange.Infrastructure.Stores
             Symbol = symbol;
         }
 
-        public void Update(long timeStamp, OrderBook[] insert, OrderBook[] update, OrderBook[] delete)
+        public OrderBookCacheObject Update(long timeStamp, OrderBook[] insert, OrderBook[] update, OrderBook[] delete)
         {
             Timestamp = timeStamp;
             insert.Each(item => 
@@ -38,10 +38,11 @@ namespace MadXchange.Exchange.Infrastructure.Stores
                     OrderBook.TryAdd(item.Id, item);
             });
             delete.Each(item => OrderBook.TryRemove(item.Id, out item));
+            return this;
         }
 
 
-        public void Insert(long timeStamp, OrderBook[] insert)
+        public OrderBookCacheObject Insert(long timeStamp, OrderBook[] insert)
         {
             Timestamp = timeStamp;
             insert.Each(item =>
@@ -49,6 +50,7 @@ namespace MadXchange.Exchange.Infrastructure.Stores
                     if (!OrderBook.TryAdd(item.Id, item))
                         OrderBook[item.Id].PopulateWithNonDefaultValues(item);
                 });
+            return this;
         }
        
     }

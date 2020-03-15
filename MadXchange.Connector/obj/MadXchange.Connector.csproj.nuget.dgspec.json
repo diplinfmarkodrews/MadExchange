@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Connector\\MadXchange.Connector.csproj": {}
+    "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Connector\\MadXchange.Connector.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj": {
+    "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj",
+        "projectUniqueName": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj",
         "projectName": "MadXchange.Common",
-        "projectPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj",
+        "projectPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj",
         "packagesPath": "C:\\Users\\MarkoMoto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\obj\\",
+        "outputPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -167,9 +167,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -178,14 +175,14 @@
         }
       }
     },
-    "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Connector\\MadXchange.Connector.csproj": {
+    "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Connector\\MadXchange.Connector.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Connector\\MadXchange.Connector.csproj",
+        "projectUniqueName": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Connector\\MadXchange.Connector.csproj",
         "projectName": "MadXchange.Connector",
-        "projectPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Connector\\MadXchange.Connector.csproj",
+        "projectPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Connector\\MadXchange.Connector.csproj",
         "packagesPath": "C:\\Users\\MarkoMoto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Connector\\obj\\",
+        "outputPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Connector\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -206,8 +203,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj": {
-                "projectPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj"
+              "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj": {
+                "projectPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj"
               }
             }
           }
@@ -360,14 +357,14 @@
         }
       }
     },
-    "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj": {
-      "version": "1.0.0",
+    "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj": {
+      "version": "0.8.9",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj",
+        "projectUniqueName": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj",
         "projectName": "MadXchange.Exchange",
-        "projectPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj",
+        "projectPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj",
         "packagesPath": "C:\\Users\\MarkoMoto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\obj\\",
+        "outputPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -388,8 +385,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj": {
-                "projectPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj"
+              "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj": {
+                "projectPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj"
               }
             }
           }
@@ -423,9 +420,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

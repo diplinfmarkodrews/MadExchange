@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <SignAssembly>true</SignAssembly>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT free licence agreement by MarkoMoto</PackageLicenseExpression>
+    <AssemblyVersion>0.0.8.9</AssemblyVersion>
+    <Version>0.8.9</Version>
   </PropertyGroup>
 
   <ItemGroup>

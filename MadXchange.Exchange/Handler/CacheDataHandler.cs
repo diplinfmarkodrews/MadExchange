@@ -39,7 +39,8 @@ namespace MadXchange.Exchange.Handler
 
         [MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
         public override Task HandleDataAsync(IDataPack data)
-            => data is SocketUpdatePack ? HandleDataAsync(data as SocketUpdatePack) : HandleDataAsync(data as SocketMsgPack);
+            => data is SocketUpdatePack ? HandleDataAsync(data as SocketUpdatePack) 
+                                        : HandleDataAsync(data as SocketMsgPack);
 
         /// <summary>
         /// implementation of a updating a single data msg pack
@@ -65,7 +66,7 @@ namespace MadXchange.Exchange.Handler
             if(dataType == typeof(OrderBookDto[]))
             {
                 var orderBook = OrderBook.FromModel((OrderBookDto[])socketMsgPack.Data);
-                _orderBookCache.InsertOrderBook(id: socketMsgPack.Id,
+                _orderBookCache.Insert(id: socketMsgPack.Id,
                                           exchange: socketMsgPack.Exchange,
                                             symbol: orderBook[0].Symbol,
                                          timeStamp: socketMsgPack.Timestamp,
@@ -77,8 +78,8 @@ namespace MadXchange.Exchange.Handler
             if (dataType == typeof(OrderDto))
             {
                 _orderCache.Insert(id: socketMsgPack.Id,
-                                 timestamp: socketMsgPack.Timestamp,
-                                    insert: Order.FromModel((OrderDto)socketMsgPack.Data));
+                            timestamp: socketMsgPack.Timestamp,
+                               insert: Order.FromModel((OrderDto)socketMsgPack.Data));
 
                 return Task.CompletedTask;
             }

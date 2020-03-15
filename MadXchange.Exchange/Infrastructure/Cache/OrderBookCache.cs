@@ -12,9 +12,13 @@ namespace MadXchange.Exchange.Infrastructure.Cache
 
     public interface IOrderBookCache
     {        
-        public Task<Dictionary<long, OrderBook>> GetOrderBookAsync(Guid id, Xchange exchange, string symbol);
-        public long Update(Guid id, Xchange exchange, string symbol, long timeStamp, OrderBook[] insert, OrderBook[] update, OrderBook[] delete);
-        public long InsertOrderBook(Guid id, Xchange exchange, string symbol, long timeStamp, OrderBook[] insert);
+        Task<Dictionary<long, OrderBook>> GetAsync(Guid id, Xchange exchange, string symbol);
+        Dictionary<long, OrderBook> Get(Guid id, Xchange exchange, string symbol);
+        Task UpdateAsync(Guid id, Xchange exchange, string symbol, long timeStamp, OrderBook[] inserts, OrderBook[] updates, OrderBook[] deletes);
+        void Update(Guid id, Xchange exchange, string symbol, long timeStamp, OrderBook[] insert, OrderBook[] update, OrderBook[] delete);
+        
+        void Insert(Guid id, Xchange exchange, string symbol, long timeStamp, OrderBook[] insert);
+        void Store();
     }
 
 
@@ -33,48 +37,52 @@ namespace MadXchange.Exchange.Infrastructure.Cache
         /// <param name="symbol"></param>
         /// <param name="orderBookDto"></param>
         /// <returns></returns>
-        public long Update(Guid id, Xchange exchange, string symbol, long timeStamp, OrderBook[] inserts, OrderBook[] updates, OrderBook[] deletes)
-        {
-            var keyString = CreateKeyString(id, exchange, symbol);
-            var cacheObject = _orderBookStore.GetOrderBook(keyString, id, exchange, symbol);
-            cacheObject.Update(timeStamp: timeStamp, 
-                                  insert: inserts,
-                                  update: updates,
-                                  delete: deletes);
+        private OrderBookCacheObject Update(string keyString, Guid id, Xchange exchange, string symbol, long timeStamp, OrderBook[] inserts, OrderBook[] updates, OrderBook[] deletes)        
+            => _orderBookStore.GetOrderBook(key: keyString, id, exchange, symbol)
+                              .Update(timeStamp: timeStamp,
+                                         insert: inserts,
+                                         update: updates,
+                                         delete: deletes);
 
-            Set(keyString, cacheObject);
-            return cacheObject.Timestamp;
-        }
-       
+        private OrderBookCacheObject Insert(string keyString, Guid id, Xchange exchange, string symbol, long timeStamp, OrderBook[] insert)
+            => _orderBookStore.GetOrderBook(key: keyString, id, exchange, symbol)
+                              .Insert(timeStamp, insert);
 
         public async Task UpdateAsync(Guid id, Xchange exchange, string symbol, long timeStamp, OrderBook[] inserts, OrderBook[] updates, OrderBook[] deletes)
         {
             var keyString = CreateKeyString(id, exchange, symbol);
-            var cacheObject = _orderBookStore.GetOrderBook(keyString, id, exchange, symbol);
-            cacheObject.Update(timeStamp: timeStamp,
-                                  insert: inserts,
-                                  update: updates,
-                                  delete: deletes);
+            var cacheObject = Update(keyString: keyString,
+                                            id: id,
+                                      exchange: exchange,
+                                        symbol: symbol,
+                                     timeStamp: timeStamp,
+                                       inserts: inserts,
+                                       updates: updates,
+                                       deletes: deletes);
 
             await SetAsync(keyString, cacheObject);
             return;
         }
 
-        public long InsertOrderBook(Guid id, Xchange exchange, string symbol, long timeStamp, OrderBook[] snapShot)
-        {
-            var keyString = CreateKeyString(id, exchange, symbol);
-            var cacheObject = _orderBookStore.GetOrderBook(keyString, id, exchange, symbol);
-            cacheObject.Insert(timeStamp, snapShot);
-            _orderBookStore.SetCacheObject(keyString, cacheObject);
-            Set(keyString, cacheObject);
-            return cacheObject.Timestamp;
-        }
+        public void Insert(Guid id, Xchange exchange, string symbol, long timeStamp, OrderBook[] snapShot)
+            => Insert(CreateKeyString(id, exchange, symbol), id, exchange, symbol, timeStamp, snapShot);                                                  
+        
 
-        public Dictionary<long, OrderBook> GetOrderBook(Guid id, Xchange exchange, string symbol)
-            => _orderBookStore.GetOrderBook(CreateKeyString(id, exchange, symbol), id, exchange, symbol)?.OrderBook;
+        public Dictionary<long, OrderBook> Get(Guid id, Xchange exchange, string symbol)
+            => _orderBookStore.GetOrderBook(key: CreateKeyString(id, exchange, symbol), 
+                                             id: id, 
+                                       exchange: exchange, 
+                                         symbol: symbol)?.OrderBook;
         
-        public async Task<Dictionary<long, OrderBook>> GetOrderBookAsync(Guid id, Xchange exchange, string symbol)
+        public async Task<Dictionary<long, OrderBook>> GetAsync(Guid id, Xchange exchange, string symbol)
             => (await GetAsync(CreateKeyString(id, exchange, symbol)))?.OrderBook;
-        
+
+        public void Update(Guid id, Xchange exchange, string symbol, long timeStamp, OrderBook[] insert, OrderBook[] update, OrderBook[] delete)
+         => Update(CreateKeyString(id, exchange, symbol), id, exchange, symbol, timeStamp, insert, update, delete);
+
+        public void Store()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

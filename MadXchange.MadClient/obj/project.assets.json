@@ -4916,12 +4916,9 @@
         },
         "runtime": {
           "bin/placeholder/MadXchange.Common.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       },
-      "MadXchange.Exchange/1.0.0": {
+      "MadXchange.Exchange/0.8.9": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
@@ -4934,10 +4931,7 @@
         },
         "runtime": {
           "bin/placeholder/MadXchange.Exchange.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       }
     }
   },
@@ -13425,7 +13419,7 @@
       "path": "../MadXchange.Common/MadXchange.Common.csproj",
       "msbuildProject": "../MadXchange.Common/MadXchange.Common.csproj"
     },
-    "MadXchange.Exchange/1.0.0": {
+    "MadXchange.Exchange/0.8.9": {
       "type": "project",
       "path": "../MadXchange.Exchange/MadXchange.Exchange.csproj",
       "msbuildProject": "../MadXchange.Exchange/MadXchange.Exchange.csproj"
@@ -13433,7 +13427,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "MadXchange.Exchange >= 1.0.0"
+      "MadXchange.Exchange >= 0.8.9"
     ]
   },
   "packageFolders": {
@@ -13443,11 +13437,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.MadClient\\MadXchange.MadClient.csproj",
+      "projectUniqueName": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.MadClient\\MadXchange.MadClient.csproj",
       "projectName": "MadXchange.MadClient",
-      "projectPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.MadClient\\MadXchange.MadClient.csproj",
+      "projectPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.MadClient\\MadXchange.MadClient.csproj",
       "packagesPath": "C:\\Users\\MarkoMoto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.MadClient\\obj\\",
+      "outputPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.MadClient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13468,8 +13462,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj": {
-              "projectPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj"
+            "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj": {
+              "projectPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj"
             }
           }
         }
@@ -13493,9 +13487,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }

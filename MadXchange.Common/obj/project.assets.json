@@ -13144,11 +13144,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj",
+      "projectUniqueName": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj",
       "projectName": "MadXchange.Common",
-      "projectPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj",
+      "projectPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj",
       "packagesPath": "C:\\Users\\MarkoMoto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\obj\\",
+      "outputPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13304,9 +13304,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }

@@ -80,7 +80,7 @@ namespace MadXchange.Exchange.Services.Socket
             
         }
 
-
+        
         public async Task StartConnectionAsync()
         {
             // also check if connection was lost, that's probably why we get called multiple times.
@@ -97,15 +97,10 @@ namespace MadXchange.Exchange.Services.Socket
             if (!IsPublic && _isAuthUrl)
                 url = _signRequestService.SignSocketUrl(Id, SocketUrl);
 
-            bool initialized = false;           
-            try
-            {
-                await _clientWebSocket.ConnectAsync(new Uri(url), CancellationToken.None).ConfigureAwait(false);
-                    
-            }
-            catch 
-            {
-            }
+            bool initialized = false;
+            while (_clientWebSocket.State != WebSocketState.Open)             
+                await SafeConnectSocket(url);
+                                                      
             
             Task.Run(async() => await StartListenTcp().ConfigureAwait(false));
             var request = InitOnConnected();
@@ -113,6 +108,18 @@ namespace MadXchange.Exchange.Services.Socket
                 await SendRequestAsync(request, CancellationToken.None).ConfigureAwait(false);
 
 
+        }
+        private async Task SafeConnectSocket(string url)
+        {
+            try
+            {
+                await _clientWebSocket.ConnectAsync(new Uri(url), CancellationToken.None).ConfigureAwait(false);
+
+            }
+            catch
+            {
+            }
+            return;
         }
 
         private ClientWebSocket CreateClientWebSocket()

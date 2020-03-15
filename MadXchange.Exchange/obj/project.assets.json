@@ -4916,10 +4916,7 @@
         },
         "runtime": {
           "bin/placeholder/MadXchange.Common.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       }
     }
   },
@@ -13420,13 +13417,13 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "0.8.9",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj",
+      "projectUniqueName": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj",
       "projectName": "MadXchange.Exchange",
-      "projectPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj",
+      "projectPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\MadXchange.Exchange.csproj",
       "packagesPath": "C:\\Users\\MarkoMoto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\obj\\",
+      "outputPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Exchange\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13447,8 +13444,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj": {
-              "projectPath": "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj"
+            "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj": {
+              "projectPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj"
             }
           }
         }
@@ -13482,9 +13479,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
