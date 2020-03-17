@@ -15244,42 +15244,41 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MarkoMoto\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Dipli\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.ClientExecution\\MadXchange.ClientExecution.csproj",
+      "projectUniqueName": "C:\\Users\\Dipli\\source\\repos\\MadExchange\\MadXchange.ClientExecution\\MadXchange.ClientExecution.csproj",
       "projectName": "MadXchange.ClientExecution",
-      "projectPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.ClientExecution\\MadXchange.ClientExecution.csproj",
-      "packagesPath": "C:\\Users\\MarkoMoto\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.ClientExecution\\obj\\",
+      "projectPath": "C:\\Users\\Dipli\\source\\repos\\MadExchange\\MadXchange.ClientExecution\\MadXchange.ClientExecution.csproj",
+      "packagesPath": "C:\\Users\\Dipli\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dipli\\source\\repos\\MadExchange\\MadXchange.ClientExecution\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\MarkoMoto\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Dipli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\MarkoMoto\\Downloads": {},
-        "C:\\Users\\MarkoMoto\\source\\repos\\MadXchange\\Packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj": {
-              "projectPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Common\\MadXchange.Common.csproj"
+            "C:\\Users\\Dipli\\source\\repos\\MadExchange\\MadXchange.Common\\MadXchange.Common.csproj": {
+              "projectPath": "C:\\Users\\Dipli\\source\\repos\\MadExchange\\MadXchange.Common\\MadXchange.Common.csproj"
             },
-            "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Connector\\MadXchange.Connector.csproj": {
-              "projectPath": "c:\\Users\\MarkoMoto\\source\\repos\\MadXchange.Connector\\MadXchange.Connector\\MadXchange.Connector.csproj"
+            "C:\\Users\\Dipli\\source\\repos\\MadExchange\\MadXchange.Connector\\MadXchange.Connector.csproj": {
+              "projectPath": "C:\\Users\\Dipli\\source\\repos\\MadExchange\\MadXchange.Connector\\MadXchange.Connector.csproj"
             }
           }
         }

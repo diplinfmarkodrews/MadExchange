@@ -24,7 +24,7 @@ namespace MadXchange.Connector
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         private static IConfiguration Configuration = MyWebHostExtensions.GetConfiguration();
-
+        
         //public Startup(IConfiguration configuration)
         //    : base(configuration, typeof(Startup).Assembly, typeof(Program).Assembly, typeof(ExchangeInstaller).Assembly, typeof(WebSocketInstaller).Assembly) { }
 
@@ -80,10 +80,10 @@ namespace MadXchange.Connector
             services.AddConvey("connector")
                     .AddCommandHandlers()
                     .AddEventHandlers()
-                    //.AddQueryHandlers()
+                    .AddQueryHandlers()
                     .AddInMemoryCommandDispatcher()
                     .AddInMemoryEventDispatcher()
-                    //.AddInMemoryQueryDispatcher()
+                    .AddInMemoryQueryDispatcher()
                     .AddJaeger()
                     .AddMetrics()
                     .AddRabbitMq();
